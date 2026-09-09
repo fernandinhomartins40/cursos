@@ -1,0 +1,49 @@
+# ---------- Dependências ----------
+node_modules/
+.pnpm-store/
+.yarn/
+
+# ---------- Build e cache ----------
+.next/
+out/
+dist/
+build/
+.turbo/
+*.tsbuildinfo
+
+# ---------- Ambiente ----------
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# ---------- Sistema operacional ----------
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.lnk
+
+# ---------- Editores ----------
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+
+# ---------- Temporários do projeto ----------
+*.tmp
+*.log
+npm-debug.log*
+scratchpad/
+
+# ---------- Puppeteer / Chromium baixado ----------
+.cache/puppeteer/
+
+# ---------- Dumps de extração (regeneráveis) ----------
+new_pdf_dump.txt
+
+# NOTA: os arquivos-fonte do curso são versionados de propósito:
+#   parte*.html, sl_*.html, bloco_*.html  -> conteúdo editável
+#   estilo.css, componentes_novos.css     -> identidade visual
+#   montar_*.js, gerar_*.js               -> scripts de build
+#   *.pdf                                 -> material final entregue
+#   original_pdf_dump.txt                 -> referência da v1 original

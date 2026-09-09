@@ -1,0 +1,804 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>IA para Educadores - ApresentaÃ§Ã£o Interativa</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Quicksand:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;font-family:'Inter',sans-serif;background:#0a0a1a}
+.deck{position:relative;width:100vw;height:100vh}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:60px 80px;opacity:0;pointer-events:none;transition:opacity .5s ease,transform .5s ease;transform:scale(.96)}
+.slide.active{opacity:1;pointer-events:auto;transform:scale(1)}
+.slide-inner{width:100%;max-width:1280px;height:100%;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+/* BACKGROUNDS */
+.bg-cover{position:absolute;inset:0;border-radius:0;overflow:hidden;z-index:0}
+.bg-cover::after{content:'';position:absolute;inset:0}
+.bg-grad-purple{background:linear-gradient(135deg,#1e0533 0%,#2d1b69 30%,#4c1d95 60%,#7c3aed 100%)}
+.bg-grad-blue{background:linear-gradient(135deg,#0c1445,#1e3a5f,#2563eb)}
+.bg-grad-emerald{background:linear-gradient(135deg,#022c22,#065f46,#059669)}
+.bg-grad-pink{background:linear-gradient(135deg,#4a0028,#831843,#db2777)}
+.bg-grad-amber{background:linear-gradient(135deg,#451a03,#78350f,#d97706)}
+.bg-grad-indigo{background:linear-gradient(135deg,#1e1b4b,#312e81,#4f46e5)}
+.bg-grad-red{background:linear-gradient(135deg,#450a0a,#7f1d1d,#dc2626)}
+.bg-grad-teal{background:linear-gradient(135deg,#042f2e,#115e59,#0d9488)}
+.bg-grad-violet{background:linear-gradient(135deg,#2e1065,#5b21b6,#8b5cf6)}
+.bg-grad-orange{background:linear-gradient(135deg,#431407,#9a3412,#ea580c)}
+.bg-grad-sky{background:linear-gradient(135deg,#082f49,#0369a1,#0ea5e9)}
+.bg-grad-final{background:linear-gradient(135deg,#1e0533,#312e81,#059669)}
+.dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:24px 24px}
+/* TYPOGRAPHY */
+.title-xl{font-family:'Quicksand',sans-serif;font-size:3.5rem;font-weight:800;color:#fff;line-height:1.15;text-shadow:0 4px 30px rgba(0,0,0,.3)}
+.title-lg{font-family:'Quicksand',sans-serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1.2}
+.subtitle{font-size:1.15rem;color:rgba(255,255,255,.75);line-height:1.6;max-width:700px}
+.text-sm{font-size:.85rem;line-height:1.6}
+.text-xs{font-size:.75rem}
+/* CARDS */
+.card{background:rgba(255,255,255,.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:24px;transition:transform .2s}
+.card:hover{transform:translateY(-2px)}
+.card-solid{background:rgba(255,255,255,.95);border-radius:16px;padding:24px;color:#1e293b}
+.card-dark{background:rgba(0,0,0,.4);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px}
+/* BADGES */
+.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:999px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.badge-purple{background:rgba(139,92,246,.3);color:#c4b5fd;border:1px solid rgba(139,92,246,.4)}
+.badge-blue{background:rgba(59,130,246,.3);color:#93c5fd;border:1px solid rgba(59,130,246,.4)}
+.badge-emerald{background:rgba(16,185,129,.3);color:#6ee7b7;border:1px solid rgba(16,185,129,.4)}
+.badge-pink{background:rgba(236,72,153,.3);color:#f9a8d4;border:1px solid rgba(236,72,153,.4)}
+.badge-amber{background:rgba(245,158,11,.3);color:#fcd34d;border:1px solid rgba(245,158,11,.4)}
+/* GRID */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;width:100%}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;width:100%}
+.grid-4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;width:100%}
+/* PROMPT BOX */
+.prompt-box{background:linear-gradient(145deg,#1e293b,#0f172a);border:1px solid #334155;border-radius:12px;padding:20px;font-family:'Courier New',monospace;font-size:.8rem;color:#e2e8f0;line-height:1.7;position:relative}
+.prompt-label{position:absolute;top:-10px;left:16px;background:#6366f1;color:#fff;font-family:'Inter';font-size:.65rem;padding:3px 12px;border-radius:999px;font-weight:700}
+/* LINK BUTTONS */
+.link-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;font-size:.75rem;font-weight:700;text-decoration:none;transition:all .2s;border:1px solid rgba(255,255,255,.2);color:#fff;background:rgba(255,255,255,.1)}
+.link-btn:hover{background:rgba(255,255,255,.25);transform:translateY(-1px)}
+/* ICON CIRCLE */
+.icon-circle{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+/* CONTROLS */
+.controls{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;background:rgba(15,23,42,.9);backdrop-filter:blur(16px);padding:10px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.1);z-index:999;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+.ctrl-btn{width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.08);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.ctrl-btn:hover{background:rgba(99,102,241,.6)}
+.slide-num{color:rgba(255,255,255,.6);font-size:.8rem;font-weight:600;padding:0 12px;min-width:70px;text-align:center}
+.progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,#6366f1,#8b5cf6,#a78bfa);z-index:999;transition:width .4s ease;box-shadow:0 0 12px rgba(99,102,241,.6)}
+/* LISTS */
+.check-list{list-style:none;padding:0}
+.check-list li{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:.82rem;color:rgba(255,255,255,.85);line-height:1.5}
+.check-list li::before{content:'âœ¦';color:#a78bfa;font-size:.9rem;flex-shrink:0;margin-top:1px}
+.bullet-list{list-style:none;padding:0}
+.bullet-list li{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;font-size:.8rem;color:rgba(255,255,255,.85);line-height:1.5}
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse;border-radius:12px;overflow:hidden;font-size:.75rem}
+.tbl th{background:rgba(99,102,241,.3);color:#c4b5fd;padding:10px 14px;text-align:left;font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.04em}
+.tbl td{padding:10px 14px;border-top:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.8)}
+.tbl tr:hover td{background:rgba(255,255,255,.03)}
+/* FOOTER */
+.slide-footer{position:absolute;bottom:20px;left:80px;right:80px;display:flex;justify-content:space-between;font-size:.7rem;color:rgba(255,255,255,.3);z-index:2}
+/* HIGHLIGHT */
+.hl-purple{color:#c4b5fd}.hl-blue{color:#93c5fd}.hl-emerald{color:#6ee7b7}.hl-pink{color:#f9a8d4}.hl-amber{color:#fcd34d}.hl-red{color:#fca5a5}
+.glow-text{text-shadow:0 0 40px rgba(139,92,246,.4)}
+/* PTCF circles */
+.ptcf-circle{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Quicksand';font-weight:800;font-size:1.4rem;color:#fff;flex-shrink:0}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="deck" id="deck">
+<!-- SLIDE 1: CAPA -->
+<div class="slide active" data-slide="1">
+<div class="bg-cover bg-grad-purple"><div class="dots"></div></div>
+<div class="slide-inner" style="text-align:center;align-items:center">
+<div class="badge badge-purple" style="margin-bottom:20px"><i data-lucide="graduation-cap" style="width:14px;height:14px"></i> FormaÃ§Ã£o Completa Â· 40 Horas</div>
+<div style="margin-bottom:16px"><i data-lucide="bot" style="width:80px;height:80px;color:#a78bfa"></i></div>
+<h1 class="title-xl glow-text" style="margin-bottom:16px">InteligÃªncia Artificial<br><span style="background:linear-gradient(90deg,#f59e0b,#f97316,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent">para Educadores</span></h1>
+<p class="subtitle" style="margin-bottom:32px">Guia PrÃ¡tico, AcessÃ­vel e Sem JargÃµes para Transformar sua Rotina Escolar</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+<span class="link-btn" style="background:rgba(139,92,246,.3)"><i data-lucide="play" style="width:14px;height:14px"></i> Pressione â†’ para iniciar</span>
+<span class="link-btn" style="background:rgba(139,92,246,.3)"><i data-lucide="maximize" style="width:14px;height:14px"></i> F = Tela Cheia</span>
+</div>
+</div>
+<div class="slide-footer"><span>Rede PÃºblica de Ensino</span><span>Â© 2026</span></div>
+</div>
+
+<!-- SLIDE 2: O QUE Ã‰ IA -->
+<div class="slide" data-slide="2">
+<div class="bg-cover bg-grad-blue"><div class="dots"></div></div>
+<div class="slide-inner">
+<div class="badge badge-blue" style="margin-bottom:16px"><i data-lucide="brain-circuit" style="width:14px;height:14px"></i> CapÃ­tulo 1</div>
+<h2 class="title-lg" style="margin-bottom:24px">O que Ã© InteligÃªncia Artificial?</h2>
+<div class="grid-2">
+<div>
+<p style="color:rgba(255,255,255,.8);font-size:.9rem;line-height:1.7;margin-bottom:20px">A IA Ã© um programa de computador treinado para identificar <strong class="hl-blue">padrÃµes</strong> e fazer previsÃµes. Quando vocÃª digita "bom d" no WhatsApp e o teclado sugere "dia", isso jÃ¡ Ã© IA bÃ¡sica.</p>
+<p style="color:rgba(255,255,255,.8);font-size:.9rem;line-height:1.7;margin-bottom:20px">Os modelos como ChatGPT leram praticamente <strong class="hl-blue">toda a internet</strong>: livros, artigos, enciclopÃ©dias. Por isso conseguem gerar planos de aula coerentes.</p>
+<div class="card" style="border-color:rgba(34,197,94,.3);background:rgba(34,197,94,.1)">
+<p style="color:#6ee7b7;font-size:.85rem;font-weight:600">ðŸ’¡ "A IA tem a velocidade e a base de dados.<br>O professor tem a vivÃªncia pedagÃ³gica e a sensibilidade."</p>
+</div>
+</div>
+<div>
+<div class="card" style="margin-bottom:16px">
+<h4 style="color:#fcd34d;font-weight:700;font-size:.85rem;margin-bottom:12px">âš ï¸ O que a IA NÃƒO consegue:</h4>
+<ul class="bullet-list">
+<li><span style="color:#fca5a5">â—</span> <span>Ela <strong>inventa fatos</strong> (alucinaÃ§Ãµes) â€” sempre confira dados</span></li>
+<li><span style="color:#fca5a5">â—</span> <span>Ela <strong>nÃ£o conhece sua escola</strong> â€” vocÃª precisa contextualizar</span></li>
+<li><span style="color:#fca5a5">â—</span> <span>Ela <strong>nÃ£o substitui o julgamento humano</strong> â€” quem decide Ã© vocÃª</span></li>
+<li><span style="color:#fca5a5">â—</span> <span>Nem todas versÃµes tÃªm <strong>acesso Ã  internet</strong> em tempo real</span></li>
+</ul>
+</div>
+<div class="card-dark">
+<p style="color:rgba(255,255,255,.6);font-size:.75rem"><strong style="color:#93c5fd">LLM (Large Language Model):</strong> Ã‰ o "cÃ©rebro" do ChatGPT, Gemini e Claude. Ele prevÃª a prÃ³xima palavra mais provÃ¡vel com base em tudo que jÃ¡ leu.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>CapÃ­tulo 1 Â· IntroduÃ§Ã£o</span><span>2 / 20</span></div>
+</div>
+
+<!-- SLIDE 3: FERRAMENTAS -->
+<div class="slide" data-slide="3">
+<div class="bg-cover bg-grad-indigo"><div class="dots"></div></div>
+<div class="slide-inner">
+<div class="badge badge-purple" style="margin-bottom:16px"><i data-lucide="layout-grid" style="width:14px;height:14px"></i> CapÃ­tulo 1</div>
+<h2 class="title-lg" style="margin-bottom:20px">Ferramentas de IA para o Professor</h2>
+<div class="grid-4" style="margin-bottom:20px">
+<div class="card" style="text-align:center;padding:18px">
+<div style="background:rgba(16,185,129,.25);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px"><i data-lucide="message-square" style="width:20px;height:20px;color:#6ee7b7"></i></div>
+<h4 style="color:#6ee7b7;font-weight:700;font-size:.8rem;margin-bottom:4px">ChatGPT</h4>
+<p style="color:rgba(255,255,255,.6);font-size:.65rem">Planos de aula, provas, ideias criativas</p>
+</div>
+<div class="card" style="text-align:center;padding:18px">
+<div style="background:rgba(59,130,246,.25);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px"><i data-lucide="sparkles" style="width:20px;height:20px;color:#93c5fd"></i></div>
+<h4 style="color:#93c5fd;font-weight:700;font-size:.8rem;margin-bottom:4px">Google Gemini</h4>
+<p style="color:rgba(255,255,255,.6);font-size:.65rem">Pesquisas atualizadas, Google Drive</p>
+</div>
+<div class="card" style="text-align:center;padding:18px">
+<div style="background:rgba(139,92,246,.25);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px"><i data-lucide="pen-tool" style="width:20px;height:20px;color:#c4b5fd"></i></div>
+<h4 style="color:#c4b5fd;font-weight:700;font-size:.8rem;margin-bottom:4px">Claude AI</h4>
+<p style="color:rgba(255,255,255,.6);font-size:.65rem">Pareceres empÃ¡ticos, textos longos</p>
+</div>
+<div class="card" style="text-align:center;padding:18px">
+<div style="background:rgba(236,72,153,.25);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px"><i data-lucide="palette" style="width:20px;height:20px;color:#f9a8d4"></i></div>
+<h4 style="color:#f9a8d4;font-weight:700;font-size:.8rem;margin-bottom:4px">Canva Magic</h4>
+<p style="color:rgba(255,255,255,.6);font-size:.65rem">Design de materiais e slides</p>
+</div>
+</div>
+<div class="grid-4">
+<div class="card" style="text-align:center;padding:18px">
+<div style="background:rgba(245,158,11,.25);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px"><i data-lucide="presentation" style="width:20px;height:20px;color:#fcd34d"></i></div>
+<h4 style="color:#fcd34d;font-weight:700;font-size:.8rem;margin-bottom:4px">Genspark</h4>
+<p style="color:rgba(255,255,255,.6);font-size:.65rem">Melhor para slides com pesquisa real</p>
+</div>
+<div class="card" style="text-align:center;padding:18px">
+<div style="background:rgba(244,114,182,.25);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px"><i data-lucide="image" style="width:20px;height:20px;color:#fb923c"></i></div>
+<h4 style="color:#fb923c;font-weight:700;font-size:.8rem;margin-bottom:4px">Nano Banana</h4>
+<p style="color:rgba(255,255,255,.6);font-size:.65rem">Imagens via Gemini com ediÃ§Ã£o conversacional</p>
+</div>
+<div class="card" style="text-align:center;padding:18px">
+<div style="background:rgba(20,184,166,.25);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px"><i data-lucide="book-open" style="width:20px;height:20px;color:#5eead4"></i></div>
+<h4 style="color:#5eead4;font-weight:700;font-size:.8rem;margin-bottom:4px">Diffit</h4>
+<p style="color:rgba(255,255,255,.6);font-size:.65rem">Adapta textos para qualquer nÃ­vel de leitura</p>
+</div>
+<div class="card" style="text-align:center;padding:18px">
+<div style="background:rgba(6,182,212,.25);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px"><i data-lucide="file-text" style="width:20px;height:20px;color:#67e8f9"></i></div>
+<h4 style="color:#67e8f9;font-weight:700;font-size:.8rem;margin-bottom:4px">NotebookLM</h4>
+<p style="color:rgba(255,255,255,.6);font-size:.65rem">AnÃ¡lise e resumo de PDFs e livros</p>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>CapÃ­tulo 1 Â· Ferramentas</span><span>3 / 20</span></div>
+</div>
+
+<!-- SLIDE 4: LINKS DAS FERRAMENTAS -->
+<div class="slide" data-slide="4">
+<div class="bg-cover bg-grad-purple"><div class="dots"></div></div>
+<div class="slide-inner">
+<div class="badge badge-purple" style="margin-bottom:16px"><i data-lucide="external-link" style="width:14px;height:14px"></i> Acesso RÃ¡pido</div>
+<h2 class="title-lg" style="margin-bottom:24px">Links das Plataformas â€” Abra Agora!</h2>
+<div class="grid-3" style="margin-bottom:20px">
+<a href="https://chatgpt.com" target="_blank" class="card" style="text-decoration:none;border-color:rgba(16,185,129,.4)">
+<h4 style="color:#6ee7b7;font-weight:700;margin-bottom:6px;font-size:.9rem">ðŸŸ¢ ChatGPT</h4>
+<p style="color:rgba(255,255,255,.6);font-size:.75rem;margin-bottom:10px">Textos, planos, provas, ideias criativas e correÃ§Ã£o de textos</p>
+<span style="color:#6ee7b7;font-size:.7rem;font-weight:600">chatgpt.com â†’</span>
+</a>
+<a href="https://gemini.google.com" target="_blank" class="card" style="text-decoration:none;border-color:rgba(59,130,246,.4)">
+<h4 style="color:#93c5fd;font-weight:700;margin-bottom:6px;font-size:.9rem">ðŸ”µ Google Gemini</h4>
+<p style="color:rgba(255,255,255,.6);font-size:.75rem;margin-bottom:10px">Pesquisas atualizadas + geraÃ§Ã£o de imagens (Nano Banana)</p>
+<span style="color:#93c5fd;font-size:.7rem;font-weight:600">gemini.google.com â†’</span>
+</a>
+<a href="https://claude.ai" target="_blank" class="card" style="text-decoration:none;border-color:rgba(139,92,246,.4)">
+<h4 style="color:#c4b5fd;font-weight:700;margin-bottom:6px;font-size:.9rem">ðŸŸ£ Claude AI</h4>
+<p style="color:rgba(255,255,255,.6);font-size:.75rem;margin-bottom:10px">Textos longos, pareceres descritivos, comunicaÃ§Ã£o empÃ¡tica</p>
+<span style="color:#c4b5fd;font-size:.7rem;font-weight:600">claude.ai â†’</span>
+</a>
+</div>
+<div class="grid-3">
+<a href="https://genspark.ai" target="_blank" class="card" style="text-decoration:none;border-color:rgba(245,158,11,.4)">
+<h4 style="color:#fcd34d;font-weight:700;margin-bottom:6px;font-size:.9rem">âš¡ Genspark</h4>
+<p style="color:rgba(255,255,255,.6);font-size:.75rem;margin-bottom:10px">Slides profissionais com pesquisa real da web e sem alucinaÃ§Ãµes</p>
+<span style="color:#fcd34d;font-size:.7rem;font-weight:600">genspark.ai â†’</span>
+</a>
+<a href="https://canva.com/education" target="_blank" class="card" style="text-decoration:none;border-color:rgba(236,72,153,.4)">
+<h4 style="color:#f9a8d4;font-weight:700;margin-bottom:6px;font-size:.9rem">ðŸŽ¨ Canva Education</h4>
+<p style="color:rgba(255,255,255,.6);font-size:.75rem;margin-bottom:10px">Design de cartazes, apresentaÃ§Ãµes e infogrÃ¡ficos (100% grÃ¡tis)</p>
+<span style="color:#f9a8d4;font-size:.7rem;font-weight:600">canva.com/education â†’</span>
+</a>
+<a href="https://web.diffit.me" target="_blank" class="card" style="text-decoration:none;border-color:rgba(20,184,166,.4)">
+<h4 style="color:#5eead4;font-weight:700;margin-bottom:6px;font-size:.9rem">ðŸ“– Diffit</h4>
+<p style="color:rgba(255,255,255,.6);font-size:.75rem;margin-bottom:10px">Adapta textos para qualquer nÃ­vel de leitura com glossÃ¡rios automÃ¡ticos</p>
+<span style="color:#5eead4;font-size:.7rem;font-weight:600">web.diffit.me â†’</span>
+</a>
+</div>
+<div style="display:flex;gap:10px;margin-top:16px;justify-content:center;flex-wrap:wrap">
+<a href="https://gamma.app" target="_blank" class="link-btn">Gamma.app</a>
+<a href="https://edcafe.ai" target="_blank" class="link-btn">Edcafe AI</a>
+<a href="https://gradescope.com" target="_blank" class="link-btn">Gradescope</a>
+<a href="https://notebooklm.google.com" target="_blank" class="link-btn">NotebookLM</a>
+<a href="https://elevenlabs.io" target="_blank" class="link-btn">ElevenLabs</a>
+</div>
+</div>
+<div class="slide-footer"><span>Links RÃ¡pidos</span><span>4 / 20</span></div>
+</div>
+<!-- SLIDE 5: ENGENHARIA DE PROMPTS -->
+<div class="slide" data-slide="5">
+<div class="bg-cover bg-grad-pink"><div class="dots"></div></div>
+<div class="slide-inner">
+<div class="badge badge-pink" style="margin-bottom:16px"><i data-lucide="message-square-text" style="width:14px;height:14px"></i> CapÃ­tulo 2</div>
+<h2 class="title-lg" style="margin-bottom:24px">A FÃ³rmula P.T.C.F. â€” Prompts Perfeitos</h2>
+<div class="grid-2">
+<div>
+<p style="color:rgba(255,255,255,.75);font-size:.85rem;line-height:1.7;margin-bottom:20px">A diferenÃ§a entre uma resposta inÃºtil e incrÃ­vel da IA estÃ¡ <strong class="hl-pink">100% no que vocÃª digitou</strong>. Prompt Ã© o texto que vocÃª escreve na caixa de conversa.</p>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:center;gap:14px"><div class="ptcf-circle" style="background:linear-gradient(135deg,#7c3aed,#6d28d9)">P</div><div><strong style="color:#e9d5ff;font-size:.85rem">Papel (Persona)</strong><br><span style="color:rgba(255,255,255,.6);font-size:.75rem">"Aja como professor de MatemÃ¡tica com 20 anos de experiÃªncia"</span></div></div>
+<div style="display:flex;align-items:center;gap:14px"><div class="ptcf-circle" style="background:linear-gradient(135deg,#6366f1,#4f46e5)">T</div><div><strong style="color:#c7d2fe;font-size:.85rem">Tarefa</strong><br><span style="color:rgba(255,255,255,.6);font-size:.75rem">"Crie uma sequÃªncia didÃ¡tica de 3 aulas sobre fraÃ§Ãµes"</span></div></div>
+<div style="display:flex;align-items:center;gap:14px"><div class="ptcf-circle" style="background:linear-gradient(135deg,#3b82f6,#2563eb)">C</div><div><strong style="color:#bfdbfe;font-size:.85rem">Contexto</strong><br><span style="color:rgba(255,255,255,.6);font-size:.75rem">"Alunos de 11 anos, 6Âº ano, escola rural sem internet"</span></div></div>
+<div style="display:flex;align-items:center;gap:14px"><div class="ptcf-circle" style="background:linear-gradient(135deg,#06b6d4,#0891b2)">F</div><div><strong style="color:#a5f3fc;font-size:.85rem">Formato</strong><br><span style="color:rgba(255,255,255,.6);font-size:.75rem">"Entregue em tabela: Momento | DuraÃ§Ã£o | Atividade | Material"</span></div></div>
+</div>
+</div>
+<div>
+<div style="margin-bottom:16px">
+<h4 style="color:#fca5a5;font-size:.8rem;font-weight:700;margin-bottom:8px">âŒ Prompt Ruim:</h4>
+<div class="prompt-box" style="border-color:#7f1d1d;font-size:.75rem;padding:14px">Crie uma atividade de matemÃ¡tica.</div>
+</div>
+<div>
+<h4 style="color:#86efac;font-size:.8rem;font-weight:700;margin-bottom:8px">âœ… Prompt Bom (P.T.C.F.):</h4>
+<div class="prompt-box" style="border-color:#166534;font-size:.72rem;padding:14px;line-height:1.6"><span style="color:#c4b5fd">Aja como professora de MatemÃ¡tica do 4Âº ano.</span> <span style="color:#93c5fd">Crie uma atividade de 30 min sobre multiplicaÃ§Ã£o por 2 e 3,</span> <span style="color:#f9a8d4">usando situaÃ§Ãµes do cotidiano de crianÃ§a de cidade pequena (padaria, granja).</span> <span style="color:#fcd34d">Inclua: texto motivador, 5 exercÃ­cios progressivos, desafio bÃ´nus. Formatado para imprimir.</span></div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>CapÃ­tulo 2 Â· Engenharia de Prompts</span><span>5 / 20</span></div>
+</div>
+
+<!-- SLIDE 6: TÃ‰CNICAS AVANÃ‡ADAS -->
+<div class="slide" data-slide="6">
+<div class="bg-cover bg-grad-pink"><div class="dots"></div></div>
+<div class="slide-inner">
+<div class="badge badge-pink" style="margin-bottom:16px"><i data-lucide="zap" style="width:14px;height:14px"></i> CapÃ­tulo 2</div>
+<h2 class="title-lg" style="margin-bottom:20px">TÃ©cnicas AvanÃ§adas de Prompt</h2>
+<div class="grid-3">
+<div class="card">
+<h4 style="color:#f9a8d4;font-weight:700;font-size:.85rem;margin-bottom:10px">ðŸ”„ Pedir em Etapas</h4>
+<p style="color:rgba(255,255,255,.7);font-size:.75rem;line-height:1.6;margin-bottom:12px">Divida o pedido: primeiro o esqueleto, depois detalhe cada parte.</p>
+<div class="prompt-box" style="font-size:.65rem;padding:10px"><span class="prompt-label">Etapa 1</span><br>Crie apenas os tÃ­tulos e subtÃ­tulos de um plano de aula sobre IndependÃªncia do Brasil.</div>
+</div>
+<div class="card">
+<h4 style="color:#f9a8d4;font-weight:700;font-size:.85rem;margin-bottom:10px">ðŸŽ­ Assumir um Tom</h4>
+<p style="color:rgba(255,255,255,.7);font-size:.75rem;line-height:1.6;margin-bottom:12px">PeÃ§a tom divertido, sÃ©rio, poÃ©tico ou infantil.</p>
+<div class="prompt-box" style="font-size:.65rem;padding:10px"><span class="prompt-label">Tom</span><br>Explique fotossÃ­ntese como um youtuber engraÃ§ado falando para crianÃ§as de 8 anos. Use piadas e emojis.</div>
+</div>
+<div class="card">
+<h4 style="color:#f9a8d4;font-weight:700;font-size:.85rem;margin-bottom:10px">ðŸš« Pedir Erros</h4>
+<p style="color:rgba(255,255,255,.7);font-size:.75rem;line-height:1.6;margin-bottom:12px">Aprender pelos erros Ã© mais eficiente.</p>
+<div class="prompt-box" style="font-size:.65rem;padding:10px"><span class="prompt-label">Erros</span><br>Me dÃª 3 planos de aula RUINS sobre Reciclagem com erros clÃ¡ssicos. Para cada um, explique o que estÃ¡ errado.</div>
+</div>
+</div>
+<div class="card" style="margin-top:20px;text-align:center;background:rgba(236,72,153,.15);border-color:rgba(236,72,153,.3)">
+<p style="color:#f9a8d4;font-size:.85rem;font-weight:600">ðŸ’¡ Dica: A IA Ã© como uma conversa. Se a resposta nÃ£o ficou boa, peÃ§a: <em>"RefaÃ§a, mas com linguagem mais simples"</em>. Ela lembra tudo na mesma janela!</p>
+</div>
+</div>
+<div class="slide-footer"><span>CapÃ­tulo 2 Â· TÃ©cnicas AvanÃ§adas</span><span>6 / 20</span></div>
+</div>
+
+<!-- SLIDE 7: BANCO DE PROMPTS -->
+<div class="slide" data-slide="7">
+<div class="bg-cover bg-grad-pink"><div class="dots"></div></div>
+<div class="slide-inner">
+<div class="badge badge-pink" style="margin-bottom:16px"><i data-lucide="copy" style="width:14px;height:14px"></i> CapÃ­tulo 2</div>
+<h2 class="title-lg" style="margin-bottom:16px">Banco de 10 Prompts Prontos</h2>
+<p style="color:rgba(255,255,255,.6);font-size:.8rem;margin-bottom:16px">Copie e cole direto! Troque [CAMPOS] pelo seu conteÃºdo.</p>
+<div class="grid-2">
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="card-dark" style="padding:12px"><span style="color:#c4b5fd;font-weight:700;font-size:.7rem">1 Â· Plano de Aula</span><p style="color:rgba(255,255,255,.6);font-size:.68rem;margin-top:4px">Crie plano de 50min sobre [TEMA] para [ANO] com habilidade BNCC, passo a passo cronometrado e atividade de fechamento.</p></div>
+<div class="card-dark" style="padding:12px"><span style="color:#93c5fd;font-weight:700;font-size:.7rem">2 Â· Prova InÃ©dita</span><p style="color:rgba(255,255,255,.6);font-size:.68rem;margin-top:4px">5 questÃµes mÃºltipla escolha + 2 dissertativas sobre [TEMA]. Exigir interpretaÃ§Ã£o, nÃ£o memorizaÃ§Ã£o. Gabarito comentado.</p></div>
+<div class="card-dark" style="padding:12px"><span style="color:#6ee7b7;font-weight:700;font-size:.7rem">3 Â· Parecer Descritivo</span><p style="color:rgba(255,255,255,.6);font-size:.68rem;margin-top:4px">Transforme anotaÃ§Ãµes em tÃ³picos em parecer bimestral acolhedor. Foco nos avanÃ§os + meta para prÃ³ximo bimestre.</p></div>
+<div class="card-dark" style="padding:12px"><span style="color:#f9a8d4;font-weight:700;font-size:.7rem">4 Â· E-mail para Pais</span><p style="color:rgba(255,255,255,.6);font-size:.68rem;margin-top:4px">E-mail empÃ¡tico sobre [SITUAÃ‡ÃƒO]. Tom de parceria, nunca punitivo. Convidar para conversa.</p></div>
+<div class="card-dark" style="padding:12px"><span style="color:#fcd34d;font-weight:700;font-size:.7rem">5 Â· AdaptaÃ§Ã£o Inclusiva</span><p style="color:rgba(255,255,255,.6);font-size:.68rem;margin-top:4px">Reescreva texto para aluno com [TDAH/Dislexia/TEA]. Frases de 12 palavras, negrito, listas numeradas.</p></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="card-dark" style="padding:12px"><span style="color:#c4b5fd;font-weight:700;font-size:.7rem">6 Â· RotaÃ§Ã£o por EstaÃ§Ãµes</span><p style="color:rgba(255,255,255,.6);font-size:.68rem;margin-top:4px">4 estaÃ§Ãµes de 12min cada: leitura, jogo, escrita, discussÃ£o. Listar materiais de cada estaÃ§Ã£o.</p></div>
+<div class="card-dark" style="padding:12px"><span style="color:#93c5fd;font-weight:700;font-size:.7rem">7 Â· Jogo Educativo</span><p style="color:rgba(255,255,255,.6);font-size:.68rem;margin-top:4px">Jogo de tabuleiro sobre [TEMA] com regras, perguntas+respostas. Materiais: papel, dados, lÃ¡pis.</p></div>
+<div class="card-dark" style="padding:12px"><span style="color:#6ee7b7;font-weight:700;font-size:.7rem">8 Â· SequÃªncia DidÃ¡tica</span><p style="color:rgba(255,255,255,.6);font-size:.68rem;margin-top:4px">[N] aulas sobre [TEMA]. Para cada: objetivo, duraÃ§Ã£o, metodologia, atividade, habilidade BNCC.</p></div>
+<div class="card-dark" style="padding:12px"><span style="color:#f9a8d4;font-weight:700;font-size:.7rem">9 Â· Projeto Interdisciplinar</span><p style="color:rgba(255,255,255,.6);font-size:.68rem;margin-top:4px">Conectar [DISCIPLINA 1] e [DISCIPLINA 2]. Cronograma semanal, produto final, critÃ©rios.</p></div>
+<div class="card-dark" style="padding:12px"><span style="color:#fcd34d;font-weight:700;font-size:.7rem">10 Â· Resumo DidÃ¡tico</span><p style="color:rgba(255,255,255,.6);font-size:.68rem;margin-top:4px">Transformar texto acadÃªmico em resumo acessÃ­vel com analogias, tÃ³picos e 3 perguntas.</p></div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>CapÃ­tulo 2 Â· Banco de Prompts</span><span>7 / 20</span></div>
+</div>
+
+<!-- SLIDE 8: ORGANIZAÃ‡ÃƒO -->
+<div class="slide" data-slide="8">
+<div class="bg-cover bg-grad-emerald"><div class="dots"></div></div>
+<div class="slide-inner">
+<div class="badge badge-emerald" style="margin-bottom:16px"><i data-lucide="calendar-check" style="width:14px;height:14px"></i> CapÃ­tulo 3</div>
+<h2 class="title-lg" style="margin-bottom:24px">OrganizaÃ§Ã£o da Vida do Professor</h2>
+<div class="grid-2">
+<div>
+<p style="color:rgba(255,255,255,.75);font-size:.85rem;line-height:1.7;margin-bottom:16px">A IA pode ser sua <strong class="hl-emerald">secretÃ¡ria pessoal</strong>, disponÃ­vel 24 horas, de graÃ§a. Organize cronogramas, redija comunicados e pareceres em minutos.</p>
+<ul class="check-list">
+<li>Cronogramas semanais otimizados com prioridades</li>
+<li>E-mails para pais com tom empÃ¡tico de parceria</li>
+<li>Pareceres descritivos a partir de anotaÃ§Ãµes soltas</li>
+<li>Atas de reuniÃ£o pedagÃ³gica a partir de tÃ³picos</li>
+<li>Comunicados de eventos escolares formatados</li>
+<li>RelatÃ³rios semestrais para a Secretaria</li>
+</ul>
+</div>
+<div>
+<div class="prompt-box" style="margin-bottom:16px"><span class="prompt-label">Cronograma</span><br>Tenho 5 turmas e 4 horas livres por semana. Encaixe: corrigir redaÃ§Ãµes (urgente), preparar prova (prazo sexta), preencher diÃ¡rio. Monte cronograma otimizado em tabela.</div>
+<div class="prompt-box"><span class="prompt-label">Parecer</span><br>Transforme estas anotaÃ§Ãµes em parecer bimestral acolhedor:<br>- Melhorou na leitura<br>- Troca letras p/b na escrita<br>- Prestativa com colegas<br>- Participativa nas rodas<br>Foco nos avanÃ§os + meta.</div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>CapÃ­tulo 3 Â· Produtividade</span><span>8 / 20</span></div>
+</div>
+<!-- SLIDE 9: PLANEJAMENTO BNCC -->
+<div class="slide" data-slide="9">
+<div class="bg-cover bg-grad-teal"><div class="dots"></div></div>
+<div class="slide-inner">
+<div class="badge badge-emerald" style="margin-bottom:16px"><i data-lucide="graduation-cap" style="width:14px;height:14px"></i> CapÃ­tulo 4</div>
+<h2 class="title-lg" style="margin-bottom:24px">Planejamento de Aulas e BNCC</h2>
+<div class="grid-2">
+<div>
+<p style="color:rgba(255,255,255,.75);font-size:.85rem;line-height:1.7;margin-bottom:16px">Em vez de gastar <strong class="hl-emerald">2 horas</strong> montando um plano, gaste <strong class="hl-emerald">10 minutos</strong> revisando o rascunho que a IA fez para vocÃª.</p>
+<div class="card" style="margin-bottom:14px;background:rgba(20,184,166,.15);border-color:rgba(20,184,166,.3)">
+<h4 style="color:#5eead4;font-weight:700;font-size:.8rem;margin-bottom:6px">ðŸ“š BNCC na IA</h4>
+<p style="color:rgba(255,255,255,.7);font-size:.75rem;line-height:1.6">A BNCC Ã© o documento oficial que diz o que cada aluno deve aprender. Cada conteÃºdo tem um cÃ³digo (ex: EF07CI01). A IA conhece todos esses cÃ³digos e vincula automaticamente Ã s habilidades.</p>
+</div>
+<ul class="check-list">
+<li>Planos de aula com abertura, desenvolvimento e fechamento cronometrados</li>
+<li>SequÃªncias didÃ¡ticas de 5+ aulas conectadas com progressÃ£o lÃ³gica</li>
+<li>Projetos interdisciplinares (CiÃªncias + MatemÃ¡tica, HistÃ³ria + Geografia)</li>
+<li>Metodologias ativas: Sala Invertida, GamificaÃ§Ã£o, RotaÃ§Ã£o por EstaÃ§Ãµes</li>
+</ul>
+</div>
+<div>
+<div class="prompt-box" style="margin-bottom:14px"><span class="prompt-label">Plano Completo</span><br>Aja como professor de CiÃªncias do 7Âº ano. Crie plano de 50min sobre "Estados da MatÃ©ria". Escola pÃºblica sem laboratÃ³rio â€” atividade com gelo, Ã¡gua, vela.<br><br>Estruture: Tema + BNCC, Objetivo, Materiais, Desenvolvimento cronometrado (Acolhida 5min, Teoria 15min, PrÃ¡tica 15min, Registro 10min, Fechamento 5min), AvaliaÃ§Ã£o, Plano B.</div>
+<div class="prompt-box"><span class="prompt-label">Sala Invertida</span><br>Crie roteiro de Sala Invertida para "RevoluÃ§Ã£o Industrial" 8Âº ano.<br>Casa: vÃ­deo atÃ© 8min + 3 perguntas de prÃ©-aula.<br>Sala: atividade prÃ¡tica em grupos simulando fÃ¡brica tÃªxtil com materiais simples.</div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>CapÃ­tulo 4 Â· BNCC</span><span>9 / 20</span></div>
+</div>
+
+<!-- SLIDE 10: MATERIAIS EDUCATIVOS -->
+<div class="slide" data-slide="10">
+<div class="bg-cover bg-grad-violet"><div class="dots"></div></div>
+<div class="slide-inner">
+<div class="badge badge-purple" style="margin-bottom:16px"><i data-lucide="pencil-ruler" style="width:14px;height:14px"></i> CapÃ­tulo 5</div>
+<h2 class="title-lg" style="margin-bottom:20px">CriaÃ§Ã£o de Materiais Educativos</h2>
+<div class="grid-2">
+<div>
+<p style="color:rgba(255,255,255,.75);font-size:.85rem;line-height:1.7;margin-bottom:14px">Crie do zero: textos de leitura, exercÃ­cios, caÃ§a-palavras, cruzadinhas, jogos e histÃ³rias â€” tudo <strong class="hl-purple">personalizado para sua turma</strong>.</p>
+<div class="card" style="margin-bottom:12px">
+<h4 style="color:#c4b5fd;font-weight:700;font-size:.8rem;margin-bottom:8px">O que vocÃª pode criar:</h4>
+<ul class="bullet-list">
+<li><span style="color:#c4b5fd">ðŸ“</span> Textos regionalizados com glossÃ¡rio e perguntas</li>
+<li><span style="color:#93c5fd">ðŸ“Š</span> Listas de exercÃ­cios progressivos com gabarito</li>
+<li><span style="color:#6ee7b7">ðŸ”</span> CaÃ§a-palavras e cruzadinhas temÃ¡ticas</li>
+<li><span style="color:#f9a8d4">ðŸŽ®</span> Quiz Verdadeiro/Falso interativo</li>
+<li><span style="color:#fcd34d">ðŸ“…</span> Pacotes para datas comemorativas</li>
+<li><span style="color:#fca5a5">ðŸ“–</span> Material de reforÃ§o adaptado</li>
+</ul>
+</div>
+<div class="card" style="background:rgba(16,185,129,.15);border-color:rgba(16,185,129,.3)">
+<h4 style="color:#6ee7b7;font-weight:700;font-size:.75rem;margin-bottom:4px">âœ¨ Ferramentas Especializadas:</h4>
+<p style="color:rgba(255,255,255,.6);font-size:.7rem"><strong>Diffit:</strong> Adapta textos automaticamente para qualquer nÃ­vel | <strong>Edcafe AI:</strong> Fichas interativas com correÃ§Ã£o automÃ¡tica</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div class="prompt-box"><span class="prompt-label">Texto Regional</span><br>Crie texto de 3 parÃ¡grafos sobre o Cerrado para 4Âº ano de GoiÃ¡s. Use animais/frutas locais (pequi, lobo-guarÃ¡). Inclua glossÃ¡rio + 4 perguntas + atividade de desenho.</div>
+<div class="prompt-box"><span class="prompt-label">ExercÃ­cios</span><br>15 exercÃ­cios de AdiÃ§Ã£o com Reagrupamento para 3Âº ano. FÃ¡ceis (1-5), MÃ©dios (6-10), Desafios (11-15 com situaÃ§Ãµes-problema). Gabarito com resoluÃ§Ã£o passo a passo.</div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>CapÃ­tulo 5 Â· Materiais</span><span>10 / 20</span></div>
+</div>
+
+<!-- SLIDE 11: AVALIAÃ‡Ã•ES -->
+<div class="slide" data-slide="11">
+<div class="bg-cover bg-grad-amber"><div class="dots"></div></div>
+<div class="slide-inner">
+<div class="badge badge-amber" style="margin-bottom:16px"><i data-lucide="clipboard-check" style="width:14px;height:14px"></i> CapÃ­tulo 6</div>
+<h2 class="title-lg" style="margin-bottom:20px">AvaliaÃ§Ãµes, CorreÃ§Ãµes e Feedback</h2>
+<div class="grid-2">
+<div>
+<p style="color:rgba(255,255,255,.75);font-size:.85rem;line-height:1.7;margin-bottom:16px">Avaliar nÃ£o precisa ser sinÃ´nimo de sofrimento. A IA cria provas <strong class="hl-amber">100% inÃ©ditas</strong> e ajuda a dar feedback construtivo.</p>
+<div class="card" style="margin-bottom:12px">
+<h4 style="color:#fcd34d;font-weight:700;font-size:.8rem;margin-bottom:8px">Tipos de AvaliaÃ§Ã£o com IA:</h4>
+<ul class="bullet-list">
+<li><span style="color:#fcd34d">ðŸ“‹</span> <span>Provas contextualizadas (sem decorar definiÃ§Ãµes)</span></li>
+<li><span style="color:#fcd34d">ðŸ”¬</span> <span>AvaliaÃ§Ã£o diagnÃ³stica (1Âº dia de aula)</span></li>
+<li><span style="color:#fcd34d">ðŸ“Š</span> <span>Rubricas em tabela para seminÃ¡rios/maquetes</span></li>
+<li><span style="color:#fcd34d">ðŸ’¬</span> <span>Feedback construtivo para redaÃ§Ãµes</span></li>
+<li><span style="color:#fcd34d">ðŸ“</span> <span>AutoavaliaÃ§Ã£o do aluno</span></li>
+</ul>
+</div>
+<div class="card" style="background:rgba(99,102,241,.15);border-color:rgba(99,102,241,.3)">
+<h4 style="color:#a5b4fc;font-weight:700;font-size:.75rem;margin-bottom:4px">ðŸŽ¯ Gradescope (Turnitin)</h4>
+<p style="color:rgba(255,255,255,.6);font-size:.7rem">Corrige provas manuscritas em lote com IA. Agrupa respostas parecidas e atribui feedback a todos de uma vez.</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div class="prompt-box"><span class="prompt-label">Prova InÃ©dita</span><br>Prova de CiÃªncias 6Âº ano sobre "Misturas". 5 mÃºltipla escolha + 2 dissertativas + 1 desafio. Use situaÃ§Ãµes do cotidiano (cafÃ©, suco). Alternativas erradas plausÃ­veis. Gabarito comentado.</div>
+<div class="card" style="background:rgba(239,68,68,.15);border-color:rgba(239,68,68,.3)">
+<h4 style="color:#fca5a5;font-weight:700;font-size:.8rem;margin-bottom:8px">ðŸ›¡ï¸ Combatendo a "Cola" da IA</h4>
+<p style="color:rgba(255,255,255,.7);font-size:.75rem;line-height:1.6">Proibir nÃ£o funciona! Mude o tipo de tarefa:<br><span style="color:#fca5a5">âŒ</span> "FaÃ§a resumo sobre a 1Âª Guerra" (IA faz em 10s)<br><span style="color:#86efac">âœ…</span> "Entreviste alguÃ©m da famÃ­lia sobre um evento histÃ³rico e apresente em sala" (IA nÃ£o pode entrevistar a avÃ³!)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>CapÃ­tulo 6 Â· AvaliaÃ§Ã£o</span><span>11 / 20</span></div>
+</div>
+
+<!-- SLIDE 12: INCLUSÃƒO TDAH -->
+<div class="slide" data-slide="12">
+<div class="bg-cover bg-grad-orange"><div class="dots"></div></div>
+<div class="slide-inner">
+<div class="badge badge-amber" style="margin-bottom:16px"><i data-lucide="heart-handshake" style="width:14px;height:14px"></i> CapÃ­tulo 7</div>
+<h2 class="title-lg" style="margin-bottom:20px">InclusÃ£o e Acessibilidade</h2>
+<div class="grid-2">
+<div>
+<p style="color:rgba(255,255,255,.75);font-size:.85rem;line-height:1.7;margin-bottom:14px">A educaÃ§Ã£o inclusiva Ã© lei. A IA Ã© a ferramenta <strong class="hl-amber">mais poderosa que existe</strong> para adaptar materiais em minutos.</p>
+<div class="grid-2" style="gap:10px">
+<div class="card-dark" style="padding:14px">
+<h4 style="color:#fcd34d;font-weight:700;font-size:.75rem;margin-bottom:6px">ðŸ§  TDAH</h4>
+<ul style="list-style:none;padding:0;color:rgba(255,255,255,.6);font-size:.68rem;line-height:1.6">
+<li>â€¢ Blocos curtÃ­ssimos (3 linhas)</li>
+<li>â€¢ Marcadores visuais</li>
+<li>â€¢ Pausas ativas no meio</li>
+<li>â€¢ Atividade manual no final</li>
+<li>â€¢ Tempo reduzido (20 min)</li>
+</ul>
+</div>
+<div class="card-dark" style="padding:14px">
+<h4 style="color:#fb923c;font-weight:700;font-size:.75rem;margin-bottom:6px">ðŸ“– Dislexia</h4>
+<ul style="list-style:none;padding:0;color:rgba(255,255,255,.6);font-size:.68rem;line-height:1.6">
+<li>â€¢ Fonte tamanho 14-16</li>
+<li>â€¢ EspaÃ§amento duplo</li>
+<li>â€¢ Frases atÃ© 10 palavras</li>
+<li>â€¢ Nomes em negrito</li>
+<li>â€¢ "ResumÃ£o" em 5 tÃ³picos</li>
+</ul>
+</div>
+<div class="card-dark" style="padding:14px">
+<h4 style="color:#f87171;font-weight:700;font-size:.75rem;margin-bottom:6px">ðŸ§© TEA (Autismo)</h4>
+<ul style="list-style:none;padding:0;color:rgba(255,255,255,.6);font-size:.68rem;line-height:1.6">
+<li>â€¢ Linguagem 100% literal</li>
+<li>â€¢ InstruÃ§Ãµes numeradas</li>
+<li>â€¢ Imagens descritivas</li>
+<li>â€¢ Fundo branco, sem bordas</li>
+<li>â€¢ Checklist visual â˜</li>
+</ul>
+</div>
+<div class="card-dark" style="padding:14px">
+<h4 style="color:#a78bfa;font-weight:700;font-size:.75rem;margin-bottom:6px">ðŸŒŸ Altas Habilidades</h4>
+<ul style="list-style:none;padding:0;color:rgba(255,255,255,.6);font-size:.68rem;line-height:1.6">
+<li>â€¢ "Desafios do Mestre"</li>
+<li>â€¢ Problemas lÃ³gicos complexos</li>
+<li>â€¢ Formato de enigma</li>
+<li>â€¢ RaciocÃ­nio avanÃ§ado</li>
+<li>â€¢ Autonomia</li>
+</ul>
+</div>
+</div>
+</div>
+<div>
+<div class="prompt-box" style="margin-bottom:14px"><span class="prompt-label">AdaptaÃ§Ã£o TDAH</span><br>Aluno fictÃ­cio, 10 anos, TDAH. Adaptar atividade sobre "Tipos de Solo" (4Âº ano). Dividir em blocos de 3 linhas, marcadores visuais, pausa ativa no meio, atividade manual, tempo de 20min.</div>
+<div class="prompt-box"><span class="prompt-label">3 NÃ­veis</span><br>Mesma atividade "InterpretaÃ§Ã£o de Texto" em 3 versÃµes para 4Âº ano:<br>A (BÃ¡sica): 5 linhas, resposta no texto<br>B (IntermediÃ¡ria): 10 linhas, interpretaÃ§Ã£o<br>C (AvanÃ§ada): 15 linhas, inferÃªncia<br>Mesmo tema para turma trabalhar junto.</div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>CapÃ­tulo 7 Â· InclusÃ£o</span><span>12 / 20</span></div>
+</div>
+<!-- SLIDE 13: RECURSOS VISUAIS -->
+<div class="slide" data-slide="13">
+<div class="bg-cover bg-grad-sky"><div class="dots"></div></div>
+<div class="slide-inner">
+<div class="badge badge-blue" style="margin-bottom:16px"><i data-lucide="image-plus" style="width:14px;height:14px"></i> CapÃ­tulo 8</div>
+<h2 class="title-lg" style="margin-bottom:20px">Recursos Visuais, Slides e MultimÃ­dia</h2>
+<div class="grid-2">
+<div>
+<p style="color:rgba(255,255,255,.75);font-size:.85rem;line-height:1.7;margin-bottom:16px">Alunos de hoje sÃ£o visuais. A IA faz o <strong class="hl-blue">trabalho pesado do design</strong> para vocÃª: slides, cartazes, imagens e vÃ­deos.</p>
+<div class="card" style="margin-bottom:12px;background:rgba(139,92,246,.15);border-color:rgba(139,92,246,.3)">
+<h4 style="color:#c4b5fd;font-weight:700;font-size:.8rem;margin-bottom:6px">âš¡ Genspark â€” Melhor para Slides</h4>
+<p style="color:rgba(255,255,255,.65);font-size:.73rem;line-height:1.6">Faz varredura em tempo real na web, cria "Sparkpages" com informaÃ§Ãµes confiÃ¡veis e gera slides profissionais citando fontes reais. Zero alucinaÃ§Ãµes.</p>
+</div>
+<div class="card" style="margin-bottom:12px;background:rgba(245,158,11,.15);border-color:rgba(245,158,11,.3)">
+<h4 style="color:#fcd34d;font-weight:700;font-size:.8rem;margin-bottom:6px">ðŸŒ Nano Banana â€” EdiÃ§Ã£o Conversacional</h4>
+<p style="color:rgba(255,255,255,.65);font-size:.73rem;line-height:1.6">Gere imagem no Gemini e depois peÃ§a: "coloque Ã³culos na crianÃ§a" ou "mude a camiseta para vermelho". Altera sÃ³ o detalhe, mantendo o resto.</p>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<a href="https://genspark.ai" target="_blank" class="link-btn" style="background:rgba(139,92,246,.3)">Genspark</a>
+<a href="https://canva.com/education" target="_blank" class="link-btn" style="background:rgba(236,72,153,.3)">Canva Education</a>
+<a href="https://gamma.app" target="_blank" class="link-btn" style="background:rgba(245,158,11,.3)">Gamma.app</a>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div class="prompt-box"><span class="prompt-label">Canva Education</span><br>1. Acesse canva.com/education (e-mail institucional = 100% grÃ¡tis Premium)<br>2. "Criar Design" â†’ "ApresentaÃ§Ã£o"<br>3. BotÃ£o "Design MÃ¡gico"<br>4. Digite: "ApresentaÃ§Ã£o lÃºdica sobre Sistema Solar para crianÃ§as de 8 anos"<br>5. Canva gera 10+ slides automÃ¡ticos!</div>
+<div class="prompt-box"><span class="prompt-label">Imagem Educativa</span><br>(No Bing Image Creator, Leonardo.ai ou Nano Banana)<br>Crie ilustraÃ§Ã£o infantil colorida, estilo cartoon, mostrando crianÃ§a de 8 anos com uniforme plantando muda de Ã¡rvore no jardim da escola. Sorrindo, com luvas de jardinagem.</div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>CapÃ­tulo 8 Â· MultimÃ­dia</span><span>13 / 20</span></div>
+</div>
+
+<!-- SLIDE 14: Ã‰TICA E LGPD -->
+<div class="slide" data-slide="14">
+<div class="bg-cover bg-grad-red"><div class="dots"></div></div>
+<div class="slide-inner">
+<div class="badge" style="background:rgba(239,68,68,.3);color:#fca5a5;border:1px solid rgba(239,68,68,.4);margin-bottom:16px"><i data-lucide="shield-alert" style="width:14px;height:14px"></i> CapÃ­tulo 9</div>
+<h2 class="title-lg" style="margin-bottom:20px">Ã‰tica, SeguranÃ§a Digital e LGPD</h2>
+<div class="grid-2">
+<div>
+<p style="color:rgba(255,255,255,.75);font-size:.85rem;line-height:1.7;margin-bottom:16px">Este capÃ­tulo Ã© <strong class="hl-red">obrigatÃ³rio</strong>. Usar IA na escola envolve dados de menores. A LGPD (Lei 13.709/2018) Ã© rigorosa.</p>
+<div class="card" style="background:rgba(239,68,68,.2);border-color:rgba(239,68,68,.4);margin-bottom:14px">
+<h4 style="color:#fca5a5;font-weight:700;font-size:.85rem;margin-bottom:10px">ðŸš« NUNCA digite na IA:</h4>
+<ul class="bullet-list">
+<li><span style="color:#f87171">âœ—</span> <span>Nomes completos de alunos reais</span></li>
+<li><span style="color:#f87171">âœ—</span> <span>CPF, RG ou qualquer documento</span></li>
+<li><span style="color:#f87171">âœ—</span> <span>Laudos mÃ©dicos com nome do aluno</span></li>
+<li><span style="color:#f87171">âœ—</span> <span>EndereÃ§os residenciais</span></li>
+<li><span style="color:#f87171">âœ—</span> <span>Fotos reais de alunos</span></li>
+</ul>
+</div>
+<div class="card" style="background:rgba(34,197,94,.15);border-color:rgba(34,197,94,.3)">
+<h4 style="color:#86efac;font-weight:700;font-size:.8rem;margin-bottom:6px">âœ… TÃ©cnica da AnonimizaÃ§Ã£o</h4>
+<p style="color:rgba(255,255,255,.65);font-size:.73rem">Substitua sempre por dados fictÃ­cios: "Um aluno fictÃ­cio de 10 anos com diagnÃ³stico de TEA" em vez de nomes reais.</p>
+</div>
+</div>
+<div>
+<table class="tbl" style="margin-bottom:16px">
+<thead><tr><th style="background:rgba(239,68,68,.3);color:#fca5a5">âŒ Errado (Dados Reais)</th><th style="background:rgba(34,197,94,.3);color:#86efac">âœ… Correto (Anonimizado)</th></tr></thead>
+<tbody>
+<tr><td>"O aluno Pedro Silva, laudo CID F84, Rua das Flores 123"</td><td>"Aluno fictÃ­cio de 10 anos com TEA"</td></tr>
+<tr><td>"A mÃ£e do JoÃ£o, Dona Maria, reclamou..."</td><td>"Um responsÃ¡vel reclamou sobre uma situaÃ§Ã£o..."</td></tr>
+<tr><td>"Escola Municipal JosÃ© de Alencar, 5ÂºB, 3 alunos com laudos"</td><td>"Escola pÃºblica, 5Âº ano, 3 alunos com necessidades especiais"</td></tr>
+</tbody>
+</table>
+<div class="card" style="background:rgba(245,158,11,.15);border-color:rgba(245,158,11,.3);margin-bottom:12px">
+<h4 style="color:#fcd34d;font-weight:700;font-size:.8rem;margin-bottom:6px">âš ï¸ AlucinaÃ§Ãµes</h4>
+<p style="color:rgba(255,255,255,.65);font-size:.73rem">A IA inventa fatos com total convicÃ§Ã£o. SEMPRE confira: datas histÃ³ricas, legislaÃ§Ã£o (site do MEC), informaÃ§Ãµes cientÃ­ficas (livros do PNLD).</p>
+</div>
+<div class="card" style="background:rgba(139,92,246,.15);border-color:rgba(139,92,246,.3)">
+<h4 style="color:#c4b5fd;font-weight:700;font-size:.8rem;margin-bottom:6px">ðŸ‘ï¸ ViÃ©s e Preconceito</h4>
+<p style="color:rgba(255,255,255,.65);font-size:.73rem">ExercÃ­cio: peÃ§a Ã  IA "Descreva um cientista" e "Descreva uma enfermeira". Analise estereÃ³tipos com os alunos!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>CapÃ­tulo 9 Â· Ã‰tica & LGPD</span><span>14 / 20</span></div>
+</div>
+
+<!-- SLIDE 15: CONTRATO DIGITAL -->
+<div class="slide" data-slide="15">
+<div class="bg-cover bg-grad-red"><div class="dots"></div></div>
+<div class="slide-inner">
+<div class="badge" style="background:rgba(239,68,68,.3);color:#fca5a5;border:1px solid rgba(239,68,68,.4);margin-bottom:16px"><i data-lucide="file-check" style="width:14px;height:14px"></i> CapÃ­tulo 9</div>
+<h2 class="title-lg" style="margin-bottom:20px">Ensinando Alunos a Usar IA com Responsabilidade</h2>
+<div class="grid-2">
+<div>
+<p style="color:rgba(255,255,255,.75);font-size:.85rem;line-height:1.7;margin-bottom:16px">Em vez de proibir, <strong class="hl-red">eduque</strong>. Crie um "Contrato Digital" com a turma definindo regras claras de uso responsÃ¡vel.</p>
+<div class="prompt-box"><span class="prompt-label">Contrato Digital</span><br>Crie "Acordo de Uso ResponsÃ¡vel de IA" para 8Âº e 9Âº ano:<br>1. Permitido: pesquisar, tirar dÃºvidas, ter ideias<br>2. Proibido: copiar respostas, usar em provas<br>3. TransparÃªncia: informar ao professor<br>4. Senso crÃ­tico: verificar se Ã© verdade<br>5. EspaÃ§o para assinatura<br>Formato bonito com Ã­cones e checkboxes.</div>
+</div>
+<div>
+<div class="card" style="padding:24px">
+<h4 style="color:#fff;font-weight:700;font-size:.9rem;margin-bottom:16px;text-align:center">ðŸ“‹ Modelo de Contrato Digital</h4>
+<div style="background:rgba(0,0,0,.3);border-radius:12px;padding:16px">
+<p style="color:rgba(255,255,255,.5);font-size:.7rem;text-align:center;margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em">Acordo de Uso ResponsÃ¡vel de IA</p>
+<ul style="list-style:none;padding:0;color:rgba(255,255,255,.75);font-size:.75rem;line-height:2">
+<li>â˜ Posso usar IA para pesquisar e ter ideias</li>
+<li>â˜ NÃƒO vou copiar respostas como se fossem minhas</li>
+<li>â˜ NÃƒO vou usar IA durante provas</li>
+<li>â˜ Vou sempre informar o professor quando usei IA</li>
+<li>â˜ Vou verificar se as informaÃ§Ãµes da IA sÃ£o verdadeiras</li>
+<li>â˜ NÃƒO vou colocar dados pessoais na IA</li>
+</ul>
+<div style="border-top:1px solid rgba(255,255,255,.1);margin-top:12px;padding-top:10px;display:flex;justify-content:space-between;color:rgba(255,255,255,.4);font-size:.7rem">
+<span>Aluno: ____________________</span>
+<span>Data: ___/___/______</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>CapÃ­tulo 9 Â· Contrato Digital</span><span>15 / 20</span></div>
+</div>
+
+<!-- SLIDE 16: PROJETO FINAL -->
+<div class="slide" data-slide="16">
+<div class="bg-cover bg-grad-final"><div class="dots"></div></div>
+<div class="slide-inner">
+<div class="badge badge-purple" style="margin-bottom:16px"><i data-lucide="rocket" style="width:14px;height:14px"></i> CapÃ­tulo 10</div>
+<h2 class="title-lg" style="margin-bottom:20px">Oficina Final â€” Projeto de IntervenÃ§Ã£o</h2>
+<div class="grid-2">
+<div>
+<p style="color:rgba(255,255,255,.75);font-size:.85rem;line-height:1.7;margin-bottom:16px">Nas Ãºltimas 4 horas, coloque em prÃ¡tica tudo o que aprendeu. Identifique um <strong class="hl-purple">problema real</strong> da sua rotina e resolva com IA.</p>
+<table class="tbl">
+<thead><tr><th>Problema Real</th><th>SoluÃ§Ã£o com IA</th><th>Produto</th></tr></thead>
+<tbody>
+<tr><td>Demoro 2h em planos</td><td>ChatGPT + P.T.C.F.</td><td>5 planos prontos</td></tr>
+<tr><td>3 alunos com laudo</td><td>Prompts Cap. 7</td><td>Material adaptado</td></tr>
+<tr><td>ApresentaÃ§Ãµes feias</td><td>Canva + Gamma</td><td>Modelo padrÃ£o</td></tr>
+<tr><td>Fim de semana corrigindo</td><td>Rubrica + feedback IA</td><td>Rubrica automÃ¡tica</td></tr>
+<tr><td>Organizar Feira</td><td>IA para cronograma</td><td>Pacote completo</td></tr>
+</tbody>
+</table>
+</div>
+<div>
+<div class="card" style="margin-bottom:14px;background:rgba(139,92,246,.15);border-color:rgba(139,92,246,.3)">
+<h4 style="color:#c4b5fd;font-weight:700;font-size:.85rem;margin-bottom:10px">ðŸŽ¤ ApresentaÃ§Ã£o (5 min)</h4>
+<ol style="list-style:decimal;padding-left:20px;color:rgba(255,255,255,.75);font-size:.78rem;line-height:1.8">
+<li><strong>O Problema:</strong> Qual era a dor? (1 min)</li>
+<li><strong>O Processo:</strong> Quais ferramentas e prompts? Mostre prints. (2 min)</li>
+<li><strong>O Resultado:</strong> O que a IA entregou? Quanto tempo economizou? (1 min)</li>
+<li><strong>A ReflexÃ£o:</strong> O que funcionou? O que faria diferente? (1 min)</li>
+</ol>
+</div>
+<div class="card" style="background:rgba(99,102,241,.1);border-color:rgba(99,102,241,.3)">
+<h4 style="color:#a5b4fc;font-weight:700;font-size:.8rem;margin-bottom:10px">âœ… Checklist de Entrega</h4>
+<ul style="list-style:none;padding:0;color:rgba(255,255,255,.7);font-size:.75rem;line-height:1.9">
+<li>â˜ Escolhi meu tema/problema</li>
+<li>â˜ Usei pelo menos 2 ferramentas de IA</li>
+<li>â˜ Salvei os prompts utilizados</li>
+<li>â˜ Revisei e editei o material gerado</li>
+<li>â˜ Vinculei habilidade da BNCC</li>
+<li>â˜ Sem dados pessoais reais</li>
+<li>â˜ ApresentaÃ§Ã£o de 5 min pronta</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><span>CapÃ­tulo 10 Â· Projeto Final</span><span>16 / 20</span></div>
+</div>
+
+<!-- SLIDE 17: ENCERRAMENTO -->
+<div class="slide" data-slide="17">
+<div class="bg-cover bg-grad-purple"><div class="dots"></div></div>
+<div class="slide-inner" style="text-align:center;align-items:center">
+<div style="margin-bottom:20px"><i data-lucide="party-popper" style="width:64px;height:64px;color:#fcd34d"></i></div>
+<h2 class="title-xl glow-text" style="margin-bottom:16px">ParabÃ©ns!<br><span style="color:#c4b5fd">VocÃª Concluiu a FormaÃ§Ã£o.</span></h2>
+<p style="color:rgba(255,255,255,.7);font-size:1rem;max-width:700px;line-height:1.8;margin-bottom:24px">Ao longo de 40 horas, vocÃª aprendeu a usar a IA para organizar sua vida, planejar aulas, criar materiais, avaliar com justiÃ§a, incluir todos os alunos e proteger seus dados.</p>
+<div class="card" style="max-width:600px;text-align:center;background:rgba(139,92,246,.2);border-color:rgba(139,92,246,.4)">
+<p style="color:#e9d5ff;font-size:1.1rem;font-weight:600;line-height:1.6">"A tecnologia avanÃ§a, mas o fator humano do professor Ã© â€” e sempre serÃ¡ â€” <strong style="color:#fcd34d">insubstituÃ­vel</strong>."</p>
+</div>
+<p style="color:rgba(255,255,255,.5);font-size:.85rem;margin-top:20px">Agora, compartilhe esse conhecimento com seus colegas.<br><strong style="color:#c4b5fd">A educaÃ§Ã£o muda quando o professor muda.</strong></p>
+</div>
+<div class="slide-footer"><span>Encerramento</span><span>17 / 20</span></div>
+</div>
+
+</div><!-- /deck -->
+
+<!-- CONTROLS -->
+<div class="controls">
+<button class="ctrl-btn" id="btn-prev" title="Anterior (â†)"><i data-lucide="chevron-left" style="width:20px;height:20px"></i></button>
+<span class="slide-num" id="slide-num">1 / 17</span>
+<button class="ctrl-btn" id="btn-next" title="PrÃ³ximo (â†’ ou EspaÃ§o)"><i data-lucide="chevron-right" style="width:20px;height:20px"></i></button>
+<div style="width:1px;height:24px;background:rgba(255,255,255,.15);margin:0 4px"></div>
+<button class="ctrl-btn" id="btn-fs" title="Tela Cheia (F)"><i data-lucide="maximize" style="width:18px;height:18px"></i></button>
+<button class="ctrl-btn" id="btn-grid" title="VisÃ£o Geral (G)"><i data-lucide="layout-grid" style="width:18px;height:18px"></i></button>
+</div>
+
+<!-- GRID OVERVIEW -->
+<div id="grid-overlay" style="display:none;position:fixed;inset:0;background:rgba(10,10,26,.97);z-index:998;overflow-y:auto;padding:40px">
+<h3 style="color:#fff;font-family:'Quicksand';font-size:1.5rem;text-align:center;margin-bottom:24px">VisÃ£o Geral dos Slides</h3>
+<div id="grid-container" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1200px;margin:0 auto"></div>
+</div>
+
+<script>
+lucide.createIcons();
+
+const slides = document.querySelectorAll('.slide');
+const totalSlides = slides.length;
+let current = 0;
+
+function goTo(n) {
+  if (n < 0 || n >= totalSlides) return;
+  slides[current].classList.remove('active');
+  current = n;
+  slides[current].classList.add('active');
+  document.getElementById('slide-num').textContent = (current + 1) + ' / ' + totalSlides;
+  document.getElementById('progress').style.width = ((current + 1) / totalSlides * 100) + '%';
+  // Update footer slide numbers
+  slides.forEach((s, i) => {
+    const footer = s.querySelector('.slide-footer');
+    if (footer) {
+      const spans = footer.querySelectorAll('span');
+      if (spans.length > 1) spans[1].textContent = (i + 1) + ' / ' + totalSlides;
+    }
+  });
+}
+
+function next() { goTo(current + 1); }
+function prev() { goTo(current - 1); }
+
+document.getElementById('btn-next').addEventListener('click', next);
+document.getElementById('btn-prev').addEventListener('click', prev);
+
+document.addEventListener('keydown', e => {
+  if (document.getElementById('grid-overlay').style.display !== 'none') {
+    if (e.key === 'Escape' || e.key.toLowerCase() === 'g') toggleGrid();
+    return;
+  }
+  switch(e.key) {
+    case 'ArrowRight': case ' ': case 'Enter': case 'PageDown': e.preventDefault(); next(); break;
+    case 'ArrowLeft': case 'Backspace': case 'PageUp': e.preventDefault(); prev(); break;
+    case 'Home': e.preventDefault(); goTo(0); break;
+    case 'End': e.preventDefault(); goTo(totalSlides - 1); break;
+    case 'f': case 'F': toggleFS(); break;
+    case 'g': case 'G': toggleGrid(); break;
+    case 'Escape': if (document.fullscreenElement) document.exitFullscreen(); break;
+  }
+});
+
+// Touch support
+let touchStartX = 0;
+document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+document.addEventListener('touchend', e => {
+  const diff = e.changedTouches[0].screenX - touchStartX;
+  if (Math.abs(diff) > 60) { diff < 0 ? next() : prev(); }
+});
+
+// Fullscreen
+function toggleFS() {
+  if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(()=>{});
+  else document.exitFullscreen();
+}
+document.getElementById('btn-fs').addEventListener('click', toggleFS);
+document.addEventListener('fullscreenchange', () => {
+  const icon = document.querySelector('#btn-fs i');
+  icon.setAttribute('data-lucide', document.fullscreenElement ? 'minimize' : 'maximize');
+  lucide.createIcons();
+});
+
+// Grid overview
+function toggleGrid() {
+  const overlay = document.getElementById('grid-overlay');
+  if (overlay.style.display === 'none') {
+    const container = document.getElementById('grid-container');
+    container.innerHTML = '';
+    slides.forEach((s, i) => {
+      const thumb = document.createElement('div');
+      thumb.style.cssText = 'cursor:pointer;border-radius:12px;overflow:hidden;border:2px solid ' + (i === current ? '#6366f1' : 'rgba(255,255,255,.1)') + ';transition:all .2s;aspect-ratio:16/9;position:relative;background:#1e293b';
+      thumb.innerHTML = '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:12px;text-align:center"><span style="color:rgba(255,255,255,.4);font-size:.65rem;margin-bottom:4px">Slide ' + (i+1) + '</span><span style="color:#fff;font-size:.75rem;font-weight:600">' + (s.querySelector('.title-lg,.title-xl')?.textContent?.substring(0,40) || 'Slide ' + (i+1)) + '</span></div>';
+      thumb.addEventListener('click', () => { goTo(i); toggleGrid(); });
+      thumb.addEventListener('mouseenter', () => { thumb.style.borderColor = '#6366f1'; thumb.style.transform = 'scale(1.03)'; });
+      thumb.addEventListener('mouseleave', () => { thumb.style.borderColor = i === current ? '#6366f1' : 'rgba(255,255,255,.1)'; thumb.style.transform = 'scale(1)'; });
+      container.appendChild(thumb);
+    });
+    overlay.style.display = 'block';
+  } else {
+    overlay.style.display = 'none';
+  }
+}
+document.getElementById('btn-grid').addEventListener('click', toggleGrid);
+
+// Initialize
+goTo(0);
+</script>
+</body>
+</html>

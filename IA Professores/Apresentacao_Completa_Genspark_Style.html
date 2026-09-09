@@ -1,0 +1,2013 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IA para Educadores - Apresentação Completa (72 Slides Didáticos)</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:#0f172a;font-family:'Nunito Sans',sans-serif}
+body{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.deck-outer{display:flex;align-items:center;justify-content:center;width:100vw;height:calc(100vh - 62px);margin-top:4px}
+.deck-wrapper{position:relative;width:1280px;height:720px;flex-shrink:0;transform-origin:center center}
+.slide{position:absolute;inset:0;display:none;background:#F8FAFC;overflow:hidden}
+.slide.active{display:block}
+.progress-bar{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,#2563EB,#10B981,#F59E0B,#8B5CF6);z-index:9999;transition:width .3s ease;border-radius:0 2px 2px 0}
+.controls{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;background:rgba(15,23,42,.93);backdrop-filter:blur(14px);padding:8px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.12);z-index:9999;user-select:none}
+.ctrl{width:36px;height:36px;border-radius:50%;border:none;background:rgba(255,255,255,.09);color:#fff;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.ctrl:hover{background:#2563EB}
+.slide-counter{color:rgba(255,255,255,.65);font-size:13px;font-weight:700;padding:0 10px;min-width:70px;text-align:center}
+.sep{width:1px;height:24px;background:rgba(255,255,255,.15);margin:0 4px}
+#thumb-overlay{display:none;position:fixed;inset:0;background:rgba(15,23,42,.97);z-index:9998;overflow-y:auto;padding:32px 24px}
+#thumb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;max-width:1200px;margin:0 auto}
+.thumb{cursor:pointer;border-radius:10px;border:2px solid rgba(255,255,255,.1);transition:all .2s;background:#1e293b;padding:12px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.thumb:hover,.thumb.current{border-color:#2563EB;transform:translateY(-2px);box-shadow:0 8px 20px rgba(37,99,235,.3)}
+.thumb-num{font-size:16px;font-weight:800;color:#2563EB;font-family:'Montserrat',sans-serif;line-height:1}
+.thumb-title{font-size:11px;color:rgba(255,255,255,.7);font-weight:600;line-height:1.3}
+#thumb-close{display:block;text-align:center;color:rgba(255,255,255,.5);font-size:14px;margin-bottom:20px;cursor:pointer;letter-spacing:.5px}
+#thumb-close:hover{color:#fff}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:800;letter-spacing:0.5px}
+.card{background:#fff;border-radius:16px;border:1px solid #E2E8F0;box-shadow:0 6px 20px rgba(0,0,0,.03);padding:22px}
+
+@media print {
+  @page { size: 1280px 720px; margin: 0; }
+  html, body {
+    width: 1280px !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: #fff !important;
+  }
+  .progress-bar, .controls, #thumb-overlay {
+    display: none !important;
+  }
+  .deck-outer {
+    display: block !important;
+    width: 1280px !important;
+    height: auto !important;
+    margin: 0 !important;
+  }
+  .deck-wrapper {
+    position: static !important;
+    width: 1280px !important;
+    height: auto !important;
+    transform: none !important;
+  }
+  .slide {
+    position: relative !important;
+    display: block !important;
+    width: 1280px !important;
+    height: 720px !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    overflow: hidden !important;
+    background: #F8FAFC !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="pb"></div>
+<div class="deck-outer"><div class="deck-wrapper" id="deck">
+
+<!-- SLIDE 1: Inteligência Artificial para Educadores -->
+<div class="slide active" data-n="1" data-title="Inteligência Artificial para Educadores">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#2563EB"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#2563EB;color:#fff">CURSO COMPLETO · 40 HORAS</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Inteligência Artificial para Educadores</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:flex;gap:30px;height:100%;align-items:center">
+  <div style="flex:1.2">
+    <div style="display:inline-block;background:#10B981;color:#fff;padding:6px 14px;border-radius:20px;font-weight:800;font-size:13px;margin-bottom:14px"><i class="fas fa-heart" style="margin-right:8px"></i>FORMAÇÃO SEM JARGÕES · REDE PÚBLICA</div>
+    <h1 style="font-family:'Montserrat';font-size:46px;color:#1E293B;line-height:1.15;font-weight:800;margin-bottom:12px">Inteligência Artificial<br/><span style="color:#2563EB">para Educadores</span></h1>
+    <p style="font-size:19px;color:#334155;font-weight:700;line-height:1.4;margin-bottom:8px">Do caos do planejamento ao fim de semana livre.</p>
+    <p style="font-size:14px;color:#64748B;line-height:1.6;margin-bottom:20px">Um curso acolhedor e direto ao ponto. Aprenda a automatizar tarefas repetitivas, encantar seus alunos e adaptar materiais inclusivos com ferramentas 100% gratuitas.</p>
+    <div style="display:flex;gap:12px">
+      <div style="background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:8px 14px;display:flex;align-items:center;gap:8px;font-weight:800;font-size:12px;color:#1E293B"><i class="fas fa-smile" style="color:#10B981"></i>Linguagem Fácil</div>
+      <div style="background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:8px 14px;display:flex;align-items:center;gap:8px;font-weight:800;font-size:12px;color:#1E293B"><i class="fas fa-hand-holding-usd" style="color:#2563EB"></i>Zero Custo</div>
+      <div style="background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:8px 14px;display:flex;align-items:center;gap:8px;font-weight:800;font-size:12px;color:#1E293B"><i class="fas fa-universal-access" style="color:#8B5CF6"></i>Inclusão Real</div>
+    </div>
+  </div>
+  <div style="flex:1;background:#fff;border-radius:20px;border:1px solid #E2E8F0;padding:22px;box-shadow:0 15px 35px rgba(15,23,42,.06)">
+    <p style="font-family:'Montserrat';font-size:16px;font-weight:800;color:#1E293B;margin-bottom:14px"><i class="fas fa-calendar-alt" style="color:#2563EB;margin-right:8px"></i>Nossa Jornada em 4 Encontros de 2h:</p>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="background:#EFF6FF;border-left:4px solid #2563EB;padding:8px 12px;border-radius:0 8px 8px 0"><p style="font-family:'Montserrat';font-size:12px;font-weight:800;color:#1E40AF;margin:0">Encontro 1: Primeiros Passos e a Fórmula P.T.C.F.</p><p style="font-size:11px;color:#475569;margin:0">Desmistificação, ferramentas gratuitas e comandos eficazes.</p></div>
+      <div style="background:#ECFDF5;border-left:4px solid #10B981;padding:8px 12px;border-radius:0 8px 8px 0"><p style="font-family:'Montserrat';font-size:12px;font-weight:800;color:#065F46;margin:0">Encontro 2: Domínio da Rotina, BNCC e Leitura de PDFs</p><p style="font-size:11px;color:#475569;margin:0">Pareceres, atas, sequências BNCC e NotebookLM.</p></div>
+      <div style="background:#FFFBEB;border-left:4px solid #F59E0B;padding:8px 12px;border-radius:0 8px 8px 0"><p style="font-family:'Montserrat';font-size:12px;font-weight:800;color:#92400E;margin:0">Encontro 3: Materiais Dinâmicos, Inclusão (DUA) e Canva</p><p style="font-size:11px;color:#475569;margin:0">Canva Pro Grátis, Diffit em 3 níveis e adaptações TEA/TDAH.</p></div>
+      <div style="background:#F5F3FF;border-left:4px solid #8B5CF6;padding:8px 12px;border-radius:0 8px 8px 0"><p style="font-family:'Montserrat';font-size:12px;font-weight:800;color:#5B21B6;margin:0">Encontro 4: Avaliações Inteligentes, Ética e Projeto Final</p><p style="font-size:11px;color:#475569;margin:0">Provas reflexivas, rubricas em 1 min, LGPD e banca final.</p></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 2: O Mapa Completo da Nossa Jornada -->
+<div class="slide" data-n="2" data-title="O Mapa Completo da Nossa Jornada">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#2563EB"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#2563EB;color:#fff">CURSO COMPLETO · VISÃO GERAL</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">O Mapa Completo da Nossa Jornada</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;height:100%">
+  <div class="card" style="border-top:5px solid #2563EB;display:flex;flex-direction:column;justify-content:space-between">
+    <div>
+      <span class="badge" style="background:#DBEAFE;color:#1D4ED8;margin-bottom:8px">ENCONTRO 1 · 2H</span>
+      <h3 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#1E293B;margin-bottom:6px">Desmistificando a IA</h3>
+      <p style="font-size:12px;color:#475569;line-height:1.4;margin-bottom:8px">Sem termos difíceis. Entenda como ela funciona e fale a língua da máquina.</p>
+      <ul style="font-size:11px;color:#64748B;line-height:1.5;padding-left:14px">
+        <li>A metáfora do WhatsApp</li>
+        <li>Vitrine de IAs Gratuitas</li>
+        <li>Fórmula P.T.C.F. passo a passo</li>
+      </ul>
+    </div>
+    <div style="background:#EFF6FF;padding:8px;border-radius:8px;font-size:11px;font-weight:700;color:#1E40AF;text-align:center">Oficina 1: Primeiro Prompt</div>
+  </div>
+  <div class="card" style="border-top:5px solid #10B981;display:flex;flex-direction:column;justify-content:space-between">
+    <div>
+      <span class="badge" style="background:#D1FAE5;color:#047857;margin-bottom:8px">ENCONTRO 2 · 2H</span>
+      <h3 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#1E293B;margin-bottom:6px">Rotina, BNCC e PDFs</h3>
+      <p style="font-size:12px;color:#475569;line-height:1.4;margin-bottom:8px">Liberando seu fim de semana e lendo documentos oficiais sem cansaço.</p>
+      <ul style="font-size:11px;color:#64748B;line-height:1.5;padding-left:14px">
+        <li>Pareceres descritivos em 3 min</li>
+        <li>Planos alinhados à BNCC</li>
+        <li>NotebookLM (alucinação zero)</li>
+      </ul>
+    </div>
+    <div style="background:#ECFDF5;padding:8px;border-radius:8px;font-size:11px;font-weight:700;color:#065F46;text-align:center">Oficina 2: Lendo a BNCC</div>
+  </div>
+  <div class="card" style="border-top:5px solid #F59E0B;display:flex;flex-direction:column;justify-content:space-between">
+    <div>
+      <span class="badge" style="background:#FEF3C7;color:#B45309;margin-bottom:8px">ENCONTRO 3 · 2H</span>
+      <h3 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#1E293B;margin-bottom:6px">Materiais e Inclusão</h3>
+      <p style="font-size:12px;color:#475569;line-height:1.4;margin-bottom:8px">Materiais encantadores e adaptações neurocientíficas que funcionam.</p>
+      <ul style="font-size:11px;color:#64748B;line-height:1.5;padding-left:14px">
+        <li>Canva Pro Grátis vitalício</li>
+        <li>Diffit em 3 níveis simultâneos</li>
+        <li>Adaptações TEA, TDAH e Dislexia</li>
+      </ul>
+    </div>
+    <div style="background:#FFFBEB;padding:8px;border-radius:8px;font-size:11px;font-weight:700;color:#92400E;text-align:center">Oficina 3: Ficha Inclusiva</div>
+  </div>
+  <div class="card" style="border-top:5px solid #8B5CF6;display:flex;flex-direction:column;justify-content:space-between">
+    <div>
+      <span class="badge" style="background:#EDE9FE;color:#6D28D9;margin-bottom:8px">ENCONTRO 4 · 2H</span>
+      <h3 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#1E293B;margin-bottom:6px">Avaliações e Projeto</h3>
+      <p style="font-size:12px;color:#475569;line-height:1.4;margin-bottom:8px">Provas que ensinam, ética, segurança LGPD e seu projeto pronto.</p>
+      <ul style="font-size:11px;color:#64748B;line-height:1.5;padding-left:14px">
+        <li>Provas inéditas no DeepSeek R1</li>
+        <li>Rubricas de correção rápida</li>
+        <li>Apresentação dos Projetos (40h)</li>
+      </ul>
+    </div>
+    <div style="background:#F5F3FF;padding:8px;border-radius:8px;font-size:11px;font-weight:700;color:#5B21B6;text-align:center">Mostra & Certificação</div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 3: O Sentimento do Educador: Sobrecarga vs. Esperança -->
+<div class="slide" data-n="3" data-title="O Sentimento do Educador: Sobrecarga vs. Esperança">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#2563EB"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#2563EB;color:#fff">ENCONTRO 1 · ACOLHIMENTO</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">O Sentimento do Educador: Sobrecarga vs. Esperança</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;height:100%;align-items:center">
+  <div class="card" style="border-left:6px solid #EF4444;background:#FFF5F5">
+    <h3 style="font-family:'Montserrat';font-size:18px;font-weight:800;color:#B91C1C;margin-bottom:12px"><i class="fas fa-exclamation-circle" style="margin-right:8px"></i>O Cenário Atual que Cansa:</h3>
+    <ul style="font-size:13px;color:#475569;line-height:1.8;padding-left:18px">
+      <li>Pilhas de relatórios e pareceres acumulados no final de semana.</li>
+      <li>Alunos desatentos competindo com telas de smartphones.</li>
+      <li>Exigência legal de inclusão sem tempo de planejar materiais sob medida.</li>
+      <li>Sensação de que o tempo com a família está sendo devorado pela burocracia.</li>
+    </ul>
+  </div>
+  <div class="card" style="border-left:6px solid #10B981;background:#F0FDF4">
+    <h3 style="font-family:'Montserrat';font-size:18px;font-weight:800;color:#047857;margin-bottom:12px"><i class="fas fa-seedling" style="margin-right:8px"></i>A Promessa Real Deste Curso:</h3>
+    <ul style="font-size:13px;color:#334155;line-height:1.8;padding-left:18px">
+      <li><strong>A IA assume a digitação braçal e repetitiva.</strong></li>
+      <li>Você ganha de 3 a 5 horas livres todas as semanas.</li>
+      <li>Você retoma o recurso mais valioso da educação: <strong>tempo para olhar nos olhos dos seus alunos</strong>.</li>
+      <li>Sem gastar nenhum centavo do seu salário.</li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 4: O Que é IA? A Metáfora do Teclado do WhatsApp -->
+<div class="slide" data-n="4" data-title="O Que é IA? A Metáfora do Teclado do WhatsApp">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#2563EB"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#2563EB;color:#fff">ENCONTRO 1 · FUNDAMENTOS</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">O Que é IA? A Metáfora do Teclado do WhatsApp</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1.1fr 1fr;gap:24px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:18px;font-weight:800;color:#1E293B;margin-bottom:12px"><i class="fab fa-whatsapp" style="color:#25D366;margin-right:8px"></i>Você Já Usa Inteligência Artificial Todos os Dias</h3>
+    <p style="font-size:14px;color:#334155;line-height:1.6;margin-bottom:14px">Quando você abre o WhatsApp e digita <em>'Bom...'</em>, o que o teclado sugere?</p>
+    <div style="background:#EFF6FF;border-radius:12px;padding:14px;font-family:'Montserrat';font-weight:800;color:#1E40AF;font-size:18px;text-align:center;margin-bottom:14px">"dia"</div>
+    <p style="font-size:13px;color:#64748B;line-height:1.6">O celular não 'pensa' e não tem consciência. Ele apenas aprendeu que, depois de 'Bom', a palavra mais provável que as pessoas usam é 'dia'.</p>
+  </div>
+  <div class="card" style="background:#F8FAFC;border:2px dashed #CBD5E1">
+    <h3 style="font-family:'Montserrat';font-size:16px;font-weight:800;color:#2563EB;margin-bottom:10px"><i class="fas fa-robot" style="margin-right:8px"></i>A IA Generativa Multiplica Isso por Bilhões:</h3>
+    <p style="font-size:13px;color:#334155;line-height:1.6;margin-bottom:12px">Modelos como DeepSeek, Gemini e ChatGPT leram livros didáticos, artigos e planos de aula de milhares de professores.</p>
+    <p style="font-size:13px;color:#475569;line-height:1.6">Quando você pede um plano de aula, ela combina esses padrões e <strong>constrói um texto novo, parágrafo por parágrafo</strong>, em 15 segundos.</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 5: O Que são LLMs? O Estudante na Biblioteca -->
+<div class="slide" data-n="5" data-title="O Que são LLMs? O Estudante na Biblioteca">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#2563EB"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#2563EB;color:#fff">ENCONTRO 1 · CONCEITOS</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">O Que são LLMs? O Estudante na Biblioteca</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card" style="border-top:6px solid #2563EB">
+    <div style="font-size:32px;color:#2563EB;margin-bottom:10px"><i class="fas fa-book-reader"></i></div>
+    <h3 style="font-family:'Montserrat';font-size:18px;font-weight:800;color:#1E293B;margin-bottom:8px">O LLM é o Estudante Incansável</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Ele leu todos os livros, artigos e enciclopédias da biblioteca digital. Tem uma memória enciclopédica gigantesca e escreve com rapidez impressionante.</p>
+    <p style="font-size:12px;color:#2563EB;font-weight:700">Mas ele nunca entrou em uma sala de aula real!</p>
+  </div>
+  <div class="card" style="border-top:6px solid #10B981">
+    <div style="font-size:32px;color:#10B981;margin-bottom:10px"><i class="fas fa-chalkboard-teacher"></i></div>
+    <h3 style="font-family:'Montserrat';font-size:18px;font-weight:800;color:#1E293B;margin-bottom:8px">Você é a Sabedoria Pedagógica</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Você conhece a realidade da escola pública, sabe o calor da sala, o olhar de dúvida do estudante e os conflitos do intervalo.</p>
+    <p style="font-size:12px;color:#047857;font-weight:700">A IA entra com a velocidade de digitação; você entra com o coração e a curadoria!</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 6: O Fim do Mito: Você NÃO Precisa Pagar Assinatura -->
+<div class="slide" data-n="6" data-title="O Fim do Mito: Você NÃO Precisa Pagar Assinatura">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#2563EB"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#2563EB;color:#fff">ENCONTRO 1 · GRATUIDADE</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">O Fim do Mito: Você NÃO Precisa Pagar Assinatura</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:flex;flex-direction:column;gap:14px;height:100%">
+  <div class="card" style="background:#ECFDF5;border:1px solid #A7F3D0;display:flex;align-items:center;gap:16px;padding:16px">
+    <div style="width:48px;height:48px;border-radius:50%;background:#10B981;color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0"><i class="fas fa-check"></i></div>
+    <div>
+      <h4 style="font-family:'Montserrat';font-size:16px;font-weight:800;color:#065F46;margin:0">Compromisso Antipagamento: R$ 0,00</h4>
+      <p style="font-size:13px;color:#047857;margin:0">Nenhuma ferramenta ensinada nesta formação exigirá cartão de crédito ou assinatura paga para o seu trabalho escolar.</p>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;flex:1">
+    <div class="card" style="text-align:center;padding:16px">
+      <p style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#1E293B;margin-bottom:6px">DeepSeek (R1/V3)</p>
+      <p style="font-size:12px;color:#64748B;line-height:1.4">Raciocínio lógico e matemática avançada gratuitos sem plano pago.</p>
+    </div>
+    <div class="card" style="text-align:center;padding:16px">
+      <p style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#1E293B;margin-bottom:6px">Google NotebookLM</p>
+      <p style="font-size:12px;color:#64748B;line-height:1.4">Análise completa da BNCC e livros em PDF com sua conta Google comum.</p>
+    </div>
+    <div class="card" style="text-align:center;padding:16px">
+      <p style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#1E293B;margin-bottom:6px">Canva para Educação</p>
+      <p style="font-size:12px;color:#64748B;line-height:1.4">Versão Pro 100% gratuita para professores da rede pública com holerite.</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 7: Vitrine de Ferramentas Gratuitas e Seguras -->
+<div class="slide" data-n="7" data-title="Vitrine de Ferramentas Gratuitas e Seguras">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#2563EB"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#2563EB;color:#fff">ENCONTRO 1 · FERRAMENTAS</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Vitrine de Ferramentas Gratuitas e Seguras</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;height:100%">
+  <div class="card" style="display:flex;gap:12px;align-items:flex-start">
+    <div style="width:36px;height:36px;border-radius:8px;background:#EFF6FF;color:#2563EB;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0"><i class="fas fa-brain"></i></div>
+    <div>
+      <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin:0 0 2px">DeepSeek (chat.deepseek.com)</h4>
+      <p style="font-size:12px;color:#475569;margin:0">O melhor para matemática, ciências exatas, lógica e provas inéditas com modo DeepThink.</p>
+    </div>
+  </div>
+  <div class="card" style="display:flex;gap:12px;align-items:flex-start">
+    <div style="width:36px;height:36px;border-radius:8px;background:#ECFDF5;color:#10B981;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0"><i class="fas fa-file-alt"></i></div>
+    <div>
+      <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin:0 0 2px">Z.ai / GLM-4 (z.ai)</h4>
+      <p style="font-size:12px;color:#475569;margin:0">Janela de texto gigante: ótimo para redações longas, projetos escolares e pareceres.</p>
+    </div>
+  </div>
+  <div class="card" style="display:flex;gap:12px;align-items:flex-start">
+    <div style="width:36px;height:36px;border-radius:8px;background:#FFFBEB;color:#D97706;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0"><i class="fas fa-globe"></i></div>
+    <div>
+      <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin:0 0 2px">Google Gemini (gemini.google.com)</h4>
+      <p style="font-size:12px;color:#475569;margin:0">Acesso em tempo real à web e integração direta com Google Docs e Drive.</p>
+    </div>
+  </div>
+  <div class="card" style="display:flex;gap:12px;align-items:flex-start">
+    <div style="width:36px;height:36px;border-radius:8px;background:#F5F3FF;color:#8B5CF6;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0"><i class="fas fa-user-secret"></i></div>
+    <div>
+      <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin:0 0 2px">DuckDuckGo AI (duck.ai)</h4>
+      <p style="font-size:12px;color:#475569;margin:0">Totalmente anônimo, sem cadastro nem e-mail. Perfeito para laboratórios de escolas públicas.</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 8: O Segredo das Quotas: Estratégias sem Bloqueios -->
+<div class="slide" data-n="8" data-title="O Segredo das Quotas: Estratégias sem Bloqueios">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#2563EB"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#2563EB;color:#fff">ENCONTRO 1 · LIMITES</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">O Segredo das Quotas: Estratégias sem Bloqueios</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px"><i class="fas fa-tachometer-alt" style="color:#2563EB;margin-right:8px"></i>Por Que Existem Limites?</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">As IAs gratuitas limitam o número de mensagens por hora para evitar congestionamento dos servidores nos horários de pico.</p>
+    <p style="font-size:13px;color:#334155;line-height:1.6">Se você enviar 15 comandos seguidos no Claude ou no DeepSeek em dia movimentado, ela pode pedir uma pausa de algumas horas.</p>
+  </div>
+  <div class="card" style="background:#EFF6FF;border:2px solid #BFDBFE">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E40AF;margin-bottom:10px"><i class="fas fa-ship" style="margin-right:8px"></i>A 'Regra dos Dois Barcos':</h3>
+    <p style="font-size:13px;color:#1E3A8A;line-height:1.6;margin-bottom:10px">Nunca dependa de uma única janela aberta no navegador. Tenha duas opções salvas nos seus favoritos (ex: DeepSeek e Google Gemini).</p>
+    <p style="font-size:13px;color:#1E40AF;font-weight:700">Se uma pausar, copie seu comando e cole na outra. Você continua trabalhando sem pagar nada!</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 9: A Metáfora da Alucinação: O Estagiário Esforçado -->
+<div class="slide" data-n="9" data-title="A Metáfora da Alucinação: O Estagiário Esforçado">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#2563EB"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#2563EB;color:#fff">ENCONTRO 1 · SEGURANÇA</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">A Metáfora da Alucinação: O Estagiário Esforçado</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1.2fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card" style="border-left:6px solid #F59E0B">
+    <h3 style="font-family:'Montserrat';font-size:18px;font-weight:800;color:#B45309;margin-bottom:12px"><i class="fas fa-user-graduate" style="margin-right:8px"></i>O Que É a 'Alucinação'?</h3>
+    <p style="font-size:14px;color:#334155;line-height:1.6;margin-bottom:12px">É quando a IA inventa uma resposta com aparência de verdade, mas que não existe.</p>
+    <p style="font-size:13px;color:#475569;line-height:1.6">Pense num <strong>estagiário muito esforçado em uma prova oral</strong>: ele tem vergonha de dizer 'não sei', então inventa uma explicação com palavras bonitas e tom de certeza absoluta.</p>
+  </div>
+  <div class="card" style="background:#FFFBEB;border:1px solid #FDE68A">
+    <h4 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#92400E;margin-bottom:8px">A Regra de Ouro Docente:</h4>
+    <p style="font-size:13px;color:#78350F;line-height:1.6;margin-bottom:10px">Nunca copie datas históricas exatas, leis ou números sem uma conferida rápida.</p>
+    <p style="font-size:12px;color:#B45309;font-weight:700">A IA dá a estrutura e as ideias criativas; a validação final é sempre do professor!</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 10: Primeiro Acesso sem Medo: A Interface de Conversa -->
+<div class="slide" data-n="10" data-title="Primeiro Acesso sem Medo: A Interface de Conversa">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#2563EB"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#2563EB;color:#fff">ENCONTRO 1 · PRÁTICA</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Primeiro Acesso sem Medo: A Interface de Conversa</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;height:100%">
+  <div class="card" style="text-align:center;padding:18px">
+    <div style="width:40px;height:40px;background:#EFF6FF;color:#2563EB;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto 12px">1</div>
+    <h4 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#1E293B;margin-bottom:6px">Abra o Site</h4>
+    <p style="font-size:12px;color:#64748B;line-height:1.5">Acesse <strong>chat.deepseek.com</strong> ou <strong>gemini.google.com</strong> pelo navegador do celular ou computador.</p>
+  </div>
+  <div class="card" style="text-align:center;padding:18px">
+    <div style="width:40px;height:40px;background:#EFF6FF;color:#2563EB;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto 12px">2</div>
+    <h4 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#1E293B;margin-bottom:6px">Login Seguro</h4>
+    <p style="font-size:12px;color:#64748B;line-height:1.5">Clique em 'Entrar com Google'. Você entra com sua conta normal sem precisar criar senhas novas.</p>
+  </div>
+  <div class="card" style="text-align:center;padding:18px">
+    <div style="width:40px;height:40px;background:#EFF6FF;color:#2563EB;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto 12px">3</div>
+    <h4 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#1E293B;margin-bottom:6px">A Caixa Mágica</h4>
+    <p style="font-size:12px;color:#64748B;line-height:1.5">Na barra de mensagem na parte inferior, é onde você digita sua conversa. É simples como mandar um WhatsApp!</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 11: O Que é um Prompt? A Comanda de Trabalho -->
+<div class="slide" data-n="11" data-title="O Que é um Prompt? A Comanda de Trabalho">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#2563EB"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#2563EB;color:#fff">ENCONTRO 1 · PROMPTS</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">O Que é um Prompt? A Comanda de Trabalho</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px"><i class="fas fa-concierge-bell" style="color:#2563EB;margin-right:8px"></i>A Metáfora do Restaurante</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Se você entrar num restaurante e disser apenas <em>'Garçom, me traga comida'</em>, ele não saberá o que fazer.</p>
+    <p style="font-size:13px;color:#334155;line-height:1.6">Com a IA é igual: se você digitar apenas <em>'Faça uma prova de Ciências'</em>, ela entregará algo genérico e inútil.</p>
+  </div>
+  <div class="card" style="background:#0F172A;color:#fff">
+    <p style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#60A5FA;margin-bottom:8px">A Comanda Pedagógica Perfeita:</p>
+    <p style="font-size:12px;color:#CBD5E1;line-height:1.6">"Você precisa dizer o <strong>ano dos alunos</strong>, o <strong>assunto exato</strong>, os <strong>recursos que tem na sala</strong> e o <strong>formato</strong> que deseja receber."</p>
+    <div style="background:#1E293B;padding:10px;border-radius:8px;margin-top:10px;font-size:11px;color:#93C5FD;font-weight:700">Para isso existe a Fórmula P.T.C.F.!</div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 12: A Fórmula P.T.C.F.: Sua Receita de Sucesso -->
+<div class="slide" data-n="12" data-title="A Fórmula P.T.C.F.: Sua Receita de Sucesso">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#2563EB"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#2563EB;color:#fff">ENCONTRO 1 · FÓRMULA P.T.C.F.</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">A Fórmula P.T.C.F.: Sua Receita de Sucesso</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;height:100%">
+  <div class="card" style="border-top:6px solid #2563EB;text-align:center">
+    <div style="font-size:28px;font-weight:900;color:#2563EB;margin-bottom:4px">P</div>
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin-bottom:6px">Papel (Persona)</h4>
+    <p style="font-size:11px;color:#64748B;line-height:1.4">Diga quem a IA deve ser. Ex: 'Aja como professor experiente de alfabetização'.</p>
+  </div>
+  <div class="card" style="border-top:6px solid #10B981;text-align:center">
+    <div style="font-size:28px;font-weight:900;color:#10B981;margin-bottom:4px">T</div>
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin-bottom:6px">Tarefa</h4>
+    <p style="font-size:11px;color:#64748B;line-height:1.4">Use verbos de ação claros: 'Crie', 'Elabore', 'Reescreva', 'Resuma'.</p>
+  </div>
+  <div class="card" style="border-top:6px solid #F59E0B;text-align:center">
+    <div style="font-size:28px;font-weight:900;color:#F59E0B;margin-bottom:4px">C</div>
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin-bottom:6px">Contexto</h4>
+    <p style="font-size:11px;color:#64748B;line-height:1.4">Fale da sua escola: idade dos alunos, falta de projetor, interesses da turma.</p>
+  </div>
+  <div class="card" style="border-top:6px solid #8B5CF6;text-align:center">
+    <div style="font-size:28px;font-weight:900;color:#8B5CF6;margin-bottom:4px">F</div>
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin-bottom:6px">Formato</h4>
+    <p style="font-size:11px;color:#64748B;line-height:1.4">Diga como quer o texto: em tópicos, tabela de 3 colunas, parágrafo único.</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 13: P - Papel: Dando uma Identidade de Educador à IA -->
+<div class="slide" data-n="13" data-title="P - Papel: Dando uma Identidade de Educador à IA">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#2563EB"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#2563EB;color:#fff">ENCONTRO 1 · FÓRMULA P.T.C.F.</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">P - Papel: Dando uma Identidade de Educador à IA</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px">Por Que Definir o Papel?</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Se você não der um papel, a IA responde como um robô genérico ou como um cientista acadêmico cheio de termos difíceis.</p>
+    <p style="font-size:13px;color:#334155;line-height:1.6">Quando você diz <em>'Aja como professor de escola pública'</em>, o tom se torna acolhedor, prático e didático imediatamente!</p>
+  </div>
+  <div class="card" style="background:#EFF6FF;border:1px solid #BFDBFE">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#1E40AF;margin-bottom:8px">Exemplos de Papel para Testar:</p>
+    <ul style="font-size:12px;color:#1E3A8A;line-height:1.6;padding-left:16px">
+      <li>"Aja como uma professora de Educação Infantil com 20 anos de experiência..."</li>
+      <li>"Aja como um professor de Matemática especialista em alunos com aversão a números..."</li>
+      <li>"Aja como uma psicopedagoga institucional focada em acolhimento familiar..."</li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 14: T - Tarefa: Verbos Operacionais que Evitam Respostas Vagas -->
+<div class="slide" data-n="14" data-title="T - Tarefa: Verbos Operacionais que Evitam Respostas Vagas">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#2563EB"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#2563EB;color:#fff">ENCONTRO 1 · FÓRMULA P.T.C.F.</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">T - Tarefa: Verbos Operacionais que Evitam Respostas Vagas</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1.2fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px">O Que Você Quer Que Ela Faça?</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Evite pedidos vagos como <em>'fale sobre frações'</em> ou <em>'ajuda com história'</em>.</p>
+    <p style="font-size:13px;color:#047857;font-weight:700">Seja cirúrgico no objetivo pedagógico da comanda!</p>
+  </div>
+  <div class="card" style="background:#F8FAFC">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#1E293B;margin-bottom:8px">Banco de Verbos Práticos:</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;color:#334155">
+      <div style="background:#fff;padding:6px 10px;border-radius:6px;border:1px solid #E2E8F0"><strong>Crie</strong> uma sequência...</div>
+      <div style="background:#fff;padding:6px 10px;border-radius:6px;border:1px solid #E2E8F0"><strong>Reescreva</strong> em 3 tópicos...</div>
+      <div style="background:#fff;padding:6px 10px;border-radius:6px;border:1px solid #E2E8F0"><strong>Elabore</strong> 3 questões...</div>
+      <div style="background:#fff;padding:6px 10px;border-radius:6px;border:1px solid #E2E8F0"><strong>Compare</strong> em tabela...</div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 15: C - Contexto: Onde Mora a Realidade da Escola Pública -->
+<div class="slide" data-n="15" data-title="C - Contexto: Onde Mora a Realidade da Escola Pública">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#2563EB"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#2563EB;color:#fff">ENCONTRO 1 · FÓRMULA P.T.C.F.</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">C - Contexto: Onde Mora a Realidade da Escola Pública</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card" style="border-left:5px solid #F59E0B">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#92400E;margin-bottom:8px">O Contexto é o Filtro Mágico</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6">Sem contexto, a IA sugere que você use iPads de última geração ou impressora 3D. Quando você descreve sua escola real, ela sugere atividades com papel sulfite, garrafa PET e roda de conversa no pátio!</p>
+  </div>
+  <div class="card" style="background:#FFFBEB;border:1px solid #FDE68A">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#92400E;margin-bottom:6px">O Que Informar no Contexto:</p>
+    <ul style="font-size:12px;color:#78350F;line-height:1.6;padding-left:16px">
+      <li>Idade dos estudantes e ano escolar (ex: 4º ano, 9 anos).</li>
+      <li>Recursos reais disponíveis (lousa, sulfite, livros didáticos).</li>
+      <li>Tempo da aula (50 minutos).</li>
+      <li>Interesses da turma (futebol, games, música).</li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 16: F - Formato: Recebendo a Resposta Pronta para Uso -->
+<div class="slide" data-n="16" data-title="F - Formato: Recebendo a Resposta Pronta para Uso">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#2563EB"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#2563EB;color:#fff">ENCONTRO 1 · FÓRMULA P.T.C.F.</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">F - Formato: Recebendo a Resposta Pronta para Uso</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1.1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px">Evite Blocos de Texto Gigantescos</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Diga exatamente como você quer o texto diagramado na tela para economizar seu tempo de cópia.</p>
+    <p style="font-size:13px;color:#2563EB;font-weight:700">Se você precisa de uma tabela, peça uma tabela!</p>
+  </div>
+  <div class="card" style="background:#F8FAFC">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#1E293B;margin-bottom:8px">Formatos que Economizam Tempo:</p>
+    <ul style="font-size:12px;color:#475569;line-height:1.6;padding-left:16px">
+      <li>"Em formato de tabela dividida em Momento, Duração e Ação."</li>
+      <li>"Em 3 tópicos numerados com frases de no máximo 15 palavras."</li>
+      <li>"Em modelo de folha pronta para imprimir na copiadora da escola."</li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 17: Prompt Ruim vs. Prompt Bom: A Diferença na Prática -->
+<div class="slide" data-n="17" data-title="Prompt Ruim vs. Prompt Bom: A Diferença na Prática">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#2563EB"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#2563EB;color:#fff">ENCONTRO 1 · COMPARAÇÃO</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Prompt Ruim vs. Prompt Bom: A Diferença na Prática</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%">
+  <div class="card" style="border-left:6px solid #EF4444;background:#FFF5F5">
+    <h4 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#DC2626;margin-bottom:6px">❌ Prompt Ruim (Genérico):</h4>
+    <div style="background:#fff;padding:10px;border-radius:8px;font-family:'Courier New';font-size:12px;color:#7F1D1D;margin-bottom:10px;border:1px solid #FECACA">
+      "Me dê ideias de aula sobre o corpo humano."
+    </div>
+    <p style="font-size:12px;color:#991B1B"><strong>Resultado:</strong> Texto acadêmico longo, sem indicação de ano, sem saber se é para crianças ou jovens, impossível de aplicar de imediato.</p>
+  </div>
+  <div class="card" style="border-left:6px solid #10B981;background:#F0FDF4">
+    <h4 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#047857;margin-bottom:6px">✅ Prompt Bom (Fórmula P.T.C.F.):</h4>
+    <div style="background:#fff;padding:10px;border-radius:8px;font-family:'Courier New';font-size:11px;color:#064E3B;margin-bottom:10px;border:1px solid #A7F3D0">
+      "[P] Professor de Ciências do 4º ano. [T] Crie 1 dinâmica de 30 min sobre o coração e a circulação. [C] Alunos de 9 anos muito agitados; escola sem laboratório. [F] Divida em 3 passos práticos usando contagem de pulsação após pular corda."
+    </div>
+    <p style="font-size:12px;color:#065F46"><strong>Resultado:</strong> Dinâmica pronta, sem custo, lúdica e que prende a atenção da sala inteira!</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 18: Oficina Mão na Massa 1: Agora é Sua Vez! -->
+<div class="slide" data-n="18" data-title="Oficina Mão na Massa 1: Agora é Sua Vez!">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#2563EB"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#2563EB;color:#fff">ENCONTRO 1 · OFICINA PRÁTICA</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Oficina Mão na Massa 1: Agora é Sua Vez!</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;text-align:center">
+  <div style="max-width:820px">
+    <div style="width:64px;height:64px;background:#DBEAFE;color:#2563EB;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 16px"><i class="fas fa-keyboard"></i></div>
+    <h3 style="font-family:'Montserrat';font-size:28px;font-weight:800;color:#1E293B;margin-bottom:12px">Abra a IA no Seu Computador ou Celular</h3>
+    <p style="font-size:15px;color:#475569;line-height:1.6;margin-bottom:20px">Escolha um conteúdo real que você precisa ensinar na próxima semana e escreva seu primeiro comando usando os 4 passos da <strong>Fórmula P.T.C.F.</strong></p>
+    <div style="background:#fff;border:2px solid #E2E8F0;border-radius:16px;padding:18px;text-align:left;display:inline-block">
+      <p style="font-size:13px;color:#1E293B;margin-bottom:6px"><strong>Desafio dos 10 Minutos:</strong></p>
+      <p style="font-size:12px;color:#64748B">1. Defina o [P]apel da IA · 2. Diga a [T]arefa · 3. Conte o [C]ontexto da sua turma · 4. Peça o [F]ormato em tabela ou tópicos.</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 19: Encontro 2: Domínio da Rotina, BNCC e Análise de PDFs -->
+<div class="slide" data-n="19" data-title="Encontro 2: Domínio da Rotina, BNCC e Análise de PDFs">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#10B981"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#10B981;color:#fff">ENCONTRO 2 · ROTINA & BNCC</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Encontro 2: Domínio da Rotina, BNCC e Análise de PDFs</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:flex;align-items:center;justify-content:center;height:100%;text-align:center">
+  <div style="max-width:820px">
+    <div style="width:68px;height:68px;background:#D1FAE5;color:#10B981;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 16px"><i class="fas fa-file-invoice"></i></div>
+    <h2 style="font-family:'Montserrat';font-size:38px;color:#1E293B;font-weight:800;margin-bottom:12px">Liberando Seu Fim de Semana e Dominando Documentos</h2>
+    <p style="font-size:17px;color:#475569;line-height:1.6;margin-bottom:20px">Como automatizar pareceres descritivos, atas de conselho, sequências com a BNCC e fazer a IA ler PDFs pesados de 500 páginas com zero alucinação.</p>
+    <div style="display:inline-block;background:#ECFDF5;border:1px solid #A7F3D0;padding:8px 18px;border-radius:30px;font-weight:700;color:#065F46;font-size:13px">Encontro 2 · 2 Horas · Teoria, Demonstração e Prática</div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 20: O Cronograma Semanal Inteligente do Professor -->
+<div class="slide" data-n="20" data-title="O Cronograma Semanal Inteligente do Professor">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#10B981"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#10B981;color:#fff">ENCONTRO 2 · GESTÃO DO TEMPO</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">O Cronograma Semanal Inteligente do Professor</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1.1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px"><i class="fas fa-calendar-check" style="color:#10B981;margin-right:8px"></i>O Fim do Trabalho no Sábado</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Se você não colocar limites claros no planejamento, a rotina escolar engole suas noites de descanso.</p>
+    <p style="font-size:13px;color:#065F46;font-weight:700">Comandos bem estruturados reduzem o tempo de rascunho de horas para minutos!</p>
+  </div>
+  <div class="card" style="background:#F8FAFC">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#1E293B;margin-bottom:8px">Blocos Estratégicos na Semana:</p>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:12px">
+      <div style="background:#fff;padding:8px 12px;border-radius:8px;border-left:4px solid #10B981"><strong>Bloco 1 (45 min):</strong> Geração de ideias e sequências da semana com IA.</div>
+      <div style="background:#fff;padding:8px 12px;border-radius:8px;border-left:4px solid #2563EB"><strong>Bloco 2 (30 min):</strong> Rascunho de comunicados e respostas a famílias.</div>
+      <div style="background:#fff;padding:8px 12px;border-radius:8px;border-left:4px solid #F59E0B"><strong>Bloco 3 (45 min):</strong> Correção formativa e rubricas rápidas.</div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 21: E-mails e Comunicados Delicados para as Famílias -->
+<div class="slide" data-n="21" data-title="E-mails e Comunicados Delicados para as Famílias">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#10B981"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#10B981;color:#fff">ENCONTRO 2 · COMUNICAÇÃO</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">E-mails e Comunicados Delicados para as Famílias</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px">O Risco da Palavra Mal Colocada</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Quando estamos cansados no final da tarde, um bilhete escrito no susto pode soar agressivo e gerar revolta dos pais na direção.</p>
+    <p style="font-size:13px;color:#065F46;font-weight:700">A IA atua como um filtro empático de calma e acolhimento.</p>
+  </div>
+  <div class="card" style="background:#0F172A;color:#fff">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#6EE7B7;margin-bottom:6px">Comando Copie e Cole:</p>
+    <div style="background:#1E293B;padding:10px;border-radius:8px;font-family:'Courier New';font-size:11px;color:#E2E8F0;line-height:1.5">
+      "Escreva um bilhete acolhedor para a mãe do aluno Pedro (6º ano).<br/>
+      Pedro é participativo, mas tem conversado muito no fundo da sala e não entregou a última tarefa.<br/>
+      O tom deve ser de parceria carinhosa entre escola e família, sem tom punitivo."
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 22: O Pesadelo dos Pareceres Descritivos de Fim de Bimestre -->
+<div class="slide" data-n="22" data-title="O Pesadelo dos Pareceres Descritivos de Fim de Bimestre">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#10B981"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#10B981;color:#fff">ENCONTRO 2 · PARECERES</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">O Pesadelo dos Pareceres Descritivos de Fim de Bimestre</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card" style="border-left:6px solid #EF4444">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#DC2626;margin-bottom:10px">A Dor Real do Professor:</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Escrever 35 pareceres individuais na véspera da entrega do conselho. Cada texto exige palavras delicadas, vocabulário pedagógico e atenção para não soar repetitivo.</p>
+    <p style="font-size:12px;color:#B91C1C;font-weight:700">Resultado: finais de semana inteiros perdidos digitando em frente à tela.</p>
+  </div>
+  <div class="card" style="border-left:6px solid #10B981">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#047857;margin-bottom:10px">A Revolução com a IA:</h3>
+    <p style="font-size:13px;color:#334155;line-height:1.6;margin-bottom:10px">Você só anota 3 ou 4 frases soltas no seu caderno de observações. A IA transforma essas notas brutas em um parecer de 3 parágrafos impecável e sensível!</p>
+    <p style="font-size:12px;color:#047857;font-weight:700">Economia real de mais de 10 horas de digitação.</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 23: Pareceres Passo a Passo: De Notas Brutas ao Texto Final -->
+<div class="slide" data-n="23" data-title="Pareceres Passo a Passo: De Notas Brutas ao Texto Final">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#10B981"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#10B981;color:#fff">ENCONTRO 2 · PARECERES</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Pareceres Passo a Passo: De Notas Brutas ao Texto Final</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%">
+  <div class="card">
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin-bottom:8px">1. Suas Anotações Soltas (No Bloco de Notas):</h4>
+    <div style="background:#F1F5F9;padding:12px;border-radius:8px;font-family:'Courier New';font-size:12px;color:#334155;line-height:1.6">
+      - Sophia já lê frases curtas, mas troca b por d.<br/>
+      - Faz conta de cabeça, tem preguiça de registrar.<br/>
+      - Ajuda muito os colegas na roda.<br/>
+      - Distrai em atividades individuais.<br/>
+      - Carinhosa e sem faltas.
+    </div>
+  </div>
+  <div class="card" style="background:#0F172A;color:#fff">
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#6EE7B7;margin-bottom:8px">2. O Comando que Faz a Mágica:</h4>
+    <div style="background:#1E293B;padding:12px;border-radius:8px;font-family:'Courier New';font-size:11px;color:#E2E8F0;line-height:1.5">
+      "Aja como coordenadora pedagógica experiente.<br/>
+      Transforme minhas anotações soltas em um Parecer Descritivo oficial de 3 parágrafos.<br/>
+      Destaque primeiro as conquistas socioemocionais, aponte os avanços na alfabetização e sugira com carinho o estímulo ao registro escrito."
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 24: Atas de Reunião Pedagógica em 3 Minutos -->
+<div class="slide" data-n="24" data-title="Atas de Reunião Pedagógica em 3 Minutos">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#10B981"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#10B981;color:#fff">ENCONTRO 2 · GESTÃO ESCOLAR</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Atas de Reunião Pedagógica em 3 Minutos</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px">Ninguém Quer Ser o Secretário da Reunião</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Redigir atas formais com linguagem institucional e termos jurídicos adequados consome tempo precioso da coordenação e dos docentes.</p>
+    <p style="font-size:13px;color:#065F46;font-weight:700">Apenas liste os pontos discutidos em tópicos informais e a IA redige o documento oficial completo.</p>
+  </div>
+  <div class="card" style="background:#F8FAFC">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#1E293B;margin-bottom:6px">Tópicos Mínimos Necessários:</p>
+    <ul style="font-size:12px;color:#475569;line-height:1.6;padding-left:16px">
+      <li>Data, local, horário e membros presentes.</li>
+      <li>Objetivo principal e pauta da reunião.</li>
+      <li>Principais deliberações e combinados da equipe.</li>
+      <li>Prazos e responsáveis por cada ação decidida.</li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 25: A BNCC sem Desespero: Vinculando Códigos em Segundos -->
+<div class="slide" data-n="25" data-title="A BNCC sem Desespero: Vinculando Códigos em Segundos">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#10B981"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#10B981;color:#fff">ENCONTRO 2 · BNCC</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">A BNCC sem Desespero: Vinculando Códigos em Segundos</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px">Chega de Caçar Códigos em PDFs Imensos</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">A BNCC tem 600 páginas e centenas de códigos alfanuméricos. Você não precisa memorizar o que significa EF07CI04 ou EF15LP03.</p>
+    <p style="font-size:13px;color:#10B981;font-weight:700">Os modelos de IA já foram treinados com o documento oficial na íntegra!</p>
+  </div>
+  <div class="card" style="background:#ECFDF5;border:1px solid #A7F3D0">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#065F46;margin-bottom:8px">O Comando Mágico de Alinhamento:</p>
+    <div style="background:#fff;padding:12px;border-radius:8px;font-family:'Courier New';font-size:11px;color:#064E3B;line-height:1.5;border:1px solid #6EE7B7">
+      "Quero ensinar sobre o ciclo da água no 6º ano.<br/>
+      Qual é o código exato da habilidade da BNCC correspondente?<br/>
+      Copie a descrição oficial da habilidade e me dê uma sugestão de aula prática com garrafa PET."
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 26: Sequências Didáticas: Estruturando 3 Aulas em Continuidade -->
+<div class="slide" data-n="26" data-title="Sequências Didáticas: Estruturando 3 Aulas em Continuidade">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#10B981"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#10B981;color:#fff">ENCONTRO 2 · PLANEJAMENTO</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Sequências Didáticas: Estruturando 3 Aulas em Continuidade</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;height:100%">
+  <div class="card" style="border-top:6px solid #10B981;text-align:center">
+    <span class="badge" style="background:#D1FAE5;color:#047857;margin-bottom:8px">AULA 1</span>
+    <h4 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#1E293B;margin-bottom:6px">Sensibilização & Teoria</h4>
+    <p style="font-size:12px;color:#64748B;line-height:1.5">Conexão com a realidade do aluno, roda de conversa e levantamento prévio de dúvidas.</p>
+  </div>
+  <div class="card" style="border-top:6px solid #2563EB;text-align:center">
+    <span class="badge" style="background:#DBEAFE;color:#1E40AF;margin-bottom:8px">AULA 2</span>
+    <h4 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#1E293B;margin-bottom:6px">Prática & Experimentação</h4>
+    <p style="font-size:12px;color:#64748B;line-height:1.5">Trabalho em duplas, experimento com material simples ou dinâmica de movimento no pátio.</p>
+  </div>
+  <div class="card" style="border-top:6px solid #8B5CF6;text-align:center">
+    <span class="badge" style="background:#EDE9FE;color:#5B21B6;margin-bottom:8px">AULA 3</span>
+    <h4 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#1E293B;margin-bottom:6px">Síntese & Aplicação</h4>
+    <p style="font-size:12px;color:#64748B;line-height:1.5">Criação de cartaz, resolução de problema coletivo ou debate sobre soluções reais da escola.</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 27: Projetos Interdisciplinares Práticos (Ciências + Matemática) -->
+<div class="slide" data-n="27" data-title="Projetos Interdisciplinares Práticos (Ciências + Matemática)">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#10B981"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#10B981;color:#fff">ENCONTRO 2 · PROJETOS</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Projetos Interdisciplinares Práticos (Ciências + Matemática)</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px">Unindo Disciplinas sem Conflito de Horário</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Muitos projetos interdisciplinares não saem do papel porque os professores não têm horários coincidentes para planejar juntos.</p>
+    <p style="font-size:13px;color:#10B981;font-weight:700">Peça para a IA um plano com tarefas claras e complementares para cada professor!</p>
+  </div>
+  <div class="card" style="background:#F8FAFC">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#1E293B;margin-bottom:8px">Exemplo Real: Projeto 'Horta na Escola'</p>
+    <ul style="font-size:12px;color:#475569;line-height:1.6;padding-left:16px">
+      <li><strong>Na aula de Matemática:</strong> Cálculo de área e perímetro dos canteiros, contagem de sementes e gráficos de crescimento das mudas.</li>
+      <li><strong>Na aula de Ciências:</strong> Germinação, tipos de solo, polinização e compostagem das sobras da merenda escolar.</li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 28: Metodologias Ativas com Baixo Custo: Rotação por Estações -->
+<div class="slide" data-n="28" data-title="Metodologias Ativas com Baixo Custo: Rotação por Estações">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#10B981"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#10B981;color:#fff">ENCONTRO 2 · METODOLOGIAS</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Metodologias Ativas com Baixo Custo: Rotação por Estações</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1.2fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px">A Rotação por Estações que Funciona sem Internet</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Você divide a sala em 3 ou 4 mesas temáticas. Os alunos passam 12 minutos em cada mesa realizando desafios diferentes:</p>
+    <ul style="font-size:12px;color:#334155;line-height:1.5;padding-left:16px">
+      <li><strong>Estação 1:</strong> Leitura de uma notícia curta impressa.</li>
+      <li><strong>Estação 2:</strong> Resolução de um enigma ou jogo com fichas de papel.</li>
+      <li><strong>Estação 3:</strong> Desenho ou mapa mental coletivo em folha sulfite.</li>
+    </ul>
+  </div>
+  <div class="card" style="background:#EFF6FF;border:1px solid #BFDBFE">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#1E40AF;margin-bottom:6px">Comando Rápido:</p>
+    <div style="font-family:'Courier New';font-size:11px;color:#1E3A8A;line-height:1.5">
+      "Crie o roteiro de 3 estações de trabalho de 12 min para o 5º ano sobre os 'Povos Indígenas no Brasil'. Cada estação deve usar apenas materiais impressos em papel."
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 29: O Desafio dos PDFs Pesados: Chega de Folhear 600 Páginas -->
+<div class="slide" data-n="29" data-title="O Desafio dos PDFs Pesados: Chega de Folhear 600 Páginas">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#10B981"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#10B981;color:#fff">ENCONTRO 2 · DOCUMENTOS</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">O Desafio dos PDFs Pesados: Chega de Folhear 600 Páginas</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card" style="border-left:6px solid #F59E0B">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#B45309;margin-bottom:10px">Documentos que Assustam pelo Tamanho:</h3>
+    <ul style="font-size:13px;color:#475569;line-height:1.6;padding-left:16px">
+      <li>A BNCC Oficial (600 páginas).</li>
+      <li>O Livro Didático adotado no PNLD (350 páginas).</li>
+      <li>O Projeto Político Pedagógico (PPP) da escola.</li>
+      <li>Diretrizes Curriculares da Secretaria Municipal/Estadual.</li>
+    </ul>
+  </div>
+  <div class="card" style="background:#ECFDF5;border:1px solid #A7F3D0">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#047857;margin-bottom:10px">A Solução: Conversar com o Documento</h3>
+    <p style="font-size:13px;color:#065F46;line-height:1.6;margin-bottom:10px">Em vez de passar a tarde lendo até cansar a vista, você sobe o PDF numa ferramenta e faz perguntas diretas em português!</p>
+    <p style="font-size:12px;color:#047857;font-weight:700">Apresentamos: o Google NotebookLM e o Kimi AI.</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 30: Google NotebookLM: O Assistente com Alucinação Zero -->
+<div class="slide" data-n="30" data-title="Google NotebookLM: O Assistente com Alucinação Zero">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#10B981"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#10B981;color:#fff">ENCONTRO 2 · NOTEBOOKLM</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Google NotebookLM: O Assistente com Alucinação Zero</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1.1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card" style="border-top:6px solid #2563EB">
+    <h3 style="font-family:'Montserrat';font-size:18px;font-weight:800;color:#1E40AF;margin-bottom:10px"><i class="fas fa-search-plus" style="margin-right:8px"></i>Ele Só Fala o Que Está nos Seus PDFs</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Diferente do ChatGPT tradicional que pesquisa na internet inteira e pode se confundir, o <strong>NotebookLM é ancorado 100% nas suas fontes</strong>.</p>
+    <p style="font-size:13px;color:#1E40AF;font-weight:700">Se o seu arquivo não falar daquele assunto, ele diz claramente: 'Este documento não cita essa informação'.</p>
+  </div>
+  <div class="card" style="background:#EFF6FF">
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin-bottom:8px">Vantagens Exclusivas para Professores:</h4>
+    <ul style="font-size:12px;color:#334155;line-height:1.6;padding-left:16px">
+      <li><strong>Citação de Página:</strong> Toda resposta vem com uma nota de rodapé clicável que abre a página exata do PDF.</li>
+      <li><strong>Geração de Guias de Estudo:</strong> Gera resumos esquemáticos e perguntas para provas com 1 clique.</li>
+      <li><strong>Totalmente Gratuito:</strong> Acesso direto pelo Gmail comum.</li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 31: Subindo a BNCC e Livros no NotebookLM na Prática -->
+<div class="slide" data-n="31" data-title="Subindo a BNCC e Livros no NotebookLM na Prática">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#10B981"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#10B981;color:#fff">ENCONTRO 2 · NOTEBOOKLM</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Subindo a BNCC e Livros no NotebookLM na Prática</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;height:100%">
+  <div class="card" style="text-align:center;padding:16px">
+    <div style="font-size:24px;font-weight:900;color:#2563EB;margin-bottom:8px">Passo 1</div>
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin-bottom:6px">Crie um Caderno</h4>
+    <p style="font-size:12px;color:#64748B;line-height:1.5">Acesse <strong>notebooklm.google.com</strong> e dê o nome da sua matéria (ex: 'Geografia 6º Ano').</p>
+  </div>
+  <div class="card" style="text-align:center;padding:16px">
+    <div style="font-size:24px;font-weight:900;color:#2563EB;margin-bottom:8px">Passo 2</div>
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin-bottom:6px">Carregue as Fontes</h4>
+    <p style="font-size:12px;color:#64748B;line-height:1.5">Suba o PDF do livro didático da turma ou o documento da BNCC da sua área.</p>
+  </div>
+  <div class="card" style="text-align:center;padding:16px">
+    <div style="font-size:24px;font-weight:900;color:#2563EB;margin-bottom:8px">Passo 3</div>
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin-bottom:6px">Faça Perguntas</h4>
+    <p style="font-size:12px;color:#64748B;line-height:1.5">'Quais conteúdos o livro sugere para o 2º bimestre?' ou 'Crie 5 perguntas sobre as páginas 30 a 35'.</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 32: Kimi AI (kimi.ai): Leituras Gigantes em 10 Segundos -->
+<div class="slide" data-n="32" data-title="Kimi AI (kimi.ai): Leituras Gigantes em 10 Segundos">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#10B981"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#10B981;color:#fff">ENCONTRO 2 · LEITURA RÁPIDA</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Kimi AI (kimi.ai): Leituras Gigantes em 10 Segundos</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px"><i class="fas fa-bolt" style="color:#F59E0B;margin-right:8px"></i>Capacidade de Leitura Extrema</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">O Kimi é famoso por processar arquivos PDF imensos com centenas de páginas em poucos segundos sem travar o navegador.</p>
+    <p style="font-size:13px;color:#047857;font-weight:700">Ótimo para sintetizar materiais acadêmicos densos para suas reuniões pedagógicas.</p>
+  </div>
+  <div class="card" style="background:#0F172A;color:#fff">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#FDE68A;margin-bottom:6px">Comando para o Kimi:</p>
+    <div style="background:#1E293B;padding:12px;border-radius:8px;font-family:'Courier New';font-size:11px;color:#E2E8F0;line-height:1.5">
+      "Acabei de anexar o livro didático completo de História do 8º ano.<br/>
+      Gere um resumo em tópicos dos 6 capítulos principais, destacando para cada um:<br/>
+      - O conceito central do capítulo.<br/>
+      - 2 termos históricos essenciais para fixar com a turma.<br/>
+      - Uma ideia de atividade prática."
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 33: DuckDuckGo AI (duck.ai): Privacidade Total sem Cadastro -->
+<div class="slide" data-n="33" data-title="DuckDuckGo AI (duck.ai): Privacidade Total sem Cadastro">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#10B981"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#10B981;color:#fff">ENCONTRO 2 · PRIVACIDADE</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">DuckDuckGo AI (duck.ai): Privacidade Total sem Cadastro</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px"><i class="fas fa-shield-alt" style="color:#10B981;margin-right:8px"></i>Perfeito para Computadores da Escola</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Em laboratórios públicos de informática, deixar sua conta pessoal do Google ou ChatGPT logada é arriscado para a sua privacidade.</p>
+    <p style="font-size:13px;color:#047857;font-weight:700">O Duck.ai não pede e-mail, não pede senha e não salva histórico de navegação!</p>
+  </div>
+  <div class="card" style="background:#F0FDF4;border:1px solid #BBF7D0">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#166534;margin-bottom:6px">Como Acessar em 5 Segundos:</p>
+    <p style="font-size:13px;color:#14532D;line-height:1.6">1. Abra o navegador e digite <strong>duck.ai</strong>.<br/>2. Escolha o modelo gratuito desejado.<br/>3. Digite sua pergunta e pronto! Fechou a aba, todos os dados somem.</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 34: O Plano B Obrigatório: Quando a Internet da Escola Falha -->
+<div class="slide" data-n="34" data-title="O Plano B Obrigatório: Quando a Internet da Escola Falha">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#10B981"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#10B981;color:#fff">ENCONTRO 2 · PREVENÇÃO</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">O Plano B Obrigatório: Quando a Internet da Escola Falha</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card" style="border-left:6px solid #EF4444">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#DC2626;margin-bottom:10px"><i class="fas fa-wifi-slash" style="margin-right:8px"></i>A Lei de Murphy na Escola Pública:</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6">Se você planejar uma aula que dependa 100% da internet da escola ao vivo, haverá um dia em que o roteador não funcionará ou a energia cairá.</p>
+    <p style="font-size:12px;color:#B91C1C;font-weight:700">Nunca fique sem uma alternativa física!</p>
+  </div>
+  <div class="card" style="border-left:6px solid #10B981;background:#F0FDF4">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#047857;margin-bottom:10px">As Três Camadas de Segurança:</h3>
+    <ul style="font-size:12px;color:#14532D;line-height:1.6;padding-left:16px">
+      <li><strong>Camada 1:</strong> Gere e refine todo o conteúdo com IA em casa ou na sala dos professores com internet.</li>
+      <li><strong>Camada 2:</strong> Exporte e salve em PDF no seu celular ou pendrive.</li>
+      <li><strong>Camada 3:</strong> Tenha sempre uma cópia impressa para a lousa caso nenhum aparelho ligue.</li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 35: Oficina Mão na Massa 2: Criando uma Sequência BNCC -->
+<div class="slide" data-n="35" data-title="Oficina Mão na Massa 2: Criando uma Sequência BNCC">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#10B981"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#10B981;color:#fff">ENCONTRO 2 · OFICINA PRÁTICA</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Oficina Mão na Massa 2: Criando uma Sequência BNCC</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;text-align:center">
+  <div style="max-width:820px">
+    <div style="width:64px;height:64px;background:#D1FAE5;color:#10B981;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 16px"><i class="fas fa-laptop-code"></i></div>
+    <h3 style="font-family:'Montserrat';font-size:28px;font-weight:800;color:#1E293B;margin-bottom:12px">Hora de Praticar no Seu Computador</h3>
+    <p style="font-size:15px;color:#475569;line-height:1.6;margin-bottom:20px">Abra o DeepSeek, Gemini ou NotebookLM e monte uma <strong>Sequência Didática de 3 Aulas</strong> para sua turma com código real da BNCC.</p>
+    <div style="background:#fff;border:2px solid #E2E8F0;border-radius:16px;padding:18px;text-align:left;display:inline-block">
+      <p style="font-size:13px;color:#1E293B;margin-bottom:6px"><strong>Roteiro da Atividade (15 min):</strong></p>
+      <p style="font-size:12px;color:#64748B">1. Escolha uma matéria e ano · 2. Peça o código oficial da BNCC · 3. Peça a sequência Aula 1 (Teoria), Aula 2 (Prática simples), Aula 3 (Síntese).</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 36: Síntese do Encontro 2: O Que Conquistamos -->
+<div class="slide" data-n="36" data-title="Síntese do Encontro 2: O Que Conquistamos">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#10B981"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#10B981;color:#fff">ENCONTRO 2 · SÍNTESE</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Síntese do Encontro 2: O Que Conquistamos</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;text-align:center">
+  <div style="max-width:780px">
+    <h3 style="font-family:'Montserrat';font-size:26px;font-weight:800;color:#1E293B;margin-bottom:14px">Seu Tempo Foi Recuperado!</h3>
+    <div style="display:flex;justify-content:center;gap:16px;margin-bottom:24px">
+      <div style="background:#fff;border:1px solid #E2E8F0;padding:12px 18px;border-radius:12px;font-weight:800;color:#10B981;font-size:13px"><i class="fas fa-check" style="margin-right:6px"></i>Pareceres sem Sofrimento</div>
+      <div style="background:#fff;border:1px solid #E2E8F0;padding:12px 18px;border-radius:12px;font-weight:800;color:#2563EB;font-size:13px"><i class="fas fa-check" style="margin-right:6px"></i>BNCC Integrada</div>
+      <div style="background:#fff;border:1px solid #E2E8F0;padding:12px 18px;border-radius:12px;font-weight:800;color:#8B5CF6;font-size:13px"><i class="fas fa-check" style="margin-right:6px"></i>NotebookLM Dominado</div>
+    </div>
+    <div style="background:#ECFDF5;border-radius:16px;padding:18px;border:1px solid #A7F3D0">
+      <p style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#065F46;margin-bottom:6px"><i class="fas fa-arrow-right" style="margin-right:8px"></i>No Próximo Encontro (2 Horas):</p>
+      <p style="font-size:13px;color:#047857;line-height:1.5">Materiais lindos e visualmente atraentes com o Canva Pro Grátis, adaptação em 3 níveis no Diffit e inclusão prática para TEA, TDAH e Dislexia!</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 37: Encontro 3: Materiais Encantadores, Inclusão Real e Canva -->
+<div class="slide" data-n="37" data-title="Encontro 3: Materiais Encantadores, Inclusão Real e Canva">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#F59E0B"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#F59E0B;color:#fff">ENCONTRO 3 · MATERIAIS & DUA</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Encontro 3: Materiais Encantadores, Inclusão Real e Canva</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:flex;align-items:center;justify-content:center;height:100%;text-align:center">
+  <div style="max-width:820px">
+    <div style="width:68px;height:68px;background:#FEF3C7;color:#D97706;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 16px"><i class="fas fa-palette"></i></div>
+    <h2 style="font-family:'Montserrat';font-size:38px;color:#1E293B;font-weight:800;margin-bottom:12px">Encantando a Sala de Aula e Acolhendo a Todos</h2>
+    <p style="font-size:17px;color:#475569;line-height:1.6;margin-bottom:20px">Como liberar o Canva Pro para Educação 100% grátis, gerar materiais visuais em segundos, usar o Diffit para ter o mesmo texto em 3 níveis e adaptar atividades reais para TEA, TDAH e Dislexia.</p>
+    <div style="display:inline-block;background:#FFFBEB;border:1px solid #FDE68A;padding:8px 18px;border-radius:30px;font-weight:700;color:#92400E;font-size:13px">Encontro 3 · 2 Horas · Criatividade e Inclusão na Prática</div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 38: Materiais Didáticos Atraentes para a Geração Digital -->
+<div class="slide" data-n="38" data-title="Materiais Didáticos Atraentes para a Geração Digital">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#F59E0B"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#F59E0B;color:#fff">ENCONTRO 3 · ENGAJAMENTO</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Materiais Didáticos Atraentes para a Geração Digital</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px"><i class="fas fa-eye" style="color:#D97706;margin-right:8px"></i>Crianças e Jovens Hipervisuais</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Nossos estudantes convivem diariamente com interfaces coloridas e dinâmicas nos smartphones. Uma folha de xerox cinza e borrada não desperta a curiosidade.</p>
+    <p style="font-size:13px;color:#92400E;font-weight:700">Materiais visualmente organizados reduzem a ansiedade e facilitam a memória de trabalho!</p>
+  </div>
+  <div class="card" style="background:#FFFBEB;border:1px solid #FDE68A">
+    <h4 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#92400E;margin-bottom:8px">O Que Vamos Criar Hoje:</h4>
+    <ul style="font-size:12px;color:#78350F;line-height:1.6;padding-left:16px">
+      <li>Textos de leitura conectados ao universo de games e esportes.</li>
+      <li>Caça-palavras e cruzadinhas temáticas de alta qualidade.</li>
+      <li>Atividades adaptadas para inclusão com apoio do Diffit.</li>
+      <li>Slides e cartazes criados no Canva Pro Grátis.</li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 39: Textos de Leitura Conectados aos Interesses dos Alunos -->
+<div class="slide" data-n="39" data-title="Textos de Leitura Conectados aos Interesses dos Alunos">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#F59E0B"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#F59E0B;color:#fff">ENCONTRO 3 · LEITURA</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Textos de Leitura Conectados aos Interesses dos Alunos</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1.1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px">O Conceito Difícil Traduzido em Algo que Eles Amam</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Se você tentar ensinar gravidade com fórmulas abstratas, metade da sala dispersa. Mas se você usar a física das pistas de skate ou a mecânica de saltos do videogame, a turma inteira presta atenção.</p>
+    <p style="font-size:12px;color:#D97706;font-weight:700">A IA reescreve qualquer assunto na linguagem de interesse da sua turma.</p>
+  </div>
+  <div class="card" style="background:#0F172A;color:#fff">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#FCD34D;margin-bottom:6px">Comando Copie e Cole:</p>
+    <div style="background:#1E293B;padding:12px;border-radius:8px;font-family:'Courier New';font-size:11px;color:#E2E8F0;line-height:1.5">
+      "Explique o processo de fotossíntese para o 5º ano usando a metáfora de como os personagens recarregam sua barra de energia em jogos de videogame.<br/>
+      Use 3 parágrafos curtos e inclua 2 perguntas de interpretação."
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 40: Caça-Palavras, Cruzadinhas e Jogos Pedagógicos -->
+<div class="slide" data-n="40" data-title="Caça-Palavras, Cruzadinhas e Jogos Pedagógicos">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#F59E0B"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#F59E0B;color:#fff">ENCONTRO 3 · JOGOS</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Caça-Palavras, Cruzadinhas e Jogos Pedagógicos</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px"><i class="fas fa-puzzle-piece" style="color:#D97706;margin-right:8px"></i>Passatempos que Fixam Conteúdo</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Criar dicas e cruzadinhas na mão demora horas. Com a IA, você obtém uma lista de termos-chave e pistas em 15 segundos.</p>
+    <p style="font-size:12px;color:#047857;font-weight:700">Perfeito para fechar uma unidade temática de forma relaxada e engajante.</p>
+  </div>
+  <div class="card" style="background:#FFFBEB;border:1px solid #FDE68A">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#92400E;margin-bottom:6px">Comando para Cruzadinha de Ciências:</p>
+    <div style="background:#fff;padding:12px;border-radius:8px;font-family:'Courier New';font-size:11px;color:#78350F;line-height:1.5;border:1px solid #FCD34D">
+      "Gere 6 palavras-chave e suas respectivas dicas para uma Palavra Cruzada sobre 'O Sistema Respiratório' para o 6º ano.<br/>
+      As dicas devem ser claras, sem duplo sentido e fáceis de associar à função de cada órgão."
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 41: O Que é DUA? Desenho Universal para a Aprendizagem -->
+<div class="slide" data-n="41" data-title="O Que é DUA? Desenho Universal para a Aprendizagem">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#F59E0B"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#F59E0B;color:#fff">ENCONTRO 3 · DUA</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">O Que é DUA? Desenho Universal para a Aprendizagem</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;height:100%">
+  <div class="card" style="border-top:6px solid #2563EB;text-align:center">
+    <div style="font-size:26px;color:#2563EB;margin-bottom:6px"><i class="fas fa-lightbulb"></i></div>
+    <h4 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#1E293B;margin-bottom:6px">1. Meios de Engajamento</h4>
+    <p style="font-size:12px;color:#64748B;line-height:1.5">O 'porquê' da aprendizagem. Oferecer escolhas, desafios no nível certo e conexão com a vida real.</p>
+  </div>
+  <div class="card" style="border-top:6px solid #10B981;text-align:center">
+    <div style="font-size:26px;color:#10B981;margin-bottom:6px"><i class="fas fa-layer-group"></i></div>
+    <h4 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#1E293B;margin-bottom:6px">2. Meios de Representação</h4>
+    <p style="font-size:12px;color:#64748B;line-height:1.5">O 'o quê' da aprendizagem. Apresentar informações em texto, infográfico, vídeo curto e fala oral.</p>
+  </div>
+  <div class="card" style="border-top:6px solid #8B5CF6;text-align:center">
+    <div style="font-size:26px;color:#8B5CF6;margin-bottom:6px"><i class="fas fa-pencil-ruler"></i></div>
+    <h4 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#1E293B;margin-bottom:6px">3. Meios de Expressão</h4>
+    <p style="font-size:12px;color:#64748B;line-height:1.5">O 'como' da aprendizagem. Deixar o aluno demonstrar o que aprendeu por desenho, escrita ou áudio.</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 42: A Realidade da Educação Inclusiva na Escola Pública -->
+<div class="slide" data-n="42" data-title="A Realidade da Educação Inclusiva na Escola Pública">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#F59E0B"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#F59E0B;color:#fff">ENCONTRO 3 · INCLUSÃO</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">A Realidade da Educação Inclusiva na Escola Pública</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1.1fr;gap:20px;height:100%;align-items:center">
+  <div class="card" style="border-left:6px solid #F59E0B">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#92400E;margin-bottom:10px">A Lei é Linda, mas Falta Braço</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">O professor recebe alunos com laudos variados e precisa cumprir o currículo geral enquanto tenta adaptar tarefas sozinho sem tempo hábil.</p>
+    <p style="font-size:12px;color:#B45309;font-weight:700">A IA se torna o assistente de adaptação mais rápido do mundo.</p>
+  </div>
+  <div class="card" style="background:#F0FDF4;border:1px solid #BBF7D0">
+    <h4 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#166534;margin-bottom:8px">O Objetivo da Adaptação:</h4>
+    <p style="font-size:13px;color:#14532D;line-height:1.6;margin-bottom:8px">Não é 'facilitar' ou dar menos trabalho. É <strong>remover barreiras sensoriais e linguísticas</strong> para que o estudante consiga aprender o mesmo conteúdo conceitual que os outros colegas!</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 43: Inclusão na Prática: Adaptações para Alunos com TDAH -->
+<div class="slide" data-n="43" data-title="Inclusão na Prática: Adaptações para Alunos com TDAH">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#F59E0B"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#F59E0B;color:#fff">ENCONTRO 3 · TDAH</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Inclusão na Prática: Adaptações para Alunos com TDAH</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px"><i class="fas fa-tasks" style="color:#2563EB;margin-right:8px"></i>Como o Cérebro com TDAH Funciona</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Textos densos e comandos longos geram paralisia imediata. Ele não consegue priorizar o que fazer primeiro.</p>
+    <p style="font-size:13px;color:#1E40AF;font-weight:700">A solução: microetapas com caixas de checagem [ ] e destaques em negrito.</p>
+  </div>
+  <div class="card" style="background:#0F172A;color:#fff">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#60A5FA;margin-bottom:6px">Comando para TDAH:</p>
+    <div style="background:#1E293B;padding:12px;border-radius:8px;font-family:'Courier New';font-size:11px;color:#E2E8F0;line-height:1.5">
+      "Adapte esta atividade de história para um aluno com TDAH de 10 anos:<br/>
+      1. Divida em passos curtos numerados.<br/>
+      2. Adicione caixas de checagem: [ ] Li / [ ] Grifei a palavra / [ ] Escrevi a resposta.<br/>
+      3. Destaque em negrito os conceitos essenciais."
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 44: Inclusão na Prática: Adaptações para Alunos com Dislexia -->
+<div class="slide" data-n="44" data-title="Inclusão na Prática: Adaptações para Alunos com Dislexia">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#F59E0B"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#F59E0B;color:#fff">ENCONTRO 3 · DISLEXIA</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Inclusão na Prática: Adaptações para Alunos com Dislexia</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px"><i class="fas fa-font" style="color:#10B981;margin-right:8px"></i>Removendo a Sobrecarga de Decodificação</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">O aluno disléxico gasta tanta energia mental para decodificar as letras que sobra pouca atenção para interpretar a ideia central.</p>
+    <p style="font-size:13px;color:#047857;font-weight:700">A solução: ordem direta, sinônimos comuns e listas com tópicos bem espaçados.</p>
+  </div>
+  <div class="card" style="background:#0F172A;color:#fff">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#6EE7B7;margin-bottom:6px">Comando para Dislexia:</p>
+    <div style="background:#1E293B;padding:12px;border-radius:8px;font-family:'Courier New';font-size:11px;color:#E2E8F0;line-height:1.5">
+      "Reescreva este texto sobre 'Cadeia Alimentar' adaptado para dislexia no 6º ano:<br/>
+      - Use frases curtas na ordem direta (Sujeito + Verbo + Complemento).<br/>
+      - Substitua palavras raras por termos simples do dia a dia.<br/>
+      - Apresente em tópicos com espaçamento visual generoso."
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 45: Inclusão na Prática: Adaptações para Alunos com TEA -->
+<div class="slide" data-n="45" data-title="Inclusão na Prática: Adaptações para Alunos com TEA">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#F59E0B"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#F59E0B;color:#fff">ENCONTRO 3 · AUTISMO</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Inclusão na Prática: Adaptações para Alunos com TEA</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px"><i class="fas fa-puzzle-piece" style="color:#8B5CF6;margin-right:8px"></i>O Poder da Literalidade e Previsibilidade</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Muitos estudantes autistas interpretam a linguagem de forma rigorosamente literal. Metáforas como <em>'chover no molhado'</em> ou <em>'dar asas à imaginação'</em> geram confusão.</p>
+    <p style="font-size:13px;color:#6D28D9;font-weight:700">A solução: enunciados diretos, sequenciais e sem dubiedade.</p>
+  </div>
+  <div class="card" style="background:#0F172A;color:#fff">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#C4B5FD;margin-bottom:6px">Comando para TEA:</p>
+    <div style="background:#1E293B;padding:12px;border-radius:8px;font-family:'Courier New';font-size:11px;color:#E2E8F0;line-height:1.5">
+      "Adapte este exercício de geografia para um aluno autista do 7º ano:<br/>
+      - Remova qualquer figura de linguagem ou instrução poética aberta.<br/>
+      - Diga em 2 passos literais e concretos exatamente o que ele deve observar e onde deve escrever no papel."
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 46: Alunos com Altas Habilidades: O Fim do Desinteresse -->
+<div class="slide" data-n="46" data-title="Alunos com Altas Habilidades: O Fim do Desinteresse">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#F59E0B"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#F59E0B;color:#fff">ENCONTRO 3 · SUPERDOTAÇÃO</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Alunos com Altas Habilidades: O Fim do Desinteresse</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px">O Aluno que Termina em 5 Minutos</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Quando a criança com altas habilidades termina tudo rápido e fica sem ter o que fazer, ela se agita ou perde o encanto pela escola.</p>
+    <p style="font-size:13px;color:#D97706;font-weight:700">Não dê mais do mesmo exercício para ele. Dê um desafio investigativo!</p>
+  </div>
+  <div class="card" style="background:#FFFBEB;border:1px solid #FDE68A">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#92400E;margin-bottom:6px">Comando 'Desafio do Mestre':</p>
+    <div style="background:#fff;padding:12px;border-radius:8px;font-family:'Courier New';font-size:11px;color:#78350F;line-height:1.5;border:1px solid #FCD34D">
+      "Para os alunos do 8º ano que resolverem os exercícios sobre frações em poucos minutos, crie 2 enigmas de raciocínio lógico de alta complexidade que exijam pensar fora da caixa.<br/>
+      Chame a atividade de 'Desafio do Mestre Investigador'."
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 47: Diffit (web.diffit.me): O Mesmo Texto em 3 Níveis -->
+<div class="slide" data-n="47" data-title="Diffit (web.diffit.me): O Mesmo Texto em 3 Níveis">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#F59E0B"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#F59E0B;color:#fff">ENCONTRO 3 · DIFFIT</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Diffit (web.diffit.me): O Mesmo Texto em 3 Níveis</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1.2fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card" style="border-top:6px solid #D97706">
+    <h3 style="font-family:'Montserrat';font-size:18px;font-weight:800;color:#92400E;margin-bottom:10px"><i class="fas fa-magic" style="margin-right:8px"></i>Diferenciação Pedagógica com 1 Clique</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Você digita um tema curricular (ex: <em>'A Independência do Brasil'</em>) ou cola um link de matéria jornalística no Diffit.</p>
+    <p style="font-size:13px;color:#B45309;font-weight:700">Ele cria instantaneamente:</p>
+    <ul style="font-size:12px;color:#78350F;line-height:1.6;padding-left:16px">
+      <li>Versão Fácil (vocabulário acessível para defasagem).</li>
+      <li>Versão Regular (no nível da série).</li>
+      <li>Versão Avançada (para quem voa alto).</li>
+    </ul>
+  </div>
+  <div class="card" style="background:#F8FAFC">
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin-bottom:8px">E Mais: Atividades Prontas!</h4>
+    <p style="font-size:12px;color:#475569;line-height:1.5;margin-bottom:10px">O Diffit gera glossário de termos, perguntas de interpretação e exporta em PDF pronto para imprimir na secretaria.</p>
+    <div style="background:#ECFDF5;padding:8px;border-radius:8px;font-size:11px;color:#065F46;font-weight:700;text-align:center">100% Gratuito para Educadores!</div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 48: Passo a Passo no Diffit: Da Ideia à Folha Impressa -->
+<div class="slide" data-n="48" data-title="Passo a Passo no Diffit: Da Ideia à Folha Impressa">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#F59E0B"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#F59E0B;color:#fff">ENCONTRO 3 · TUTORIAL DIFFIT</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Passo a Passo no Diffit: Da Ideia à Folha Impressa</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;height:100%">
+  <div class="card" style="text-align:center;padding:16px">
+    <div style="font-size:24px;font-weight:900;color:#D97706;margin-bottom:6px">1</div>
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin-bottom:6px">Acesse o Site</h4>
+    <p style="font-size:12px;color:#64748B;line-height:1.5">Abra <strong>web.diffit.me</strong> e faça login gratuito com sua conta do Google.</p>
+  </div>
+  <div class="card" style="text-align:center;padding:16px">
+    <div style="font-size:24px;font-weight:900;color:#D97706;margin-bottom:6px">2</div>
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin-bottom:6px">Digite o Tema</h4>
+    <p style="font-size:12px;color:#64748B;line-height:1.5">Escolha o ano da turma (ex: 5º ano) e selecione o idioma Português.</p>
+  </div>
+  <div class="card" style="text-align:center;padding:16px">
+    <div style="font-size:24px;font-weight:900;color:#D97706;margin-bottom:6px">3</div>
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin-bottom:6px">Exporte em PDF</h4>
+    <p style="font-size:12px;color:#64748B;line-height:1.5">Clique em 'Get Student Activity' e baixe a folha pronta ou envie para o Google Docs.</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 49: Canva para Educação: Liberando a Conta Pro Vitalícia -->
+<div class="slide" data-n="49" data-title="Canva para Educação: Liberando a Conta Pro Vitalícia">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#F59E0B"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#F59E0B;color:#fff">ENCONTRO 3 · CANVA PRO</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Canva para Educação: Liberando a Conta Pro Vitalícia</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card" style="border-left:6px solid #EC4899">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#BE185D;margin-bottom:10px"><i class="fas fa-gift" style="margin-right:8px"></i>O Presente do Canva para Professores</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">O Canva Pro para usuários comuns custa mais de R$ 300 reais por ano. Mas para <strong>professores da rede pública, é 100% GRATUITO E VITALÍCIO</strong>!</p>
+    <p style="font-size:12px;color:#BE185D;font-weight:700">Você tem acesso a milhões de imagens, fontes e IA sem pagar nada.</p>
+  </div>
+  <div class="card" style="background:#FDF2F8;border:1px solid #FBCFE8">
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#9D174D;margin-bottom:8px">Documentos Válidos para Verificação:</h4>
+    <ul style="font-size:12px;color:#831843;line-height:1.6;padding-left:16px">
+      <li>Foto do seu holerite recente (mostrando o vínculo com a escola).</li>
+      <li>Declaração assinada pela secretaria da escola municipal/estadual.</li>
+      <li>Crachá funcional com foto e nome da instituição.</li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 50: Design Mágico do Canva: Apresentações em Segundos -->
+<div class="slide" data-n="50" data-title="Design Mágico do Canva: Apresentações em Segundos">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#F59E0B"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#F59E0B;color:#fff">ENCONTRO 3 · DESIGN MÁGICO</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Design Mágico do Canva: Apresentações em Segundos</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px">Montando Slides sem Sofrimento</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">1. Vá em <strong>'Criar Design' → 'Apresentação'</strong>.<br/>2. Clique no ícone de estrelinhas mágicas do <strong>'Design Mágico'</strong>.<br/>3. Digite o que você quer ensinar em poucas palavras.</p>
+    <p style="font-size:12px;color:#BE185D;font-weight:700">Ele monta uma sequência de 8 a 10 slides com textos e layouts prontos!</p>
+  </div>
+  <div class="card" style="background:#F8FAFC">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#1E293B;margin-bottom:6px">Exemplo de Prompt para o Canva:</p>
+    <div style="background:#fff;padding:12px;border-radius:8px;font-family:'Courier New';font-size:11px;color:#475569;line-height:1.5;border:1px solid #E2E8F0">
+      "Apresentação lúdica sobre 'O Sistema Solar' para crianças de 8 anos, com cores vibrantes, ilustrações coloridas e linguagem simples."
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 51: Geração de Imagens Didáticas sem Pagar Nada -->
+<div class="slide" data-n="51" data-title="Geração de Imagens Didáticas sem Pagar Nada">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#F59E0B"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#F59E0B;color:#fff">ENCONTRO 3 · IMAGENS</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Geração de Imagens Didáticas sem Pagar Nada</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px"><i class="fas fa-image" style="color:#D97706;margin-right:8px"></i>A Imagem Exata que Você Precisa para a Prova</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Quantas vezes você procurou no Google uma imagem específica para uma atividade de leitura e só achou fotos com direitos autorais ou marca d'água?</p>
+    <p style="font-size:13px;color:#92400E;font-weight:700">Use o gerador de imagens da IA do Canva ou Bing Image Creator!</p>
+  </div>
+  <div class="card" style="background:#FFFBEB;border:1px solid #FDE68A">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#92400E;margin-bottom:6px">Fórmula para Prompt de Imagem:</p>
+    <p style="font-size:12px;color:#78350F;line-height:1.5 mb-2"><strong>[Estilo] + [Sujeito] + [Ação] + [Ambiente]</strong></p>
+    <div style="background:#fff;padding:10px;border-radius:8px;font-family:'Courier New';font-size:11px;color:#92400E;border:1px solid #FCD34D">
+      "Ilustração infantil em aquarela de uma menina lendo um livro embaixo de uma mangueira florida, cores quentes, traço alegre."
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 52: Curipod (curipod.com): Aulas Interativas em Tempo Real -->
+<div class="slide" data-n="52" data-title="Curipod (curipod.com): Aulas Interativas em Tempo Real">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#F59E0B"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#F59E0B;color:#fff">ENCONTRO 3 · CURIPOD</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Curipod (curipod.com): Aulas Interativas em Tempo Real</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px"><i class="fas fa-mobile-alt" style="color:#2563EB;margin-right:8px"></i>O Celular como Aliado, Não Inimigo</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">O Curipod cria uma apresentação onde os alunos entram pelo QR Code no celular e respondem enquetes, votam e desenham em tempo real.</p>
+    <p style="font-size:12px;color:#1E40AF;font-weight:700">Seus alunos participam ativamente da aula em vez de ficarem passivos.</p>
+  </div>
+  <div class="card" style="background:#F0FDF4;border:1px solid #BBF7D0">
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#166534;margin-bottom:6px">E Se Não Tiver Celular na Escola?</h4>
+    <p style="font-size:12px;color:#14532D;line-height:1.6">Você projeta os slides do Curipod na lousa e usa a <strong>Técnica dos Cartões de Votação</strong>: cada aluno segura um cartão colorido de papel (Vermelho, Amarelo, Verde) para expressar sua opinião!</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 53: Oficina Mão na Massa 3: Gerando um Material Inclusivo -->
+<div class="slide" data-n="53" data-title="Oficina Mão na Massa 3: Gerando um Material Inclusivo">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#F59E0B"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#F59E0B;color:#fff">ENCONTRO 3 · OFICINA PRÁTICA</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Oficina Mão na Massa 3: Gerando um Material Inclusivo</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;text-align:center">
+  <div style="max-width:820px">
+    <div style="width:64px;height:64px;background:#FEF3C7;color:#D97706;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 16px"><i class="fas fa-universal-access"></i></div>
+    <h3 style="font-family:'Montserrat';font-size:28px;font-weight:800;color:#1E293B;margin-bottom:12px">Pratique a Inclusão Real Agora</h3>
+    <p style="font-size:15px;color:#475569;line-height:1.6;margin-bottom:20px">Acesse o <strong>Diffit</strong> ou o <strong>DeepSeek</strong> e adapte uma atividade da sua disciplina para um aluno com TDAH, Dislexia ou TEA.</p>
+    <div style="background:#fff;border:2px solid #E2E8F0;border-radius:16px;padding:18px;text-align:left;display:inline-block">
+      <p style="font-size:13px;color:#1E293B;margin-bottom:6px"><strong>Desafio da Oficina (15 min):</strong></p>
+      <p style="font-size:12px;color:#64748B">1. Pegue uma folha de exercícios que você já usa · 2. Peça à IA para fragmentar em passos numerados com caixas [ ] e vocabulário direto · 3. Salve seu modelo!</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 54: Síntese do Encontro 3: Reta Final! -->
+<div class="slide" data-n="54" data-title="Síntese do Encontro 3: Reta Final!">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#F59E0B"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#F59E0B;color:#fff">ENCONTRO 3 · SÍNTESE</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Síntese do Encontro 3: Reta Final!</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;text-align:center">
+  <div style="max-width:780px">
+    <h3 style="font-family:'Montserrat';font-size:26px;font-weight:800;color:#1E293B;margin-bottom:14px">O Que Conquistamos Hoje:</h3>
+    <div style="display:flex;justify-content:center;gap:16px;margin-bottom:24px">
+      <div style="background:#fff;border:1px solid #E2E8F0;padding:12px 18px;border-radius:12px;font-weight:800;color:#EC4899;font-size:13px"><i class="fas fa-check" style="margin-right:6px"></i>Canva Pro Ativado</div>
+      <div style="background:#fff;border:1px solid #E2E8F0;padding:12px 18px;border-radius:12px;font-weight:800;color:#D97706;font-size:13px"><i class="fas fa-check" style="margin-right:6px"></i>Diffit Dominado</div>
+      <div style="background:#fff;border:1px solid #E2E8F0;padding:12px 18px;border-radius:12px;font-weight:800;color:#10B981;font-size:13px"><i class="fas fa-check" style="margin-right:6px"></i>Inclusão TEA/TDAH</div>
+    </div>
+    <div style="background:#FFFBEB;border-radius:16px;padding:18px;border:1px solid #FDE68A">
+      <p style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#92400E;margin-bottom:6px"><i class="fas fa-arrow-right" style="margin-right:8px"></i>No Nosso Último Encontro (2 Horas):</p>
+      <p style="font-size:13px;color:#334155;line-height:1.5">Provas inéditas que os alunos não conseguem colar, correção de trabalhos em 1 minuto com rubricas, proteção de dados LGPD e a banca dos Projetos Finais de 40 Horas!</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 55: Encontro 4: Avaliações Inteligentes, Ética e Projeto Final -->
+<div class="slide" data-n="55" data-title="Encontro 4: Avaliações Inteligentes, Ética e Projeto Final">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#8B5CF6"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#8B5CF6;color:#fff">ENCONTRO 4 · AVALIAÇÕES & PROJETO</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Encontro 4: Avaliações Inteligentes, Ética e Projeto Final</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:flex;align-items:center;justify-content:center;height:100%;text-align:center">
+  <div style="max-width:820px">
+    <div style="width:68px;height:68px;background:#EDE9FE;color:#8B5CF6;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 16px"><i class="fas fa-award"></i></div>
+    <h2 style="font-family:'Montserrat';font-size:38px;color:#1E293B;font-weight:800;margin-bottom:12px">Avaliações que Ensinam e Seu Projeto Concluído</h2>
+    <p style="font-size:17px;color:#475569;line-height:1.6;margin-bottom:20px">Provas inéditas no DeepSeek R1, rubricas transparentes corrigidas em 1 minuto, segurança e LGPD escolar, e a apresentação do seu Projeto de Intervenção de 40 Horas!</p>
+    <div style="display:inline-block;background:#F5F3FF;border:1px solid #DDD6FE;padding:8px 18px;border-radius:30px;font-weight:700;color:#6D28D9;font-size:13px">Encontro 4 · 2 Horas · Oficina Mão na Massa e Mostra de Projetos</div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 56: Por Que Provas Tradicionais Perderam o Sentido com a IA? -->
+<div class="slide" data-n="56" data-title="Por Que Provas Tradicionais Perderam o Sentido com a IA?">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#8B5CF6"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#8B5CF6;color:#fff">ENCONTRO 4 · PROVAS</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Por Que Provas Tradicionais Perderam o Sentido com a IA?</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card" style="border-left:6px solid #EF4444">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#DC2626;margin-bottom:10px">Perguntas de 'Decoreba' Não Valem Mais:</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:8px"><em>'O que é fotossíntese?'</em> ou <em>'Em que ano começou a Guerra Fria?'</em>.</p>
+    <p style="font-size:12px;color:#B91C1C">Qualquer celular ou IA responde isso em 2 segundos. Se a avaliação exige apenas memória mecânica, ela está ultrapassada.</p>
+  </div>
+  <div class="card" style="border-left:6px solid #10B981">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#047857;margin-bottom:10px">A Nova Avaliação que Exige Raciocínio:</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:8px"><em>'Leia este trecho de notícia recente sobre a seca no interior e explique como o ciclo da água se relaciona com o preço dos alimentos na feira.'</em></p>
+    <p style="font-size:12px;color:#047857">Exige interpretação, conexão de conceitos e raciocínio crítico autoral!</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 57: Provas com Questões Inéditas no DeepSeek R1 -->
+<div class="slide" data-n="57" data-title="Provas com Questões Inéditas no DeepSeek R1">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#8B5CF6"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#8B5CF6;color:#fff">ENCONTRO 4 · DEEPSEEK R1</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Provas com Questões Inéditas no DeepSeek R1</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px"><i class="fas fa-check-circle" style="color:#2563EB;margin-right:8px"></i>O Fim das Alternativas Óbvias</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Muitas provas têm 3 alternativas bobas e uma certa. O aluno acerta no chute sem aprender nada.</p>
+    <p style="font-size:13px;color:#2563EB;font-weight:700">No DeepSeek R1 (DeepThink), as alternativas são calculadas a partir das dúvidas que os estudantes realmente cometem!</p>
+  </div>
+  <div class="card" style="background:#0F172A;color:#fff">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#93C5FD;margin-bottom:6px">Comando para Prova Inteligente:</p>
+    <div style="background:#1E293B;padding:12px;border-radius:8px;font-family:'Courier New';font-size:11px;color:#E2E8F0;line-height:1.5">
+      "Ative o modo DeepThink (R1).<br/>
+      Crie 2 questões inéditas de matemática sobre porcentagem para o 6º ano contextualizadas com compras em promoção.<br/>
+      Gere 4 alternativas numéricas e explique qual erro conceitual comum da criança levou a cada alternativa errada."
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 58: Analisando Alternativas Falsas: O Erro Conceitual do Aluno -->
+<div class="slide" data-n="58" data-title="Analisando Alternativas Falsas: O Erro Conceitual do Aluno">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#8B5CF6"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#8B5CF6;color:#fff">ENCONTRO 4 · GABARITO</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Analisando Alternativas Falsas: O Erro Conceitual do Aluno</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px">Ensinar pelo Erro</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Quando você devolve a prova corrigida e mostra exatamente por que o aluno marcou a letra C, o erro vira aprendizado imediato.</p>
+    <p style="font-size:12px;color:#6D28D9;font-weight:700">A IA gera a justificativa de cada distrator para você imprimir no gabarito comentado.</p>
+  </div>
+  <div class="card" style="background:#F8FAFC">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#1E293B;margin-bottom:6px">Exemplo de Diagnóstico de Distrator:</p>
+    <div style="font-size:12px;color:#475569;line-height:1.6">
+      <p><strong>Alternativa A (Incorreta):</strong> O aluno somou as porcentagens em vez de aplicar o desconto sucessivo.</p>
+      <p><strong>Alternativa B (Correta):</strong> Cálculo exato do valor final.</p>
+      <p><strong>Alternativa C (Incorreta):</strong> O aluno calculou o desconto sobre o valor inicial e esqueceu de subtrair.</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 59: Rubricas: Corrija Trabalhos em 1 Minuto sem Discussão -->
+<div class="slide" data-n="59" data-title="Rubricas: Corrija Trabalhos em 1 Minuto sem Discussão">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#8B5CF6"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#8B5CF6;color:#fff">ENCONTRO 4 · RUBRICAS</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Rubricas: Corrija Trabalhos em 1 Minuto sem Discussão</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#6D28D9;margin-bottom:10px"><i class="fas fa-table" style="margin-right:8px"></i>Critérios Transparentes para Todos</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Uma <strong>rubrica</strong> é uma tabela simples entregue antes do trabalho que detalha o que vale cada nota. O aluno sabe o que precisa fazer para tirar 10 e não reclama de nota subjetiva.</p>
+    <p style="font-size:13px;color:#6D28D9;font-weight:700">Com a IA, você gera rubricas para qualquer seminário em 20 segundos.</p>
+  </div>
+  <div class="card" style="background:#0F172A;color:#fff">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#C4B5FD;margin-bottom:6px">Comando para Rubrica:</p>
+    <div style="background:#1E293B;padding:12px;border-radius:8px;font-family:'Courier New';font-size:11px;color:#E2E8F0;line-height:1.5">
+      "Crie uma tabela de avaliação simples para um Seminário de Ciências do 7º ano.<br/>
+      Critérios: Clareza da Fala, Domínio do Conteúdo e Trabalho em Equipe.<br/>
+      Níveis: Precisa Melhorar (nota 5), Bom (nota 8) e Excelente (nota 10).<br/>
+      Descreva o comportamento esperado em cada nível."
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 60: Exemplo de Rubrica Pronta para a Lousa ou Impressão -->
+<div class="slide" data-n="60" data-title="Exemplo de Rubrica Pronta para a Lousa ou Impressão">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#8B5CF6"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#8B5CF6;color:#fff">ENCONTRO 4 · RUBRICAS</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Exemplo de Rubrica Pronta para a Lousa ou Impressão</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div class="card" style="height:100%;display:flex;flex-direction:column;justify-content:center">
+  <table style="width:100%;border-collapse:collapse;font-size:12px">
+    <thead>
+      <tr style="background:#1E293B;color:#fff">
+        <th style="padding:8px 12px;text-align:left">Critério</th>
+        <th style="padding:8px 12px;text-align:left">Precisa Melhorar (5)</th>
+        <th style="padding:8px 12px;text-align:left">Bom (8)</th>
+        <th style="padding:8px 12px;text-align:left">Excelente (10)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #E2E8F0">
+        <td style="padding:8px 12px;font-weight:700">Fala e Postura</td>
+        <td style="padding:8px 12px">Leu o papel o tempo todo, voz inaudível.</td>
+        <td style="padding:8px 12px">Consultou notas, mas explicou com suas palavras.</td>
+        <td style="padding:8px 12px">Voz clara e segura, olhou para a sala toda.</td>
+      </tr>
+      <tr style="border-bottom:1px solid #E2E8F0;background:#F8FAFC">
+        <td style="padding:8px 12px;font-weight:700">Conteúdo</td>
+        <td style="padding:8px 12px">Informações incompletas, não respondeu dúvidas.</td>
+        <td style="padding:8px 12px">Apresentou os conceitos principais com acerto.</td>
+        <td style="padding:8px 12px">Trouxe exemplos práticos e respondeu com firmeza.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 12px;font-weight:700">Equipe</td>
+        <td style="padding:8px 12px">Só um aluno falou e os outros se distraíram.</td>
+        <td style="padding:8px 12px">Todos falaram, com divisão razoável.</td>
+        <td style="padding:8px 12px">Participação igualitária e respeito mútuo exemplar.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 61: Feedback Formativo: Comentários que Inspiram em 30s -->
+<div class="slide" data-n="61" data-title="Feedback Formativo: Comentários que Inspiram em 30s">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#8B5CF6"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#8B5CF6;color:#fff">ENCONTRO 4 · FEEDBACK</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Feedback Formativo: Comentários que Inspiram em 30s</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px">Apenas uma Nota Não Ensina</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Devolver uma redação com nota 6.0 e nenhum comentário gera desânimo. Mas escrever 35 bilhetes detalhados à mão é exaustivo.</p>
+    <p style="font-size:13px;color:#047857;font-weight:700">A técnica do feedback formativo: 1 elogio sincero + 1 ponto de melhoria + 1 incentivo!</p>
+  </div>
+  <div class="card" style="background:#0F172A;color:#fff">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#A7F3D0;margin-bottom:6px">Comando para Feedback Rápido:</p>
+    <div style="background:#1E293B;padding:12px;border-radius:8px;font-family:'Courier New';font-size:11px;color:#E2E8F0;line-height:1.5">
+      "Escreva um comentário formativo de 3 linhas para um estudante do 8º ano que teve ótima criatividade na redação, mas esqueceu de usar parágrafos e pontuação.<br/>
+      Tom motivador e acolhedor."
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 62: Como Lidar com Alunos Usando IA: A Tarefa Inteligente -->
+<div class="slide" data-n="62" data-title="Como Lidar com Alunos Usando IA: A Tarefa Inteligente">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#8B5CF6"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#8B5CF6;color:#fff">ENCONTRO 4 · ÉTICA</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Como Lidar com Alunos Usando IA: A Tarefa Inteligente</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%">
+  <div class="card" style="border-left:6px solid #EF4444">
+    <h4 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#DC2626;margin-bottom:8px">❌ A Tarefa que Não Funciona Mais:</h4>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:8px"><em>'Faça uma pesquisa de 2 páginas sobre a Grécia Antiga para casa.'</em></p>
+    <p style="font-size:12px;color:#991B1B">O aluno manda a IA fazer e imprime em 10 segundos sem ler nada. Proibir não resolve.</p>
+  </div>
+  <div class="card" style="border-left:6px solid #10B981">
+    <h4 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#047857;margin-bottom:8px">✅ A Tarefa Esperta que Exige Pensar:</h4>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:8px"><em>'Peça para a IA 3 diferenças entre a democracia de Atenas e a de hoje. Escolha uma, explique com suas palavras para a sala e diga se concorda.'</em></p>
+    <p style="font-size:12px;color:#047857">A IA vira biblioteca, mas o aluno precisa ler, selecionar e defender com a própria voz!</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 63: O Pacto de Honestidade Digital com a Turma -->
+<div class="slide" data-n="63" data-title="O Pacto de Honestidade Digital com a Turma">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#8B5CF6"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#8B5CF6;color:#fff">ENCONTRO 4 · COMBINADOS</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">O Pacto de Honestidade Digital com a Turma</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px"><i class="fas fa-handshake" style="color:#2563EB;margin-right:8px"></i>Conversando Abertamente</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Os estudantes respeitam regras quando compreendem o sentido pedagógico. Estabeleça um combinado no primeiro dia de aula:</p>
+    <ul style="font-size:12px;color:#334155;line-height:1.6;padding-left:16px">
+      <li>Pode usar a IA para tirar dúvidas e buscar ideias.</li>
+      <li>É obrigatório citar: <em>'Consultei a IA para entender este conceito'</em>.</li>
+      <li>É proibido apenas copiar e colar sem ler.</li>
+    </ul>
+  </div>
+  <div class="card" style="background:#F8FAFC;border:2px dashed #CBD5E1">
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin-bottom:8px">O Combinado Escrito na Lousa:</h4>
+    <p style="font-size:13px;color:#475569;line-height:1.6;font-style:italic">
+      "Eu prometo usar a inteligência artificial como uma enciclopédia para me ajudar a entender, e nunca para fazer o trabalho no meu lugar. Sempre lerei e compreenderei antes de entregar ao professor."
+    </p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 64: A Linha Vermelha da LGPD: O Que NUNCA Digitar -->
+<div class="slide" data-n="64" data-title="A Linha Vermelha da LGPD: O Que NUNCA Digitar">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#8B5CF6"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#8B5CF6;color:#fff">ENCONTRO 4 · LGPD ESCOLAR</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">A Linha Vermelha da LGPD: O Que NUNCA Digitar</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1.2fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card" style="border-left:6px solid #DC2626">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#DC2626;margin-bottom:12px"><i class="fas fa-ban" style="margin-right:8px"></i>Dados Pessoais de Menores são Sagrados:</h3>
+    <ul style="font-size:13px;color:#7F1D1D;line-height:1.8;padding-left:16px">
+      <li>❌ Nomes completos de crianças e adolescentes reais.</li>
+      <li>❌ Fotos de rostos de alunos tiradas na sala de aula.</li>
+      <li>❌ Laudos médicos ou relatórios com o nome da criança.</li>
+      <li>❌ Números de telefone, endereços ou documentos de famílias.</li>
+    </ul>
+  </div>
+  <div class="card" style="background:#FEF2F2;border:1px solid #FECACA">
+    <h4 style="font-family:'Montserrat';font-size:15px;font-weight:800;color:#991B1B;margin-bottom:8px">Por Que Esse Cuidado?</h4>
+    <p style="font-size:13px;color:#7F1D1D;line-height:1.6">As plataformas públicas podem utilizar as conversas para treinar seus sistemas. Proteger a privacidade dos alunos é dever legal de todo servidor!</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 65: A Técnica da Anonimização: Como Usar com 100% de Segurança -->
+<div class="slide" data-n="65" data-title="A Técnica da Anonimização: Como Usar com 100% de Segurança">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#8B5CF6"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#8B5CF6;color:#fff">ENCONTRO 4 · ANONIMIZAÇÃO</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">A Técnica da Anonimização: Como Usar com 100% de Segurança</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%">
+  <div class="card" style="border-left:6px solid #EF4444;background:#FFF5F5">
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#DC2626;margin-bottom:6px">❌ Errado (Violação da LGPD):</h4>
+    <p style="font-size:12px;color:#7F1D1D;line-height:1.5">"O aluno Enzo Gabriel da Silva, 9 anos, da Escola Santos Dumont, tem laudo de autismo e bateu no colega. O que fazer?"</p>
+  </div>
+  <div class="card" style="border-left:6px solid #10B981;background:#F0FDF4">
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#047857;margin-bottom:6px">✅ Correto (100% Anonimizado):</h4>
+    <p style="font-size:12px;color:#064E3B;line-height:1.5">"Um aluno fictício de 9 anos do 4º ano, com laudo de TEA, teve uma crise sensorial após barulho na sala. Quais estratégias de acolhimento posso adotar?"</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 66: O Que é o Projeto de Intervenção Pedagógica (40h)? -->
+<div class="slide" data-n="66" data-title="O Que é o Projeto de Intervenção Pedagógica (40h)?">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#8B5CF6"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#8B5CF6;color:#fff">ENCONTRO 4 · PROJETO FINAL</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">O Que é o Projeto de Intervenção Pedagógica (40h)?</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px">Seu Produto Real para a Escola</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">O encerramento do curso não é uma prova teórica. É um produto pedagógico concreto que você leva para aplicar com seus alunos já na próxima semana.</p>
+    <p style="font-size:13px;color:#6D28D9;font-weight:700">Resolva uma 'dor' real da sua turma com o apoio das ferramentas aprendidas!</p>
+  </div>
+  <div class="card" style="background:#F5F3FF;border:1px solid #DDD6FE">
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#5B21B6;margin-bottom:8px">Estrutura Simples de 5 Pontos:</h4>
+    <ol style="font-size:12px;color:#4C1D95;line-height:1.6;padding-left:16px">
+      <li><strong>1. Identificação:</strong> Matéria, ano e escola.</li>
+      <li><strong>2. O Problema:</strong> Qual dificuldade você quer combater?</li>
+      <li><strong>3. As Ferramentas:</strong> Quais IAs você usou (Canva, Diffit, DeepSeek).</li>
+      <li><strong>4. A Atividade:</strong> O material ou sequência gerada.</li>
+      <li><strong>5. Resultados:</strong> O impacto esperado na turma.</li>
+    </ol>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 67: Escolhendo a Dor Real da Sua Turma para o Projeto -->
+<div class="slide" data-n="67" data-title="Escolhendo a Dor Real da Sua Turma para o Projeto">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#8B5CF6"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#8B5CF6;color:#fff">ENCONTRO 4 · PROJETO FINAL</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Escolhendo a Dor Real da Sua Turma para o Projeto</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;height:100%">
+  <div class="card" style="border-top:6px solid #2563EB">
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin-bottom:6px">Dor 1: Desinteresse</h4>
+    <p style="font-size:12px;color:#64748B;line-height:1.5">Alunos desatentos que não querem ler textos tradicionais. Criação de WebQuests e histórias em quadrinhos no Canva.</p>
+  </div>
+  <div class="card" style="border-top:6px solid #10B981">
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin-bottom:6px">Dor 2: Inclusão</h4>
+    <p style="font-size:12px;color:#64748B;line-height:1.5">Falta de material adaptado para estudantes com TEA ou TDAH. Uso do Diffit para gerar fichas em 3 níveis com apoio visual.</p>
+  </div>
+  <div class="card" style="border-top:6px solid #8B5CF6">
+    <h4 style="font-family:'Montserrat';font-size:14px;font-weight:800;color:#1E293B;margin-bottom:6px">Dor 3: Avaliação</h4>
+    <p style="font-size:12px;color:#64748B;line-height:1.5">Provas cheias de cola ou reclamações de notas em seminários. Criação de rubricas transparentes e questões reflexivas.</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 68: Roteiro de Apresentação: O Pitch Pedagógico em 5 Minutos -->
+<div class="slide" data-n="68" data-title="Roteiro de Apresentação: O Pitch Pedagógico em 5 Minutos">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#8B5CF6"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#8B5CF6;color:#fff">ENCONTRO 4 · APRESENTAÇÃO</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Roteiro de Apresentação: O Pitch Pedagógico em 5 Minutos</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px">Compartilhando com os Colegas</h3>
+    <p style="font-size:13px;color:#475569;line-height:1.6;margin-bottom:10px">Cada professor terá 5 minutos para apresentar sua proposta. O objetivo não é formalismo burocrático, mas uma <strong>feira viva de boas práticas</strong>.</p>
+    <p style="font-size:13px;color:#6D28D9;font-weight:700">A ideia de um professor inspira os outros 30 colegas na sala!</p>
+  </div>
+  <div class="card" style="background:#F8FAFC">
+    <p style="font-family:'Montserrat';font-size:13px;font-weight:800;color:#1E293B;margin-bottom:6px">Estrutura dos 5 Minutos:</p>
+    <ul style="font-size:12px;color:#475569;line-height:1.6;padding-left:16px">
+      <li><strong>Minuto 1:</strong> Apresentação do desafio na sua escola.</li>
+      <li><strong>Minuto 2:</strong> Como você usou a IA para construir a solução.</li>
+      <li><strong>Minuto 3:</strong> Demonstração visual do material (folha ou slide).</li>
+      <li><strong>Minuto 4:</strong> Como os alunos reagirão à atividade.</li>
+      <li><strong>Minuto 5:</strong> Perguntas e sugestões dos colegas.</li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 69: Mostra dos Projetos Finais: A Voz dos Educadores -->
+<div class="slide" data-n="69" data-title="Mostra dos Projetos Finais: A Voz dos Educadores">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#8B5CF6"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#8B5CF6;color:#fff">ENCONTRO 4 · BANCA COOPERATIVA</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Mostra dos Projetos Finais: A Voz dos Educadores</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;text-align:center">
+  <div style="max-width:800px">
+    <div style="width:64px;height:64px;background:#EDE9FE;color:#8B5CF6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 16px"><i class="fas fa-users-cog"></i></div>
+    <h3 style="font-family:'Montserrat';font-size:28px;font-weight:800;color:#1E293B;margin-bottom:12px">Banca de Compartilhamento e Afeto</h3>
+    <p style="font-size:15px;color:#475569;line-height:1.6;margin-bottom:20px">Não estamos aqui para julgar ninguém. Estamos reunidos para celebrar a coragem de cada educador em dar um salto na sua prática profissional.</p>
+    <div style="background:#fff;border:2px solid #E2E8F0;border-radius:16px;padding:16px;display:inline-block">
+      <p style="font-size:13px;color:#047857;font-weight:700">Parabéns a cada professor e professora pelo empenho nas 40 horas de curso!</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 70: Checklist Final de Entrega e Certificação de 40h -->
+<div class="slide" data-n="70" data-title="Checklist Final de Entrega e Certificação de 40h">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#8B5CF6"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#8B5CF6;color:#fff">ENCONTRO 4 · CERTIFICAÇÃO</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Checklist Final de Entrega e Certificação de 40h</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:grid;grid-template-columns:1.1fr 1fr;gap:20px;height:100%;align-items:center">
+  <div class="card">
+    <h3 style="font-family:'Montserrat';font-size:17px;font-weight:800;color:#1E293B;margin-bottom:10px">Tudo Pronto para o Certificado Oficial:</h3>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:12px;color:#334155">
+      <div style="background:#F0FDF4;padding:8px 12px;border-radius:8px;border-left:4px solid #10B981">[ ✓ ] Presença nas 8h síncronas dos 4 Encontros.</div>
+      <div style="background:#F0FDF4;padding:8px 12px;border-radius:8px;border-left:4px solid #10B981">[ ✓ ] Realização das oficinas práticas mão na massa.</div>
+      <div style="background:#F0FDF4;padding:8px 12px;border-radius:8px;border-left:4px solid #10B981">[ ✓ ] Entrega do Projeto de Intervenção Pedagógica.</div>
+      <div style="background:#F0FDF4;padding:8px 12px;border-radius:8px;border-left:4px solid #10B981">[ ✓ ] Aplicação e compartilhamento com a escola.</div>
+    </div>
+  </div>
+  <div class="card" style="background:#F5F3FF;border:1px solid #DDD6FE;text-align:center;padding:24px">
+    <div style="font-size:36px;color:#8B5CF6;margin-bottom:10px"><i class="fas fa-certificate"></i></div>
+    <h4 style="font-family:'Montserrat';font-size:18px;font-weight:800;color:#5B21B6;margin-bottom:6px">Certificação Oficial 40 Horas</h4>
+    <p style="font-size:12px;color:#6D28D9;line-height:1.5">Válido para progressão funcional e formação continuada da rede pública de ensino.</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 71: O Professor Continua Insubstituível: O Toque Humano -->
+<div class="slide" data-n="71" data-title="O Professor Continua Insubstituível: O Toque Humano">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#8B5CF6"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#8B5CF6;color:#fff">ENCONTRO 4 · VALORIZAÇÃO</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">O Professor Continua Insubstituível: O Toque Humano</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;text-align:center">
+  <div style="max-width:820px">
+    <div style="width:70px;height:70px;background:#FDF2F8;color:#EC4899;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 16px"><i class="fas fa-heart"></i></div>
+    <h3 style="font-family:'Montserrat';font-size:32px;font-weight:800;color:#1E293B;margin-bottom:14px">A Máquina Nunca Terá um Coração</h3>
+    <p style="font-size:16px;color:#475569;line-height:1.7;margin-bottom:20px">Nenhuma tecnologia no mundo substitui o abraço acolhedor na entrada da escola, o estímulo que faz um estudante acreditar em si mesmo ou o brilho nos olhos ao ver um aluno aprender a ler.</p>
+    <div style="background:#EFF6FF;border:1px solid #BFDBFE;padding:12px 24px;border-radius:30px;font-size:14px;font-weight:800;color:#1E40AF">A IA é a sua caneta mágica; a sabedoria continuará sendo sempre sua!</div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- SLIDE 72: Parabéns, Professor(a)! Formação Concluída com Sucesso -->
+<div class="slide" data-n="72" data-title="Parabéns, Professor(a)! Formação Concluída com Sucesso">
+<div style="position:absolute;left:0;top:0;width:1280px;height:10px;background:#8B5CF6"></div>
+<div style="position:absolute;left:70px;top:30px;z-index:10"><span class="badge" style="background:#8B5CF6;color:#fff">CURSO CONCLUÍDO · 40 HORAS</span></div>
+<div style="position:absolute;left:70px;top:62px;width:1140px;z-index:10"><h1 style="font-family:'Montserrat';font-size:32px;color:#1E293B;font-weight:800;line-height:1.2">Parabéns, Professor(a)! Formação Concluída com Sucesso</h1></div>
+<div style="position:absolute;left:70px;top:130px;width:1140px;height:550px;z-index:10">
+
+<div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;text-align:center">
+  <div style="max-width:800px">
+    <div style="width:80px;height:80px;background:#D1FAE5;color:#10B981;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 16px"><i class="fas fa-trophy"></i></div>
+    <h2 style="font-family:'Montserrat';font-size:36px;font-weight:800;color:#1E293B;margin-bottom:10px">O Futuro Começa na Sua Sala de Aula</h2>
+    <p style="font-size:16px;color:#475569;line-height:1.6;margin-bottom:24px">Obrigado pela dedicação e pelo compromisso com a transformação da educação pública brasileira!</p>
+    <div style="display:flex;justify-content:center;gap:14px">
+      <div style="background:#fff;border:1px solid #E2E8F0;padding:10px 18px;border-radius:12px;font-size:13px;color:#1E293B;font-weight:700"><i class="fas fa-book-open" style="color:#2563EB;margin-right:6px"></i>Apostila Completa Disponível</div>
+      <div style="background:#fff;border:1px solid #E2E8F0;padding:10px 18px;border-radius:12px;font-size:13px;color:#1E293B;font-weight:700"><i class="fas fa-chalkboard" style="color:#10B981;margin-right:6px"></i>Projetos Prontos para Prática</div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+</div></div>
+
+<!-- CONTROLES FLUTUANTES -->
+<div class="controls">
+  <button class="ctrl" id="btn-prev" title="Anterior (Seta Esquerda)"><i class="fas fa-chevron-left"></i></button>
+  <div class="slide-counter" id="counter">1 / 72</div>
+  <button class="ctrl" id="btn-next" title="Próximo (Espaço / Seta Direita)"><i class="fas fa-chevron-right"></i></button>
+  <div class="sep"></div>
+  <button class="ctrl" id="btn-grid" title="Ver todos os 72 slides (G)"><i class="fas fa-th"></i></button>
+  <button class="ctrl" id="btn-fs" title="Tela Cheia (F)"><i class="fas fa-expand"></i></button>
+</div>
+
+<!-- OVERLAY DE MINIATURAS (GRADE DE TODOS OS SLIDES) -->
+<div id="thumb-overlay">
+  <div id="thumb-close"><i class="fas fa-times" style="margin-right:6px"></i>Pressione ESC ou clique para fechar a grade de slides</div>
+  <div id="thumb-grid"></div>
+</div>
+
+<script>
+(function(){
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length;
+  let cur = 0;
+
+  const pb = document.getElementById('pb');
+  const counter = document.getElementById('counter');
+  const deckWrapper = document.getElementById('deck');
+  const thumbOverlay = document.getElementById('thumb-overlay');
+  const thumbGrid = document.getElementById('thumb-grid');
+
+  function resizeDeck(){
+    const w = window.innerWidth;
+    const h = window.innerHeight - 62;
+    const s = Math.min(w / 1280, h / 720);
+    deckWrapper.style.transform = 'scale(' + s + ')';
+  }
+  window.addEventListener('resize', resizeDeck);
+  resizeDeck();
+
+  function goTo(n){
+    if(n < 0) n = 0;
+    if(n >= total) n = total - 1;
+    slides[cur].classList.remove('active');
+    cur = n;
+    slides[cur].classList.add('active');
+    counter.textContent = (cur + 1) + ' / ' + total;
+    pb.style.width = (((cur + 1) / total) * 100) + '%';
+  }
+
+  document.getElementById('btn-prev').addEventListener('click', () => goTo(cur - 1));
+  document.getElementById('btn-next').addEventListener('click', () => goTo(cur + 1));
+
+  document.addEventListener('keydown', e => {
+    if(e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown'){
+      e.preventDefault(); goTo(cur + 1);
+    } else if(e.key === 'ArrowLeft' || e.key === 'PageUp'){
+      e.preventDefault(); goTo(cur - 1);
+    } else if(e.key === 'f' || e.key === 'F'){
+      if(!document.fullscreenElement) document.documentElement.requestFullscreen().catch(()=>{});
+      else document.exitFullscreen().catch(()=>{});
+    } else if(e.key === 'g' || e.key === 'G'){
+      toggleGrid();
+    } else if(e.key === 'Escape'){
+      thumbOverlay.style.display = 'none';
+    }
+  });
+
+  document.getElementById('btn-fs').addEventListener('click', () => {
+    if(!document.fullscreenElement) document.documentElement.requestFullscreen().catch(()=>{});
+    else document.exitFullscreen().catch(()=>{});
+  });
+
+  function toggleGrid(){
+    if(thumbOverlay.style.display === 'block'){
+      thumbOverlay.style.display = 'none';
+    } else {
+      buildGrid();
+      thumbOverlay.style.display = 'block';
+    }
+  }
+  document.getElementById('btn-grid').addEventListener('click', toggleGrid);
+  document.getElementById('thumb-close').addEventListener('click', () => { thumbOverlay.style.display = 'none'; });
+
+  function buildGrid(){
+    thumbGrid.innerHTML = '';
+    slides.forEach((s, idx) => {
+      const d = document.createElement('div');
+      d.className = 'thumb' + (idx === cur ? ' current' : '');
+      const num = s.dataset.n || (idx + 1);
+      const title = s.dataset.title || ('Slide ' + num);
+      d.innerHTML = '<div class="thumb-num">' + num + '</div><div class="thumb-title">' + title + '</div>';
+      d.addEventListener('click', () => {
+        goTo(idx);
+        thumbOverlay.style.display = 'none';
+      });
+      thumbGrid.appendChild(d);
+    });
+  }
+
+  goTo(0);
+})();
+</script>
+</body>
+</html>

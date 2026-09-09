@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Apostila Completa e Definitiva: Inteligência Artificial para Educadores (40 Horas)</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  @page {
+    size: A4;
+    margin: 14mm 14mm 14mm 14mm;
+  }
+  @media print {
+    body {
+      background: #ffffff !important;
+      color: #0f172a !important;
+      font-size: 9.8pt !important;
+      line-height: 1.5 !important;
+    }
+    .page-break {
+      page-break-before: always !important;
+      break-before: page !important;
+    }
+    .avoid-break {
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+    }
+    .no-print {
+      display: none !important;
+    }
+  }
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    color: #1e293b;
+    background-color: #f8fafc;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, .font-title {
+    font-family: 'Montserrat', sans-serif;
+  }
+  .traduzindo-box {
+    background-color: #eff6ff;
+    border-left: 5px solid #2563eb;
+    border-radius: 0.75rem;
+    padding: 1.1rem 1.35rem;
+    margin: 1.3rem 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .traduzindo-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.98rem;
+    color: #1d4ed8;
+    margin-bottom: 0.4rem;
+  }
+  .prompt-box {
+    background: #0f172a;
+    color: #f8fafc;
+    border-radius: 0.85rem;
+    overflow: hidden;
+    margin: 1.3rem 0;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .prompt-header {
+    background: #1e293b;
+    padding: 0.55rem 1.15rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #334155;
+  }
+  .prompt-content {
+    padding: 1.1rem 1.3rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: #e2e8f0;
+    white-space: pre-wrap;
+  }
+  .tip-box {
+    background-color: #fefce8;
+    border-left: 5px solid #eab308;
+    border-radius: 0.75rem;
+    padding: 1.1rem 1.35rem;
+    margin: 1.3rem 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .tip-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: #a16207;
+    margin-bottom: 0.35rem;
+  }
+  .danger-box {
+    background-color: #fef2f2;
+    border-left: 5px solid #ef4444;
+    border-radius: 0.75rem;
+    padding: 1.1rem 1.35rem;
+    margin: 1.3rem 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .danger-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: #b91c1c;
+    margin-bottom: 0.35rem;
+  }
+  .img-c {
+    border: 2px solid #e2e8f0;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin: 1.3rem 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+  }
+  .img-c img {
+    width: 100%;
+    max-height: 270px;
+    object-fit: contain;
+    background-color: #ffffff;
+    display: block;
+    margin: 0 auto;
+    padding: 0.5rem;
+  }
+  .img-cap {
+    font-size: 0.8rem;
+    color: #64748b;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-top: 1px solid #e2e8f0;
+    background: #f8fafc;
+    font-weight: 600;
+  }
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.3rem 0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .custom-table th {
+    background: #1e293b;
+    color: #ffffff;
+    padding: 0.65rem 0.95rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.82rem;
+    text-align: left;
+    font-weight: 700;
+  }
+  .custom-table td {
+    padding: 0.65rem 0.95rem;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 0.85rem;
+    color: #334155;
+  }
+  .custom-table tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+</style>
+</head>
+<body class="max-w-5xl mx-auto p-4 sm:p-8 md:p-12 bg-white shadow-xl my-8 rounded-2xl border border-slate-100">
+
+<!-- CAPA EDITORIAL -->
+<div class="min-h-[860px] flex flex-col justify-between p-10 md:p-14 rounded-3xl bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-900 text-white shadow-2xl relative overflow-hidden">
+  <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute -left-20 -top-20 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div>
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/20 text-blue-300 font-bold text-xs uppercase tracking-wider border border-blue-400/30 mb-8">
+      <i data-lucide="award" class="w-4 h-4"></i> Formação Completa · 40 Horas · Rede Pública de Ensino
+    </div>
+    <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-tight mb-6 font-title">
+      Inteligência Artificial<br/>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">para Educadores</span>
+    </h1>
+    <p class="text-xl md:text-2xl font-light text-slate-200 max-w-2xl leading-relaxed">
+      Manual Prático, Acolhedor e Definitivo: Do Caos do Planejamento ao Fim de Semana Livre.
+    </p>
+  </div>
+
+  <div class="my-8 py-6 border-y border-white/10 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-300"><i data-lucide="heart-handshake" class="w-5 h-5"></i></div>
+      <div>
+        <p class="font-bold text-sm">Sem Jargões</p>
+        <p class="text-xs text-slate-400">Feito de professor para professor</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-300"><i data-lucide="coins" class="w-5 h-5"></i></div>
+      <div>
+        <p class="font-bold text-sm">100% Gratuito</p>
+        <p class="text-xs text-slate-400">Estratégias reais antipagamento</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-300"><i data-lucide="users" class="w-5 h-5"></i></div>
+      <div>
+        <p class="font-bold text-sm">Inclusão Real</p>
+        <p class="text-xs text-slate-400">TEA, TDAH, Dislexia e DUA</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 text-xs text-slate-400">
+    <div>
+      <p class="font-semibold text-slate-300">Material Didático Oficial do Curso</p>
+      <p>12 Capítulos Estruturados · 4 Encontros Síncronos de Oficinas (8h) + Aplicação em Sala (32h)</p>
+    </div>
+    <div class="text-right">
+      <p class="font-bold text-slate-200">Edição 2026 · Atualizada e Aprofundada</p>
+      <p>DeepSeek R1/V3 · Z.ai · NotebookLM · Canva Edu · Diffit · Curipod</p>
+    </div>
+  </div>
+</div>
+
+<!-- PREFÁCIO E SUMÁRIO GERAL (PAGE BREAK) -->
+<div class="page-break pt-8">
+  <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-8 mb-8 avoid-break">
+    <div class="flex items-center gap-3 text-indigo-700 font-extrabold text-xl mb-4 font-title">
+      <i data-lucide="compass" class="w-6 h-6"></i> Bem-vindo(a), Professor(a): Este Guia Foi Escrito para Você
+    </div>
+    <p class="text-slate-700 mb-4 leading-relaxed">
+      Bem-vindo à formação mais acolhedora e prática sobre Inteligência Artificial aplicada à educação básica pública. Se você sente que os dias estão curtos demais, que as exigências burocráticas aumentam a cada bimestre e que os relatórios e correções devoram os seus finais de semana com a família, saiba: <strong>você não está sozinho(a)</strong>.
+    </p>
+    <p class="text-slate-700 mb-4 leading-relaxed">
+      Nosso objetivo com esta apostila não é ensinar matemática de computadores nem formar programadores de software. Nosso compromisso é puramente pedagógico e humano: <strong>colocar a tecnologia a favor do seu bem-estar e da qualidade das suas aulas</strong>. A IA nunca substituirá o olhar sensível do professor, o afeto no acolhimento de uma criança ou a sabedoria de conduzir um debate na sala de aula. Mas ela pode — e vai — assumir o trabalho braçal, repetitivo e cansativo da digitação, do rascunho e da formatação.
+    </p>
+    <p class="text-slate-900 font-bold leading-relaxed">
+      A apostila está dividida em <strong>12 Capítulos Completos</strong>, organizados para conduzir você passo a passo, do primeiro clique até a criação de um projeto de intervenção pedagógica que transformará sua rotina escolar.
+    </p>
+  </div>
+
+  <h2 class="text-2xl font-black text-slate-800 mb-6 font-title border-b pb-3 flex items-center gap-2">
+    <i data-lucide="list-ordered" class="w-6 h-6 text-blue-600"></i> Sumário Geral dos 12 Capítulos (40 Horas)
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mb-12">
+    <div class="space-y-3">
+      <div class="p-4 bg-blue-50/70 rounded-xl border border-blue-100">
+        <p class="font-bold text-blue-900 flex items-center gap-1.5"><i data-lucide="message-square" class="w-4 h-4"></i> MÓDULO I: FUNDAMENTOS E LINGUAGEM (Encontro 1)</p>
+        <p class="text-xs text-slate-700 mt-1.5"><strong>Capítulo 1:</strong> Entendendo a IA no Cotidiano Escolar (WhatsApp, LLMs, Gratuitas e Limites)</p>
+        <p class="text-xs text-slate-700"><strong>Capítulo 2:</strong> A Arte de Conversar com a IA (Fórmula P.T.C.F. e 15 Prompts Prontos)</p>
+      </div>
+      <div class="p-4 bg-emerald-50/70 rounded-xl border border-emerald-100">
+        <p class="font-bold text-emerald-900 flex items-center gap-1.5"><i data-lucide="book-open" class="w-4 h-4"></i> MÓDULO II: ROTINA E DOCUMENTOS OFICIAIS (Encontro 2)</p>
+        <p class="text-xs text-slate-700 mt-1.5"><strong>Capítulo 3:</strong> Organização Profissional, Pareceres Descritivos e Atas de Reunião</p>
+        <p class="text-xs text-slate-700"><strong>Capítulo 4:</strong> Planejamento de Aulas e Domínio da BNCC sem Mistério</p>
+        <p class="text-xs text-slate-700"><strong>Capítulo 5:</strong> Leitura Inteligente de Documentos em PDF (NotebookLM e Kimi AI)</p>
+      </div>
+    </div>
+    <div class="space-y-3">
+      <div class="p-4 bg-amber-50/70 rounded-xl border border-amber-100">
+        <p class="font-bold text-amber-900 flex items-center gap-1.5"><i data-lucide="palette" class="w-4 h-4"></i> MÓDULO III: MATERIAIS, INCLUSÃO E VISUAIS (Encontro 3)</p>
+        <p class="text-xs text-slate-700 mt-1.5"><strong>Capítulo 6:</strong> Materiais Didáticos Dinâmicos, Jogos e Fichas de Reforço</p>
+        <p class="text-xs text-slate-700"><strong>Capítulo 7:</strong> Inclusão Escolar, DUA, TEA, TDAH, Dislexia e Diffit em 3 Níveis</p>
+        <p class="text-xs text-slate-700"><strong>Capítulo 8:</strong> Recursos Visuais, Canva Pro Grátis e Aulas Interativas com Curipod</p>
+      </div>
+      <div class="p-4 bg-purple-50/70 rounded-xl border border-purple-100">
+        <p class="font-bold text-purple-900 flex items-center gap-1.5"><i data-lucide="award" class="w-4 h-4"></i> MÓDULO IV: AVALIAÇÕES, ÉTICA E PROJETO FINAL (Encontro 4)</p>
+        <p class="text-xs text-slate-700 mt-1.5"><strong>Capítulo 9:</strong> Avaliações Formativas, Provas no DeepSeek R1 e Rubricas em 1 Minuto</p>
+        <p class="text-xs text-slate-700"><strong>Capítulo 10:</strong> Ética, Alunos Usando IA e LGPD na Escola (A Técnica da Anonimização)</p>
+        <p class="text-xs text-slate-700"><strong>Capítulo 11:</strong> Laboratório de Projetos de Intervenção Pedagógica (Produto de 40h)</p>
+        <p class="text-xs text-slate-700"><strong>Capítulo 12:</strong> Guia de Bolso do Educador: Resoluções Rápidas de Emergência</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CAPÍTULO 1 (PAGE BREAK) -->
+<div class="page-break pt-8">
+  <div class="flex items-center gap-2 mb-2">
+    <span class="chapter-badge bg-blue-100 text-blue-800">Módulo I · Encontro 1</span>
+    <span class="text-xs font-bold text-slate-400">Capítulo 1</span>
+  </div>
+  <h2 class="text-3xl font-black text-slate-900 mb-6 font-title">
+    Capítulo 1: Entendendo a Inteligência Artificial no Cotidiano Escolar
+  </h2>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-6 mb-3 font-title">1.1 O que é Inteligência Artificial, Afinal? (Sem Complicação)</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Quando ouvimos falar em Inteligência Artificial, é muito comum imaginarmos robôs de filmes de ficção científica ou supercomputadores misteriosos. Mas a realidade da sala de aula é infinitamente mais simples e acolhedora.
+  </p>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    A Inteligência Artificial é apenas um programa de computador treinado para <strong>reconhecer padrões e antecipar o que vem a seguir</strong>. Você já convive com ela todos os dias sem perceber. Pense no teclado do seu celular: quando você digita no WhatsApp a palavra <em>"Bom"</em>, o teclado logo sugere <em>"dia"</em>. Ele não tem sentimentos nem consciência; ele apenas aprendeu que, na língua portuguesa, depois de "Bom", a palavra mais comum e provável é "dia".
+  </p>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Agora, imagine esse corretor do celular multiplicado por bilhões. Os modelos modernos de IA leram praticamente tudo o que a humanidade publicou na internet: enciclopédias, artigos acadêmicos, livros de pedagogia, planos de aula compartilhados por professores do mundo inteiro e documentos oficiais como a BNCC. Quando você pede um plano de aula à IA, ela não está copiando de um site secreto: ela está combinando padrões pedagógicos para construir um texto inédito, parágrafo por parágrafo, em poucos segundos.
+  </p>
+
+  <div class="traduzindo-box">
+    <div class="traduzindo-title">
+      <i data-lucide="help-circle" class="w-5 h-5"></i> Traduzindo: O que é LLM (Large Language Model)?
+    </div>
+    <p class="text-sm text-slate-700 leading-relaxed">
+      Você verá frequentemente a sigla <strong>LLM</strong> (Modelo de Linguagem Grande). Pense no LLM como um <em>estudante incansável que leu a biblioteca inteira</em>. Ele tem uma memória enciclopédica gigantesca e escreve muito rápido sobre qualquer assunto. No entanto, ele não tem experiência de vida: ele nunca pisou numa sala de aula de 35 alunos em uma tarde de calor, não sabe o que é acalmar um conflito no recreio e não conhece a realidade dos seus estudantes. <strong>Você entra com a sensibilidade pedagógica; ele entra com a agilidade de digitação.</strong>
+    </p>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">1.2 O Fim do Mito: Você NÃO Precisa Pagar Assinatura</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Muitos professores desistem de usar IA porque acreditam que as ferramentas boas custam caro (geralmente $20 dólares por mês, o que ultrapassa R$ 100 reais). <strong>Isso é um mito absoluto.</strong> No cenário atual, as melhores ferramentas para educação contam com versões gratuitas de altíssimo nível, perfeitas para a rede pública.
+  </p>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>Ferramenta</th>
+        <th>Tipo Principal</th>
+        <th>Melhor Uso na Educação</th>
+        <th>Gratuidade Real?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>DeepSeek (R1 / V3)</strong><br/><span class="text-xs text-slate-500">chat.deepseek.com</span></td>
+        <td>Texto & Raciocínio</td>
+        <td>Matemática, ciências, lógica, provas inéditas e questões discursivas complexas.</td>
+        <td><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-xs">100% Gratuito</span></td>
+      </tr>
+      <tr>
+        <td><strong>Z.ai / GLM-4</strong><br/><span class="text-xs text-slate-500">z.ai</span></td>
+        <td>Texto & Janela Gigante</td>
+        <td>Textos longos, redações, pareceres descritivos e projetos escolares.</td>
+        <td><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-xs">Gratuito (Quotas generosas)</span></td>
+      </tr>
+      <tr>
+        <td><strong>Google Gemini</strong><br/><span class="text-xs text-slate-500">gemini.google.com</span></td>
+        <td>Texto & Pesquisa Web</td>
+        <td>Integração nativa com Google Docs, Drive e notícias educacionais recentes.</td>
+        <td><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-xs">100% Gratuito (com conta Google)</span></td>
+      </tr>
+      <tr>
+        <td><strong>Google NotebookLM</strong><br/><span class="text-xs text-slate-500">notebooklm.google.com</span></td>
+        <td>Análise de PDFs</td>
+        <td>Leitura da BNCC e livros didáticos com <strong>alucinação zero</strong> e citação de páginas.</td>
+        <td><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-xs">100% Gratuito</span></td>
+      </tr>
+      <tr>
+        <td><strong>Canva para Educação</strong><br/><span class="text-xs text-slate-500">canva.com/education</span></td>
+        <td>Design & Slides</td>
+        <td>Apresentações visuais, cartazes, murais e folhas de atividades coloridas.</td>
+        <td><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-xs">Pro Vitalício Gratuito (Professores)</span></td>
+      </tr>
+      <tr>
+        <td><strong>DuckDuckGo AI</strong><br/><span class="text-xs text-slate-500">duck.ai</span></td>
+        <td>Pesquisa Anônima</td>
+        <td>Uso em laboratórios escolares que bloqueiam login ou exigem privacidade total.</td>
+        <td><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-xs">Sem Cadastro / 100% Grátis</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">1.3 A Realidade dos Limites Diários: Estratégias Antipagamento</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Para que você nunca fique na mão, é fundamental conhecer o segredo das quotas gratuitas. Quase todas as plataformas gratuitas impõem limites para evitar sobrecarga dos servidores:
+  </p>
+  <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+    <li><strong>Quotas por Hora ou por Dia:</strong> Plataformas como Claude ou Z.ai oferecem respostas excelentes, mas podem solicitar que você aguarde algumas horas caso envie dezenas de mensagens seguidas.</li>
+    <li><strong>A Armadilha do Freemium Ilusório:</strong> Ferramentas como o <em>Gamma.app</em> dão 400 créditos iniciais que acabam em 4 apresentações, exigindo cartão de crédito depois. No nosso curso, ensinamos você a usar o <strong>Canva para Educação</strong>, que é 100% gratuito para sempre para docentes da rede pública!</li>
+    <li><strong>A Regra dos Dois Barcos (Estratégia de Ouro):</strong> Sempre mantenha duas opções abertas no seu navegador (por exemplo: DeepSeek e Google Gemini). Se uma atingir a quota do dia durante uma pesquisa pesada, basta colar o mesmo comando na outra e continuar seu trabalho sem gastar um único centavo.</li>
+  </ul>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">1.4 O que a IA NÃO Consegue Fazer e a Metáfora da Alucinação</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    A Inteligência Artificial não é onisciente nem infalível. Ela tem três limitações severas que todo educador precisa gravar:
+  </p>
+  <ol class="list-decimal pl-6 text-slate-700 space-y-2 mb-4">
+    <li><strong>Ela não tem bom senso pedagógico:</strong> A IA não sabe se os seus alunos do 6º ano já aprenderam frações ou se aquela turma tem dificuldades de leitura. Você é quem avalia se a sugestão é viável.</li>
+    <li><strong>Ela não substitui a checagem de fatos:</strong> Se você pedir dados históricos muito específicos ou números de artigos de lei, ela pode se equivocar.</li>
+  </ol>
+
+  <div class="danger-box">
+    <div class="danger-title">
+      <i data-lucide="alert-triangle" class="w-5 h-5"></i> Traduzindo: O que é a "Alucinação" da IA?
+    </div>
+    <p class="text-sm text-slate-700 leading-relaxed">
+      No mundo da tecnologia, <strong>"alucinação"</strong> é o termo que descreve quando a IA inventa uma resposta que parece extremamente verdadeira, mas é falsa. Ela não mente de má-fé. Pense na IA como um <em>estagiário muito esforçado que está prestando uma prova oral</em>: quando ele não sabe a resposta exata, tem vergonha de dizer "não sei" e tenta inventar uma explicação com palavras bonitas e tom de certeza.
+    </p>
+    <p class="text-sm font-bold text-red-900 mt-2">
+      Regra de Ouro Docente: Nunca copie e cole datas históricas, fórmulas científicas ou citações de leis sem dar uma rápida conferida!
+    </p>
+  </div>
+</div>
+
+<!-- CAPÍTULO 2 (PAGE BREAK) -->
+<div class="page-break pt-8">
+  <div class="flex items-center gap-2 mb-2">
+    <span class="chapter-badge bg-blue-100 text-blue-800">Módulo I · Encontro 1</span>
+    <span class="text-xs font-bold text-slate-400">Capítulo 2</span>
+  </div>
+  <h2 class="text-3xl font-black text-slate-900 mb-6 font-title">
+    Capítulo 2: A Arte de Conversar com a IA (Engenharia de Prompts)
+  </h2>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-6 mb-3 font-title">2.1 O que é um Prompt? A Comanda de Trabalho do Professor</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    A palavra <strong>Prompt</strong> assusta muita gente por estar em inglês, mas ela significa simplesmente o <strong>comando, pergunta ou instrução que você digita para a IA</strong>.
+  </p>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Imagine que você entre em um restaurante movimentado e diga ao garçom apenas: <em>"Me traga comida"</em>. Ele ficará perdido. Que tipo de comida? Salgada ou doce? Você tem alergia a glúten? Qual o tamanho da porção? Com a IA acontece exatamente a mesma coisa. Se você digita apenas: <em>"Faça uma prova de Ciências"</em>, ela criará uma prova genérica, superficial e sem conexão com o que seus alunos aprenderam.
+  </p>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Para obter respostas brilhantes, você só precisa aprender a redigir uma boa comanda. E para isso criamos a receita mais famosa da educação digital: a <strong>Fórmula P.T.C.F.</strong>
+  </p>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">2.2 A Fórmula P.T.C.F. em Detalhes</h3>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center my-6 avoid-break">
+    <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-6">
+      <h4 class="font-extrabold text-indigo-900 text-lg mb-3 font-title">Sua Receita de Bolo para Prompts Perfeitos</h4>
+      <div class="space-y-3 text-sm text-slate-700">
+        <p><strong>P - Papel (Persona):</strong> Diga quem a IA deve fingir ser. Ex: <em>"Aja como uma professora experiente de alfabetização da rede pública..."</em></p>
+        <p><strong>T - Tarefa:</strong> O que exatamente você quer que ela produza? Use verbos de ação claros: <em>"Crie uma sequência didática de 3 aulas..."</em></p>
+        <p><strong>C - Contexto:</strong> Descreva sua realidade escolar: <em>"Meus alunos têm 8 anos, a escola não tem laboratório de ciências, mas temos um pátio arborizado..."</em></p>
+        <p><strong>F - Formato:</strong> Como você deseja a resposta: <em>"Apresente em formato de tabela dividida em Início, Desenvolvimento e Fechamento..."</em></p>
+      </div>
+    </div>
+    <div class="img-c avoid-break">
+      <img src="imagens/formula_ptcf_esquema.png" alt="Esquema da Fórmula PTCF para Professores">
+      <div class="img-cap">A Fórmula P.T.C.F.: Estrutura infográfica para criar comandos perfeitos na IA.</div>
+    </div>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">2.3 Comparativo Real: Prompt Ruim vs. Prompt Bom</h3>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4 avoid-break">
+    <div class="p-4 rounded-xl border border-red-200 bg-red-50/70">
+      <p class="font-bold text-red-800 flex items-center gap-1.5 mb-2 font-title"><i data-lucide="x-circle" class="w-4 h-4"></i> Exemplo 1: Prompt Ruim (Vago e Frustrante)</p>
+      <p class="text-xs text-slate-700 font-mono bg-white p-3 rounded border border-red-100 mb-2">
+        "Crie uma atividade sobre o sistema solar para meus alunos."
+      </p>
+      <p class="text-xs text-red-700"><strong>Resultado:</strong> Texto longo, genérico, sem indicação de faixa etária e sem critério pedagógico.</p>
+    </div>
+    <div class="p-4 rounded-xl border border-emerald-200 bg-emerald-50/70">
+      <p class="font-bold text-emerald-800 flex items-center gap-1.5 mb-2 font-title"><i data-lucide="check-circle" class="w-4 h-4"></i> Exemplo 1: Prompt Bom (Fórmula P.T.C.F.)</p>
+      <p class="text-xs text-slate-700 font-mono bg-white p-3 rounded border border-emerald-100 mb-2">
+        "[P] Aja como professor de Ciências especialista no Fundamental I. [T] Crie uma atividade prática sobre o Sistema Solar. [C] Alunos do 3º ano da rede pública; a escola não possui projetor, usaremos apenas papel sulfite e lápis de cor. [F] Divida em 3 passos simples com uma brincadeira de movimento no pátio."
+      </p>
+      <p class="text-xs text-emerald-700"><strong>Resultado:</strong> Atividade imediata, lúdica, factível e 100% conectada à sua realidade.</p>
+    </div>
+  </div>
+
+  <div class="img-c avoid-break my-6">
+    <img src="imagens/chatgpt_prompt_ptbr.png" alt="Exemplo prático de Prompt em Português">
+    <div class="img-cap">Interface de IA processando um prompt estruturado em língua portuguesa.</div>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">2.4 Mega Banco de Prompts Prontos: Copie, Cole e Adapte</h3>
+
+  <div class="prompt-box">
+    <div class="prompt-header">
+      <span><i data-lucide="copy" class="w-4 h-4 inline mr-1"></i> PROMPT 1: PLANO DE AULA LÚDICO (ANOS INICIAIS)</span>
+      <span class="text-xs text-blue-400 font-mono">Fórmula P.T.C.F.</span>
+    </div>
+    <div class="prompt-content">Aja como uma pedagoga especialista em alfabetização matemática.
+Elabore um plano de aula de 50 minutos para o 2º ano do Ensino Fundamental sobre 'Sistema Monetário Brasileiro'.
+Contexto: Os alunos ainda estão consolidando as operações básicas de soma. A turma é enérgica e aprende melhor com movimento.
+Formato:
+1. Objetivo da aula com habilidade da BNCC (código e descrição).
+2. Materiais necessários (apenas itens recicláveis ou de papelaria comum).
+3. Dinâmica passo a passo: 'O Mercadinho da Turma' usando embalagens vazias trazidas de casa.
+4. Fechamento reflexivo em roda de conversa de 5 minutos.</div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-header">
+      <span><i data-lucide="copy" class="w-4 h-4 inline mr-1"></i> PROMPT 2: REESCRITA CONTEXTUALIZADA (ANOS FINAIS / ENSINO MÉDIO)</span>
+      <span class="text-xs text-blue-400 font-mono">Fórmula P.T.C.F.</span>
+    </div>
+    <div class="prompt-content">Aja como um professor de História do 8º ano que consegue prender a atenção dos adolescentes.
+Reescreva a explicação sobre a 'Revolução Francesa' para um texto de no máximo 25 linhas.
+Contexto: Meus estudantes acham aulas de história maçantes e são fascinados por redes sociais e séries de televisão.
+Formato:
+- Use metáforas modernas (como grupos de WhatsApp em conflito ou influenciadores digitais da época) para explicar a divisão entre Clero, Nobreza e Povo.
+- Mantenha o rigor histórico dos conceitos essenciais (Bastilha, privilégios, crise fiscal).
+- Conclua com 2 perguntas provocativas que estimulem o debate em sala.</div>
+  </div>
+</div>
+
+<!-- CAPÍTULO 3 (PAGE BREAK) -->
+<div class="page-break pt-8">
+  <div class="flex items-center gap-2 mb-2">
+    <span class="chapter-badge bg-emerald-100 text-emerald-800">Módulo II · Encontro 2</span>
+    <span class="text-xs font-bold text-slate-400">Capítulo 3</span>
+  </div>
+  <h2 class="text-3xl font-black text-slate-900 mb-6 font-title">
+    Capítulo 3: Organização da Vida Profissional e Gestão Escolar
+  </h2>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-6 mb-3 font-title">3.1 Organizando a Semana de Trabalho: Fim da Sobrecarga Extraclasse</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    A maior causa de exaustão e adoecimento dos professores da rede pública não é a sala de aula em si, mas a avalanche de tarefas burocráticas invisíveis que levamos para casa à noite e aos fins de semana. O tempo de planejar, redigir bilhetes, preencher formulários e calcular médias devora o descanso merecido.
+  </p>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Com a IA, você pode criar uma <strong>rotina de automação inteligente</strong>. Em vez de começar documentos do zero na frente de uma folha em branco, você fornece à IA as informações brutas (duas ou três linhas de tópicos) e ela entrega o texto formal pronto e estruturado em 30 segundos.
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center my-6 avoid-break">
+    <div class="prompt-box my-0">
+      <div class="prompt-header">
+        <span>PROMPT: CRONOGRAMA SEMANAL EQUILIBRADO</span>
+        <span class="text-xs text-emerald-400 font-mono">Gestão do Tempo</span>
+      </div>
+      <div class="prompt-content">Aja como um especialista em organização pessoal para professores.
+Monte uma tabela de rotina semanal para um professor da rede pública com 30 aulas semanais e 6 horas de atividades complementares (HTPC/planejamento).
+Distribua:
+- 2 blocos de 45 min para planejamento de aulas (usando IA).
+- 1 bloco de 40 min para redação de relatórios e comunicados.
+- 1 bloco de 50 min para correção de atividades.
+Garanta que nenhum trabalho seja levado para o sábado e domingo.</div>
+    </div>
+    <div class="img-c avoid-break">
+      <img src="imagens/organizacao_rotina_professor.png" alt="Organização da Rotina Docente">
+      <div class="img-cap">Organização inteligente da rotina profissional: menos burocracia e mais vida pessoal.</div>
+    </div>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">3.2 Escrevendo E-mails e Comunicados Delicados para as Famílias</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Comunicar notas baixas, desatenção ou episódios de indisciplina para os pais é sempre um terreno sensível. Uma palavra mal colocada pode gerar atrito imediato com a coordenação ou revolta da família. A IA é a parceira ideal para redigir textos acolhedores, profissionais e empáticos, transformando um comunicado punitivo em uma aliança de cooperação.
+  </p>
+
+  <div class="prompt-box">
+    <div class="prompt-header">
+      <span>COMUNICADO DELICADO: INDISCIPLINA E CONVERSA CONSTANTE</span>
+      <span class="text-xs text-emerald-400 font-mono">Família & Escola</span>
+    </div>
+    <div class="prompt-content">Escreva um bilhete acolhedor e profissional para a mãe do aluno Lucas (7º ano).
+Contexto: O Lucas é um menino muito inteligente e participativo, mas nas últimas duas semanas tem conversado sem parar durante as explicações, atrapalhando a si mesmo e aos colegas próximos, e deixou de entregar duas tarefas de casa.
+Tom: Não quero que a mensagem soe como bronca ou ameaça. Quero um convite afetuoso para que família e escola conversem juntas para ajudá-lo a retomar o foco.
+Tamanho: Máximo de 2 parágrafos curtos.</div>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">3.3 O Fim do Pesadelo dos Pareceres Descritivos de Fim de Bimestre</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Na Educação Infantil e nos Anos Iniciais, o fechamento do bimestre exige a redação de dezenas de pareceres descritivos individuais. Olhar para uma pilha de 30 fichas em branco na noite de domingo é uma das experiências mais angustiantes da carreira docente.
+  </p>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    <strong>A solução mágica da IA:</strong> você só precisa ditar ou digitar suas anotações soltas e informais. A IA cuida do vocabulário técnico, da coesão e da postura pedagógica acolhedora!
+  </p>
+
+  <div class="prompt-box">
+    <div class="prompt-header">
+      <span>GERADOR DE PARECER DESCRITIVO A PARTIR DE ANOTAÇÕES SOLTAS</span>
+      <span class="text-xs text-emerald-400 font-mono">Educação Infantil / Fund. I</span>
+    </div>
+    <div class="prompt-content">Aja como uma coordenadora pedagógica experiente em avaliação formativa.
+Vou fornecer minhas anotações soltas e informais sobre a aluna Sophia (2º ano). Transforme essas notas em um Parecer Descritivo oficial de 3 parágrafos bem estruturados, valorizando as conquistas e apontando com delicadeza o que precisa de estímulo.
+Minhas Anotações:
+- Sophia já lê frases curtas com boa entonação, mas ainda confunde letras parecidas (como b e d).
+- Em matemática, faz cálculos de cabeça com facilidade, mas tem preguiça de registrar o passo a passo no caderno.
+- É muito cooperativa com os colegas na hora da roda, mas se distrai facilmente quando precisa fazer atividades individuais silenciosas.
+- Frequência exemplar, pontual e muito carinhosa.</div>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">3.4 Atas de Reunião Pedagógica e Conselhos de Classe em 3 Minutos</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Ninguém gosta de ser o secretário da reunião pedagógica para redigir a ata final. Ao final de um conselho de classe cansativo, redigir 3 páginas de ata formal é um fardo. Com a IA, basta anotar os tópicos decididos na reunião e pedir a formatação oficial.
+  </p>
+
+  <div class="prompt-box">
+    <div class="prompt-header">
+      <span>GERADOR DE ATA DE CONSELHO DE CLASSE</span>
+      <span class="text-xs text-emerald-400 font-mono">Documento Oficial</span>
+    </div>
+    <div class="prompt-content">Aja como secretário escolar. Transforme os tópicos abaixo em uma Ata de Reunião de Conselho de Classe do 1º Bimestre, em linguagem jurídica-institucional impecável:
+- Data: 14 de abril de 2026. Turma: 8º Ano A.
+- Presentes: Equipe gestora e todos os professores da turma.
+- Pauta: Diagnóstico de rendimento em Língua Portuguesa e Matemática e casos de infrequência.
+- Decisões tomadas:
+  1. Criação de grupos de estudos no contra-turno para 5 alunos com defasagem na tabuada.
+  2. Encaminhamento de 2 casos de infrequência crônica para o Conselho Tutelar.
+  3. Elogio formal à turma pela evolução no respeito aos professores.
+Gere o texto em formato padrão com parágrafos formais prontos para assinatura.</div>
+  </div>
+</div>
+
+<!-- CAPÍTULO 4 (PAGE BREAK) -->
+<div class="page-break pt-8">
+  <div class="flex items-center gap-2 mb-2">
+    <span class="chapter-badge bg-emerald-100 text-emerald-800">Módulo II · Encontro 2</span>
+    <span class="text-xs font-bold text-slate-400">Capítulo 4</span>
+  </div>
+  <h2 class="text-3xl font-black text-slate-900 mb-6 font-title">
+    Capítulo 4: Planejamento Pedagógico e Domínio da BNCC sem Mistério
+  </h2>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-6 mb-3 font-title">4.1 O Desafio dos Códigos Alfanuméricos da BNCC</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    A Base Nacional Comum Curricular (BNCC) é o documento orientador de toda a educação brasileira. No entanto, memorizar dezenas de códigos como <em>EF06MA08</em> ou <em>EF15LP03</em> e relacioná-los com planos de aula semanais é um processo desgastante.
+  </p>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Os modelos de inteligência artificial já foram alimentados com todo o documento da BNCC. Eles sabem exatamente qual código alfanumérico corresponde a cada ano escolar, componente curricular e habilidade esperada.
+  </p>
+
+  <div class="traduzindo-box">
+    <div class="traduzindo-title">
+      <i data-lucide="bookmark" class="w-5 h-5"></i> Traduzindo: O Código da BNCC
+    </div>
+    <p class="text-sm text-slate-700 leading-relaxed">
+      Um código como <strong>EF07CI04</strong> significa: <strong>EF</strong> (Ensino Fundamental), <strong>07</strong> (7º ano), <strong>CI</strong> (Ciências), <strong>04</strong> (Habilidade número 4 daquele ano). Você não precisa ficar decorando tabelas: basta pedir à IA <em>'inclua o código oficial da BNCC para este conteúdo'</em> e ela faz a busca em segundos!
+    </p>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">4.2 Sequências Didáticas Progressivas: Estruturando 3 Aulas Contínuas</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Uma aula isolada raramente consolida o aprendizado. Os melhores professores trabalham com <strong>sequências didáticas</strong>, onde cada aula prepara o terreno para a próxima. A IA cria essa progressão com maestria.
+  </p>
+
+  <div class="prompt-box">
+    <div class="prompt-header">
+      <span>PROMPT: SEQUÊNCIA DIDÁTICA DE 3 AULAS COM BNCC</span>
+      <span class="text-xs text-emerald-400 font-mono">Sequência Didática</span>
+    </div>
+    <div class="prompt-content">Aja como um formador de professores de Geografia.
+Elabore uma sequência didática de 3 aulas de 50 minutos cada para o 6º ano sobre 'O Ciclo da Água e a Ação Humana nas Cidades'.
+Exigências:
+- Inclua o código exato da habilidade da BNCC correspondente.
+- Aula 1: Sensibilização e teoria visual (O que acontece com a chuva no asfalto vs. na mata).
+- Aula 2: Experimento simples em sala de aula usando garrafa PET e gelo para simular condensação.
+- Aula 3: Debate em equipe: 'Como nossa escola pode economizar água no dia a dia?'.
+Apresente em formato de quadro com tempo estimado para cada momento (Acolhida, Ação, Fechamento).</div>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">4.3 Projetos Interdisciplinares Práticos (Ciências + Matemática)</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Trabalhar de forma interdisciplinar é o sonho de qualquer escola, mas alinhar o planejamento com o professor de outra matéria costuma esbarrar na falta de tempo compartilhado. Use a IA para gerar propostas prontas que conectam duas disciplinas em um projeto comum.
+  </p>
+
+  <div class="prompt-box">
+    <div class="prompt-header">
+      <span>PROJETO INTERDISCIPLINAR: HORTA ESCOLAR SUSTENTÁVEL</span>
+      <span class="text-xs text-emerald-400 font-mono">Ciências & Matemática</span>
+    </div>
+    <div class="prompt-content">Aja como consultor pedagógico interdisciplinar.
+Crie um mini-projeto de 2 semanas unindo Ciências e Matemática para o 5º ano sobre 'Planejando Nossa Horta Escolar'.
+- Em Matemática: Os alunos calculam a área dos canteiros (perímetro e área simples), contam sementes e criam gráficos de barras sobre o crescimento das mudas.
+- Em Ciências: Investigação sobre germinação, tipos de solo, polinizadores e compostagem de cascas de frutas da merenda.
+Apresente cronograma de 4 encontros com objetivos e produto final para expor na feira da escola.</div>
+  </div>
+</div>
+
+<!-- CAPÍTULO 5 (PAGE BREAK) -->
+<div class="page-break pt-8">
+  <div class="flex items-center gap-2 mb-2">
+    <span class="chapter-badge bg-emerald-100 text-emerald-800">Módulo II · Encontro 2</span>
+    <span class="text-xs font-bold text-slate-400">Capítulo 5</span>
+  </div>
+  <h2 class="text-3xl font-black text-slate-900 mb-6 font-title">
+    Capítulo 5: Leitura Inteligente de Documentos Oficiais e Livros Didáticos em PDF
+  </h2>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-6 mb-3 font-title">5.1 Chega de Folhear PDFs de 600 Páginas</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    O professor da rede pública vive soterrado de documentos gigantescos em PDF: a BNCC completa (600 páginas), as Diretrizes Curriculares da sua Secretaria de Educação, o Projeto Político Pedagógico (PPP) da escola e o Livro Didático adotado no PNLD com centenas de páginas.
+  </p>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Ler tudo isso linha por linha para localizar um parágrafo ou uma habilidade é humanamente inviável. Hoje, existem ferramentas especializadas em ler esses documentos por você e responder instantaneamente a perguntas pontuais.
+  </p>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">5.2 Google NotebookLM (notebooklm.google.com): Alucinação Zero</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    O <strong>Google NotebookLM</strong> é uma das maiores revoluções educacionais dos últimos anos e é <strong>100% gratuito</strong> para quem tem uma conta Google comum.
+  </p>
+  <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+    <li><strong>Alucinação Zero (O Maior Trunfo):</strong> Diferente do ChatGPT comum, o NotebookLM <em>só responde com base nos documentos que você anexou</em>. Ele não inventa nada. Se a resposta não estiver no PDF, ele diz francamente que o documento não contém aquela informação.</li>
+    <li><strong>Citações com Link Direto da Página:</strong> Toda resposta vem com pequenas notas numeradas de rodapé. Se você clica no número, ele abre exatamente a página do seu PDF onde aquele conteúdo foi extraído!</li>
+    <li><strong>Geração Automática de Guias de Estudo:</strong> Você sobe o capítulo do livro didático e ele gera resumos, glossários e questionários prontos para a sua aula.</li>
+  </ul>
+
+  <div class="tip-box">
+    <div class="tip-title">
+      <i data-lucide="lightbulb" class="w-5 h-5"></i> Passo a Passo no NotebookLM:
+    </div>
+    <ol class="list-decimal pl-5 text-sm text-slate-700 space-y-1.5">
+      <li>Acesse <strong>notebooklm.google.com</strong> e faça login com seu Gmail.</li>
+      <li>Clique em <strong>'Novo Caderno'</strong> e dê um nome (ex: <em>'BNCC Matemática'</em> ou <em>'Livro de História 8º Ano'</em>).</li>
+      <li>Clique em <strong>'Carregar Fontes'</strong> e anexe seu arquivo PDF (ou cole o link de um site oficial).</li>
+      <li>Pronto! Agora converse com o documento na caixa de texto inferior: <em>'O que este documento orienta sobre o ensino de probabilidade?'</em> ou <em>'Crie 5 perguntas de interpretação baseadas nas páginas 45 a 52'</em>.</li>
+    </ol>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">5.3 Kimi AI (kimi.ai) e DuckDuckGo AI (duck.ai)</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Além do NotebookLM, duas outras soluções se destacam na realidade escolar:
+  </p>
+  <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+    <li><strong>Kimi AI (kimi.ai):</strong> Capaz de engolir livros didáticos inteiros de 400 páginas em menos de 10 segundos. Excelente para pedir: <em>'Faça um resumo esquemático de cada um dos 8 capítulos deste livro de Ciências para que eu monte o meu planejamento semestral'</em>.</li>
+    <li><strong>DuckDuckGo AI (duck.ai):</strong> Perfeito para laboratórios de informática de escolas públicas onde os computadores são compartilhados e os alunos não possuem e-mail próprio. Não exige cadastro, não rastreia dados e permite usar modelos de IA com total privacidade e gratuidade.</li>
+  </ul>
+
+  <div class="tip-box">
+    <div class="tip-title">
+      <i data-lucide="shield-alert" class="w-5 h-5"></i> O 'Plano B' Obrigatório: Quando a Internet da Escola Falha
+    </div>
+    <p class="text-sm text-slate-700 leading-relaxed">
+      Todo professor da rede pública sabe que a internet da escola pode oscilar ou cair no meio da aula. <strong>Regra de ouro:</strong> use a IA em casa ou na sala dos professores com internet para gerar seus planos e atividades, mas <strong>sempre salve em PDF ou imprima com antecedência</strong>. A tecnologia deve ser seu trampolim, nunca um ponto único de falha!
+    </p>
+  </div>
+</div>
+
+<!-- CAPÍTULO 6 (PAGE BREAK) -->
+<div class="page-break pt-8">
+  <div class="flex items-center gap-2 mb-2">
+    <span class="chapter-badge bg-amber-100 text-amber-800">Módulo III · Encontro 3</span>
+    <span class="text-xs font-bold text-slate-400">Capítulo 6</span>
+  </div>
+  <h2 class="text-3xl font-black text-slate-900 mb-6 font-title">
+    Capítulo 6: Criação de Materiais Didáticos Dinâmicos e de Baixo Custo
+  </h2>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-6 mb-3 font-title">6.1 Textos de Leitura Conectados aos Interesses dos Estudantes</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Um dos maiores desafios em sala de aula é fazer o aluno querer ler. Textos acadêmicos antigos ou maçantes afastam a turma logo no primeiro parágrafo. Mas quando você traz o mesmo conceito curricular explicado através do futebol, do videogame que eles jogam ou da música que está nas paradas de sucesso, a mágica acontece.
+  </p>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Com a IA, você pode pegar um tema abstrato (como gravidade, feudalismo ou frações) e pedir: <em>'Explique este assunto usando como metáfora uma partida de futebol ou o jogo Minecraft'</em>. A atenção dos estudantes é imediata.
+  </p>
+
+  <div class="prompt-box">
+    <div class="prompt-header">
+      <span>PROMPT: TEXTO DE CIÊNCIAS USANDO METÁFORA DE JOGOS</span>
+      <span class="text-xs text-amber-400 font-mono">Engajamento Real</span>
+    </div>
+    <div class="prompt-content">Aja como um divulgador científico jovem que conversa com crianças do 5º ano.
+Escreva um texto de 3 parágrafos curtos explicando o que é a 'Energia Solar e a Fotossíntese'.
+Regra de Engajamento: Use a metáfora de como as plantas 'recarregam a bateria' ou 'fazem poções de energia' como nos jogos de videogame.
+Ao final, inclua 3 perguntas rápidas de interpretação de texto e uma proposta de desenho.</div>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">6.2 Listas de Exercícios com Gabarito Comentado e Análise de Distratores</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Uma boa lista de exercícios não serve apenas para dar nota, mas para ensinar no momento em que o aluno erra. Ao gerar questões de múltipla escolha com a IA, peça para ela explicar <strong>por que as alternativas erradas estão erradas</strong> (os famosos distratores).
+  </p>
+
+  <div class="prompt-box">
+    <div class="prompt-header">
+      <span>LISTA DE MATEMÁTICA COM GABARITO DIDÁTICO</span>
+      <span class="text-xs text-amber-400 font-mono">Gabarito Comentado</span>
+    </div>
+    <div class="prompt-content">Aja como um professor elaborador de avaliações diagnósticas de Matemática.
+Crie 3 questões de múltipla escolha inéditas sobre 'Porcentagem no Comércio' para o 7º ano.
+Estrutura de cada questão:
+- Enunciado contextualizado com o cotidiano de compras na feira ou supermercado.
+- 4 alternativas (A, B, C, D), sendo apenas uma correta.
+- Gabarito comentado explicando o cálculo correto.
+- Análise das alternativas erradas: explique qual erro de raciocínio comum do aluno gerou cada alternativa incorreta.</div>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">6.3 Caça-Palavras, Cruzadinhas e Atividades Práticas com Sucata</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    A IA gera rapidamente listas de palavras e dicas para você montar cruzadinhas e caça-palavras para fixação de vocabulário em qualquer componente curricular (História, Inglês, Ciências ou Geografia).
+  </p>
+
+  <div class="prompt-box">
+    <div class="prompt-header">
+      <span>PROMPT: DICAS E PALAVRAS PARA CRUZADINHA</span>
+      <span class="text-xs text-amber-400 font-mono">Jogos Pedagógicos</span>
+    </div>
+    <div class="prompt-content">Aja como elaborador de passatempos educativos.
+Gere uma lista de 8 palavras-chave e suas respectivas dicas para uma Palavra Cruzada sobre 'O Corpo Humano e os Órgãos Vitais' para o 4º ano.
+Exemplo:
+1. CORAÇÃO: Bomba que faz o sangue circular por todo o corpo.
+2. PULMÕES: Dois órgãos que nos ajudam a respirar o oxigênio.
+As dicas devem ser claras, lúdicas e sem ambiguidades para crianças de 9 anos.</div>
+  </div>
+</div>
+
+<!-- CAPÍTULO 7 (PAGE BREAK) -->
+<div class="page-break pt-8">
+  <div class="flex items-center gap-2 mb-2">
+    <span class="chapter-badge bg-amber-100 text-amber-800">Módulo III · Encontro 3</span>
+    <span class="text-xs font-bold text-slate-400">Capítulo 7</span>
+  </div>
+  <h2 class="text-3xl font-black text-slate-900 mb-6 font-title">
+    Capítulo 7: Inclusão Escolar, Neurodiversidade e DUA (Desenho Universal)
+  </h2>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-6 mb-3 font-title">7.1 A IA como Aliada Essencial da Educação Inclusiva</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    A inclusão escolar é um direito legal de todos os estudantes e uma obrigação ética de toda a sociedade. No entanto, na realidade da escola pública, o professor muitas vezes recebe na mesma sala de aula alunos com laudos de autismo, TDAH, dislexia e deficiência intelectual, sem receber materiais adaptados prontos e sem ter horas vagas para preparar quatro ou cinco versões diferentes da mesma atividade.
+  </p>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    É exatamente aqui que a inteligência artificial desempenha seu papel mais nobre e transformador. A IA permite que você adapte uma atividade em menos de 1 minuto, garantindo que a criança participe da mesma aula que os seus colegas com dignidade e respeito ao seu ritmo cognitivo.
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center my-6 avoid-break">
+    <div class="traduzindo-box my-0">
+      <div class="traduzindo-title">
+        <i data-lucide="sparkles" class="w-5 h-5"></i> Traduzindo: O Que é DUA?
+      </div>
+      <p class="text-sm text-slate-700 leading-relaxed">
+        <strong>DUA (Desenho Universal para a Aprendizagem)</strong> é a ideia pedagógica de que uma aula bem planejada oferece múltiplos caminhos para todo mundo: meios diferentes de apresentar o conteúdo (texto, imagem, áudio), meios diferentes de os alunos responderem (escrevendo, falando, desenhando) e meios diferentes de motivá-los. Quando adaptamos para a inclusão, a sala inteira ganha!
+      </p>
+    </div>
+    <div class="img-c avoid-break">
+      <img src="imagens/inclusao_escola_ptbr.png" alt="Inclusão Escolar e IA">
+      <div class="img-cap">Inclusão Real: Personalização de atividades para acolher a neurodiversidade na escola.</div>
+    </div>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">7.2 Adaptação Prática para TDAH, Dislexia e TEA (Autismo)</h3>
+
+  <div class="space-y-4 my-4 avoid-break">
+    <div class="p-4 rounded-xl border border-blue-200 bg-blue-50/60">
+      <h4 class="font-extrabold text-blue-900 text-base mb-1 font-title">1. Adaptação para TDAH (Transtorno de Déficit de Atenção e Hiperatividade)</h4>
+      <p class="text-xs text-slate-700 mb-2">O cérebro com TDAH se cansa de blocos maciços de texto e instruções longas. Precisa de <strong>fragmentação</strong>, <strong>checklists visuais</strong> e <strong>frases curtas</strong>.</p>
+      <div class="prompt-box my-2">
+        <div class="prompt-header"><span>PROMPT: ADAPTAÇÃO PARA TDAH</span></div>
+        <div class="prompt-content">Pegue o texto e o exercício abaixo sobre o Descobrimento do Brasil e adapte para um aluno de 11 anos com TDAH:
+1. Divida o texto em parágrafos de no máximo 2 frases cada.
+2. Destaque em negrito as palavras essenciais.
+3. Transforme a atividade em 3 microetapas com caixas de marcação (ex: [ ] Li o texto / [ ] Grifei o ano / [ ] Escrevi a resposta).
+4. Elimine qualquer informação desnecessária ou texto excessivo.</div>
+      </div>
+    </div>
+
+    <div class="p-4 rounded-xl border border-emerald-200 bg-emerald-50/60">
+      <h4 class="font-extrabold text-emerald-900 text-base mb-1 font-title">2. Adaptação para Dislexia</h4>
+      <p class="text-xs text-slate-700 mb-2">O aluno com dislexia tem dificuldade na decodificação rápida das letras. Frases subordinadas longas causam sobrecarga. Ele precisa de <strong>clareza léxica</strong> e <strong>espaçamento</strong>.</p>
+      <div class="prompt-box my-2">
+        <div class="prompt-header"><span>PROMPT: ADAPTAÇÃO PARA DISLEXIA</span></div>
+        <div class="prompt-content">Reescreva o texto abaixo sobre 'Cadeia Alimentar' adaptado para um aluno disléxico do 6º ano:
+- Use ordem direta das frases (Sujeito + Verbo + Predicado).
+- Substitua palavras raras ou difíceis por sinônimos simples do dia a dia.
+- Organize os conceitos em formato de tópicos com marcadores (bullet points).
+- Crie um mini-glossário visual de 3 palavras no topo da página.</div>
+      </div>
+    </div>
+
+    <div class="p-4 rounded-xl border border-purple-200 bg-purple-50/60">
+      <h4 class="font-extrabold text-purple-900 text-base mb-1 font-title">3. Adaptação para Transtorno do Espectro Autista (TEA)</h4>
+      <p class="text-xs text-slate-700 mb-2">Muitos estudantes autistas interpretam instruções de forma rigorosamente literal. Metáforas, ironias ou ordens abertas geram angústia e travamento.</p>
+      <div class="prompt-box my-2">
+        <div class="prompt-header"><span>PROMPT: ADAPTAÇÃO PARA TEA</span></div>
+        <div class="prompt-content">Adapte este enunciado de prova de Geografia para um estudante autista do 7º ano:
+Enunciado original: 'Dê asas à sua imaginação e viaje pelo relevo brasileiro explicando os altos e baixos da paisagem.'
+Instrução para a IA:
+- Remova todas as metáforas (não use 'asas à imaginação' nem 'altos e baixos').
+- Seja 100% literal, concreto e sequencial: diga exatamente o que ele deve fazer, passo a passo, em 2 linhas objetivas.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">7.3 Diffit (web.diffit.me): O Mesmo Conteúdo em 3 Níveis em 1 Clique</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    O <strong>Diffit</strong> é uma plataforma criada especialmente para professores que soluciona o desafio da diferenciação pedagógica. Você cola qualquer texto, notícia ou tema curricular e ele gera instantaneamente:
+  </p>
+  <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+    <li>Três versões do mesmo texto: <strong>Nível Básico</strong> (vocabulário acessível), <strong>Nível Médio</strong> (padrão da série) e <strong>Nível Avançado</strong> (para alunos com altas habilidades).</li>
+    <li>Perguntas de múltipla escolha e discursivas adaptadas a cada nível.</li>
+    <li>Fichas de atividades prontas para exportar em PDF ou abrir no Google Docs para imprimir na secretaria da escola!</li>
+  </ul>
+</div>
+
+<!-- CAPÍTULO 8 (PAGE BREAK) -->
+<div class="page-break pt-8">
+  <div class="flex items-center gap-2 mb-2">
+    <span class="chapter-badge bg-amber-100 text-amber-800">Módulo III · Encontro 3</span>
+    <span class="text-xs font-bold text-slate-400">Capítulo 8</span>
+  </div>
+  <h2 class="text-3xl font-black text-slate-900 mb-6 font-title">
+    Capítulo 8: Recursos Visuais, Canva Pro Grátis e Interatividade em Sala
+  </h2>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-6 mb-3 font-title">8.1 Alunos Visuais: Como Encantar a Sala em Segundos</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    As crianças e jovens que estão nas nossas salas de aula hoje nasceram imersos em telas, vídeos e estímulos visuais. Uma lousa com 40 linhas de giz branco, embora tenha seu valor tradicional, compete em desvantagem com o mundo hipervisual em que eles vivem.
+  </p>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Ter slides bonitos, cartazes atraentes e folhas de atividades visualmente elegantes não é capricho estético: é uma ferramenta pedagógica de <strong>captura da atenção e memória de trabalho</strong>. E você não precisa ser designer para criar materiais profissionais.
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center my-6 avoid-break">
+    <div class="tip-box my-0">
+      <div class="tip-title">
+        <i data-lucide="check-circle" class="w-5 h-5"></i> Passo a Passo: Canva Pro Grátis para Sempre!
+      </div>
+      <ol class="list-decimal pl-5 text-sm text-slate-700 space-y-1.5">
+        <li>Acesse <strong>canva.com/education</strong> pelo navegador.</li>
+        <li>Clique no botão <strong>'Solicitar Verificação'</strong>.</li>
+        <li>Cadastre-se com seu e-mail e envie uma foto legível do seu <strong>holerite recente</strong> ou declaração da sua escola pública.</li>
+        <li>Em poucas horas ou dias, sua conta vira <strong>Canva para Educação (Pro Grátis)</strong>, liberando todos os modelos premium, gerador de imagens por IA e o Design Mágico sem custo algum!</li>
+      </ol>
+    </div>
+    <div class="img-c avoid-break">
+      <img src="imagens/canva_ai_ptbr.png" alt="Canva IA para Professores">
+      <div class="img-cap">Canva para Educação: Apresentações e materiais visuais gerados com inteligência artificial.</div>
+    </div>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">8.2 Aulas Interativas com Curipod (curipod.com)</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    O <strong>Curipod</strong> é um criador de apresentações interativas geradas por IA. Você digita o tema da sua aula (ex: <em>'O que são vulcões para o 6º ano'</em>) e ele gera uma apresentação completa com slides teóricos intercalados com <strong>perguntas interativas</strong>.
+  </p>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Se os seus alunos tiverem celular na escola, eles acessam pelo QR Code e votam, digitam respostas ou fazem desenhos que aparecem na tela do projetor em tempo real. Se os alunos <em>não tiverem celular</em>, você pode usar a apresentação projetada e pedir para que levantem cartões coloridos de papel (A, B, C) para registrar suas respostas!
+  </p>
+</div>
+
+<!-- CAPÍTULO 9 (PAGE BREAK) -->
+<div class="page-break pt-8">
+  <div class="flex items-center gap-2 mb-2">
+    <span class="chapter-badge bg-purple-100 text-purple-800">Módulo IV · Encontro 4</span>
+    <span class="text-xs font-bold text-slate-400">Capítulo 9</span>
+  </div>
+  <h2 class="text-3xl font-black text-slate-900 mb-6 font-title">
+    Capítulo 9: Avaliações Formativas, Provas Inéditas e Rubricas Inteligentes
+  </h2>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-6 mb-3 font-title">9.1 Por Que Provas Tradicionais de Decoreba Falham?</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Durante décadas, o modelo clássico de prova escolar consistia em pedir definições memorizadas: <em>'O que é fotossíntese?'</em>, <em>'Em que ano ocorreu a Proclamação da República?'</em> ou <em>'Defina o que é sujeito e predicado'</em>.
+  </p>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Com a presença dos smartphones e das inteligências artificiais na vida dos estudantes, <strong>qualquer pergunta cuja resposta dependa apenas de memória rápida pode ser respondida por uma máquina em 2 segundos</strong>. A avaliação do século XXI precisa avaliar raciocínio crítico, capacidade de comparação, interpretação e argumentação.
+  </p>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">9.2 Criando Questões Inéditas e Reflexivas no DeepSeek R1</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    O modelo <strong>DeepSeek R1</strong> possui um modo de raciocínio lógico avançado (chamado <em>DeepThink</em>). Quando você pede uma questão para o R1, ele calcula os passos mentais que um estudante de determinada idade precisa percorrer para encontrar a resposta correta, eliminando alternativas óbvias ou bobas.
+  </p>
+
+  <div class="prompt-box">
+    <div class="prompt-header">
+      <span>PROMPT NO DEEPSEEK R1: QUESTÃO INÉDITA DE INTERPRETAÇÃO</span>
+      <span class="text-xs text-purple-400 font-mono">Modo Raciocínio (R1)</span>
+    </div>
+    <div class="prompt-content">Ative seu raciocínio pedagógico aprofundado (DeepThink).
+Aja como elaborador do ENEM e crie 1 questão inédita de História para o 9º ano sobre 'A Crise de 1929 e seus reflexos no Brasil'.
+Exigências:
+1. Comece com um pequeno trecho fictício de carta ou notícia de jornal da época como texto-base de leitura.
+2. Formule uma pergunta que exija relacionar a crise nos Estados Unidos com a queda das exportações de café no Brasil, e não memorização de datas.
+3. Elabore 4 alternativas plausíveis.
+4. Forneça o gabarito explicado e aponte o erro de raciocínio de cada alternativa falsa.</div>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">9.3 Rubricas de Avaliação Descomplicadas: Corrija em 1 Minuto sem Discussão</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Avaliar trabalhos em grupo, maquetes, cartazes ou seminários orais costuma gerar dores de cabeça: o aluno que tirou nota 7 reclama dizendo que <em>'o professor deu nota baixa porque não gosta dele'</em>.
+  </p>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    A <strong>rubrica de avaliação</strong> é simplesmente uma tabela transparente com critérios claros entregue antes da atividade. O aluno sabe exatamente o que precisa fazer para tirar nota 10, e você corrige o trabalho com um simples visto na tabela em menos de 1 minuto!
+  </p>
+
+  <div class="traduzindo-box">
+    <div class="traduzindo-title">
+      <i data-lucide="table" class="w-5 h-5"></i> Exemplo de Rubrica para Seminário (Pronta para Imprimir)
+    </div>
+    <table class="custom-table text-xs mt-2">
+      <thead>
+        <tr>
+          <th>Critério</th>
+          <th>Precisa Melhorar (Nota 4-5)</th>
+          <th>Bom (Nota 7-8)</th>
+          <th>Excelente (Nota 9-10)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Clareza da Fala</strong></td>
+          <td>Fala muito baixo, leu o papel o tempo todo e não olhou para a turma.</td>
+          <td>Falou com bom volume, consultou anotações mas explicou com suas palavras.</td>
+          <td>Voz clara e segura, olhou para a sala inteira e não precisou ler papéis.</td>
+        </tr>
+        <tr>
+          <td><strong>Conteúdo do Tema</strong></td>
+          <td>Informações vagas ou incompletas, não soube responder a perguntas simples.</td>
+          <td>Apresentou os conceitos principais corretamente com bons exemplos.</td>
+          <td>Dominou o tema com profundidade, trouxe curiosidades e respondeu dúvidas com segurança.</td>
+        </tr>
+        <tr>
+          <td><strong>Trabalho em Equipe</strong></td>
+          <td>Apenas um aluno falou e os outros ficaram desatentos.</td>
+          <td>Todos falaram um pouco, mas a divisão foi desigual.</td>
+          <td>Todos participaram igualmente, com respeito e apoio mútuo durante a fala.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- CAPÍTULO 10 (PAGE BREAK) -->
+<div class="page-break pt-8">
+  <div class="flex items-center gap-2 mb-2">
+    <span class="chapter-badge bg-purple-100 text-purple-800">Módulo IV · Encontro 4</span>
+    <span class="text-xs font-bold text-slate-400">Capítulo 10</span>
+  </div>
+  <h2 class="text-3xl font-black text-slate-900 mb-6 font-title">
+    Capítulo 10: Ética, Cidadania Digital e LGPD na Escola
+  </h2>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-6 mb-3 font-title">10.1 A Linha Vermelha Inquebrável: Proteção Total aos Dados de Menores</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    A Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018) estabelece proteções rigorosas para dados pessoais, e a proteção é ainda mais severa quando se trata de <strong>crianças e adolescentes</strong>.
+  </p>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    As plataformas públicas de IA (como ChatGPT, Gemini ou DeepSeek) podem utilizar as conversas digitadas para treinar seus sistemas. Portanto, nunca digite dados reais de estudantes.
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center my-6 avoid-break">
+    <div class="danger-box my-0">
+      <div class="danger-title">
+        <i data-lucide="ban" class="w-5 h-5"></i> O Que NUNCA Digitar na IA:
+      </div>
+      <ul class="list-disc pl-5 text-sm text-red-900 space-y-1">
+        <li>❌ Nomes completos de alunos reais ou número de chamada associado à escola.</li>
+        <li>❌ Fotos nítidas de rostos de crianças tiradas dentro da escola.</li>
+        <li>❌ Diagnósticos médicos completos com o nome do aluno ou da família.</li>
+        <li>❌ Dados bancários, CPFs ou endereços de servidores ou alunos.</li>
+      </ul>
+    </div>
+    <div class="img-c avoid-break">
+      <img src="imagens/seguranca_lgpd_escola.png" alt="Segurança Digital e LGPD na Educação">
+      <div class="img-cap">Segurança e LGPD: A proteção aos dados de crianças e adolescentes é inegociável.</div>
+    </div>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">10.2 A Técnica da Anonimização na Prática</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Você pode continuar usando a IA para adaptar materiais para alunos com laudo ou redigir pareceres complexos, desde que aplique a <strong>anonimização</strong>. Veja o comparativo:
+  </p>
+
+  <table class="custom-table text-xs">
+    <thead>
+      <tr>
+        <th class="bg-red-800">❌ ERRADO (Violação Grave da LGPD)</th>
+        <th class="bg-emerald-800">✅ CORRETO (100% Seguro e Anonimizado)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>'O aluno Enzo Gabriel da Silva, 9 anos, da Escola Municipal Santos Dumont, tem laudo de autismo severo e bateu no colega Pedro. O que fazer?'</td>
+        <td>'Aja como psicopedagoga. Um aluno fictício de 9 anos do 4º ano, com laudo de TEA, apresentou um momento de crise sensorial após barulho excessivo. Quais estratégias de acolhimento posso adotar?'</td>
+      </tr>
+      <tr>
+        <td>'Faça um parecer descritivo para Mariana Souza Santos, filha de Marcos Santos, que faltou 15 dias por depressão.'</td>
+        <td>'Crie um parecer pedagógico de 3 parágrafos para uma aluna fictícia do 5º ano que teve muitas faltas no bimestre por questões de saúde, mas mantém ótimo vínculo afetivo.'</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">10.3 Como Lidar com Alunos Usando IA (Sem Desespero)</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Proibir a IA nas tarefas de casa não funciona. Detectores automáticos de IA (como GPTZero) são altamente falhos e cometem injustiças frequentes, acusando textos autorais de alunos esforçados.
+  </p>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    A melhor estratégia é a <strong>Tarefa Inteligente</strong>:
+  </p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4 avoid-break">
+    <div class="p-4 rounded-xl border border-red-200 bg-red-50/70">
+      <p class="font-bold text-red-800 mb-1 text-xs">❌ A TAREFA QUE NÃO FUNCIONA MAIS:</p>
+      <p class="text-xs text-slate-700 italic">"Faça uma pesquisa de 2 páginas sobre a Grécia Antiga para entregar na próxima semana."</p>
+      <p class="text-xs text-red-600 mt-2">O aluno manda a IA gerar o texto, imprime sem ler e você perde tempo corrigindo a máquina.</p>
+    </div>
+    <div class="p-4 rounded-xl border border-emerald-200 bg-emerald-50/70">
+      <p class="font-bold text-emerald-800 mb-1 text-xs">✅ A TAREFA INTELIGENTE QUE EXIGE PENSAR:</p>
+      <p class="text-xs text-slate-700 italic">"Peça para a IA 3 argumentos a favor e 3 contra a democracia de Atenas. Escolha o argumento que você achou mais forte e venha preparado para defendê-lo oralmente em 1 minuto na roda de conversa."</p>
+      <p class="text-xs text-emerald-700 mt-2">A IA vira biblioteca, mas a voz, a leitura crítica e a defesa oral pertencem ao estudante!</p>
+    </div>
+  </div>
+</div>
+
+<!-- CAPÍTULO 11 (PAGE BREAK) -->
+<div class="page-break pt-8">
+  <div class="flex items-center gap-2 mb-2">
+    <span class="chapter-badge bg-purple-100 text-purple-800">Módulo IV · Encontro 4</span>
+    <span class="text-xs font-bold text-slate-400">Capítulo 11</span>
+  </div>
+  <h2 class="text-3xl font-black text-slate-900 mb-6 font-title">
+    Capítulo 11: Laboratório de Projetos de Intervenção Pedagógica (Produto de 40h)
+  </h2>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-6 mb-3 font-title">11.1 O Que é o Projeto de Intervenção?</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    O encerramento da nossa formação de 40 horas não é uma prova de múltipla escolha. O trabalho de conclusão é a elaboração de um <strong>Projeto Prático de Intervenção Pedagógica</strong> que resolva uma 'dor' real da sua escola ou da sua sala de aula.
+  </p>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    Você sai do curso não apenas com teoria na cabeça, mas com um material real, planejado com auxílio de IA e pronto para ser aplicado com seus estudantes já na próxima semana.
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center my-6 avoid-break">
+    <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-6">
+      <h4 class="font-extrabold text-indigo-900 text-base mb-2 font-title">Estrutura do Seu Projeto Final:</h4>
+      <ol class="list-decimal pl-5 text-sm text-slate-700 space-y-1.5">
+        <li><strong>Identificação:</strong> Seu nome, disciplina, escola e ano/turma de aplicação.</li>
+        <li><strong>O Problema Real:</strong> Qual dificuldade da sua turma você quis combater? (Ex: desinteresse por leitura, defasagem na tabuada, falta de material adaptado).</li>
+        <li><strong>As Ferramentas de IA Utilizadas:</strong> Quais plataformas ajudaram você? (Ex: DeepSeek, NotebookLM, Canva, Diffit).</li>
+        <li><strong>A Atividade Criada:</strong> O plano de aula, sequência didática ou material impresso gerado.</li>
+        <li><strong>Resultados Esperados:</strong> Como isso impactará o aprendizado dos alunos.</li>
+      </ol>
+    </div>
+    <div class="img-c avoid-break">
+      <img src="imagens/projeto_intervencao_final.png" alt="Projeto Final de Intervenção Pedagógica">
+      <div class="img-cap">Oficina Prática: O produto final do curso aplicado diretamente na realidade da sua escola.</div>
+    </div>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3 font-title">11.2 Banco de 12 Ideias de Projetos Prontos por Área</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs my-4">
+    <div class="p-3.5 bg-blue-50/60 rounded-xl border border-blue-100">
+      <p class="font-bold text-blue-900 mb-1">Área: Linguagens e Artes</p>
+      <ul class="list-disc pl-4 text-slate-700 space-y-1">
+        <li><strong>Antologia Poética Ilustrada:</strong> Alunos escrevem poesias autorais e usam o Canva para ilustrar e encadernar o livro da turma.</li>
+        <li><strong>Jornal do Bairro Escolar:</strong> Produção de entrevistas e matérias comunitárias revisadas com assistência de IA.</li>
+        <li><strong>Podcast Literário de Bolso:</strong> Criação de roteiros de áudio sobre contos clássicos da literatura brasileira.</li>
+      </ul>
+    </div>
+    <div class="p-3.5 bg-emerald-50/60 rounded-xl border border-emerald-100">
+      <p class="font-bold text-emerald-900 mb-1">Área: Matemática</p>
+      <ul class="list-disc pl-4 text-slate-700 space-y-1">
+        <li><strong>Educação Financeira Lúdica:</strong> Simulação de compras em mercadinho com cálculo de descontos e troco.</li>
+        <li><strong>Geometria no Pátio:</strong> Identificação de formas geométricas na arquitetura da escola com fotos e fichas.</li>
+        <li><strong>Desafio da Tabuada Divertida:</strong> Histórias em quadrinhos onde os personagens resolvem enigmas matemáticos.</li>
+      </ul>
+    </div>
+    <div class="p-3.5 bg-amber-50/60 rounded-xl border border-amber-100">
+      <p class="font-bold text-amber-900 mb-1">Área: Ciências da Natureza</p>
+      <ul class="list-disc pl-4 text-slate-700 space-y-1">
+        <li><strong>Guia da Biodiversidade Escolar:</strong> Catalogação de plantas e insetos do jardim com fichas descritivas.</li>
+        <li><strong>Desafio do Lixo Zero:</strong> Pesquisa sobre reciclagem e compostagem da merenda escolar.</li>
+        <li><strong>Experimentos de Baixo Custo:</strong> Criação de um manual de ciências usando materiais de sucata.</li>
+      </ul>
+    </div>
+    <div class="p-3.5 bg-purple-50/60 rounded-xl border border-purple-100">
+      <p class="font-bold text-purple-900 mb-1">Área: Ciências Humanas</p>
+      <ul class="list-disc pl-4 text-slate-700 space-y-1">
+        <li><strong>Museu de Memórias do Bairro:</strong> Entrevistas com moradores antigos gravadas e transformadas em painel.</li>
+        <li><strong>Cartografia Acessível:</strong> Mapas mentais táteis e visuais do trajeto dos alunos até a escola.</li>
+        <li><strong>Júri Simulado Histórico:</strong> Alunos usam argumentos gerados com IA para debater temas históricos na sala.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CAPÍTULO 12 (PAGE BREAK) -->
+<div class="page-break pt-8">
+  <div class="flex items-center gap-2 mb-2">
+    <span class="chapter-badge bg-purple-100 text-purple-800">Módulo IV · Encontro 4</span>
+    <span class="text-xs font-bold text-slate-400">Capítulo 12</span>
+  </div>
+  <h2 class="text-3xl font-black text-slate-900 mb-6 font-title">
+    Capítulo 12: Guia de Bolso do Educador: Resoluções Rápidas de Emergência
+  </h2>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-6 mb-3 font-title">12.1 Situações de Emergência: A IA Salvando o Dia em 3 Minutos</h3>
+  <p class="text-slate-700 mb-4 leading-relaxed">
+    A rotina escolar é cheia de imprevistos. O projetor queima, a chuva impede a aula de educação física na quadra ou a coordenação pede uma substituição urgente de última hora. Guarde esta página no seu celular: estes são os seus <strong>comandos de emergência</strong>.
+  </p>
+
+  <div class="space-y-4 my-4 avoid-break">
+    <div class="prompt-box my-2">
+      <div class="prompt-header"><span>EMERGÊNCIA 1: O PROJETOR QUEBROU E TENHO 5 MINUTOS</span></div>
+      <div class="prompt-content">Tenho 5 minutos para entrar na sala do 7º ano. Eu ia passar slides sobre o relevo brasileiro, mas o projetor queimou.
+Crie uma dinâmica prática e participativa usando apenas a lousa e papel de caderno dos alunos sobre o mesmo tema. Dê um passo a passo em 3 minutos para eu conduzir os 50 minutos de aula com a sala engajada.</div>
+    </div>
+
+    <div class="prompt-box my-2">
+      <div class="prompt-header"><span>EMERGÊNCIA 2: SUBSTITUIÇÃO DE COLEGA EM MATÉRIA QUE NÃO DOMINO</span></div>
+      <div class="prompt-content">Fui chamado para cobrir uma aula de História no 8º ano agora e sou professora de Matemática. O conteúdo indicado pelo professor é 'Revolução Industrial'.
+Me dê:
+1. Uma história curiosa de 3 minutos para eu abrir a aula e capturar o silêncio da turma.
+2. Três perguntas provocativas para discutir em roda.
+3. Uma atividade rápida em dupla para os alunos escreverem no caderno nos últimos 20 minutos.</div>
+    </div>
+
+    <div class="prompt-box my-2">
+      <div class="prompt-header"><span>EMERGÊNCIA 3: A TURMA VOLTOU HIPERAGITADA DO RECREIO</span></div>
+      <div class="prompt-content">A turma do 5º ano voltou do recreio correndo, suada e falando muito alto.
+Sugira uma dinâmica de acolhimento e regulação de 5 minutos, sem gritos e sem bronca, focada em respiração lúdica e foco mental, para que possamos iniciar a aula em paz.</div>
+    </div>
+  </div>
+
+  <div class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white p-8 rounded-2xl my-10 avoid-break shadow-xl text-center">
+    <h3 class="text-2xl font-black mb-3 font-title">Mensagem Final: O Professor é e Sempre Será Insubstituível</h3>
+    <p class="text-slate-200 text-sm md:text-base leading-relaxed max-w-2xl mx-auto mb-4">
+      Nenhum algoritmo do mundo é capaz de consolar uma criança que chegou triste na escola, vibrar com a primeira palavra lida por um aluno que superou a dislexia ou despertar a paixão pelo conhecimento com o brilho no olhar.
+    </p>
+    <p class="text-blue-300 font-bold text-sm">
+      A Inteligência Artificial é apenas a sua ferramenta. A inteligência pedagógica, a sensibilidade humana e o amor pela educação continuam e sempre continuarão sendo seus!
+    </p>
+    <p class="text-xs text-slate-400 mt-6 uppercase tracking-widest font-mono">
+      Parabéns pela conclusão da sua formação de 40 Horas · Rede Pública de Ensino
+    </p>
+  </div>
+</div>
+
+<script>
+  lucide.createIcons();
+</script>
+</body>
+</html>
