@@ -47,3 +47,9 @@ new_pdf_dump.txt
 #   montar_*.js, gerar_*.js               -> scripts de build
 #   *.pdf                                 -> material final entregue
 #   original_pdf_dump.txt                 -> referência da v1 original
+
+# ---------- Ferramentas de IA / MCP ----------
+.serena/
+
+# ---------- Imagens soltas com nome gerado (colar na pasta certa) ----------
+file_0000*.png
