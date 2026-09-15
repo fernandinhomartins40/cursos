@@ -178,6 +178,38 @@ deck = deck.map(s =>
   })
 );
 
+// ---- todo prompt visível ganha um botão "abrir na IA" ----
+// Não só os do banco: qualquer .prompt no deck. O texto vai embutido
+// no elemento (data-prompt-txt) e o script do deck monta os links.
+// Exceção: prompts marcados como exemplo ruim (etiqueta vermelha ou ❌)
+// ficam de fora — abrir aquilo na IA ensinaria o contrário do slide.
+let promptsAbriveis = 0, promptsIgnorados = 0;
+deck = deck.map(s => {
+  // a etiqueta imediatamente anterior diz se o prompt é bom ou ruim
+  return s.replace(
+    /(<div class="etiqueta([^"]*)"[^>]*>([\s\S]*?)<\/div>\s*)?<div class="prompt([^"]*)"([^>]*)>([\s\S]*?)<\/div>/g,
+    (m, etqAll, etqCls, etqTxt, prCls, prAttrs, corpo) => {
+      const ruim = /vermelha/.test(etqCls || '') || /❌/.test(etqTxt || '');
+      const texto = corpo.replace(/<[^>]+>/g, '')
+        .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
+        .replace(/\r\n/g, '\n').trim();
+      // prompts muito curtos são ilustrativos ("Crie uma atividade."),
+      // não valem um botão
+      if (ruim || texto.length < 40) { promptsIgnorados++; return m; }
+      promptsAbriveis++;
+      const abre = `<div class="prompt-acoes" data-prompt-txt="${
+        texto.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')}"></div>`;
+      return (etqAll || '') +
+        `<div class="prompt${prCls}"${prAttrs}>${corpo}</div>` + abre;
+    });
+});
+// Cada barra de ações acrescenta uma linha ao slide. `com-acoes` reduz
+// o .corpo na proporção, senão o conteúdo abaixo do prompt desce e
+// some atrás da barra de controles do deck.
+deck = deck.map(s => /prompt-acoes/.test(s)
+  ? s.replace(/<div class="slide/, '<div class="slide com-acoes')
+  : s);
+
 // Onde o slide já escreve a URL da ferramenta (ex.: "gemini.google.com"),
 // ela vira link clicável — é mais direto que uma barra extra no rodapé.
 let urlsLigadas = 0;
@@ -195,6 +227,10 @@ deck = deck.map(s => {
   if (!titulo) return s;
   const regra = porTitulo.find(([re]) => re.test(titulo));
   if (!regra) return s;
+  // Se o slide já tem um prompt com seus próprios botões, a barra fixa
+  // do rodapé vira repetição — e pior, disputa o mesmo espaço. A barra
+  // do prompt é melhor: leva o texto junto.
+  if (/prompt-acoes/.test(s)) return s;
   const ias = regra[1] ? IAS.filter(i => regra[1].includes(i.id)) : IAS;
   const rot = regra[1] ? 'Abrir e demonstrar' : 'Abrir agora';
   comBarra++;
@@ -372,6 +408,29 @@ function fallback(txt, feito){
   document.body.removeChild(ta);
 }
 
+/* Cada prompt do deck ganha os mesmos atalhos do modal: copiar e abrir
+   nas IAs, com o texto já na URL onde a ferramenta aceita. */
+document.querySelectorAll('.prompt-acoes').forEach(cx => {
+  const texto = cx.dataset.promptTxt || '';
+  if (!texto) return;
+  const bt = document.createElement('button');
+  bt.className = 'copiar-mini';
+  bt.textContent = '📋 Copiar';
+  bt.onclick = () => copiar(texto, bt);
+  cx.appendChild(bt);
+  LISTA_IAS.forEach(ia => {
+    const a = document.createElement('a');
+    a.className = 'ia-btn mini ' + ia.id;
+    a.target = '_blank'; a.rel = 'noopener';
+    a.href = ia.q ? ia.url + '/?' + ia.q + '=' + encodeURIComponent(texto) : ia.url;
+    a.innerHTML = '<span class="pt"></span>' + ia.nome;
+    a.title = ia.q
+      ? 'Abre o ' + ia.nome + ' com este prompt já escrito'
+      : 'Abre o ' + ia.nome + ' — copie antes com o botão ao lado';
+    cx.appendChild(a);
+  });
+});
+
 function abrirModal(i){
   const p = PROMPTS[i];
   if (!p) return;
@@ -441,7 +500,20 @@ document.addEventListener('keydown', e=>{
   else if(e.key==='f'||e.key==='F')document.getElementById('full').click();
   else if(e.key==='Escape')overlay.style.display='none';
 });
+/* A barra de controles fica discreta para não cobrir o rodapé dos
+   slides cheios, e reaparece a cada navegação ou movimento do mouse. */
+const barraCtrl = document.querySelector('.controls');
+let sumirCtrl;
+function piscarControles(){
+  barraCtrl.classList.add('ativa');
+  clearTimeout(sumirCtrl);
+  sumirCtrl = setTimeout(() => barraCtrl.classList.remove('ativa'), 2500);
+}
+document.addEventListener('keydown', piscarControles);
+document.addEventListener('mousemove', piscarControles);
+
 ir(0);
+piscarControles();
 </script>
 </body></html>`;
 
@@ -457,3 +529,4 @@ console.log('  saídas       :', c(/class="sl-saida"/g));
 console.log('  prompts no modal :', BANCO.length, '· cards ligados:', ligados);
 console.log('  atalhos de IA    :', comBarra, 'slides ·', urlsLigadas, 'URLs clicáveis');
 console.log('  checkbox clicáveis:', caixas);
+console.log('  prompts com botão :', promptsAbriveis, '· sem botão (ruins/curtos):', promptsIgnorados);

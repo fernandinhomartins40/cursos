@@ -369,3 +369,34 @@ a.url-ia:hover{background:var(--indigo-soft);border-bottom-style:solid}
 .ia-btn .ja{display:inline-block;margin-left:8px;padding:2.5px 9px;border-radius:20px;
   background:#0D8A63;color:#fff;font-size:10px;font-weight:800;letter-spacing:.4px;
   text-transform:uppercase;line-height:1.5}
+
+/* ---- ações abaixo de cada prompt do deck ----
+   Versão compacta dos botões do modal, para caber em slides que já
+   têm o prompt ocupando boa parte do palco. */
+.prompt-acoes{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:9px}
+.prompt-acoes .copiar-mini{font-family:var(--titulo);font-weight:700;font-size:13px;
+  padding:7px 15px;border-radius:24px;border:none;cursor:pointer;
+  background:var(--indigo);color:#fff;transition:filter .12s}
+.prompt-acoes .copiar-mini:hover{filter:brightness(1.12)}
+.prompt-acoes .copiar-mini.ok{background:var(--verde-dark)}
+.ia-btn.mini{font-size:13px;padding:6px 13px;gap:6px}
+.ia-btn.mini .pt{width:7px;height:7px}
+
+/* No PDF os botões não fazem sentido. */
+@media print{ .prompt-acoes{display:none} }
+
+/* Slides cujo prompt ganhou barra de ações: o .corpo cede a altura
+   dessa linha extra, para nada escorregar sob a barra de controles. */
+/* Alinha ao topo: com o .corpo centralizado, encurtar a altura subia o
+   conteúdo para cima do título. Ancorado no topo, a linha extra dos
+   botões consome só a folga de baixo. */
+.slide.com-acoes .corpo{height:490px;justify-content:flex-start}
+.slide.com-acoes .corpo.alto{height:506px}
+
+/* A barra de controles é fixa e flutua sobre o rodapé do palco. Em
+   slides cheios ela cobria as últimas linhas, então some sozinha
+   quando não está em uso e volta ao passar o mouse — ou com a tecla
+   de navegação, via JS. */
+.controls{opacity:.18;transition:opacity .3s}
+.controls:hover,.controls.ativa{opacity:1}
+@media print{ .controls{display:none} }
