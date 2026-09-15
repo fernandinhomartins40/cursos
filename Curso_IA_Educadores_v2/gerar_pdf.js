@@ -6,7 +6,16 @@ const path = require('path');
   const page = await browser.newPage();
   const abs = path.resolve(__dirname, 'Apostila_IA_Educadores_2026.html');
   const file = 'file:///' + abs.split(path.sep).join('/');
-  await page.goto(file, { waitUntil: 'networkidle0', timeout: 120000 });
+  page.setDefaultNavigationTimeout(120000);
+  // Se as fontes do Google demorarem, não abortamos: seguimos com o DOM
+  // pronto e damos um tempo extra para a fonte assentar.
+  try {
+    await page.goto(file, { waitUntil: 'networkidle0', timeout: 45000 });
+  } catch (e) {
+    console.log('  (rede lenta — seguindo com a página já carregada)');
+    await page.goto(file, { waitUntil: 'domcontentloaded', timeout: 120000 });
+  }
+  await page.evaluate(() => document.fonts.ready).catch(() => {});
   await new Promise(r => setTimeout(r, 3000));
   await page.pdf({
     path: 'Apostila_IA_Educadores_2026.pdf',

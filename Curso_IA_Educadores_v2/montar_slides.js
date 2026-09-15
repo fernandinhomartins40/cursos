@@ -62,9 +62,16 @@ function lerBancoDePrompts() {
 const BANCO = lerBancoDePrompts();
 
 // As quatro IAs do curso, na ordem em que o Encontro 1 as apresenta.
+// `q` é o parâmetro que leva o prompt já escrito na URL. Só o ChatGPT
+// aceita isso hoje (chatgpt.com/?q=...): abre com o texto no campo,
+// faltando só apertar Enter. Gemini, DeepSeek e NotebookLM ignoram
+// qualquer parâmetro — neles o caminho é o botão Copiar + Ctrl+V, que
+// é justamente o que o modal já faz ao abrir.
+// Verificado em setembro de 2026; se algum dia as outras passarem a
+// aceitar, basta acrescentar `q` aqui.
 const IAS = [
   { id: 'gemini',   nome: 'Gemini',     url: 'https://gemini.google.com' },
-  { id: 'chatgpt',  nome: 'ChatGPT',    url: 'https://chatgpt.com' },
+  { id: 'chatgpt',  nome: 'ChatGPT',    url: 'https://chatgpt.com', q: 'q' },
   { id: 'deepseek', nome: 'DeepSeek',   url: 'https://chat.deepseek.com' },
   { id: 'notebook', nome: 'NotebookLM', url: 'https://notebooklm.google.com' },
 ];
@@ -242,7 +249,8 @@ const foot = `
         <span class="rot-m">Abrir em</span>
         <div class="ia-btns" id="pm-ias"></div>
       </div>
-      <p class="aviso">O prompt vai copiado para a área de transferência — é só colar (Ctrl+V) na IA que abrir.</p>
+      <p class="aviso"><strong>ChatGPT</strong> abre com o prompt já escrito — é só apertar Enter.
+         Nas outras três, o prompt já está copiado: cole com <strong>Ctrl+V</strong>.</p>
     </div>
   </div>
 </div>
@@ -324,13 +332,26 @@ const pmTexto = document.getElementById('pm-texto');
 const pmCopiar = document.getElementById('pm-copiar');
 const pmIas = document.getElementById('pm-ias');
 
-LISTA_IAS.forEach(ia => {
+// Os botões do modal são recriados a cada abertura, porque o link de
+// quem aceita prompt na URL muda conforme o prompt escolhido.
+const botoesIA = LISTA_IAS.map(ia => {
   const a = document.createElement('a');
   a.className = 'ia-btn ' + ia.id;
-  a.href = ia.url; a.target = '_blank'; a.rel = 'noopener';
-  a.innerHTML = '<span class="pt"></span>' + ia.nome;
+  a.target = '_blank'; a.rel = 'noopener';
+  a.innerHTML = '<span class="pt"></span>' + ia.nome +
+    (ia.q ? '<span class="ja">já com o texto</span>' : '');
+  a.title = ia.q
+    ? 'Abre o ' + ia.nome + ' com o prompt já escrito — é só apertar Enter'
+    : 'Abre o ' + ia.nome + '. O prompt já está copiado: cole com Ctrl+V';
   pmIas.appendChild(a);
+  return { ia, a };
 });
+// Atualiza o href de cada botão para o prompt que está aberto.
+function apontarBotoes(texto){
+  botoesIA.forEach(({ ia, a }) => {
+    a.href = ia.q ? ia.url + '/?' + ia.q + '=' + encodeURIComponent(texto) : ia.url;
+  });
+}
 
 function copiar(txt, btn){
   const feito = () => {
@@ -357,6 +378,7 @@ function abrirModal(i){
   pmTitulo.textContent = p.titulo;
   pmTexto.textContent = p.texto;
   pmCopiar.onclick = () => copiar(p.texto, pmCopiar);
+  apontarBotoes(p.texto);
   modal.classList.add('aberto');
   copiar(p.texto, pmCopiar);   // já copia ao abrir: um clique a menos em sala
 }

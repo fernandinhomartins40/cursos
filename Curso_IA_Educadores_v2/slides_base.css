@@ -364,3 +364,8 @@ a.url-ia{color:var(--indigo);text-decoration:none;border-bottom:1.5px dashed var
   cursor:pointer;transition:background .12s}
 a.url-ia:hover{background:var(--indigo-soft);border-bottom-style:solid}
 @media print{ a.url-ia{border-bottom:none} }
+
+/* Selo no botão da IA que aceita o prompt pela URL */
+.ia-btn .ja{display:inline-block;margin-left:8px;padding:2.5px 9px;border-radius:20px;
+  background:#0D8A63;color:#fff;font-size:10px;font-weight:800;letter-spacing:.4px;
+  text-transform:uppercase;line-height:1.5}
