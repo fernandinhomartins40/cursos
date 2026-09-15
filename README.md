@@ -19,7 +19,8 @@ Material didático completo de formação em IA para professores da rede públic
 | `Iniciar_Apresentacao.bat` | O mesmo, com console mostrando os atalhos de teclado |
 | `Ementa_Atualizada_2026.md` | Ementa oficial com a metodologia dos 4 encontros |
 | `PLANO_REESTRUTURACAO_CURSO.md` | Diagnóstico e plano que originou esta versão |
-| `GUIA_DE_IMAGENS.md` | Prompts prontos para gerar as 25 ilustrações |
+| `Prompts_das_Imagens.pdf` | **Um prompt por página**, com nome do arquivo e pasta de destino — para imprimir ou abrir ao lado do gerador |
+| `GUIA_DE_IMAGENS.md` | A mesma coisa em Markdown, com a tabela de referência |
 
 ### 📗 `_ORIGINAL_v1_PROTEGIDO/` — versão original preservada
 
@@ -76,9 +77,12 @@ node montar_slides.js && node gerar_slides_pdf.js
 A pasta `imagens/` contém **25 arquivos em branco** com os nomes finais.
 Para inserir as ilustrações reais:
 
-1. Gere cada imagem com o prompt correspondente do `GUIA_DE_IMAGENS.md`
-2. Salve com o **nome exato** indicado, na pasta `imagens/`
-3. Rode os montadores novamente
+1. Abra `Prompts_das_Imagens.pdf` e copie o prompt da página da imagem
+2. Cole em um gerador (Gemini, Canva IA, Bing Image Creator, Leonardo) e baixe o PNG
+3. Salve com o **nome exato** indicado, na pasta `imagens/`, substituindo o arquivo em branco
+4. Rode os montadores novamente
+
+O PDF separa as **12 prioritárias** (a capa + as 11 que a apostila realmente insere) das 13 extras, que têm prompt pronto mas hoje não aparecem em nenhum ponto do material.
 
 Os montadores detectam automaticamente quais imagens já foram substituídas — as que ainda estiverem em branco são simplesmente omitidas do PDF.
 
