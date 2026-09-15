@@ -230,6 +230,60 @@ li{font-size:17px;color:var(--tinta-clara);line-height:1.65;margin-bottom:9px}
 .sl-saida .it{font-size:21px;color:#3730A3;padding:11px 0;border-bottom:1.5px solid #DDE1FB}
 .sl-saida .it:last-child{border-bottom:none}
 
+/* ---- checklist clicável ----
+   Marcar é só um gesto visual em sala ("já fez isso?"), não guarda
+   estado: cada turma começa com tudo desmarcado. */
+.sl-saida .it.marcavel{display:flex;align-items:flex-start;gap:14px;
+  cursor:pointer;user-select:none;transition:opacity .35s}
+.sl-saida .it.marcavel .bx{flex:none;width:27px;height:27px;margin-top:2px;
+  border:2.5px solid #A5B4FC;border-radius:7px;background:#fff;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .25s, border-color .25s, transform .18s}
+.sl-saida .it.marcavel .bx::after{content:'';width:8px;height:14px;
+  border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg) scale(0);
+  margin-top:-3px;transition:transform .22s cubic-bezier(.3,1.6,.6,1)}
+.sl-saida .it.marcavel:hover .bx{border-color:var(--indigo);transform:scale(1.08)}
+.sl-saida .it.marcavel .tx{position:relative;transition:color .35s}
+/* o risco cresce da esquerda para a direita */
+.sl-saida .it.marcavel .tx::after{content:'';position:absolute;left:0;top:52%;
+  width:100%;height:2.5px;background:currentColor;border-radius:2px;
+  transform:scaleX(0);transform-origin:left center;
+  transition:transform .42s cubic-bezier(.4,0,.2,1)}
+
+.sl-saida .it.marcavel.feito .bx{background:var(--verde);border-color:var(--verde)}
+.sl-saida .it.marcavel.feito .bx::after{transform:rotate(45deg) scale(1)}
+.sl-saida .it.marcavel.feito .tx{color:#8B93C4}
+.sl-saida .it.marcavel.feito .tx::after{transform:scaleX(1)}
+.sl-saida .it.marcavel.feito{opacity:.72}
+
+/* Checkbox inline: checklist das contas (dois por linha) e a lista do
+   Projeto de Intervenção. Mesma mecânica, em tamanho menor. */
+.chk{display:inline-flex;align-items:center;gap:8px;cursor:pointer;user-select:none;
+  vertical-align:middle;transition:opacity .35s}
+.chk .bx{flex:none;width:19px;height:19px;border:2.2px solid #A5B4FC;border-radius:5px;
+  background:#fff;display:inline-flex;align-items:center;justify-content:center;
+  transition:background .25s, border-color .25s, transform .18s}
+.chk .bx::after{content:'';width:5px;height:10px;border:solid #fff;border-width:0 2.5px 2.5px 0;
+  transform:rotate(45deg) scale(0);margin-top:-2px;
+  transition:transform .22s cubic-bezier(.3,1.6,.6,1)}
+.chk:hover .bx{border-color:var(--indigo);transform:scale(1.1)}
+.chk .tx{position:relative;transition:color .35s}
+.chk .tx::after{content:'';position:absolute;left:0;top:54%;width:100%;height:2px;
+  background:currentColor;border-radius:2px;transform:scaleX(0);transform-origin:left center;
+  transition:transform .4s cubic-bezier(.4,0,.2,1)}
+.chk.feito .bx{background:var(--verde);border-color:var(--verde)}
+.chk.feito .bx::after{transform:rotate(45deg) scale(1)}
+.chk.feito .tx::after{transform:scaleX(1)}
+.chk.feito{opacity:.6}
+
+/* No PDF o checklist é impresso para preencher à mão. */
+@media print{
+  .sl-saida .it.marcavel{cursor:default}
+  .sl-saida .it.marcavel.feito .tx::after{display:none}
+  .chk{cursor:default}
+  .chk.feito .tx::after{display:none}
+}
+
 /* ============================================================
    Demonstração ao vivo: abrir a IA e mostrar o prompt rodando
    ============================================================ */

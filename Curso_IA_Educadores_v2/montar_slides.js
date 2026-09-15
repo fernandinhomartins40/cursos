@@ -148,6 +148,29 @@ const porTitulo = [
 ];
 // O slide "criando as contas" fica de fora: cada passo dele já traz a URL
 // da ferramenta, e recebe o link direto no próprio cartão (abaixo).
+// ---- checklists clicáveis ----
+// Todo "☐" escrito no slide vira um checkbox de verdade: marcar é um
+// gesto visual em sala ("já fez isso?"), sem guardar estado.
+// Três formatos aparecem no material e todos são cobertos aqui:
+//   .it            → um item por linha (slides de saída)
+//   <h4>           → dois por linha (checklist das contas)
+//   <p> com <br>   → lista corrida (Projeto de Intervenção)
+let caixas = 0;
+// 1) os itens de saída, que viram linha inteira clicável
+deck = deck.map(s =>
+  s.replace(/<div class="it"([^>]*)>☐\s*([\s\S]*?)<\/div>/g, (m, attrs, txt) => {
+    caixas++;
+    return `<div class="it marcavel"${attrs}><span class="bx"></span><span class="tx">${txt}</span></div>`;
+  })
+);
+// 2) os demais: o ☐ e o texto até o fim do trecho (<br> ou fim da tag)
+deck = deck.map(s =>
+  s.replace(/☐\s*([^<]+?)(?=\s*(?:<br\s*\/?>|<\/|&nbsp;|☐))/g, (m, txt) => {
+    caixas++;
+    return `<span class="chk"><span class="bx"></span><span class="tx">${txt.trim()}</span></span>`;
+  })
+);
+
 // Onde o slide já escreve a URL da ferramenta (ex.: "gemini.google.com"),
 // ela vira link clicável — é mais direto que uma barra extra no rodapé.
 let urlsLigadas = 0;
@@ -342,6 +365,9 @@ function fecharModal(){ modal.classList.remove('aberto'); }
 document.addEventListener('click', e => {
   const card = e.target.closest('.card.abrivel');
   if (card) { abrirModal(+card.dataset.prompt); return; }
+  // checklist: marcar e desmarcar, só efeito visual
+  const item = e.target.closest('.sl-saida .it.marcavel, .chk');
+  if (item) { item.classList.toggle('feito'); return; }
   if (e.target === modal) fecharModal();       // clique fora fecha
 });
 document.getElementById('pm-fechar').onclick = fecharModal;
@@ -351,6 +377,9 @@ function ir(n){
   cur = Math.max(0, Math.min(slides.length-1, n));
   // sair de um slide de atividade zera o relógio dele
   cronos.forEach(c => { if (c.sl.closest('.slide') !== slides[cur]) c.zerar(); });
+  // e desmarca o checklist, para a próxima turma começar limpo
+  slides.forEach((s,i) => { if (i !== cur)
+    s.querySelectorAll('.feito').forEach(it => it.classList.remove('feito')); });
   slides.forEach((s,i)=>s.classList.toggle('active', i===cur));
   document.getElementById('counter').textContent = (cur+1)+' / '+slides.length;
   document.getElementById('bar').style.width = ((cur+1)/slides.length*100)+'%';
@@ -405,3 +434,4 @@ console.log('  cronômetros  :', c(/class="sl-crono"/g));
 console.log('  saídas       :', c(/class="sl-saida"/g));
 console.log('  prompts no modal :', BANCO.length, '· cards ligados:', ligados);
 console.log('  atalhos de IA    :', comBarra, 'slides ·', urlsLigadas, 'URLs clicáveis');
+console.log('  checkbox clicáveis:', caixas);
