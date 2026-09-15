@@ -1868,7 +1868,10 @@ faltas. Tom técnico, respeitoso, focado em potencialidades."></div>
       <h3 id="pm-titulo">Prompt</h3>
       <button class="fechar" id="pm-fechar" title="Fechar (Esc)">✕</button>
     </div>
-    <div class="corpo-m"><pre class="txt" id="pm-texto"></pre></div>
+    <div class="corpo-m">
+      <p class="pm-dica" id="pm-dica">✏️ Clique nos campos coloridos e preencha com a sua realidade — o prompt e os botões acompanham.</p>
+      <pre class="txt" id="pm-texto"></pre>
+    </div>
     <div class="pe">
       <div class="lin">
         <button class="copiar" id="pm-copiar">📋 Copiar prompt</button>
@@ -1957,6 +1960,7 @@ const pmTitulo = document.getElementById('pm-titulo');
 const pmTexto = document.getElementById('pm-texto');
 const pmCopiar = document.getElementById('pm-copiar');
 const pmIas = document.getElementById('pm-ias');
+const pmDica = document.getElementById('pm-dica');
 
 // Os botões do modal são recriados a cada abertura, porque o link de
 // quem aceita prompt na URL muda conforme o prompt escolhido.
@@ -1998,38 +2002,143 @@ function fallback(txt, feito){
   document.body.removeChild(ta);
 }
 
-/* Cada prompt do deck ganha os mesmos atalhos do modal: copiar e abrir
-   nas IAs, com o texto já na URL onde a ferramenta aceita. */
+/* ---- prompts preenchíveis ----
+   Onde o prompt traz [ALGO], o pedaço vira um campo de digitação no
+   próprio texto. O que o formador escreve entra no prompt na hora, e
+   os botões passam a levar a versão preenchida. */
+
+// Um placeholder pode atravessar quebra de linha no texto original
+// (ex.: "[X" e "semanas]" em linhas distintas); a chave normaliza os
+// espaços para agrupar as ocorrências iguais.
+const chaveVar = v => v.replace(/\s+/g, ' ').trim();
+
+// Quantos caracteres o campo deve ter, para não estourar o slide.
+function larguraVar(v){
+  const n = chaveVar(v).length;
+  return Math.max(6, Math.min(n + 2, 30));
+}
+
+/* Monta o prompt dentro do elemento alvo, com campos no lugar dos [ ].
+   Devolve uma função que lê o texto atual, já preenchido. */
+function montarPromptEditavel(alvo, texto, aoMudar){
+  alvo.textContent = '';
+  const campos = new Map();   // chave normalizada -> [inputs]
+  const partes = texto.split(/(\[[^\]]*\])/);
+  partes.forEach(p => {
+    const m = p.match(/^\[([^\]]*)\]$/);
+    if (!m) { alvo.appendChild(document.createTextNode(p)); return; }
+    const bruto = m[1], chave = chaveVar(bruto);
+    const inp = document.createElement('input');
+    inp.type = 'text';
+    inp.className = 'var-campo';
+    inp.placeholder = chave;
+    inp.size = larguraVar(bruto);
+    inp.dataset.chave = chave;
+    inp.setAttribute('aria-label', chave);
+    if (!campos.has(chave)) campos.set(chave, []);
+    campos.get(chave).push(inp);
+    // O input vai dentro de um span porque um <input> não aceita
+    // ::before/::after — e é por eles que os colchetes voltam na
+    // versão impressa, onde o campo em branco não diria nada.
+    const env = document.createElement('span');
+    env.className = 'var-env';
+    env.appendChild(inp);
+    alvo.appendChild(env);
+  });
+  // O mesmo campo aparece várias vezes ([ANO] repetido): digitar em um
+  // preenche os outros, senão o formador digitaria a mesma coisa 3x.
+  // O campo acompanha o que está sendo digitado: sem isso um texto
+  // maior que o nome do placeholder ficaria cortado na tela.
+  function ajustarLargura(inp){
+    const base = chaveVar(inp.dataset.chave).length;
+    const atual = inp.value.length;
+    inp.size = Math.max(6, Math.min(Math.max(base, atual) + 2, 46));
+  }
+  function sincronizar(e){
+    const inp = e.target;
+    (campos.get(inp.dataset.chave) || []).forEach(o => {
+      if (o !== inp) o.value = inp.value;
+      o.classList.toggle('preenchido', !!inp.value.trim());
+      ajustarLargura(o);
+    });
+    inp.classList.toggle('preenchido', !!inp.value.trim());
+    ajustarLargura(inp);
+    if (aoMudar) aoMudar(lerTexto());
+  }
+  alvo.addEventListener('input', sincronizar);
+
+  function lerTexto(){
+    let out = '';
+    alvo.childNodes.forEach(n => {
+      if (n.nodeType === 3) { out += n.nodeValue; return; }
+      const inp = n.tagName === 'INPUT' ? n : n.querySelector && n.querySelector('input');
+      // campo vazio volta a ser [PLACEHOLDER]: o prompt continua
+      // utilizável mesmo sem preencher tudo
+      if (inp) out += inp.value.trim() || '[' + inp.dataset.chave + ']';
+    });
+    return out;
+  }
+  return { lerTexto, temCampos: campos.size > 0 };
+}
+
 document.querySelectorAll('.prompt-acoes').forEach(cx => {
   const texto = cx.dataset.promptTxt || '';
   if (!texto) return;
+
+  // o .prompt que este bloco de ações acompanha
+  const cxPrompt = cx.previousElementSibling;
+  let ler = () => texto;
+  if (cxPrompt && cxPrompt.classList.contains('prompt') && /\[[^\]]*\]/.test(texto)) {
+    const ed = montarPromptEditavel(cxPrompt, texto, () => atualizar());
+    ler = ed.lerTexto;
+    cx.classList.add('tem-campos');
+  }
+
   const bt = document.createElement('button');
   bt.className = 'copiar-mini';
   bt.textContent = '📋 Copiar';
-  bt.onclick = () => copiar(texto, bt);
+  bt.onclick = () => copiar(ler(), bt);
   cx.appendChild(bt);
-  LISTA_IAS.forEach(ia => {
+
+  const links = LISTA_IAS.map(ia => {
     const a = document.createElement('a');
     a.className = 'ia-btn mini ' + ia.id;
     a.target = '_blank'; a.rel = 'noopener';
-    a.href = ia.q ? ia.url + '/?' + ia.q + '=' + encodeURIComponent(texto) : ia.url;
     a.innerHTML = '<span class="pt"></span>' + ia.nome;
     a.title = ia.q
       ? 'Abre o ' + ia.nome + ' com este prompt já escrito'
       : 'Abre o ' + ia.nome + ' — copie antes com o botão ao lado';
     cx.appendChild(a);
+    return { ia, a };
   });
+
+  function atualizar(){
+    const t = ler();
+    links.forEach(({ ia, a }) => {
+      a.href = ia.q ? ia.url + '/?' + ia.q + '=' + encodeURIComponent(t) : ia.url;
+    });
+  }
+  atualizar();
 });
 
 function abrirModal(i){
   const p = PROMPTS[i];
   if (!p) return;
   pmTitulo.textContent = p.titulo;
-  pmTexto.textContent = p.texto;
-  pmCopiar.onclick = () => copiar(p.texto, pmCopiar);
-  apontarBotoes(p.texto);
+  // o prompt vira editável quando tem [ ]; os botões seguem o que for digitado
+  const ed = montarPromptEditavel(pmTexto, p.texto, t => {
+    apontarBotoes(t);
+    pmCopiar.onclick = () => copiar(t, pmCopiar);
+  });
+  const ler = ed.lerTexto;
+  pmDica.style.display = ed.temCampos ? '' : 'none';
+  pmCopiar.onclick = () => copiar(ler(), pmCopiar);
+  apontarBotoes(ler());
   modal.classList.add('aberto');
-  copiar(p.texto, pmCopiar);   // já copia ao abrir: um clique a menos em sala
+  copiar(ler(), pmCopiar);   // já copia ao abrir: um clique a menos em sala
+  // foca o primeiro campo, para já sair digitando
+  const primeiro = pmTexto.querySelector('.var-campo');
+  if (primeiro) setTimeout(() => primeiro.focus(), 60);
 }
 function fecharModal(){ modal.classList.remove('aberto'); }
 
@@ -2073,6 +2182,13 @@ slides.forEach((s,i)=>{
 document.getElementById('grid').onclick=()=>{overlay.style.display=overlay.style.display==='block'?'none':'block';};
 document.getElementById('thumb-close').onclick=()=>overlay.style.display='none';
 document.addEventListener('keydown', e=>{
+  // Digitando num campo do prompt, o teclado é dele: sem isso a seta
+  // trocaria de slide e o espaço avançaria a apresentação no meio de
+  // uma palavra. Esc devolve o foco à navegação.
+  if(e.target.classList && e.target.classList.contains('var-campo')){
+    if(e.key==='Escape'){ e.target.blur(); e.preventDefault(); }
+    return;
+  }
   // com o prompt aberto, o teclado pertence ao modal
   if(modalAberto()){
     if(e.key==='Escape'){e.preventDefault();fecharModal();}

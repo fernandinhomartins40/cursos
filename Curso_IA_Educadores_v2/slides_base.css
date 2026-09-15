@@ -400,3 +400,35 @@ a.url-ia:hover{background:var(--indigo-soft);border-bottom-style:solid}
 .controls{opacity:.18;transition:opacity .3s}
 .controls:hover,.controls.ativa{opacity:1}
 @media print{ .controls{display:none} }
+
+/* ---- campos dentro do prompt ----
+   O [ALGO] do prompt vira um campo de digitação no próprio texto: o
+   formador preenche com a realidade da turma e o prompt muda na hora. */
+.var-campo{font-family:var(--mono);font-size:inherit;line-height:inherit;
+  color:#FDE68A;background:rgba(253,230,138,.13);
+  border:none;border-bottom:2px dashed rgba(253,230,138,.65);
+  border-radius:4px 4px 0 0;padding:1px 6px;margin:0 1px;
+  outline:none;transition:background .18s, border-color .18s, color .18s}
+.var-campo::placeholder{color:rgba(253,230,138,.72);font-style:italic}
+.var-campo:hover{background:rgba(253,230,138,.2)}
+.var-campo:focus{background:rgba(253,230,138,.26);border-bottom-color:#FDE68A}
+.var-campo.preenchido{color:#fff;background:rgba(16,185,129,.22);
+  border-bottom-color:var(--verde);border-bottom-style:solid}
+
+/* dica acima do prompt no modal */
+#prompt-modal .pm-dica{font-size:14px;color:var(--cinza);margin-bottom:12px;
+  background:var(--amarelo-sf);border-left:4px solid var(--amarelo);
+  border-radius:0 7px 7px 0;padding:9px 14px;color:#854D0E}
+
+/* No PDF os campos viram o texto original entre colchetes. */
+/* O input fica dentro de um span para que os colchetes possam voltar
+   na impressao (um <input> nao aceita ::before/::after). */
+.var-env{display:inline}
+
+@media print{
+  .var-campo{color:var(--prompt-txt);background:none;border:none;
+    padding:0;-webkit-appearance:none;appearance:none}
+  .var-env::before{content:'['}
+  .var-env::after{content:']'}
+  #prompt-modal .pm-dica{display:none}
+}
