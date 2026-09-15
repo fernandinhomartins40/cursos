@@ -31,6 +31,12 @@ echo  NOS SLIDES DE DESAFIO (cronometro):
 echo    Espaco  . . . . . . . . . . inicia e pausa a contagem
 echo    Z . . . . . . . . . . . . . zera o cronometro
 echo.
+echo  DEMONSTRACAO AO VIVO:
+echo    Banco de prompts  . . . . . clique num card: abre o prompt ja
+echo                                copiado, com botoes das IAs
+echo    Slides de ferramentas . . . botoes e enderecos abrem a IA
+echo                                em outra aba
+echo.
 echo  Abrindo em tela cheia...
 echo.
 

@@ -37,6 +37,38 @@ const atividades = fatiar(ler('sl_atividades.html'))
 
 const attr = (s, a) => { const m = s.match(new RegExp(a + '="([^"]*)"')); return m ? m[1] : ''; };
 
+// ---- os 15 prompts do banco, lidos da apostila ----
+// A apostila é a fonte única: o slide mostra só os títulos, e o texto
+// completo vem daqui para o modal. Editar o capítulo 2.5 e remontar
+// mantém os dois em dia sem copiar nada à mão.
+function lerBancoDePrompts() {
+  const txt = ler('parte2_cap2_prompts.html');
+  const ini = txt.indexOf('2.5 Banco de 15');
+  if (ini === -1) { console.log('  ⚠ capítulo 2.5 não encontrado — modal sem prompts'); return []; }
+  const re = /<div class="etiqueta">([^<]+)<\/div>\s*<div class="prompt">([\s\S]*?)<\/div>/g;
+  const out = [];
+  let m;
+  while ((m = re.exec(txt.slice(ini)))) {
+    out.push({
+      titulo: m[1].trim(),
+      texto: m[2].replace(/<[^>]+>/g, '')
+                 .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
+                 .replace(/\r\n/g, '\n')   // colar não deve levar CR do Windows
+                 .trim(),
+    });
+  }
+  return out;
+}
+const BANCO = lerBancoDePrompts();
+
+// As quatro IAs do curso, na ordem em que o Encontro 1 as apresenta.
+const IAS = [
+  { id: 'gemini',   nome: 'Gemini',     url: 'https://gemini.google.com' },
+  { id: 'chatgpt',  nome: 'ChatGPT',    url: 'https://chatgpt.com' },
+  { id: 'deepseek', nome: 'DeepSeek',   url: 'https://chat.deepseek.com' },
+  { id: 'notebook', nome: 'NotebookLM', url: 'https://notebooklm.google.com' },
+];
+
 // mapa: número original do slide de conteúdo -> índice no array
 const idxPorNum = new Map();
 conteudo.forEach((s, i) => idxPorNum.set(attr(s, 'data-n'), i));
@@ -79,6 +111,68 @@ while (pendentes.length && voltas < 12) {
 }
 if (pendentes.length) console.log('  ⚠ não inseridos:', pendentes.map(p => attr(p.at, 'data-n')));
 
+// ---- liga os cards do banco de prompts ao modal ----
+// O slide lista os 15 títulos; aqui cada card ganha o índice do prompt
+// correspondente, na ordem em que aparecem. Feito na montagem para não
+// repetir data-prompt="N" quinze vezes no HTML à mão.
+let ligados = 0;
+deck = deck.map(s => {
+  if (!/Banco de 15 prompts/.test(s)) return s;
+  let i = 0;
+  return s.replace(/<div class="card"( style="[^"]*")?>/g, (m, st) => {
+    const idx = i++;
+    if (idx >= BANCO.length) return m;
+    ligados++;
+    return `<div class="card abrivel"${st || ''} data-prompt="${idx}">`;
+  });
+});
+
+// ---- barra de atalhos das IAs nos slides de ferramentas ----
+// Entra nos slides que apresentam cada ferramenta, para abrir a IA e
+// demonstrar ao vivo sem sair da apresentação.
+const botaoIA = ia => `<a class="ia-btn ${ia.id}" href="${ia.url}" target="_blank" rel="noopener">` +
+                      `<span class="pt"></span>${ia.nome}</a>`;
+const barra = (rot, ias) =>
+  `<div class="ia-barra"><span class="rot">${rot}</span>` +
+  `<div class="ia-btns">${ias.map(botaoIA).join('')}</div></div>`;
+
+// A ficha de cada ferramenta leva só o botão dela; os slides de visão
+// geral e de criação de contas levam as quatro.
+const porTitulo = [
+  [/^ChatGPT/i,    ['chatgpt']],
+  [/^Gemini/i,     ['gemini']],
+  [/^DeepSeek/i,   ['deepseek']],
+  [/^NotebookLM/i, ['notebook']],
+  [/quatro ferramentas do curso/i, null],   // null = todas
+  [/checklist/i,                   null],
+];
+// O slide "criando as contas" fica de fora: cada passo dele já traz a URL
+// da ferramenta, e recebe o link direto no próprio cartão (abaixo).
+// Onde o slide já escreve a URL da ferramenta (ex.: "gemini.google.com"),
+// ela vira link clicável — é mais direto que uma barra extra no rodapé.
+let urlsLigadas = 0;
+deck = deck.map(s =>
+  s.replace(/<span class="mono">((?:chatgpt\.com|gemini\.google\.com|chat\.deepseek\.com|notebooklm\.google\.com))<\/span>/g,
+    (m, dom) => {
+      urlsLigadas++;
+      return `<a class="mono url-ia" href="https://${dom}" target="_blank" rel="noopener">${dom}</a>`;
+    })
+);
+
+let comBarra = 0;
+deck = deck.map(s => {
+  const titulo = attr(s, 'data-title');
+  if (!titulo) return s;
+  const regra = porTitulo.find(([re]) => re.test(titulo));
+  if (!regra) return s;
+  const ias = regra[1] ? IAS.filter(i => regra[1].includes(i.id)) : IAS;
+  const rot = regra[1] ? 'Abrir e demonstrar' : 'Abrir agora';
+  comBarra++;
+  // `com-ia` encolhe o .corpo para abrir espaço à barra (ver slides_base.css)
+  return s.replace(/<div class="slide/, '<div class="slide com-ia')
+          .replace(/<\/div>\s*$/, barra(rot, ias) + '\n</div>');
+});
+
 // renumera
 deck = deck.map((s, i) => s.replace(/data-n="[^"]*"/, `data-n="${i + 1}"`));
 // garante que só o primeiro tem .active
@@ -112,6 +206,23 @@ const foot = `
   <button class="ctrl" id="full" title="Tela cheia (F)">⛶</button>
 </div>
 <div id="thumb-overlay"><div id="thumb-close">✕ fechar (Esc)</div><div id="thumb-grid"></div></div>
+<div id="prompt-modal">
+  <div class="cx">
+    <div class="cab">
+      <h3 id="pm-titulo">Prompt</h3>
+      <button class="fechar" id="pm-fechar" title="Fechar (Esc)">✕</button>
+    </div>
+    <div class="corpo-m"><pre class="txt" id="pm-texto"></pre></div>
+    <div class="pe">
+      <div class="lin">
+        <button class="copiar" id="pm-copiar">📋 Copiar prompt</button>
+        <span class="rot-m">Abrir em</span>
+        <div class="ia-btns" id="pm-ias"></div>
+      </div>
+      <p class="aviso">O prompt vai copiado para a área de transferência — é só colar (Ctrl+V) na IA que abrir.</p>
+    </div>
+  </div>
+</div>
 <script>
 const slides = Array.from(document.querySelectorAll('.slide'));
 let cur = 0;
@@ -178,6 +289,64 @@ document.querySelectorAll('.sl-crono').forEach(sl => {
 // o cronômetro do slide atual, se houver
 const cronoAtivo = () => cronos.find(c => c.sl.closest('.slide') === slides[cur]);
 
+/* ---- modal dos prompts ----
+   Os textos vêm da apostila, embutidos na montagem. Abrir um card copia
+   o prompt e oferece as quatro IAs: o apresentador clica, cola e mostra
+   a resposta ao vivo. */
+const PROMPTS = ${JSON.stringify(BANCO)};
+const LISTA_IAS = ${JSON.stringify(IAS)};
+const modal = document.getElementById('prompt-modal');
+const pmTitulo = document.getElementById('pm-titulo');
+const pmTexto = document.getElementById('pm-texto');
+const pmCopiar = document.getElementById('pm-copiar');
+const pmIas = document.getElementById('pm-ias');
+
+LISTA_IAS.forEach(ia => {
+  const a = document.createElement('a');
+  a.className = 'ia-btn ' + ia.id;
+  a.href = ia.url; a.target = '_blank'; a.rel = 'noopener';
+  a.innerHTML = '<span class="pt"></span>' + ia.nome;
+  pmIas.appendChild(a);
+});
+
+function copiar(txt, btn){
+  const feito = () => {
+    const antes = btn.textContent;
+    btn.textContent = '✓ Copiado!'; btn.classList.add('ok');
+    setTimeout(() => { btn.textContent = antes; btn.classList.remove('ok'); }, 1800);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(txt).then(feito).catch(() => fallback(txt, feito));
+  } else fallback(txt, feito);
+}
+// file:// não é contexto seguro em todo navegador — daí o plano B.
+function fallback(txt, feito){
+  const ta = document.createElement('textarea');
+  ta.value = txt; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); feito(); } catch(e) {}
+  document.body.removeChild(ta);
+}
+
+function abrirModal(i){
+  const p = PROMPTS[i];
+  if (!p) return;
+  pmTitulo.textContent = p.titulo;
+  pmTexto.textContent = p.texto;
+  pmCopiar.onclick = () => copiar(p.texto, pmCopiar);
+  modal.classList.add('aberto');
+  copiar(p.texto, pmCopiar);   // já copia ao abrir: um clique a menos em sala
+}
+function fecharModal(){ modal.classList.remove('aberto'); }
+
+document.addEventListener('click', e => {
+  const card = e.target.closest('.card.abrivel');
+  if (card) { abrirModal(+card.dataset.prompt); return; }
+  if (e.target === modal) fecharModal();       // clique fora fecha
+});
+document.getElementById('pm-fechar').onclick = fecharModal;
+const modalAberto = () => modal.classList.contains('aberto');
+
 function ir(n){
   cur = Math.max(0, Math.min(slides.length-1, n));
   // sair de um slide de atividade zera o relógio dele
@@ -204,6 +373,11 @@ slides.forEach((s,i)=>{
 document.getElementById('grid').onclick=()=>{overlay.style.display=overlay.style.display==='block'?'none':'block';};
 document.getElementById('thumb-close').onclick=()=>overlay.style.display='none';
 document.addEventListener('keydown', e=>{
+  // com o prompt aberto, o teclado pertence ao modal
+  if(modalAberto()){
+    if(e.key==='Escape'){e.preventDefault();fecharModal();}
+    return;
+  }
   // num slide de cronômetro a barra controla o relógio, não a navegação:
   // é a tecla que a mão do apresentador já procura. Seta direita avança.
   const cr = cronoAtivo();
@@ -229,3 +403,5 @@ console.log('  duelos       :', c(/class="sl-duelo"/g));
 console.log('  caça ao erro :', c(/class="sl-caca"/g));
 console.log('  cronômetros  :', c(/class="sl-crono"/g));
 console.log('  saídas       :', c(/class="sl-saida"/g));
+console.log('  prompts no modal :', BANCO.length, '· cards ligados:', ligados);
+console.log('  atalhos de IA    :', comBarra, 'slides ·', urlsLigadas, 'URLs clicáveis');

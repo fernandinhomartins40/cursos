@@ -229,3 +229,84 @@ li{font-size:17px;color:var(--tinta-clara);line-height:1.65;margin-bottom:9px}
 .sl-saida h2{font-family:var(--titulo);font-size:40px;font-weight:800;color:var(--indigo-dark);margin-bottom:24px}
 .sl-saida .it{font-size:21px;color:#3730A3;padding:11px 0;border-bottom:1.5px solid #DDE1FB}
 .sl-saida .it:last-child{border-bottom:none}
+
+/* ============================================================
+   Demonstração ao vivo: abrir a IA e mostrar o prompt rodando
+   ============================================================ */
+
+/* Botões que abrem a IA em outra aba. Ficam no rodapé do slide de
+   ferramentas e dentro do modal de prompt. */
+.ia-btns{display:flex;gap:10px;flex-wrap:wrap}
+.ia-btn{display:inline-flex;align-items:center;gap:7px;text-decoration:none;
+  font-family:var(--titulo);font-weight:700;font-size:15px;
+  padding:10px 18px;border-radius:30px;border:2px solid transparent;
+  transition:transform .12s, box-shadow .12s, filter .12s; cursor:pointer}
+.ia-btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.14);filter:brightness(1.04)}
+.ia-btn .pt{width:9px;height:9px;border-radius:50%;background:currentColor;flex:none}
+.ia-btn.chatgpt  {background:#E7F7F1;color:#0D8A63;border-color:#A7E8D0}
+.ia-btn.gemini   {background:#E8F0FE;color:#1A6FE0;border-color:#AECBFA}
+.ia-btn.deepseek {background:#EEF0FE;color:#3E4BD8;border-color:#C2C8FA}
+.ia-btn.notebook {background:#FEF0E6;color:#C2551A;border-color:#FBCFA8}
+
+/* Faixa de atalhos no rodapé de um slide de conteúdo */
+/* A barra fica acima da barra de controles do deck, que flutua sobre o
+   rodapé do palco. O slide que a recebe encolhe o .corpo na mesma
+   medida (regra abaixo), senão o conteúdo passa por baixo dos botões. */
+.ia-barra{position:absolute;left:70px;right:70px;bottom:78px;
+  display:flex;align-items:center;gap:14px;z-index:11}
+.slide.com-ia .corpo{height:452px}
+.slide.com-ia .corpo.alto{height:466px}
+.ia-barra .rot{font-family:var(--titulo);font-weight:800;font-size:13px;
+  text-transform:uppercase;letter-spacing:.6px;color:var(--cinza);flex:none}
+
+/* Card de prompt clicável (banco de 15) */
+.card.abrivel{cursor:pointer;transition:transform .12s, box-shadow .12s, border-color .12s;
+  border:2px solid transparent}
+.card.abrivel:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(79,70,229,.16);
+  border-color:var(--indigo)}
+.card.abrivel::after{content:'clique para abrir';display:block;margin-top:5px;
+  font-family:var(--corpo);font-weight:600;font-size:10.5px;color:var(--cinza);
+  text-transform:uppercase;letter-spacing:.4px;opacity:0;transition:opacity .12s}
+.card.abrivel:hover::after{opacity:1}
+
+/* ---- Modal do prompt ---- */
+#prompt-modal{position:fixed;inset:0;z-index:999;display:none;
+  background:rgba(15,18,32,.72);backdrop-filter:blur(3px);
+  align-items:center;justify-content:center;padding:40px}
+#prompt-modal.aberto{display:flex}
+#prompt-modal .cx{background:#fff;border-radius:18px;width:min(900px,100%);
+  max-height:88vh;display:flex;flex-direction:column;overflow:hidden;
+  box-shadow:0 24px 70px rgba(0,0,0,.4)}
+#prompt-modal .cab{background:var(--indigo);color:#fff;padding:20px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px}
+#prompt-modal .cab h3{font-family:var(--titulo);font-size:23px;font-weight:800;margin:0}
+#prompt-modal .fechar{background:rgba(255,255,255,.18);border:none;color:#fff;
+  font-size:19px;line-height:1;width:36px;height:36px;border-radius:50%;cursor:pointer;flex:none}
+#prompt-modal .fechar:hover{background:rgba(255,255,255,.32)}
+#prompt-modal .corpo-m{padding:24px 28px;overflow-y:auto}
+#prompt-modal .txt{background:var(--prompt-bg);color:var(--prompt-txt);border-radius:12px;
+  padding:22px 24px;font-family:var(--mono);font-size:16px;line-height:1.65;
+  white-space:pre-wrap;margin:0}
+#prompt-modal .pe{padding:18px 28px 24px;border-top:1.5px solid #E8EAF4;background:#FBFBFE}
+#prompt-modal .pe .lin{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+#prompt-modal .rot-m{font-family:var(--titulo);font-weight:800;font-size:13px;
+  text-transform:uppercase;letter-spacing:.6px;color:var(--cinza);flex:none}
+#prompt-modal .copiar{font-family:var(--titulo);font-weight:700;font-size:15px;
+  padding:10px 20px;border-radius:30px;border:none;cursor:pointer;
+  background:var(--indigo);color:#fff;transition:filter .12s}
+#prompt-modal .copiar:hover{filter:brightness(1.1)}
+#prompt-modal .copiar.ok{background:var(--verde-dark)}
+#prompt-modal .aviso{font-size:13px;color:var(--cinza);margin:12px 0 0}
+
+/* Nada disso faz sentido no PDF impresso. */
+@media print{
+  #prompt-modal{display:none !important}
+  .ia-barra{display:none}
+  .card.abrivel::after{display:none}
+}
+
+/* URL da ferramenta escrita no slide, clicável para abrir na hora */
+a.url-ia{color:var(--indigo);text-decoration:none;border-bottom:1.5px dashed var(--indigo);
+  cursor:pointer;transition:background .12s}
+a.url-ia:hover{background:var(--indigo-soft);border-bottom-style:solid}
+@media print{ a.url-ia{border-bottom:none} }
