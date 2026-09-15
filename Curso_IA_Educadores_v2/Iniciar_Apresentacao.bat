@@ -27,6 +27,10 @@ echo    F . . . . . . . . . . . . . tela cheia
 echo    Home / End  . . . . . . . . primeiro / ultimo
 echo    Esc . . . . . . . . . . . . fecha as miniaturas
 echo.
+echo  NOS SLIDES DE DESAFIO (cronometro):
+echo    Espaco  . . . . . . . . . . inicia e pausa a contagem
+echo    Z . . . . . . . . . . . . . zera o cronometro
+echo.
 echo  Abrindo em tela cheia...
 echo.
 

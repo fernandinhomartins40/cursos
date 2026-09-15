@@ -181,6 +181,29 @@ li{font-size:17px;color:var(--tinta-clara);line-height:1.65;margin-bottom:9px}
 .sl-crono h2{font-family:var(--titulo);font-size:40px;font-weight:800;color:#fff;margin:10px 0 20px}
 .sl-crono p{font-size:21px;color:rgba(255,255,255,.95);line-height:1.55;max-width:900px}
 
+/* Cronômetro ao vivo: os botões são criados pelo script do deck, então
+   o slide continua legível (e imprimível no PDF) mesmo sem JavaScript. */
+.sl-crono .num{transition:transform .2s, color .2s}
+.sl-crono .num.acabou{color:#7F1D1D}
+.sl-crono.tocando{animation:crono-fim .8s ease-in-out 3}
+@keyframes crono-fim{
+  0%,100%{background:linear-gradient(150deg,var(--laranja) 0%,#FB923C 55%,#FDBA74 100%)}
+  50%{background:linear-gradient(150deg,#B91C1C 0%,#DC2626 55%,#F87171 100%)}
+}
+.crono-btns{display:flex;gap:14px;margin:26px 0 4px}
+.crono-btns button{font-family:var(--titulo);font-weight:800;font-size:19px;
+  padding:13px 30px;border:none;border-radius:40px;cursor:pointer;
+  background:#fff;color:#C2410C;box-shadow:0 4px 14px rgba(0,0,0,.16);
+  transition:transform .12s, box-shadow .12s}
+.crono-btns button:hover{transform:translateY(-2px);box-shadow:0 7px 20px rgba(0,0,0,.22)}
+.crono-btns button:active{transform:translateY(0)}
+.crono-btns button.sec{background:rgba(255,255,255,.22);color:#fff;
+  box-shadow:none;border:2px solid rgba(255,255,255,.55)}
+.crono-dica{font-size:15px;color:rgba(255,255,255,.85);margin-top:2px}
+
+/* No PDF impresso os botões não fazem sentido. */
+@media print{ .crono-btns, .crono-dica{display:none} }
+
 .sl-duelo{position:absolute;inset:0;background:#FCFCFE;padding:100px 70px 40px}
 .sl-duelo .lado{display:grid;grid-template-columns:1fr 1fr;gap:24px;height:100%}
 .sl-duelo .box{border-radius:14px;padding:22px;display:flex;flex-direction:column}
