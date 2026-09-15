@@ -27,7 +27,13 @@ function fatiar(txt) {
 
 const conteudo = ['sl_enc1.html', 'sl_enc2.html', 'sl_enc3.html', 'sl_enc4.html']
   .flatMap(f => fatiar(ler(f)));
-const atividades = fatiar(ler('sl_atividades.html'));
+
+// `sl_ferramentas.html` entra junto com as atividades porque usa o mesmo
+// mecanismo de posicionamento (data-pos): são slides que se encaixam
+// entre os de conteúdo, não um encontro novo. Ocupa a faixa E1..E9,
+// livre — sl_atividades já usa A, B, C e D.
+const atividades = fatiar(ler('sl_atividades.html'))
+  .concat(fatiar(ler('sl_ferramentas.html')));
 
 const attr = (s, a) => { const m = s.match(new RegExp(a + '="([^"]*)"')); return m ? m[1] : ''; };
 

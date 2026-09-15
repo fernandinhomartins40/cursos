@@ -160,6 +160,18 @@ p5 = p5.replace('<div class="encerramento">', bloco('saida4') + '\n' +
 const p6 = ler('parte6_anexos.html');
 const dest = ler('bloco_destacaveis.html');
 
+// Capítulos 1.7 a 1.9: as fichas das quatro ferramentas e a criação de
+// contas. Entram no fim do Encontro 1, DEPOIS da oficina dos dois barcos
+// — é lá que o cursista precisa das contas prontas. Não renumeramos nada:
+// as substituições acima ancoram em títulos literais, e mexer na
+// numeração dos capítulos quebraria a montagem inteira.
+const ferramentas = ler('bloco_ferramentas.html');
+html = html + '\n' + ferramentas;
+
+// Capítulo 13 (Formação Avançada) e Anexo D (glossário de 51 verbetes):
+// conteúdo que nasceu na plataforma e não existia no impresso.
+const avancado = ler('bloco_avancado.html');
+
 const head = `<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -167,11 +179,12 @@ const head = `<!DOCTYPE html>
 <title>Inteligência Artificial para Educadores — Apostila Completa</title>
 <link rel="stylesheet" href="estilo.css">
 <link rel="stylesheet" href="componentes_novos.css">
+<link rel="stylesheet" href="componentes_ferramentas.css">
 </head>
 <body>
 `;
 
-const final = head + [html, p2, p3, p4, p5, p6, dest].join('\n') + '\n</body></html>';
+const final = head + [html, p2, p3, p4, p5, p6, avancado, dest].join('\n') + '\n</body></html>';
 fs.writeFileSync(path.join(D, 'Apostila_IA_Educadores_2026.html'), final, 'utf8');
 
 const cont = (re) => (final.match(re) || []).length;

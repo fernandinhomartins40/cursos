@@ -5,8 +5,8 @@
 - **Nome:** Inteligência Artificial Aplicada à Educação Pública: Prática, Inclusão e Ética
 - **Público-Alvo:** Professores da Educação Básica, Coordenadores Pedagógicos, Diretores e Profissionais da Educação da Rede Pública
 - **Carga Horária Total:** 40 horas
-  - **8 horas presenciais** — 4 encontros de 2 horas (oficinas práticas)
-  - **32 horas** — aplicação em sala de aula e desenvolvimento do Projeto de Intervenção Pedagógica
+  - **8h30 presenciais** — Encontro 1 com 2h30 e Encontros 2 a 4 com 2 horas cada (oficinas práticas)
+  - **31h30** — aplicação em sala de aula e desenvolvimento do Projeto de Intervenção Pedagógica
 - **Modalidade:** Presencial (encontros) com aplicação prática na escola do cursista
 - **Edição:** 2026 — ferramentas e limites de uso verificados em setembro de 2026
 
@@ -35,10 +35,13 @@ O curso adota **Aprendizagem Baseada em Projetos (PBL)**, com abordagem "mão na
 
 ## 5. Estrutura dos Encontros
 
-### Encontro 1 — Primeiros Passos e a Arte de Conversar com a IA (2h)
+### Encontro 1 — Primeiros Passos e a Arte de Conversar com a IA (2h30)
 - **Cap. 1** — Entendendo a IA: o que é, tipos, o mito da assinatura paga, a Regra dos Dois Barcos, limites e alucinações
+- **Cap. 1.7 a 1.9 — Momento Ferramentas (30 min):** apresentação das quatro IAs do curso (ChatGPT, Gemini, DeepSeek e NotebookLM) com demonstração ao vivo do que cada uma faz melhor; tabela de qual usar em cada situação; e criação assistida das contas, com a turma, passo a passo
 - **Cap. 2** — Engenharia de Prompts: fórmula P.T.C.F. detalhada, 5 técnicas avançadas, banco de 15 prompts
-- *Oficinas 1 e 2: criação de contas e primeiro prompt completo*
+- *Oficina 0: suas quatro contas · Oficinas 1 e 2: dois barcos e primeiro prompt completo*
+
+> **Por que 2h30:** criar conta às pressas, sozinho, na véspera de uma aula é o momento em que a maioria dos professores desiste da IA. O momento assistido resolve isso com tempo e com ajuda, e garante que ninguém chegue ao Encontro 2 sem acesso às ferramentas.
 
 ### Encontro 2 — Rotina, Planejamento e BNCC (2h)
 - **Cap. 3** — Organização profissional: cronogramas, e-mails, pareceres, atas, relatórios

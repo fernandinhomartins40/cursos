@@ -12,9 +12,11 @@ Material didático completo de formação em IA para professores da rede públic
 
 | Arquivo | Descrição |
 |---|---|
-| `Apostila_IA_Educadores_2026.pdf` | **92 páginas** · 20.909 palavras · 98 prompts |
-| `Slides_IA_Educadores_2026.pdf` | **87 slides** em 16:9, prontos para projetar |
+| `Apostila_IA_Educadores_2026.pdf` | **108 páginas** · 13 capítulos + 4 anexos + destacáveis |
+| `Slides_IA_Educadores_2026.pdf` | **96 slides** em 16:9, prontos para projetar |
 | `Slides_IA_Educadores_2026.html` | Apresentação interativa (navegação por teclado, miniaturas, tela cheia) |
+| `Iniciar_Apresentacao.vbs` | **Clique duplo → apresentação em tela cheia.** Sem barra do navegador, sem janela de terminal |
+| `Iniciar_Apresentacao.bat` | O mesmo, com console mostrando os atalhos de teclado |
 | `Ementa_Atualizada_2026.md` | Ementa oficial com a metodologia dos 4 encontros |
 | `PLANO_REESTRUTURACAO_CURSO.md` | Diagnóstico e plano que originou esta versão |
 | `GUIA_DE_IMAGENS.md` | Prompts prontos para gerar as 25 ilustrações |
