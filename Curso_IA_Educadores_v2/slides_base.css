@@ -432,3 +432,18 @@ a.url-ia:hover{background:var(--indigo-soft);border-bottom-style:solid}
   .var-env::after{content:']'}
   #prompt-modal .pm-dica{display:none}
 }
+
+/* ---- ilustração no slide ----
+   As 11 figuras da apostila entraram também na projeção, para que o aluno as
+   veja no "Acompanhe a Aula". Ficam no canto inferior direito, num tamanho
+   que ilustra sem competir com o texto do slide. */
+.fig-slide{position:absolute;right:70px;bottom:26px;width:210px;z-index:5;
+  background:#fff;border:1px solid var(--borda);border-radius:12px;padding:6px;
+  box-shadow:0 6px 20px rgba(15,23,42,.10)}
+.fig-slide img{width:100%;border-radius:8px;display:block}
+.fig-slide .fig-leg{font-size:10px;line-height:1.35;color:var(--cinza);
+  text-align:center;margin-top:5px}
+/* Onde a figura entra, o corpo cede a faixa da direita para o texto não
+   passar por baixo dela. Classe marcada na montagem em vez de :has(), que
+   nem todo navegador de escola entende. */
+.slide.com-fig .corpo{width:860px}

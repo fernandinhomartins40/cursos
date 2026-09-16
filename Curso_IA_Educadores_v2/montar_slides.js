@@ -239,6 +239,46 @@ deck = deck.map(s => {
           .replace(/<\/div>\s*$/, barra(rot, ias) + '\n</div>');
 });
 
+// ---- ilustrações ----
+// As 11 figuras existiam só na apostila. Entram aqui para aparecerem também
+// na projeção e, por consequência, no "Acompanhe a Aula" do aluno — que lê
+// este mesmo deck. O ponto de entrada de cada uma é o slide equivalente ao
+// capítulo onde ela aparece no material impresso.
+const ILUSTRACOES = [
+  ['O que é IA? A metáfora do WhatsApp', '01_whatsapp_teclado_previsao.png', 'A IA prevê a próxima palavra, como o teclado do celular.'],
+  ['A Regra dos Dois Barcos', '03_dois_barcos_estrategia.png', 'A Regra dos Dois Barcos: nunca dependa de uma ferramenta só.'],
+  ['A Fórmula P.T.C.F.', '02_formula_ptcf_esquema.png', 'A fórmula P.T.C.F., estrutura recomendada para prompts pedagógicos.'],
+  ['A burocracia invisível', '06_organizacao_rotina_professor.png', 'A IA como assistente na organização do tempo extraclasse.'],
+  ['A BNCC sem mistério', '08_bncc_codigo_explicado.png', 'Cada código da BNCC diz etapa, ano, componente e habilidade.'],
+  ['NotebookLM: o assistente que não inventa', '09_notebooklm_documentos.png', 'O NotebookLM localiza a informação exata dentro de documentos longos.'],
+  ['Adaptação para TDAH e Dislexia', '12_inclusao_escolar_sala.png', 'A IA permite adaptar materiais para cada necessidade, em minutos.'],
+  ['Canva para Educação: Pro gratuito', '15_canva_educacao_design.png', 'O Canva para Educação gera apresentações e cartazes prontos.'],
+  ['LGPD: a linha vermelha', '17_seguranca_lgpd_escola.png', 'Proteger os dados dos alunos é obrigação legal e ética.'],
+  ['Seu Projeto de Intervenção', '19_projeto_intervencao_final.png', 'O Projeto de Intervenção aplicado na realidade da sua escola.'],
+  ['Encerramento — O professor é insubstituível', '20_professor_insubstituivel.png', 'A tecnologia amplia o alcance; o vínculo humano é insubstituível.'],
+];
+
+let ilustradas = 0;
+deck = deck.map(s => {
+  const titulo = attr(s, 'data-title');
+  if (!titulo) return s;
+  // casa pelo começo do título: os textos do deck e da apostila divergem
+  // em pontuação e complementos
+  const achada = ILUSTRACOES.find(([alvo]) =>
+    titulo.toLowerCase().startsWith(alvo.toLowerCase().slice(0, 22)));
+  if (!achada) return s;
+  const [, arquivo, legenda] = achada;
+  const caminho = path.join(D, 'imagens', arquivo);
+  // placeholder em branco (os originais têm ~200 KB) não entra
+  if (!fs.existsSync(caminho) || fs.statSync(caminho).size < 60000) return s;
+  ilustradas++;
+  const fig = `<div class="fig-slide"><img src="imagens/${arquivo}" alt="${legenda}">` +
+              `<div class="fig-leg">${legenda}</div></div>`;
+  // `com-fig` estreita o .corpo para o texto não correr por baixo da figura
+  return s.replace(/<div class="slide/, '<div class="slide com-fig')
+          .replace(/<\/div>\s*$/, fig + '\n</div>');
+});
+
 // renumera
 deck = deck.map((s, i) => s.replace(/data-n="[^"]*"/, `data-n="${i + 1}"`));
 // garante que só o primeiro tem .active
@@ -645,4 +685,5 @@ console.log('  saídas       :', c(/class="sl-saida"/g));
 console.log('  prompts no modal :', BANCO.length, '· cards ligados:', ligados);
 console.log('  atalhos de IA    :', comBarra, 'slides ·', urlsLigadas, 'URLs clicáveis');
 console.log('  checkbox clicáveis:', caixas);
+console.log('  ilustrações     :', ilustradas, 'de', ILUSTRACOES.length);
 console.log('  prompts com botão :', promptsAbriveis, '· sem botão (ruins/curtos):', promptsIgnorados);
