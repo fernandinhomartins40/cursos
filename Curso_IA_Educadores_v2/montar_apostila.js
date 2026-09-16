@@ -200,8 +200,33 @@ const head = `<!DOCTYPE html>
 <body>
 `;
 
-const final = head + [html, p2, p3, p4, p5, p6, avancado, dest].join('\n') + '\n</body></html>';
+const corpo = [html, p2, p3, p4, p5, p6, avancado, dest].join('\n');
+const final = head + corpo + '\n</body></html>';
 fs.writeFileSync(path.join(D, 'Apostila_IA_Educadores_2026.html'), final, 'utf8');
+
+// ---- versão econômica ----
+// Mesmo conteúdo, outro CSS: duas colunas, para a prefeitura imprimir uma
+// via por professor sem gastar o dobro de papel. O texto é exatamente o
+// mesmo — só muda a folha de estilo, então as duas nunca divergem.
+const headEcon = head
+  .replace('<title>Inteligência Artificial para Educadores — Apostila Completa</title>',
+           '<title>Inteligência Artificial para Educadores — Apostila (edição econômica)</title>')
+  .replace('<link rel="stylesheet" href="componentes_ferramentas.css">',
+           '<link rel="stylesheet" href="componentes_ferramentas.css">\n<link rel="stylesheet" href="economica.css">');
+
+/* Os prompts trazem quebras de linha manuais, medidas para a largura
+   cheia da página. Numa coluna elas não cabem e ficariam picotadas, então
+   na edição econômica o texto reflui sozinho (white-space:normal no CSS).
+   Aqui preparamos o terreno: a linha em branco que separa blocos dentro
+   de um prompt vira <br><br>, porque essa separação é significativa —
+   sem ela, "Confirme que entendeu" colaria no parágrafo anterior. */
+const corpoEcon = corpo.replace(
+  /<div class="prompt([^"]*)">([\s\S]*?)<\/div>/g,
+  (m, cls, txt) => '<div class="prompt' + cls + '">' +
+    txt.replace(/\n[ \t]*\n/g, '<br><br>') + '</div>');
+
+fs.writeFileSync(path.join(D, 'Apostila_IA_Educadores_2026_ECONOMICA.html'),
+  headEcon + corpoEcon + '\n</body></html>', 'utf8');
 
 const cont = (re) => (final.match(re) || []).length;
 console.log('Apostila montada.');
