@@ -44,9 +44,25 @@ function img(arquivo, legenda, classe) {
 
 // substitui a N-ésima oficina (1-based) de um texto pelo conteúdo dado
 function trocaOficina(txt, n, novo){
-  const re = /<div class="oficina">[\s\S]*?<\/div>\s*<\/div>|<div class="oficina">[\s\S]*?<\/div>/g;
-  let m, i = 0, achados = [];
-  while ((m = re.exec(txt))) { achados.push([m.index, m.index + m[0].length]); }
+  // Acha o </div> que realmente fecha a oficina, contando profundidade.
+  // Uma regex preguiçosa erra aqui: os blocos inseridos antes da oficina
+  // (cel3, des3…) têm divs aninhadas, e o casamento passava a engolir
+  // conteúdo que não era dela — foi assim que cel3 e des3 sumiram da
+  // apostila quando as imagens entraram.
+  const achados = [];
+  const abre = /<div class="oficina">/g;
+  let m;
+  while ((m = abre.exec(txt))) {
+    const ini = m.index;
+    const re = /<div\b|<\/div>/g;
+    re.lastIndex = ini;
+    let prof = 0, fim = -1, x;
+    while ((x = re.exec(txt))) {
+      if (x[0] === '</div>') { prof--; if (prof === 0) { fim = x.index + 6; break; } }
+      else prof++;
+    }
+    if (fim > 0) achados.push([ini, fim]);
+  }
   if (achados.length < n) return txt;
   const [a, b] = achados[n - 1];
   return txt.slice(0, a) + novo + txt.slice(b);

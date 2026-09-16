@@ -53,3 +53,10 @@ new_pdf_dump.txt
 
 # ---------- Imagens soltas com nome gerado (colar na pasta certa) ----------
 file_0000*.png
+
+# ---------- Originais das ilustrações em alta resolução ----------
+# As versões usadas na apostila ficam em imagens/ (recomprimidas por
+# comprimir_imagens.js). Os PNGs originais, ~2 MB cada, somam 49 MB e não
+# precisam ir para o repositório — ficam na máquina para reprocessar se
+# um dia quisermos outra qualidade.
+Curso_IA_Educadores_v2/imagens/_originais/
