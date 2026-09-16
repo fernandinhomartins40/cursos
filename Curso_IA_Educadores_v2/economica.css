@@ -217,6 +217,53 @@ li{ margin-bottom: 4px; line-height: 1.54; }
   margin-bottom: 5px;
 }
 
+/* ---------- fichas das ferramentas ---------- */
+/* A ficha foi desenhada para a largura cheia: cabeçalho numa linha e uma
+   grade de 4 colunas (envia / devolve / endereço / gratuidade). Numa
+   coluna de 89mm cada célula ficava com ~20mm — o rótulo "VOCÊ PODE
+   ENVIAR" empilhava letra a letra e o selo de gratuidade era cortado
+   na borda. Aqui o cabeçalho empilha e a grade vira 2×2. */
+.ficha-ia{ margin: 10px 0; }
+
+.ficha-ia-topo{
+  display: block;
+  padding: 9px 13px;
+}
+.ficha-ia-nome{
+  display: block;
+  font-size: 12.5pt;
+  line-height: 1.2;
+}
+.ficha-ia-tipo{
+  display: block;
+  font-size: 8pt;
+  margin-top: 1px;
+}
+
+.ficha-ia-corpo{ padding: 12px 13px; }
+.ficha-ia-frase{ font-size: 9pt; line-height: 1.5; margin-bottom: 10px; }
+
+.ficha-ia-grade{
+  grid-template-columns: 1fr 1fr;   /* era repeat(4,1fr) */
+  gap: 8px 10px;
+  padding: 10px 0;
+  margin-bottom: 11px;
+}
+.ficha-ia-rot{ font-size: 7.4pt; letter-spacing: .3px; line-height: 1.3; }
+.ficha-ia-grade p{ font-size: 8.6pt; line-height: 1.4; }
+/* o selo de gratuidade quebrava na borda da célula */
+.ficha-ia-grade .selo{
+  font-size: 7.6pt;
+  padding: 2px 8px;
+  white-space: normal;
+  display: inline-block;
+  line-height: 1.35;
+}
+
+.ficha-ia-faz .t, .ficha-ia-teste .t{ font-size: 9.6pt; margin-bottom: 5px; }
+.ficha-ia-faz ul{ margin: 0 0 10px; padding-left: 15px; }
+.ficha-ia-faz li{ font-size: 8.8pt; line-height: 1.5; margin-bottom: 4px; }
+
 /* ---------- tabelas ---------- */
 /* Atravessam as duas colunas, então podem manter um corpo legível. */
 table{ font-size: 8.6pt; margin: 9px 0; }
