@@ -243,21 +243,42 @@ li{ margin-bottom: 4px; line-height: 1.54; }
 .ficha-ia-corpo{ padding: 12px 13px; }
 .ficha-ia-frase{ font-size: 9pt; line-height: 1.5; margin-bottom: 10px; }
 
+/* Uma linha por item, rótulo à esquerda e valor à direita.
+   Em 2x2 cada célula ficava com 73px: o selo "Sem limite de mensagens"
+   quebrava em 4 linhas e as quatro fichas ficavam com alturas diferentes,
+   desalinhadas lado a lado. Empilhado, cada valor tem a coluna inteira e
+   as fichas se emparelham. */
+/* O HTML envolve cada par rótulo+valor num <div>. display:contents faz
+   esse wrapper sumir do layout, para que rótulo e valor entrem
+   diretamente nas colunas do grid. */
 .ficha-ia-grade{
-  grid-template-columns: 1fr 1fr;   /* era repeat(4,1fr) */
-  gap: 8px 10px;
-  padding: 10px 0;
-  margin-bottom: 11px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 5px 9px;
+  padding: 9px 0;
+  margin-bottom: 10px;
+  align-items: baseline;
 }
-.ficha-ia-rot{ font-size: 7.4pt; letter-spacing: .3px; line-height: 1.3; }
-.ficha-ia-grade p{ font-size: 8.6pt; line-height: 1.4; }
-/* o selo de gratuidade quebrava na borda da célula */
+.ficha-ia-grade > div{ display: contents; }
+.ficha-ia-rot{
+  font-size: 7.4pt;
+  letter-spacing: .3px;
+  line-height: 1.35;
+  white-space: nowrap;      /* "VOCÊ PODE ENVIAR" nunca empilha */
+  text-align: left;
+}
+.ficha-ia-grade p{
+  font-size: 8.6pt;
+  line-height: 1.4;
+  text-align: left;         /* o justify herdado esticava as palavras */
+  hyphens: none;
+}
 .ficha-ia-grade .selo{
   font-size: 7.6pt;
-  padding: 2px 8px;
-  white-space: normal;
+  padding: 2px 9px;
+  white-space: nowrap;      /* o selo cabe inteiro: não quebra mais */
   display: inline-block;
-  line-height: 1.35;
+  line-height: 1.5;
 }
 
 .ficha-ia-faz .t, .ficha-ia-teste .t{ font-size: 9.6pt; margin-bottom: 5px; }
