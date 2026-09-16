@@ -257,9 +257,30 @@ li{ margin-bottom: 4px; line-height: 1.54; }
   gap: 5px 9px;
   padding: 9px 0;
   margin-bottom: 10px;
-  align-items: baseline;
+  /* stretch, não baseline: com baseline a borda do rótulo e a do valor
+     ficavam em alturas diferentes e a régua saía quebrada no meio */
+  align-items: stretch;
 }
 .ficha-ia-grade > div{ display: contents; }
+/* Linha sutil entre os itens. Rótulo e valor são células irmãs do mesmo
+   grid, então a régua fica em ambos e forma uma linha contínua. Os dois
+   precisam da mesma altura de caixa, senão a linha sai quebrada no meio
+   (o rótulo é menor e sua caixa fechava 3px antes da do valor) — daí o
+   align-items:stretch acima e a margem, em vez de padding, aqui. */
+.ficha-ia-rot,
+.ficha-ia-grade p{
+  border-bottom: 0.6pt solid #E6EAF3;
+  padding-bottom: 5px;
+  margin-bottom: 0;
+  display: flex;
+  align-items: flex-start;
+}
+.ficha-ia-grade > div:last-child .ficha-ia-rot,
+.ficha-ia-grade > div:last-child p{
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
 .ficha-ia-rot{
   font-size: 7.4pt;
   letter-spacing: .3px;
