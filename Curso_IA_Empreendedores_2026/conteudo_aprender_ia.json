@@ -441,7 +441,7 @@
         {
           "id": "e4_implantacao_x09",
           "type": "LABORATORIO",
-          "title": "Claude Cowork e trabalho entre arquivos",
+          "title": "Delegar um trabalho entre arquivos (Claude)",
           "xp": 30,
           "instruction": "Demonstração condicionada à disponibilidade; a prática principal é escrever a missão e o checklist de revisão."
         },

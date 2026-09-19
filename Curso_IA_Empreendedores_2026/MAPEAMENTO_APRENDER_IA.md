@@ -11,7 +11,7 @@
 | 1 | 2h | 8h | ChatGPT e Work | Biblioteca de prompts e plano semanal revisado |
 | 2 | 2h | 8h | ChatGPT Images, Gemini/Veo quando disponível | Kit de campanha visual e roteiro de vídeo |
 | 3 | 2h | 8h | Gemini Docs, Sheets e NotebookLM | Procedimento, painel e base de conhecimento |
-| 4 | 2h | 8h | Agentes, Claude Cowork, Make e Apps Script | Piloto de automação e plano de 30 dias |
+| 4 | 2h | 8h | Agentes, Claude, Make e Apps Script | Piloto de automação e plano de 30 dias |
 
 Total: 8 horas ao vivo + 32 horas de aplicação orientada = 40 horas.
 

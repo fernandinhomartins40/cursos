@@ -38,7 +38,7 @@ const ext = {
   ],
   e4_implantacao: [
     ['TEORIA', 'Agente em linguagem simples', 20, 'Agente é uma missão com entrada, fontes permitidas, passos, limites e entrega revisável — não uma autonomia sem controle.'],
-    ['LABORATORIO', 'Claude Cowork e trabalho entre arquivos', 30, 'Demonstração condicionada à disponibilidade; a prática principal é escrever a missão e o checklist de revisão.'],
+    ['LABORATORIO', 'Delegar um trabalho entre arquivos (Claude)', 30, 'Demonstração condicionada à disponibilidade; a prática principal é escrever a missão e o checklist de revisão.'],
     ['PROMPT', 'Desenho de agente com limites', 30, 'Crie um agente de baixo risco.', 'Desenhe um agente para [PROCESSO]. Informe missão, entrada permitida, fontes autorizadas, etapas, saída, responsável humano, exceções, dados proibidos, métrica, critério de parada e plano de reversão.'],
     ['FERRAMENTA', 'Make: gatilho, filtro, ação, registro e alerta', 25, 'Construa automação visual de baixo risco; comece com rascunho e revisão humana.'],
     ['LABORATORIO', 'Google Forms + Sheets + Docs + Gmail / Apps Script', 40, 'Projete uma automação acessível para pedido, lead, agenda, feedback ou pós-venda.', null, ['gatilho', 'filtro', 'registro', 'alerta', 'exceção', 'responsável']],

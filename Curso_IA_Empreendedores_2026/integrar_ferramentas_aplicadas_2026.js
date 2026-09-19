@@ -15,7 +15,7 @@ const modulos = [
     n: 1,
     titulo: 'ChatGPT, Work e comandos que viram trabalho útil',
     ferramenta: 'ChatGPT e ChatGPT Work',
-    acesso: 'ChatGPT Images está disponível em todos os níveis; o acesso a Work, conectores e ações em apps pode variar por plano, conta, dispositivo e permissões da empresa.',
+    acesso: 'GRATUITO COM LIMITES — ChatGPT: conversa de texto sem limite fixo; imagem, upload de arquivo e voz têm cota diária. O plano Go (US$ 8/mês) multiplica a cota por 10; o Business custa US$ 25 por usuário/mês, mínimo de 2 usuários. Conectores e ações em apps variam por plano e permissão da empresa. Conferido na documentação oficial em 19/09/2026.',
     conceito: 'Chat é uma conversa rápida. Work é indicado para um trabalho mais longo: reunir material permitido, propor um plano, produzir um arquivo e manter o contexto até a revisão final. Nenhuma das duas opções substitui a decisão do responsável.',
     lab: 'Transformar um conjunto de notas, áudios transcritos ou documentos não sigilosos em um plano de operação de uma semana.',
     prompt1: 'Você será meu assistente de operação para [NEGÓCIO]. Objetivo: transformar o material abaixo em um plano de trabalho de 7 dias. Entregue uma tabela com tarefa, responsável, prazo, insumo necessário, risco e critério de conclusão. Use somente informações confirmadas. Marque lacunas como [CONFIRMAR]. Não decida preço, exceção de cliente ou compromisso financeiro. Material: [COLE AQUI].',
@@ -28,7 +28,7 @@ const modulos = [
     n: 2,
     titulo: 'Imagens, campanha e vídeo com IA',
     ferramenta: 'ChatGPT Images / GPT Image 2.5 e Gemini com Veo/Flow',
-    acesso: 'ChatGPT Images permite criar e editar imagens; geração de vídeo no Gemini exige plano Google AI pessoal ou licença Workspace compatível. Antes da aula, o instrutor confirma quais contas têm acesso e apresenta alternativa de roteiro quando não houver vídeo disponível.',
+    acesso: 'GRATUITO COM LIMITES — ChatGPT Images: poucas imagens por dia no gratuito, com fundo transparente e edição por seleção. Vídeo: o Sora foi encerrado pela OpenAI em março de 2026 e não é usado neste curso; o caminho gratuito é o Google Veo, cerca de 10 gerações por mês em conta comum, e o Pika, cujo plano gratuito permite uso comercial a 480p. Conferido em 19/09/2026. Antes da aula, o instrutor confirma quais contas têm acesso e apresenta alternativa de roteiro quando não houver vídeo disponível.',
     conceito: 'Imagem profissional nasce de briefing, não de uma frase genérica. Vídeo nasce de uma sequência de cenas: objetivo, público, ambiente, pessoa, ação, câmera, som, texto e chamada para ação. Toda pessoa real, marca, depoimento e oferta exige autorização e revisão.',
     lab: 'Criar uma campanha de 7 dias para um negócio real: três imagens, uma peça de oferta aprovada, roteiro de vídeo curto e uma versão adaptada para WhatsApp.',
     prompt1: 'Crie uma fotografia publicitária realista para [NEGÓCIO]. Público: [PÚBLICO]. Objetivo: [AÇÃO DESEJADA]. Cena: [AMBIENTE REAL]. Pessoa: [DESCRIÇÃO AUTORIZADA]. Produto/serviço em destaque: [ITEM]. Estilo: fotografia comercial contemporânea, luz natural quente, detalhes de interface em neon suave e ícones discretos relacionados a [TEMA]. Formato [1:1/4:5/9:16]. Não invente preço, logotipo ou texto longo; deixe a área de texto limpa.',
@@ -41,7 +41,7 @@ const modulos = [
     n: 3,
     titulo: 'Gemini no Docs e Sheets, pesquisa e NotebookLM',
     ferramenta: 'Gemini para Google Workspace e NotebookLM',
-    acesso: 'Gemini em Docs e Sheets requer plano Google AI ou Workspace elegível. NotebookLM tem recursos básicos com limites; usar fontes próprias e permissões corretas continua obrigatório.',
+    acesso: 'DEPENDE DO PLANO — Gemini no Documentos e Planilhas: montar planilha inteira por descrição e criar mini-apps estão em versão de testes para assinantes Google AI Pro e Ultra. Sem assinatura, o caminho do curso é exportar CSV e analisar no chat, que dá quase o mesmo resultado com um passo a mais. NotebookLM (o Google está renomeando para Gemini Notebook): GRATUITO COM LIMITES — até 50 fontes por caderno, cada uma com até 500 mil palavras ou 200 MB. Conferido em 19/09/2026.',
     conceito: 'Docs serve para transformar conhecimento em documento utilizável. Sheets organiza fatos, indicadores e rotina. NotebookLM responde com base nas fontes escolhidas e apresenta citações — isso não dispensa conferir a fonte, mas torna a pesquisa muito mais rastreável.',
     lab: 'Montar uma base de conhecimento com materiais autorizados, criar documento comercial, painel simples no Sheets e FAQ com fonte identificada.',
     prompt1: 'No Google Docs, transforme estas notas em um procedimento de uma página para [ROTINA]. Estruture: objetivo, quando começa, passos, responsável, evidência de conclusão, exceções e dados que não podem aparecer no documento. Não invente política, prazo ou valor. Notas: [COLE AQUI].',
@@ -52,9 +52,13 @@ const modulos = [
   },
   {
     n: 4,
-    titulo: 'Agentes, Claude Cowork e automações seguras',
-    ferramenta: 'Agentes de IA, Claude Cowork, Make e Google Apps Script',
-    acesso: 'Claude Cowork é uma experiência desktop e sua disponibilidade depende de plano e região. Make possui plano gratuito com 1.000 créditos/mês, até dois cenários ativos e intervalo mínimo de 15 minutos. Apps Script é acessado no navegador dentro do Google Workspace.',
+    titulo: 'Agentes, trabalho delegado e automações seguras',
+    ferramenta: 'Agentes de IA, Claude, Make e Google Apps Script',
+    // Cowork deixou de ser produto separado: a Anthropic fundiu Cowork e
+    // chat num só Claude. Ensinar a marca separada seria ensinar uma
+    // distinção que já não existe na tela do aluno — o conceito de
+    // delegar um trabalho de várias etapas é que permanece.
+    acesso: 'GRATUITO COM LIMITES — Claude tem uso gratuito com cota por período; delegar trabalho sobre pastas de arquivos é recurso dos planos pagos (Cowork e chat foram unificados num só Claude). Make: plano gratuito com 1.000 operações/mês e até dois cenários ativos. Apps Script: gratuito no navegador, dentro do Google Workspace. Conferido na documentação oficial em 19/09/2026.',
     conceito: 'Agente não é magia: é um assistente com missão, fontes permitidas, passos, limites e uma entrega para revisão. Automação é uma sequência de gatilho, filtro, ação, registro e alerta. Comece com algo reversível; não automatize exceção, dinheiro, decisão crítica ou reclamação séria.',
     lab: 'Desenhar e testar uma automação de baixo risco: formulário ou planilha → organização → alerta → revisão humana → registro de resultado.',
     prompt1: 'Desenhe um agente de IA simples para [PROCESSO]. Entregue uma tabela com: missão, entrada permitida, fontes autorizadas, etapas, saída, responsável humano, exceções, dados proibidos, métrica, critério de parada e plano de reversão. Não proponha decisão automática sobre preço, crédito, contratação, saúde, questão jurídica ou reclamação grave.',
@@ -104,4 +108,4 @@ if (!kit.includes('EXTENSÃO CURRICULAR · FERRAMENTAS APLICADAS')) {
 fs.writeFileSync(APOSTILA, ap, 'utf8');
 fs.writeFileSync(SLIDES, sl, 'utf8');
 fs.writeFileSync(KIT, kit, 'utf8');
-console.log(JSON.stringify({modulos:4, paginasAdicionadas:29, slidesAdicionados:40, temas:['ChatGPT Work','GPT Image 2.5','vídeo Gemini/Veo','Gemini Docs/Sheets','NotebookLM','Claude Cowork','agentes','Make','Apps Script']}));
+console.log(JSON.stringify({modulos:4, paginasAdicionadas:29, slidesAdicionados:40, temas:['ChatGPT Work','GPT Image 2.5','vídeo Gemini/Veo','Gemini Docs/Sheets','NotebookLM','delegar trabalho (Claude)','agentes','Make','Apps Script']}));
