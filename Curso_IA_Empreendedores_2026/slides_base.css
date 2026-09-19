@@ -1,0 +1,449 @@
+/* =========================================================
+   SLIDES — IA PARA EDUCADORES
+   Paleta idêntica à apostila: índigo/roxo + laranja
+   ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --indigo:#4F46E5; --indigo-dark:#4338CA; --indigo-soft:#EEF0FE; --indigo-line:#DDE1FB;
+  --laranja:#F97316; --laranja-soft:#FFF3E8;
+  --verde:#10B981; --verde-dark:#047857; --verde-soft:#ECFDF5;
+  --vermelho:#EF4444; --vermelho-dk:#B91C1C; --vermelho-sf:#FEF2F2;
+  --amarelo:#EAB308; --amarelo-dk:#A16207; --amarelo-sf:#FEFCE8;
+  --tinta:#1E293B; --tinta-clara:#475569; --cinza:#64748B; --borda:#E2E8F0;
+  --prompt-bg:#151F38; --prompt-bg2:#1B2745; --prompt-txt:#E8EDF7;
+  --titulo:'Montserrat',sans-serif; --corpo:'Nunito Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:#0F172A;font-family:var(--corpo)}
+body{display:flex;flex-direction:column;align-items:center;justify-content:center}
+
+.deck-outer{display:flex;align-items:center;justify-content:center;width:100vw;height:calc(100vh - 62px);margin-top:4px}
+.deck-wrapper{position:relative;width:1280px;height:720px;flex-shrink:0;transform-origin:center center}
+.slide{position:absolute;inset:0;display:none;background:#FCFCFE;overflow:hidden}
+.slide.active{display:block}
+
+/* barra superior colorida */
+.topo{position:absolute;left:0;top:0;width:1280px;height:9px;background:var(--indigo)}
+.topo.laranja{background:var(--laranja)} .topo.verde{background:var(--verde)}
+.topo.vermelho{background:var(--vermelho)} .topo.amarelo{background:var(--amarelo)}
+
+.badge{position:absolute;left:70px;top:28px;z-index:10;display:inline-flex;align-items:center;gap:6px;
+  padding:6px 17px;border-radius:999px;font-family:var(--titulo);font-size:13.5px;font-weight:700;
+  letter-spacing:.6px;background:var(--indigo);color:#fff;text-transform:uppercase}
+.badge.laranja{background:var(--laranja)} .badge.verde{background:var(--verde)}
+.badge.vermelho{background:var(--vermelho)} .badge.amarelo{background:var(--amarelo);color:#3F2D00}
+
+h1.st{position:absolute;left:70px;top:66px;width:1140px;z-index:10;font-family:var(--titulo);
+  font-size:40px;color:var(--tinta);font-weight:800;line-height:1.18}
+h1.st .lar{color:var(--laranja)}
+h1.st.duas{font-size:35px}
+
+.corpo{position:absolute;left:70px;top:146px;width:1140px;height:530px;z-index:10;
+  display:flex;flex-direction:column;justify-content:center;gap:18px}
+.corpo > *{flex-shrink:0}
+.corpo > .etiqueta{align-self:flex-start;width:auto}
+.corpo .grid2,.corpo .grid3,.corpo .grid4{align-items:stretch}
+.corpo .card:not([style*='display:flex']){display:flex;flex-direction:column;justify-content:center}
+.corpo.alto{top:132px;height:544px;justify-content:flex-start;gap:16px}
+
+/* cartões */
+.card{background:#fff;border-radius:15px;border:1px solid var(--borda);
+  box-shadow:0 5px 18px rgba(15,23,42,.045);padding:24px}
+.card h4{font-family:var(--titulo);font-size:19.5px;font-weight:800;color:var(--tinta);margin-bottom:7px}
+.card p{font-size:16.5px;color:var(--tinta-clara);line-height:1.6}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+.col{display:flex;flex-direction:column;gap:17px;height:100%}
+
+/* box Traduzindo — igual à apostila */
+.traduzindo{background:var(--verde-soft);border-left:6px solid var(--verde);border-radius:12px;padding:22px 26px}
+.traduzindo .t{font-family:var(--titulo);font-weight:800;color:var(--verde-dark);font-size:19.5px;margin-bottom:8px}
+.traduzindo p{font-size:16.5px;color:#065F46;line-height:1.6}
+
+.atencao{background:var(--vermelho-sf);border-left:6px solid var(--vermelho);border-radius:12px;padding:22px 26px}
+.atencao .t{font-family:var(--titulo);font-weight:800;color:var(--vermelho-dk);font-size:19.5px;margin-bottom:8px}
+.atencao p,.atencao li{font-size:16.5px;color:#991B1B;line-height:1.6}
+
+.dica{background:var(--amarelo-sf);border-left:6px solid var(--amarelo);border-radius:12px;padding:22px 26px}
+.dica .t{font-family:var(--titulo);font-weight:800;color:var(--amarelo-dk);font-size:19.5px;margin-bottom:8px}
+.dica p{font-size:16.5px;color:#854D0E;line-height:1.6}
+
+.lilas{background:var(--indigo-soft);border-radius:13px;padding:24px 28px}
+.lilas .t{font-family:var(--titulo);font-weight:800;color:var(--indigo-dark);font-size:20.5px;margin-bottom:9px}
+.lilas p{font-size:16.5px;color:#3730A3;line-height:1.6}
+
+/* prompt escuro — igual à apostila */
+.etiqueta{display:inline-block;background:var(--indigo);color:#fff;font-family:var(--titulo);
+  font-size:13.5px;font-weight:700;padding:5px 14px;border-radius:999px;margin-bottom:-5px;
+  position:relative;z-index:2;letter-spacing:.3px}
+.etiqueta.verde{background:var(--verde)} .etiqueta.vermelha{background:var(--vermelho)}
+.etiqueta.laranja{background:var(--laranja)}
+.prompt{background:linear-gradient(160deg,var(--prompt-bg),var(--prompt-bg2));color:var(--prompt-txt);
+  border-radius:13px;padding:22px 24px;font-family:var(--mono);font-size:15px;line-height:1.68;
+  white-space:pre-wrap}
+.prompt.p12{font-size:14px;line-height:1.62}
+
+/* tabela */
+table{width:100%;border-collapse:collapse;font-size:16px}
+thead th{background:var(--indigo-soft);color:var(--indigo-dark);font-family:var(--titulo);
+  font-weight:700;text-align:left;padding:14px 16px;font-size:16px}
+tbody td{padding:13px 16px;border-bottom:1px solid var(--borda);color:var(--tinta-clara);vertical-align:top}
+tbody tr:nth-child(even){background:#FBFBFE}
+.fer{font-family:var(--titulo);font-weight:700}
+
+.selo{font-family:var(--titulo);font-weight:700;font-size:13.5px;padding:4px 12px;border-radius:999px;white-space:nowrap;display:inline-block}
+.selo.verde{background:#D1FAE5;color:#065F46} .selo.amarelo{background:#FEF3C7;color:#92400E}
+.selo.vermelho{background:#FEE2E2;color:#991B1B}
+
+/* oficina */
+.oficina{background:linear-gradient(135deg,#FFF7ED,#FFF1E2);border:3px solid #FDBA74;
+  border-radius:16px;padding:28px 32px}
+.oficina .t{font-family:var(--titulo);font-weight:800;color:#C2410C;font-size:24px;margin-bottom:11px}
+.oficina li{font-size:17.5px;color:#7C2D12;line-height:1.7;margin-bottom:9px}
+.oficina ol{padding-left:22px}
+
+ul,ol{padding-left:20px}
+li{font-size:17px;color:var(--tinta-clara);line-height:1.65;margin-bottom:9px}
+.lead{font-size:19.5px;color:var(--tinta-clara);line-height:1.62}
+.mono{font-family:var(--mono);font-size:15px;color:var(--indigo);font-weight:500}
+
+/* capa e divisórias */
+.capa{position:absolute;inset:0;background:linear-gradient(150deg,#EEF0FE 0%,#F6F4FF 45%,#FFF8F0 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 90px}
+.divisor{position:absolute;inset:0;background:linear-gradient(150deg,var(--indigo) 0%,#6366F1 55%,#818CF8 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 100px}
+.divisor .num{font-family:var(--titulo);font-size:19px;font-weight:800;color:rgba(255,255,255,.72);letter-spacing:3px;margin-bottom:14px}
+.divisor h2{font-family:var(--titulo);font-size:46px;font-weight:800;color:#fff;line-height:1.16;margin-bottom:18px}
+.divisor p{font-size:19px;color:rgba(255,255,255,.9);line-height:1.55;max-width:820px}
+.divisor .caps{margin-top:24px;display:flex;gap:11px;flex-wrap:wrap;justify-content:center}
+.divisor .cap-tag{background:rgba(255,255,255,.17);border:1.5px solid rgba(255,255,255,.32);
+  color:#fff;font-family:var(--titulo);font-size:14px;font-weight:700;padding:8px 17px;border-radius:999px}
+
+/* navegação */
+.progress-bar{position:fixed;top:0;left:0;height:4px;
+  background:linear-gradient(90deg,var(--indigo),var(--laranja));z-index:9999;transition:width .3s ease}
+.controls{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;
+  gap:8px;background:rgba(15,23,42,.94);backdrop-filter:blur(14px);padding:8px 20px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);z-index:9999;user-select:none}
+.ctrl{width:36px;height:36px;border-radius:50%;border:none;background:rgba(255,255,255,.09);color:#fff;
+  cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:.15s}
+.ctrl:hover{background:var(--indigo)}
+.slide-counter{color:rgba(255,255,255,.7);font-size:13px;font-weight:700;padding:0 10px;min-width:74px;text-align:center;font-family:var(--titulo)}
+.sep{width:1px;height:24px;background:rgba(255,255,255,.15);margin:0 4px}
+#thumb-overlay{display:none;position:fixed;inset:0;background:rgba(15,23,42,.97);z-index:9998;overflow-y:auto;padding:32px 24px}
+#thumb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:12px;max-width:1240px;margin:0 auto}
+.thumb{cursor:pointer;border-radius:10px;border:2px solid rgba(255,255,255,.1);transition:.2s;
+  background:#1E293B;padding:13px 11px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.thumb:hover,.thumb.current{border-color:var(--indigo);transform:translateY(-2px)}
+.thumb-num{font-size:17px;font-weight:800;color:#818CF8;font-family:var(--titulo);line-height:1}
+.thumb-title{font-size:11px;color:rgba(255,255,255,.72);font-weight:600;line-height:1.32}
+#thumb-close{display:block;text-align:center;color:rgba(255,255,255,.5);font-size:14px;margin-bottom:20px;cursor:pointer}
+#thumb-close:hover{color:#fff}
+
+@media print{
+  @page{size:1280px 720px;margin:0}
+  html,body{width:1280px!important;height:auto!important;overflow:visible!important;background:#fff!important}
+  .progress-bar,.controls,#thumb-overlay{display:none!important}
+  .deck-outer{display:block!important;width:1280px!important;height:auto!important;margin:0!important}
+  .deck-wrapper{position:static!important;width:1280px!important;height:auto!important;transform:none!important}
+  .slide{position:relative!important;display:block!important;width:1280px!important;height:720px!important;
+    page-break-after:always!important;break-after:page!important;overflow:hidden!important;
+    background:#FCFCFE!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+/* ===== SLIDES DE ATIVIDADE ===== */
+.sl-aquec{position:absolute;inset:0;background:linear-gradient(150deg,#FEF2F2 0%,#FFE4E6 60%,#FFF1F2 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 110px}
+.sl-aquec .et{font-family:var(--titulo);font-size:17px;font-weight:800;color:var(--vermelho);
+  letter-spacing:2.5px;margin-bottom:20px}
+.sl-aquec h2{font-family:var(--titulo);font-size:42px;font-weight:800;color:var(--vermelho-dk);
+  line-height:1.2;margin-bottom:22px}
+.sl-aquec p{font-size:21px;color:#9F1239;line-height:1.55;max-width:880px}
+
+.sl-caso{position:absolute;inset:0;background:linear-gradient(150deg,#F5F3FF 0%,#EEF0FE 100%);
+  display:flex;flex-direction:column;justify-content:center;padding:0 90px}
+.sl-caso .et{font-family:var(--titulo);font-size:16px;font-weight:800;color:var(--indigo);
+  letter-spacing:2.5px;margin-bottom:14px}
+.sl-caso h2{font-family:var(--titulo);font-size:40px;font-weight:800;color:var(--indigo-dark);
+  line-height:1.18;margin-bottom:22px}
+.sl-caso .cena-sl{background:#fff;border-left:7px solid var(--laranja);border-radius:13px;
+  padding:26px 30px;font-size:20px;color:var(--tinta);line-height:1.62}
+.sl-caso .perg{font-family:var(--titulo);font-weight:800;color:var(--indigo-dark);
+  font-size:22px;margin-top:22px}
+
+.sl-crono{position:absolute;inset:0;background:linear-gradient(150deg,var(--laranja) 0%,#FB923C 55%,#FDBA74 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 100px}
+.sl-crono .num{font-family:var(--titulo);font-size:150px;font-weight:800;color:#fff;line-height:1}
+.sl-crono h2{font-family:var(--titulo);font-size:40px;font-weight:800;color:#fff;margin:10px 0 20px}
+.sl-crono p{font-size:21px;color:rgba(255,255,255,.95);line-height:1.55;max-width:900px}
+
+/* Cronômetro ao vivo: os botões são criados pelo script do deck, então
+   o slide continua legível (e imprimível no PDF) mesmo sem JavaScript. */
+.sl-crono .num{transition:transform .2s, color .2s}
+.sl-crono .num.acabou{color:#7F1D1D}
+.sl-crono.tocando{animation:crono-fim .8s ease-in-out 3}
+@keyframes crono-fim{
+  0%,100%{background:linear-gradient(150deg,var(--laranja) 0%,#FB923C 55%,#FDBA74 100%)}
+  50%{background:linear-gradient(150deg,#B91C1C 0%,#DC2626 55%,#F87171 100%)}
+}
+.crono-btns{display:flex;gap:14px;margin:26px 0 4px}
+.crono-btns button{font-family:var(--titulo);font-weight:800;font-size:19px;
+  padding:13px 30px;border:none;border-radius:40px;cursor:pointer;
+  background:#fff;color:#C2410C;box-shadow:0 4px 14px rgba(0,0,0,.16);
+  transition:transform .12s, box-shadow .12s}
+.crono-btns button:hover{transform:translateY(-2px);box-shadow:0 7px 20px rgba(0,0,0,.22)}
+.crono-btns button:active{transform:translateY(0)}
+.crono-btns button.sec{background:rgba(255,255,255,.22);color:#fff;
+  box-shadow:none;border:2px solid rgba(255,255,255,.55)}
+.crono-dica{font-size:15px;color:rgba(255,255,255,.85);margin-top:2px}
+
+/* No PDF impresso os botões não fazem sentido. */
+@media print{ .crono-btns, .crono-dica{display:none} }
+
+.sl-duelo{position:absolute;inset:0;background:#FCFCFE;padding:100px 70px 40px}
+.sl-duelo .lado{display:grid;grid-template-columns:1fr 1fr;gap:24px;height:100%}
+.sl-duelo .box{border-radius:14px;padding:22px;display:flex;flex-direction:column}
+.sl-duelo .box.ruim{background:var(--vermelho-sf);border:2.5px solid #FBD5D5}
+.sl-duelo .box.bom{background:var(--verde-soft);border:2.5px solid #A7F3D0}
+.sl-duelo .rot{font-family:var(--titulo);font-weight:800;font-size:19px;margin-bottom:12px}
+.sl-duelo .box.ruim .rot{color:var(--vermelho-dk)}
+.sl-duelo .box.bom .rot{color:var(--verde-dark)}
+.sl-duelo .pr{background:var(--prompt-bg);color:var(--prompt-txt);border-radius:11px;
+  padding:16px 18px;font-family:var(--mono);font-size:13.5px;line-height:1.6;white-space:pre-wrap}
+.sl-duelo .res{margin-top:12px;font-size:15px;line-height:1.55}
+.sl-duelo .box.ruim .res{color:#991B1B}
+.sl-duelo .box.bom .res{color:#047857}
+
+.sl-caca{position:absolute;inset:0;background:#FFFBEB;padding:100px 70px 40px}
+.sl-caca .resp{background:#fff;border:2.5px solid #FDE68A;border-radius:14px;
+  padding:24px 28px;font-size:19px;color:var(--tinta);line-height:1.62}
+.sl-caca .desafio-txt{font-family:var(--titulo);font-weight:800;color:#92400E;
+  font-size:23px;margin-top:24px;text-align:center}
+
+.sl-saida{position:absolute;inset:0;background:linear-gradient(150deg,#EEF0FE 0%,#F5F3FF 100%);
+  display:flex;flex-direction:column;justify-content:center;padding:0 100px}
+.sl-saida h2{font-family:var(--titulo);font-size:40px;font-weight:800;color:var(--indigo-dark);margin-bottom:24px}
+.sl-saida .it{font-size:21px;color:#3730A3;padding:11px 0;border-bottom:1.5px solid #DDE1FB}
+.sl-saida .it:last-child{border-bottom:none}
+
+/* ---- checklist clicável ----
+   Marcar é só um gesto visual em sala ("já fez isso?"), não guarda
+   estado: cada turma começa com tudo desmarcado. */
+.sl-saida .it.marcavel{display:flex;align-items:flex-start;gap:14px;
+  cursor:pointer;user-select:none;transition:opacity .35s}
+.sl-saida .it.marcavel .bx{flex:none;width:27px;height:27px;margin-top:2px;
+  border:2.5px solid #A5B4FC;border-radius:7px;background:#fff;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .25s, border-color .25s, transform .18s}
+.sl-saida .it.marcavel .bx::after{content:'';width:8px;height:14px;
+  border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg) scale(0);
+  margin-top:-3px;transition:transform .22s cubic-bezier(.3,1.6,.6,1)}
+.sl-saida .it.marcavel:hover .bx{border-color:var(--indigo);transform:scale(1.08)}
+.sl-saida .it.marcavel .tx{position:relative;transition:color .35s}
+/* o risco cresce da esquerda para a direita */
+.sl-saida .it.marcavel .tx::after{content:'';position:absolute;left:0;top:52%;
+  width:100%;height:2.5px;background:currentColor;border-radius:2px;
+  transform:scaleX(0);transform-origin:left center;
+  transition:transform .42s cubic-bezier(.4,0,.2,1)}
+
+.sl-saida .it.marcavel.feito .bx{background:var(--verde);border-color:var(--verde)}
+.sl-saida .it.marcavel.feito .bx::after{transform:rotate(45deg) scale(1)}
+.sl-saida .it.marcavel.feito .tx{color:#8B93C4}
+.sl-saida .it.marcavel.feito .tx::after{transform:scaleX(1)}
+.sl-saida .it.marcavel.feito{opacity:.72}
+
+/* Checkbox inline: checklist das contas (dois por linha) e a lista do
+   Projeto de Intervenção. Mesma mecânica, em tamanho menor. */
+.chk{display:inline-flex;align-items:center;gap:8px;cursor:pointer;user-select:none;
+  vertical-align:middle;transition:opacity .35s}
+.chk .bx{flex:none;width:19px;height:19px;border:2.2px solid #A5B4FC;border-radius:5px;
+  background:#fff;display:inline-flex;align-items:center;justify-content:center;
+  transition:background .25s, border-color .25s, transform .18s}
+.chk .bx::after{content:'';width:5px;height:10px;border:solid #fff;border-width:0 2.5px 2.5px 0;
+  transform:rotate(45deg) scale(0);margin-top:-2px;
+  transition:transform .22s cubic-bezier(.3,1.6,.6,1)}
+.chk:hover .bx{border-color:var(--indigo);transform:scale(1.1)}
+.chk .tx{position:relative;transition:color .35s}
+.chk .tx::after{content:'';position:absolute;left:0;top:54%;width:100%;height:2px;
+  background:currentColor;border-radius:2px;transform:scaleX(0);transform-origin:left center;
+  transition:transform .4s cubic-bezier(.4,0,.2,1)}
+.chk.feito .bx{background:var(--verde);border-color:var(--verde)}
+.chk.feito .bx::after{transform:rotate(45deg) scale(1)}
+.chk.feito .tx::after{transform:scaleX(1)}
+.chk.feito{opacity:.6}
+
+/* No PDF o checklist é impresso para preencher à mão. */
+@media print{
+  .sl-saida .it.marcavel{cursor:default}
+  .sl-saida .it.marcavel.feito .tx::after{display:none}
+  .chk{cursor:default}
+  .chk.feito .tx::after{display:none}
+}
+
+/* ============================================================
+   Demonstração ao vivo: abrir a IA e mostrar o prompt rodando
+   ============================================================ */
+
+/* Botões que abrem a IA em outra aba. Ficam no rodapé do slide de
+   ferramentas e dentro do modal de prompt. */
+.ia-btns{display:flex;gap:10px;flex-wrap:wrap}
+.ia-btn{display:inline-flex;align-items:center;gap:7px;text-decoration:none;
+  font-family:var(--titulo);font-weight:700;font-size:15px;
+  padding:10px 18px;border-radius:30px;border:2px solid transparent;
+  transition:transform .12s, box-shadow .12s, filter .12s; cursor:pointer}
+.ia-btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.14);filter:brightness(1.04)}
+.ia-btn .pt{width:9px;height:9px;border-radius:50%;background:currentColor;flex:none}
+.ia-btn.chatgpt  {background:#E7F7F1;color:#0D8A63;border-color:#A7E8D0}
+.ia-btn.gemini   {background:#E8F0FE;color:#1A6FE0;border-color:#AECBFA}
+.ia-btn.deepseek {background:#EEF0FE;color:#3E4BD8;border-color:#C2C8FA}
+.ia-btn.notebook {background:#FEF0E6;color:#C2551A;border-color:#FBCFA8}
+
+/* Faixa de atalhos no rodapé de um slide de conteúdo */
+/* A barra fica acima da barra de controles do deck, que flutua sobre o
+   rodapé do palco. O slide que a recebe encolhe o .corpo na mesma
+   medida (regra abaixo), senão o conteúdo passa por baixo dos botões. */
+.ia-barra{position:absolute;left:70px;right:70px;bottom:78px;
+  display:flex;align-items:center;gap:14px;z-index:11}
+.slide.com-ia .corpo{height:452px}
+.slide.com-ia .corpo.alto{height:466px}
+.ia-barra .rot{font-family:var(--titulo);font-weight:800;font-size:13px;
+  text-transform:uppercase;letter-spacing:.6px;color:var(--cinza);flex:none}
+
+/* Card de prompt clicável (banco de 15) */
+.card.abrivel{cursor:pointer;transition:transform .12s, box-shadow .12s, border-color .12s;
+  border:2px solid transparent}
+.card.abrivel:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(79,70,229,.16);
+  border-color:var(--indigo)}
+.card.abrivel::after{content:'clique para abrir';display:block;margin-top:5px;
+  font-family:var(--corpo);font-weight:600;font-size:10.5px;color:var(--cinza);
+  text-transform:uppercase;letter-spacing:.4px;opacity:0;transition:opacity .12s}
+.card.abrivel:hover::after{opacity:1}
+
+/* ---- Modal do prompt ---- */
+#prompt-modal{position:fixed;inset:0;z-index:999;display:none;
+  background:rgba(15,18,32,.72);backdrop-filter:blur(3px);
+  align-items:center;justify-content:center;padding:40px}
+#prompt-modal.aberto{display:flex}
+#prompt-modal .cx{background:#fff;border-radius:18px;width:min(900px,100%);
+  max-height:88vh;display:flex;flex-direction:column;overflow:hidden;
+  box-shadow:0 24px 70px rgba(0,0,0,.4)}
+#prompt-modal .cab{background:var(--indigo);color:#fff;padding:20px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px}
+#prompt-modal .cab h3{font-family:var(--titulo);font-size:23px;font-weight:800;margin:0}
+#prompt-modal .fechar{background:rgba(255,255,255,.18);border:none;color:#fff;
+  font-size:19px;line-height:1;width:36px;height:36px;border-radius:50%;cursor:pointer;flex:none}
+#prompt-modal .fechar:hover{background:rgba(255,255,255,.32)}
+#prompt-modal .corpo-m{padding:24px 28px;overflow-y:auto}
+#prompt-modal .txt{background:var(--prompt-bg);color:var(--prompt-txt);border-radius:12px;
+  padding:22px 24px;font-family:var(--mono);font-size:16px;line-height:1.65;
+  white-space:pre-wrap;margin:0}
+#prompt-modal .pe{padding:18px 28px 24px;border-top:1.5px solid #E8EAF4;background:#FBFBFE}
+#prompt-modal .pe .lin{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+#prompt-modal .rot-m{font-family:var(--titulo);font-weight:800;font-size:13px;
+  text-transform:uppercase;letter-spacing:.6px;color:var(--cinza);flex:none}
+#prompt-modal .copiar{font-family:var(--titulo);font-weight:700;font-size:15px;
+  padding:10px 20px;border-radius:30px;border:none;cursor:pointer;
+  background:var(--indigo);color:#fff;transition:filter .12s}
+#prompt-modal .copiar:hover{filter:brightness(1.1)}
+#prompt-modal .copiar.ok{background:var(--verde-dark)}
+#prompt-modal .aviso{font-size:13px;color:var(--cinza);margin:12px 0 0}
+
+/* Nada disso faz sentido no PDF impresso. */
+@media print{
+  #prompt-modal{display:none !important}
+  .ia-barra{display:none}
+  .card.abrivel::after{display:none}
+}
+
+/* URL da ferramenta escrita no slide, clicável para abrir na hora */
+a.url-ia{color:var(--indigo);text-decoration:none;border-bottom:1.5px dashed var(--indigo);
+  cursor:pointer;transition:background .12s}
+a.url-ia:hover{background:var(--indigo-soft);border-bottom-style:solid}
+@media print{ a.url-ia{border-bottom:none} }
+
+/* Selo no botão da IA que aceita o prompt pela URL */
+.ia-btn .ja{display:inline-block;margin-left:8px;padding:2.5px 9px;border-radius:20px;
+  background:#0D8A63;color:#fff;font-size:10px;font-weight:800;letter-spacing:.4px;
+  text-transform:uppercase;line-height:1.5}
+
+/* ---- ações abaixo de cada prompt do deck ----
+   Versão compacta dos botões do modal, para caber em slides que já
+   têm o prompt ocupando boa parte do palco. */
+.prompt-acoes{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:9px}
+.prompt-acoes .copiar-mini{font-family:var(--titulo);font-weight:700;font-size:13px;
+  padding:7px 15px;border-radius:24px;border:none;cursor:pointer;
+  background:var(--indigo);color:#fff;transition:filter .12s}
+.prompt-acoes .copiar-mini:hover{filter:brightness(1.12)}
+.prompt-acoes .copiar-mini.ok{background:var(--verde-dark)}
+.ia-btn.mini{font-size:13px;padding:6px 13px;gap:6px}
+.ia-btn.mini .pt{width:7px;height:7px}
+
+/* No PDF os botões não fazem sentido. */
+@media print{ .prompt-acoes{display:none} }
+
+/* Slides cujo prompt ganhou barra de ações: o .corpo cede a altura
+   dessa linha extra, para nada escorregar sob a barra de controles. */
+/* Alinha ao topo: com o .corpo centralizado, encurtar a altura subia o
+   conteúdo para cima do título. Ancorado no topo, a linha extra dos
+   botões consome só a folga de baixo. */
+.slide.com-acoes .corpo{height:490px;justify-content:flex-start}
+.slide.com-acoes .corpo.alto{height:506px}
+
+/* A barra de controles é fixa e flutua sobre o rodapé do palco. Em
+   slides cheios ela cobria as últimas linhas, então some sozinha
+   quando não está em uso e volta ao passar o mouse — ou com a tecla
+   de navegação, via JS. */
+.controls{opacity:.18;transition:opacity .3s}
+.controls:hover,.controls.ativa{opacity:1}
+@media print{ .controls{display:none} }
+
+/* ---- campos dentro do prompt ----
+   O [ALGO] do prompt vira um campo de digitação no próprio texto: o
+   formador preenche com a realidade da turma e o prompt muda na hora. */
+.var-campo{font-family:var(--mono);font-size:inherit;line-height:inherit;
+  color:#FDE68A;background:rgba(253,230,138,.13);
+  border:none;border-bottom:2px dashed rgba(253,230,138,.65);
+  border-radius:4px 4px 0 0;padding:1px 6px;margin:0 1px;
+  outline:none;transition:background .18s, border-color .18s, color .18s}
+.var-campo::placeholder{color:rgba(253,230,138,.72);font-style:italic}
+.var-campo:hover{background:rgba(253,230,138,.2)}
+.var-campo:focus{background:rgba(253,230,138,.26);border-bottom-color:#FDE68A}
+.var-campo.preenchido{color:#fff;background:rgba(16,185,129,.22);
+  border-bottom-color:var(--verde);border-bottom-style:solid}
+
+/* dica acima do prompt no modal */
+#prompt-modal .pm-dica{font-size:14px;color:var(--cinza);margin-bottom:12px;
+  background:var(--amarelo-sf);border-left:4px solid var(--amarelo);
+  border-radius:0 7px 7px 0;padding:9px 14px;color:#854D0E}
+
+/* No PDF os campos viram o texto original entre colchetes. */
+/* O input fica dentro de um span para que os colchetes possam voltar
+   na impressao (um <input> nao aceita ::before/::after). */
+.var-env{display:inline}
+
+@media print{
+  .var-campo{color:var(--prompt-txt);background:none;border:none;
+    padding:0;-webkit-appearance:none;appearance:none}
+  .var-env::before{content:'['}
+  .var-env::after{content:']'}
+  #prompt-modal .pm-dica{display:none}
+}
+
+/* ---- ilustração no slide ----
+   As 11 figuras da apostila entraram também na projeção, para que o aluno as
+   veja no "Acompanhe a Aula". Ficam no canto inferior direito, num tamanho
+   que ilustra sem competir com o texto do slide. */
+.fig-slide{position:absolute;right:70px;bottom:26px;width:210px;z-index:5;
+  background:#fff;border:1px solid var(--borda);border-radius:12px;padding:6px;
+  box-shadow:0 6px 20px rgba(15,23,42,.10)}
+.fig-slide img{width:100%;border-radius:8px;display:block}
+.fig-slide .fig-leg{font-size:10px;line-height:1.35;color:var(--cinza);
+  text-align:center;margin-top:5px}
+/* Onde a figura entra, o corpo cede a faixa da direita para o texto não
+   passar por baixo dela. Classe marcada na montagem em vez de :has(), que
+   nem todo navegador de escola entende. */
+.slide.com-fig .corpo{width:860px}

@@ -1,0 +1,504 @@
+{
+  "schema_version": "1.1",
+  "course": {
+    "slug": "ia-para-empreendedores",
+    "title": "IA para Empreendedores",
+    "subtitle": "Uma formação prática para criar, organizar, pesquisar, analisar e automatizar com IA de forma responsável.",
+    "hours_total": 40,
+    "live_hours": 8,
+    "application_hours": 32,
+    "audience": [
+      "MEIs",
+      "autônomos",
+      "pequenos negócios"
+    ],
+    "visual_tokens": {
+      "primary": "#246BFD",
+      "accent": "#F97316",
+      "success": "#0D9488",
+      "ink": "#12263F"
+    },
+    "curricular_note": "4 encontros de 2h + 32h de aplicação guiada; cada módulo inclui ferramenta, prática, evidência e revisão humana."
+  },
+  "modules": [
+    {
+      "id": "e1_tempo",
+      "order": 1,
+      "title": "IA que devolve tempo ao negócio",
+      "duration_minutes": 120,
+      "product": "Prompt C.O.F.R.E. e checklist de revisão para uma tarefa semanal",
+      "lessons": [
+        {
+          "id": "e1_01",
+          "type": "WARMUP",
+          "title": "Onde o tempo está vazando?",
+          "xp": 10,
+          "instruction": "Liste três tarefas repetitivas e escolha uma com mais de 20 minutos por semana."
+        },
+        {
+          "id": "e1_02",
+          "type": "TEORIA",
+          "title": "IA como equipe de apoio",
+          "xp": 10
+        },
+        {
+          "id": "e1_03",
+          "type": "PROMPT",
+          "title": "Primeira tarefa assistida",
+          "xp": 20,
+          "template": "Contexto: meu negócio é [SEGMENTO] e atende [PÚBLICO].\nObjetivo: preciso [RESULTADO].\nFormato: [FORMATO].\nRestrições: use [DADOS CONFIRMADOS], não invente preço, prazo ou política.\nTarefa: [TAREFA].\nListe o que devo revisar antes de usar."
+        },
+        {
+          "id": "e1_04",
+          "type": "DUELO",
+          "title": "Pedido vago versus C.O.F.R.E.",
+          "xp": 30
+        },
+        {
+          "id": "e1_05",
+          "type": "CASO",
+          "title": "A loja que responde tudo no WhatsApp",
+          "xp": 40
+        },
+        {
+          "id": "e1_06",
+          "type": "CACA_ERRO",
+          "title": "Dados e respostas sem revisão",
+          "xp": 25
+        },
+        {
+          "id": "e1_07",
+          "type": "CHECKPOINT",
+          "title": "Primeiro teste da semana",
+          "xp": 50,
+          "evidence": [
+            "tempo antes",
+            "tempo depois",
+            "correções",
+            "limite de delegação"
+          ]
+        },
+        {
+          "id": "e1_tempo_x08",
+          "type": "FERRAMENTA",
+          "title": "ChatGPT: conversa rápida versus trabalho estruturado",
+          "xp": 15,
+          "instruction": "Entenda quando pedir um rascunho e quando conduzir um projeto com etapas."
+        },
+        {
+          "id": "e1_tempo_x09",
+          "type": "LABORATORIO",
+          "title": "ChatGPT Work: plano semanal com arquivos permitidos",
+          "xp": 40,
+          "instruction": "Monte um plano de 7 dias a partir de notas não sensíveis.",
+          "evidence": [
+            "plano com tarefa",
+            "responsável",
+            "prazo",
+            "lacunas marcadas [CONFIRMAR]"
+          ]
+        },
+        {
+          "id": "e1_tempo_x10",
+          "type": "PROMPT",
+          "title": "Auditoria de dados e decisões humanas",
+          "xp": 25,
+          "instruction": "Revise um plano antes de usá-lo.",
+          "template": "Revise este plano como gestor. Indique fatos confirmados, suposições, dados proibidos, aprovação humana necessária e próximo passo. Não transforme incertezas em fatos. Plano: [COLE AQUI]."
+        },
+        {
+          "id": "e1_tempo_x11",
+          "type": "CACA_ERRO",
+          "title": "Conta conectada não significa acesso sem limite",
+          "xp": 25,
+          "instruction": "Identifique dados, permissões e decisões que não devem ser delegadas."
+        },
+        {
+          "id": "e1_tempo_x12",
+          "type": "CHECKPOINT",
+          "title": "Biblioteca de prompts e regra de segurança",
+          "xp": 60,
+          "instruction": "Conclua o módulo com prática repetível.",
+          "evidence": [
+            "5 prompts salvos",
+            "dados permitidos e proibidos",
+            "responsável pela revisão",
+            "uma tarefa não delegável"
+          ]
+        }
+      ],
+      "application_extension_hours": 8
+    },
+    {
+      "id": "e2_marketing",
+      "order": 2,
+      "title": "Organização, marketing e conteúdo que vira ação",
+      "duration_minutes": 120,
+      "product": "Calendário de 7 dias e campanha de baixo risco",
+      "lessons": [
+        {
+          "id": "e2_01",
+          "type": "WARMUP",
+          "title": "Mapa da semana atual",
+          "xp": 10
+        },
+        {
+          "id": "e2_02",
+          "type": "TEORIA",
+          "title": "Assistente administrativo",
+          "xp": 10
+        },
+        {
+          "id": "e2_03",
+          "type": "PROMPT",
+          "title": "Procedimento de uma página",
+          "xp": 20,
+          "template": "Transforme estas notas em um procedimento para [PROCESSO], com responsável, prazo, exceção e checklist. Não invente regras. Notas: [NOTAS]."
+        },
+        {
+          "id": "e2_04",
+          "type": "DESAFIO",
+          "title": "Calendário de conteúdo em 7 dias",
+          "xp": 35,
+          "timer_minutes": 7
+        },
+        {
+          "id": "e2_05",
+          "type": "DUELO",
+          "title": "Post genérico versus campanha contextualizada",
+          "xp": 30
+        },
+        {
+          "id": "e2_06",
+          "type": "CASO",
+          "title": "O salão sem tempo para postar",
+          "xp": 40
+        },
+        {
+          "id": "e2_07",
+          "type": "CHECKPOINT",
+          "title": "Campanha pequena e mensurável",
+          "xp": 50,
+          "evidence": [
+            "CTA",
+            "responsável",
+            "dado a confirmar",
+            "métrica"
+          ]
+        },
+        {
+          "id": "e2_marketing_x08",
+          "type": "FERRAMENTA",
+          "title": "Briefing visual para imagem profissional",
+          "xp": 15,
+          "instruction": "Aprenda a descrever pessoa, ambiente, objetivo, formato, marca e limites."
+        },
+        {
+          "id": "e2_marketing_x09",
+          "type": "PROMPT",
+          "title": "ChatGPT Images: imagem comercial com pessoa real",
+          "xp": 30,
+          "instruction": "Crie uma imagem baseada em briefing.",
+          "template": "Crie uma fotografia publicitária realista para [NEGÓCIO]. Público: [PÚBLICO]. Objetivo: [AÇÃO]. Cena: [AMBIENTE]. Produto/serviço: [ITEM]. Formato: [1:1/4:5/9:16]. Não invente preço, logotipo ou texto longo; mantenha área limpa para texto."
+        },
+        {
+          "id": "e2_marketing_x10",
+          "type": "DESAFIO",
+          "title": "Edição de imagem: preserve o que importa",
+          "xp": 35,
+          "instruction": "Edite cenário, formato ou detalhe sem perder produto, pessoa autorizada ou identidade.",
+          "evidence": [
+            "imagem inicial",
+            "edição solicitada",
+            "versão aprovada",
+            "checagem de direitos"
+          ]
+        },
+        {
+          "id": "e2_marketing_x11",
+          "type": "LABORATORIO",
+          "title": "Vídeo curto: roteiro antes da geração",
+          "xp": 40,
+          "instruction": "Crie um briefing de vídeo de 8 segundos; use Gemini/Veo apenas se a conta tiver acesso.",
+          "evidence": [
+            "objetivo",
+            "cenas",
+            "câmera",
+            "som ou fala",
+            "CTA",
+            "revisão de rosto e voz"
+          ]
+        },
+        {
+          "id": "e2_marketing_x12",
+          "type": "CACA_ERRO",
+          "title": "Direitos de imagem, promessa e texto na arte",
+          "xp": 25,
+          "instruction": "Encontre os riscos de publicar conteúdo criado por IA."
+        },
+        {
+          "id": "e2_marketing_x13",
+          "type": "CHECKPOINT",
+          "title": "Kit de campanha de 7 dias",
+          "xp": 60,
+          "instruction": "Entregue imagens, roteiro e calendário revisados.",
+          "evidence": [
+            "3 imagens",
+            "1 roteiro de vídeo",
+            "legendas",
+            "CTA",
+            "checklist de aprovação"
+          ]
+        }
+      ],
+      "application_extension_hours": 8
+    },
+    {
+      "id": "e3_vendas",
+      "order": 3,
+      "title": "Vendas, atendimento e pesquisa com evidências",
+      "duration_minutes": 120,
+      "product": "Proposta-base, macros de atendimento e mapa de pesquisa",
+      "lessons": [
+        {
+          "id": "e3_01",
+          "type": "WARMUP",
+          "title": "A conversa que não virou venda",
+          "xp": 10
+        },
+        {
+          "id": "e3_02",
+          "type": "TEORIA",
+          "title": "Venda consultiva e escalonamento",
+          "xp": 10
+        },
+        {
+          "id": "e3_03",
+          "type": "PROMPT",
+          "title": "Proposta comercial revisável",
+          "xp": 20,
+          "template": "Estruture uma proposta para [SERVIÇO] destinada a [CLIENTE], usando somente [DADOS CONFIRMADOS]. Inclua objetivo, entregas, cronograma, investimento [VALOR], exclusões, responsabilidades e próximo passo. Marque lacunas como [CONFIRMAR]."
+        },
+        {
+          "id": "e3_04",
+          "type": "CASO",
+          "title": "A imobiliária que perde leads",
+          "xp": 40
+        },
+        {
+          "id": "e3_05",
+          "type": "DUELO",
+          "title": "Atendimento frio versus atendimento orientado",
+          "xp": 30
+        },
+        {
+          "id": "e3_06",
+          "type": "CACA_ERRO",
+          "title": "Concorrente sem fonte verificável",
+          "xp": 25
+        },
+        {
+          "id": "e3_07",
+          "type": "CHECKPOINT",
+          "title": "Follow-up que agrega valor",
+          "xp": 50,
+          "evidence": [
+            "pergunta de diagnóstico",
+            "prova",
+            "próximo passo"
+          ]
+        },
+        {
+          "id": "e3_vendas_x08",
+          "type": "FERRAMENTA",
+          "title": "Gemini no Docs: procedimento e documento comercial",
+          "xp": 20,
+          "instruction": "Use somente se o plano Google AI ou Workspace for elegível; caso contrário, pratique o mesmo briefing em editor comum."
+        },
+        {
+          "id": "e3_vendas_x09",
+          "type": "LABORATORIO",
+          "title": "Gemini no Sheets: perguntar sobre dados sem adivinhar",
+          "xp": 40,
+          "instruction": "Delimite aba, intervalo, pergunta e prévia antes de aplicar uma ação.",
+          "evidence": [
+            "pergunta de análise",
+            "intervalo definido",
+            "prévia conferida",
+            "indicador criado"
+          ]
+        },
+        {
+          "id": "e3_vendas_x10",
+          "type": "PROMPT",
+          "title": "Resumo e análise de planilha",
+          "xp": 25,
+          "instruction": "Produza uma leitura inicial sem alterar dados.",
+          "template": "Analise a tabela [INTERVALO]. Mostre total, tendência, três categorias mais frequentes, itens de atenção e gráfico recomendado. Explique quais conclusões não são possíveis apenas com estes dados. Não altere nada antes de eu aprovar."
+        },
+        {
+          "id": "e3_vendas_x11",
+          "type": "FERRAMENTA",
+          "title": "NotebookLM: perguntas ancoradas nas fontes",
+          "xp": 25,
+          "instruction": "Monte uma base com PDFs, Docs, sites ou vídeos autorizados e abra as citações antes de decidir."
+        },
+        {
+          "id": "e3_vendas_x12",
+          "type": "DESAFIO",
+          "title": "FAQ verificável da empresa",
+          "xp": 40,
+          "instruction": "Crie perguntas frequentes com fonte, data ou link para conferência.",
+          "evidence": [
+            "fontes selecionadas",
+            "5 perguntas",
+            "citações abertas",
+            "lacunas registradas"
+          ]
+        },
+        {
+          "id": "e3_vendas_x13",
+          "type": "CHECKPOINT",
+          "title": "Documento, painel e base de conhecimento",
+          "xp": 60,
+          "instruction": "Entregue materiais que a equipe consegue usar e revisar.",
+          "evidence": [
+            "procedimento no Docs",
+            "planilha com indicador",
+            "NotebookLM",
+            "FAQ com fonte"
+          ]
+        }
+      ],
+      "application_extension_hours": 8
+    },
+    {
+      "id": "e4_implantacao",
+      "order": 4,
+      "title": "Produtividade, automação e implantação segura",
+      "duration_minutes": 120,
+      "product": "Plano de IA da Minha Empresa e piloto de 30 dias",
+      "lessons": [
+        {
+          "id": "e4_01",
+          "type": "WARMUP",
+          "title": "Desenhe o fluxo atual",
+          "xp": 10
+        },
+        {
+          "id": "e4_02",
+          "type": "TEORIA",
+          "title": "Automação vem depois de processo claro",
+          "xp": 10
+        },
+        {
+          "id": "e4_03",
+          "type": "DESAFIO",
+          "title": "Desenhe seu fluxo de lead",
+          "xp": 35,
+          "timer_minutes": 10
+        },
+        {
+          "id": "e4_04",
+          "type": "PROMPT",
+          "title": "Fluxo com aprovação humana",
+          "xp": 20,
+          "template": "Desenhe um piloto de automação para [PROCESSO]. Gatilho: [GATILHO]. Dados permitidos: [DADOS]. Ações: [AÇÕES]. Mostre dados proibidos, exceções, aprovação humana, indicador e teste piloto. Não inclua credenciais ou dados pessoais reais."
+        },
+        {
+          "id": "e4_05",
+          "type": "CASO",
+          "title": "O restaurante que automatizou antes de validar",
+          "xp": 40
+        },
+        {
+          "id": "e4_06",
+          "type": "CACA_ERRO",
+          "title": "O dado que não deveria entrar",
+          "xp": 25
+        },
+        {
+          "id": "e4_07",
+          "type": "CHECKPOINT",
+          "title": "Plano de IA da Minha Empresa",
+          "xp": 60,
+          "evidence": [
+            "problema",
+            "piloto",
+            "dados proibidos",
+            "responsável",
+            "métrica",
+            "primeira revisão"
+          ]
+        },
+        {
+          "id": "e4_implantacao_x08",
+          "type": "TEORIA",
+          "title": "Agente em linguagem simples",
+          "xp": 20,
+          "instruction": "Agente é uma missão com entrada, fontes permitidas, passos, limites e entrega revisável — não uma autonomia sem controle."
+        },
+        {
+          "id": "e4_implantacao_x09",
+          "type": "LABORATORIO",
+          "title": "Claude Cowork e trabalho entre arquivos",
+          "xp": 30,
+          "instruction": "Demonstração condicionada à disponibilidade; a prática principal é escrever a missão e o checklist de revisão."
+        },
+        {
+          "id": "e4_implantacao_x10",
+          "type": "PROMPT",
+          "title": "Desenho de agente com limites",
+          "xp": 30,
+          "instruction": "Crie um agente de baixo risco.",
+          "template": "Desenhe um agente para [PROCESSO]. Informe missão, entrada permitida, fontes autorizadas, etapas, saída, responsável humano, exceções, dados proibidos, métrica, critério de parada e plano de reversão."
+        },
+        {
+          "id": "e4_implantacao_x11",
+          "type": "FERRAMENTA",
+          "title": "Make: gatilho, filtro, ação, registro e alerta",
+          "xp": 25,
+          "instruction": "Construa automação visual de baixo risco; comece com rascunho e revisão humana."
+        },
+        {
+          "id": "e4_implantacao_x12",
+          "type": "LABORATORIO",
+          "title": "Google Forms + Sheets + Docs + Gmail / Apps Script",
+          "xp": 40,
+          "instruction": "Projete uma automação acessível para pedido, lead, agenda, feedback ou pós-venda.",
+          "evidence": [
+            "gatilho",
+            "filtro",
+            "registro",
+            "alerta",
+            "exceção",
+            "responsável"
+          ]
+        },
+        {
+          "id": "e4_implantacao_x13",
+          "type": "CACA_ERRO",
+          "title": "Automação não decide exceção",
+          "xp": 25,
+          "instruction": "Identifique os pontos que devem parar e chamar uma pessoa."
+        },
+        {
+          "id": "e4_implantacao_x14",
+          "type": "CHECKPOINT",
+          "title": "Piloto seguro e plano de 30 dias",
+          "xp": 70,
+          "instruction": "Publique somente uma automação reversível, com medida e plano de desligamento.",
+          "evidence": [
+            "mapa antes/depois",
+            "teste com dados fictícios",
+            "métrica",
+            "alerta de erro",
+            "responsável",
+            "plano de reversão"
+          ]
+        }
+      ],
+      "application_extension_hours": 8
+    }
+  ]
+}

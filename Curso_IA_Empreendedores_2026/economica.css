@@ -1,0 +1,337 @@
+/* =========================================================
+   APOSTILA — EDIÇÃO ECONÔMICA (impressão)
+   Mesmo conteúdo da apostila completa, em duas colunas.
+   Existe por uma razão concreta: a prefeitura imprime uma via para
+   cada um dos 120 professores, e cada página cortada aqui são 120
+   folhas a menos.
+   Nada de conteúdo ou imagem é removido — só a diagramação muda.
+   ========================================================= */
+
+/* Margens enxutas: a A4 do material original usava 18/16/20mm.
+   12mm ainda respeita a área não-imprimível de qualquer impressora
+   comum e devolve quase 20% da altura útil. */
+@page { size: A4; margin: 12mm 12mm 14mm 12mm; }
+
+/* Entrelinha: 1.55 é o mínimo confortável para texto pequeno em coluna
+   estreita. Tentei 1.46 antes e o resultado ficou visivelmente sufocado —
+   o ganho de espaço não compensa um material que o professor lê por
+   horas. A economia vem das duas colunas, não de espremer linhas. */
+body{
+  font-size: 9.4pt;      /* era 10.6pt */
+  line-height: 1.56;     /* era 1.62  */
+}
+
+/* ---------- duas colunas ---------- */
+/* O corpo inteiro flui em duas colunas. Títulos de capítulo e as peças
+   largas (tabelas, destacáveis) saem do fluxo e ocupam a página toda. */
+body{
+  column-count: 2;
+  column-gap: 7mm;
+  column-fill: auto;
+}
+
+/* Uma régua fina entre as colunas ajuda o olho a não pular de linha */
+body{ column-rule: 0.6pt solid #E8EAF4; }
+
+/* ---------- o que atravessa as duas colunas ---------- */
+/* Só o que é realmente largo. Os prompts NÃO entram aqui: são 120 no
+   material, e cada column-span corta a coluna em dois — o resultado
+   era um título sozinho no alto de uma coluna e um vão branco embaixo,
+   dezenas de vezes ao longo da apostila. Eles ficam dentro da coluna e
+   o problema das linhas longas é resolvido logo abaixo. */
+h1.cap,
+.capa,
+.destacavel,
+table,
+.tabela-larga{
+  column-span: all;
+}
+
+/* ---------- capítulos: fim do "cada um em página nova" ---------- */
+/* Era a maior fonte de desperdício: 18 capítulos começando em folha
+   limpa deixavam 8,8 páginas de espaço em branco no material atual.
+   Aqui o capítulo apenas recomeça no topo de uma coluna. */
+.quebra{ page-break-before: auto; break-before: column; }
+
+/* a capa continua sozinha — é a identidade do material */
+.capa{ page-break-after: always; }
+
+h1.cap{
+  font-size: 15pt;
+  margin: 10px 0 8px;
+  padding-bottom: 7px;
+  padding-top: 0;
+  border-bottom-width: 2pt;
+}
+/* o primeiro capítulo não precisa de espaço acima */
+.capa + .quebra h1.cap{ margin-top: 0; }
+
+h2{
+  font-size: 11.2pt;
+  margin: 11px 0 5px;
+}
+h3{ font-size: 10pt; margin: 9px 0 4px; }
+
+/* Justificado só no texto corrido, e sempre com hifenização: numa coluna
+   de 89mm, justificar sem hifenizar abre vãos enormes entre as palavras.
+   Dentro das caixas o alinhamento à esquerda fica mais limpo, porque as
+   linhas ali são curtas e cheias de negrito. */
+p{ margin-bottom: 6px; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+.dica p, .atencao p, .traduzindo p, .lilas p, .oficina p,
+.caso p, .duelo p, .caca p, .celular p, .desafio p,
+.aquecimento p, .saida p,
+li, td, .legenda{
+  text-align: left;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+ul, ol{ margin: 5px 0 8px; padding-left: 15px; }
+li{ margin-bottom: 4px; line-height: 1.54; }
+
+/* ---------- prompts ---------- */
+/* São 120 no material e ocupavam quase 20 páginas. A fonte mono cai
+   junto com o corpo; o padding encolhe bastante porque numa coluna
+   estreita ele pesa o dobro. */
+/* Os prompts do material têm quebras de linha manuais, feitas para a
+   largura cheia: linhas de até 72 caracteres. Numa coluna cabem 60, e
+   diminuir a fonte até caber exigiria 6,6pt — ilegível para o professor.
+   Como as quebras são só formatação (cortam no meio das frases, como em
+   "Me dê 3 / formas"), aqui o texto reflui sozinho na largura da coluna.
+   As linhas em branco entre blocos do prompt continuam valendo. */
+.prompt{
+  font-size: 8.2pt;
+  line-height: 1.5;
+  padding: 10px 12px;
+  margin: 3px 0 10px;
+  border-radius: 9px;
+  white-space: normal;      /* deixa o texto refluir */
+}
+/* devolve o respiro entre parágrafos do prompt, que o pre-wrap dava */
+.prompt br{ display: block; content: ''; margin-top: 5px; }
+
+.etiqueta{
+  font-size: 8.2pt;
+  padding: 3px 11px;
+}
+
+/* ---------- figuras ---------- */
+/* Na versão completa a figura ocupava 52% da largura e era centralizada,
+   deixando duas faixas brancas nas laterais. Dentro de uma coluna ela
+   usa a largura inteira, sem sobra. */
+.figura-img{
+  padding: 5px;
+  margin: 8px 0;
+  border-radius: 9px;
+}
+/* As ilustrações são quadradas: em largura cheia de coluna cada uma
+   comeria ~85mm de altura, quase um terço da página. A 74% elas
+   continuam nítidas e devolvem espaço ao texto. */
+.figura-img.metade{ max-width: 74%; margin-left: auto; margin-right: auto; }
+.figura-img .legenda{
+  font-size: 7.6pt;
+  margin-top: 5px;
+  line-height: 1.35;
+}
+
+/* ---------- caixas de apoio ---------- */
+.dica, .atencao, .traduzindo, .lilas, .oficina, .caso, .duelo, .caca,
+.celular, .desafio, .aquecimento, .saida{
+  padding: 13px 15px;
+  margin: 10px 0;
+  border-radius: 9px;
+  font-size: 9pt;
+}
+/* blocos internos das atividades: sem respiro eles encostam na borda
+   da caixa e no bloco seguinte */
+.cena, .solucao, .resposta-ia, .instrucao, .gabarito-formador,
+.sua-vez, .box{
+  padding: 11px 13px;
+  margin: 8px 0;
+}
+.dica p, .atencao p, .traduzindo p, .lilas p,
+.caso p, .duelo p, .caca p, .celular p, .desafio p,
+.aquecimento p, .saida p,
+.cena, .solucao, .resposta-ia, .instrucao, .gabarito-formador{
+  font-size: 9pt;
+  line-height: 1.58;
+}
+.dica .t, .atencao .t, .traduzindo .t, .lilas .t, .oficina .t{
+  font-size: 10pt;
+  margin-bottom: 5px;
+}
+
+/* ---------- cabeçalho das atividades ---------- */
+/* No material original o cabeçalho é uma linha só: selo + título +
+   tempo, lado a lado. Cabe bem em 186mm, mas numa coluna de 89mm os três
+   se atropelam — o título quebrava em três linhas e o "5 min" ficava
+   espremido contra a borda.
+   Aqui o cabeçalho empilha: selo e tempo na primeira linha, título
+   inteiro na segunda, com a largura toda à disposição. */
+/* O seletor repete a classe da caixa porque componentes_novos.css define
+   ".caso .cabeca{display:flex}" — mais específico que um ".cabeca" solto,
+   que era ignorado. Sem isso o título ficava com 59px e quebrava em
+   quatro linhas. */
+.caso .cabeca, .duelo .cabeca, .caca .cabeca,
+.celular .cabeca, .desafio .cabeca, .aquecimento .cabeca, .saida .cabeca{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "selo tempo"
+    "titulo titulo";
+  align-items: center;
+  gap: 5px 8px;
+  margin-bottom: 9px;
+}
+.cabeca .selo-caso, .cabeca .selo-duelo,
+.cabeca .selo-caca, .cabeca .selo-cel{
+  grid-area: selo;
+  justify-self: start;
+}
+/* o desafio usa .cronometro no lugar do selo */
+/* !important porque 16 dos 28 cabeçalhos trazem style="margin-left:auto"
+   direto no HTML — resquício do layout em flex, que empurrava o tempo
+   para a direita. Estilo inline vence folha de estilo, e sem anular esse
+   margin o "5 min" continuava deslocando o título mesmo com o grid
+   aplicado. Os fontes não são tocados: a versão completa depende deles. */
+.cabeca .tempo, .cabeca .cronometro{
+  grid-area: tempo;
+  justify-self: start;
+  white-space: nowrap;
+  font-size: 8.4pt;
+  margin-left: 0 !important;
+}
+.cabeca .titulo-caso, .cabeca .titulo-duelo, .cabeca .titulo-caca,
+.cabeca .titulo-cel, .cabeca .titulo-des{
+  grid-area: titulo;
+  font-size: 10.6pt;
+  line-height: 1.3;
+}
+
+/* listas dentro das atividades: o recuo padrão come largura demais
+   numa coluna estreita */
+.celular ol, .desafio ol, .caso ol, .caca ol{ padding-left: 15px; }
+.celular li, .desafio li, .caso li, .caca li{
+  font-size: 8.9pt;
+  line-height: 1.56;
+  margin-bottom: 5px;
+}
+
+/* ---------- fichas das ferramentas ---------- */
+/* A ficha foi desenhada para a largura cheia: cabeçalho numa linha e uma
+   grade de 4 colunas (envia / devolve / endereço / gratuidade). Numa
+   coluna de 89mm cada célula ficava com ~20mm — o rótulo "VOCÊ PODE
+   ENVIAR" empilhava letra a letra e o selo de gratuidade era cortado
+   na borda. Aqui o cabeçalho empilha e a grade vira 2×2. */
+.ficha-ia{ margin: 10px 0; }
+
+.ficha-ia-topo{
+  display: block;
+  padding: 9px 13px;
+}
+.ficha-ia-nome{
+  display: block;
+  font-size: 12.5pt;
+  line-height: 1.2;
+}
+.ficha-ia-tipo{
+  display: block;
+  font-size: 8pt;
+  margin-top: 1px;
+}
+
+.ficha-ia-corpo{ padding: 12px 13px; }
+.ficha-ia-frase{ font-size: 9pt; line-height: 1.5; margin-bottom: 10px; }
+
+/* Uma linha por item, rótulo à esquerda e valor à direita.
+   Em 2x2 cada célula ficava com 73px: o selo "Sem limite de mensagens"
+   quebrava em 4 linhas e as quatro fichas ficavam com alturas diferentes,
+   desalinhadas lado a lado. Empilhado, cada valor tem a coluna inteira e
+   as fichas se emparelham. */
+/* O HTML envolve cada par rótulo+valor num <div>. display:contents faz
+   esse wrapper sumir do layout, para que rótulo e valor entrem
+   diretamente nas colunas do grid. */
+.ficha-ia-grade{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 5px 9px;
+  padding: 9px 0;
+  margin-bottom: 10px;
+  /* stretch, não baseline: com baseline a borda do rótulo e a do valor
+     ficavam em alturas diferentes e a régua saía quebrada no meio */
+  align-items: stretch;
+}
+.ficha-ia-grade > div{ display: contents; }
+/* Linha sutil entre os itens. Rótulo e valor são células irmãs do mesmo
+   grid, então a régua fica em ambos e forma uma linha contínua. Os dois
+   precisam da mesma altura de caixa, senão a linha sai quebrada no meio
+   (o rótulo é menor e sua caixa fechava 3px antes da do valor) — daí o
+   align-items:stretch acima e a margem, em vez de padding, aqui. */
+.ficha-ia-rot,
+.ficha-ia-grade p{
+  border-bottom: 0.6pt solid #E6EAF3;
+  padding-bottom: 5px;
+  margin-bottom: 0;
+  display: flex;
+  align-items: flex-start;
+}
+.ficha-ia-grade > div:last-child .ficha-ia-rot,
+.ficha-ia-grade > div:last-child p{
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.ficha-ia-rot{
+  font-size: 7.4pt;
+  letter-spacing: .3px;
+  line-height: 1.35;
+  white-space: nowrap;      /* "VOCÊ PODE ENVIAR" nunca empilha */
+  text-align: left;
+}
+.ficha-ia-grade p{
+  font-size: 8.6pt;
+  line-height: 1.4;
+  text-align: left;         /* o justify herdado esticava as palavras */
+  hyphens: none;
+}
+.ficha-ia-grade .selo{
+  font-size: 7.6pt;
+  padding: 2px 9px;
+  white-space: nowrap;      /* o selo cabe inteiro: não quebra mais */
+  display: inline-block;
+  line-height: 1.5;
+}
+
+.ficha-ia-faz .t, .ficha-ia-teste .t{ font-size: 9.6pt; margin-bottom: 5px; }
+.ficha-ia-faz ul{ margin: 0 0 10px; padding-left: 15px; }
+.ficha-ia-faz li{ font-size: 8.8pt; line-height: 1.5; margin-bottom: 4px; }
+
+/* ---------- tabelas ---------- */
+/* Atravessam as duas colunas, então podem manter um corpo legível. */
+table{ font-size: 8.6pt; margin: 9px 0; }
+thead th{ padding: 6px 8px; font-size: 8.6pt; }
+tbody td{ padding: 5px 8px; }
+
+/* ---------- destacáveis ---------- */
+/* São as folhas que o professor recorta e leva para a sala. Continuam
+   em página inteira: cortar um destacável ao meio o inutilizaria. */
+.destacavel{
+  page-break-before: always;
+  page-break-inside: avoid;
+  font-size: 9.6pt;
+}
+
+/* ---------- viúvas e órfãs ---------- */
+/* Numa coluna estreita uma linha solta no pé fica feia e atrapalha a
+   leitura, então exigimos ao menos duas. */
+p, li{ orphans: 2; widows: 2; }
+
+/* nada de quebrar essas peças no meio */
+.prompt, .figura-img, .dica, .atencao, .traduzindo, .lilas,
+.caso, .duelo, .caca, .celular, .desafio, .aquecimento, .saida{
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* ---------- rodapé ---------- */
+.rodape{ font-size: 7.6pt; }

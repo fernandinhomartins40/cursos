@@ -1,0 +1,226 @@
+[
+  {
+    "n": 1,
+    "t": "IA que devolve tempo ao negócio",
+    "img": "01_equipe_digital.png",
+    "o": "Sair com uma tarefa real redesenhada, um prompt C.O.F.R.E. testado e uma regra de revisão humana.",
+    "w": "Liste três tarefas que se repetem toda semana. Circule uma que leva mais de 20 minutos e não exige sua assinatura, julgamento ou conversa sensível.",
+    "a": [
+      "Aquecimento: onde o tempo está vazando?",
+      "O que IA faz — e o que continua sendo decisão sua",
+      "Laboratório de prompts C.O.F.R.E.",
+      "Ferramentas: escolha pelo trabalho",
+      "Caso + prática individual",
+      "Saída: primeiro teste da semana"
+    ],
+    "x": [
+      [
+        "IA como equipe de apoio",
+        "01_equipe_digital.png",
+        "IA rascunha, organiza, resume e propõe opções; você define a prioridade, confere fatos e responde pela decisão.",
+        "Transformar áudios de reunião em lista de ações com responsável e prazo.",
+        "Copiar uma resposta sem verificar nomes, valores, prazo ou contexto."
+      ],
+      [
+        "Prompt C.O.F.R.E.",
+        "02_formula_cofre.png",
+        "Contexto, Objetivo, Formato, Restrições e Exemplo convertem pedido vago em entrega revisável.",
+        "Criar mensagem de pós-venda com tom definido e campos para personalizar.",
+        "Pedir “faça marketing” e aceitar uma resposta que não cabe no seu canal."
+      ],
+      [
+        "Ferramentas: escolha pelo trabalho",
+        "03_dois_canais.png",
+        "Comece com uma ferramenta de conversa e uma de trabalho do dia a dia; escolha o que a equipe consegue repetir e revisar.",
+        "Usar chat para rascunho e documento compartilhado para validar a versão final.",
+        "Escolher por moda e espalhar informações em contas pessoais."
+      ]
+    ],
+    "d": [
+      "Faça um texto para divulgar minha loja.",
+      "Você é redator de uma loja de roupas femininas de bairro. Crie 3 versões de WhatsApp para divulgar a coleção de primavera. Público: mulheres de 28–45 anos que já compraram antes. Tom: próximo, sem urgência falsa. Máximo 280 caracteres. Não invente desconto; deixe [OFERTA] como campo editável."
+    ],
+    "c": [
+      "Caso 01 · A loja que responde tudo no WhatsApp",
+      "Marina recebe as mesmas dúvidas sobre tamanho, troca e prazo de entrega. Ela responde entre uma venda e outra, com mensagens diferentes a cada cliente.",
+      "Em dupla, crie um FAQ inicial de seis perguntas e classifique cada resposta: pode ser enviada após revisão, precisa de dado atualizado ou exige atendimento humano.",
+      "FAQ + regra de escalonamento. Preço, estoque, troca excepcional e reclamação não devem ser respondidos automaticamente sem checagem."
+    ],
+    "h": [
+      "Copiar o texto da IA sem ler.",
+      "Enviar lista de clientes para uma conta pessoal.",
+      "Definir qual informação nunca entra no prompt.",
+      "Usar [CAMPO] quando a informação ainda será confirmada."
+    ],
+    "p": "Prompt C.O.F.R.E. + checklist de revisão para uma tarefa semanal",
+    "z": "Teste uma única tarefa e registre: tempo antes, tempo depois, correções e o que não pode ser delegado."
+  },
+  {
+    "n": 2,
+    "t": "Organização, marketing e conteúdo que vira ação",
+    "img": "05_marketing_calendario.png",
+    "o": "Organizar uma rotina administrativa e sair com um calendário de conteúdo de 7 dias que respeite a operação real.",
+    "w": "Abra sua semana atual. Marque tarefas administrativas, pedidos de clientes, conteúdo e pendências que ninguém assumiu. Qual delas precisa primeiro de clareza, não de automação?",
+    "a": [
+      "Retomada: o que seu primeiro teste revelou?",
+      "Assistente administrativo: organizar sem inventar",
+      "Conteúdo com intenção de negócio",
+      "Laboratório: calendário de 7 dias",
+      "Caso + revisão em pares",
+      "Saída: campanha pequena e mensurável"
+    ],
+    "x": [
+      [
+        "Assistente administrativo",
+        "04_rotina_administrativa.png",
+        "A IA converte notas confusas em pauta, procedimento, e-mail e checklist. O insumo vem de você; ela não conhece o que foi combinado fora da tela.",
+        "Transformar reunião de 20 minutos em ata com decisões, pendências e prazos.",
+        "Tratar resumo como registro oficial sem comparar com anotações."
+      ],
+      [
+        "Marketing prático",
+        "05_marketing_calendario.png",
+        "Conteúdo não é volume: cada peça precisa de pessoa, intenção e próximo passo, coerente com a operação que existe.",
+        "Criar 7 ideias a partir de dúvidas, prova, bastidor, oferta e pós-venda.",
+        "Publicar promessa que não corresponde a preço, prazo, estoque ou serviço."
+      ],
+      [
+        "Conteúdo que vende sem parecer robô",
+        "05_marketing_calendario.png",
+        "IA encontra variações; a empresa fornece voz, histórias e provas. Use exemplos aprovados e peça versões por canal.",
+        "Adaptar depoimento autorizado em roteiro, legenda e resposta a comentário.",
+        "Usar depoimento, imagem ou dado do cliente sem autorização."
+      ]
+    ],
+    "d": [
+      "Crie posts para a semana.",
+      "Monte um calendário de 7 dias para um salão de beleza de bairro. Objetivo: preencher horários de terça a quinta sem baixar preço. Canais: Instagram e WhatsApp. Para cada dia: formato, ideia, CTA e informação que devo confirmar. Tom: acolhedor e direto. Não invente agenda nem resultados."
+    ],
+    "c": [
+      "Caso 02 · O salão sem tempo para postar",
+      "Joana publica só quando sobra tempo. Seus melhores horários ficam vazios, mas ela não quer fazer promoções em todos os serviços nem prometer resultados impossíveis.",
+      "Desenhe uma sequência de 7 dias: uma dúvida frequente, um bastidor, uma prova autorizada, um convite e uma recuperação de agenda.",
+      "Calendário enxuto, com responsável e horário de publicação. O CTA leva a conversa para agenda real, nunca para uma promessa automática."
+    ],
+    "h": [
+      "Usar “antes e depois” sem consentimento.",
+      "Pedir à IA que invente resultado de procedimento.",
+      "Colocar [HORÁRIO DISPONÍVEL] para confirmar antes de publicar.",
+      "Repetir a mesma oferta para todos os públicos."
+    ],
+    "p": "Calendário de 7 dias + uma campanha de baixo risco",
+    "z": "Publique ou agende uma sequência. Meça conversas qualificadas, não apenas curtidas."
+  },
+  {
+    "n": 3,
+    "t": "Vendas, atendimento e pesquisa com evidências",
+    "img": "06_vendas_proposta.png",
+    "o": "Criar uma proposta consultiva, um padrão de atendimento e um mapa de pesquisa com fontes e limites claros.",
+    "w": "Pense em uma conversa que não virou venda. Em que ponto faltou diagnóstico, prova, clareza de próximo passo ou tempo para responder?",
+    "a": [
+      "Retomada do calendário e das respostas",
+      "Vendas: proposta não é texto bonito",
+      "Atendimento: consistência com escalonamento",
+      "Pesquisa: hipótese, fonte e confirmação",
+      "Caso + role-play",
+      "Saída: follow-up útil"
+    ],
+    "x": [
+      [
+        "Vendas consultivas",
+        "06_vendas_proposta.png",
+        "IA organiza diagnóstico e rascunha proposta, mas não descobre sozinha a dor do cliente. Comece por perguntas de prioridade e critério de decisão.",
+        "Gerar estrutura de proposta com escopo, inclusões, exclusões e próximo passo.",
+        "Enviar preço, prazo ou escopo sugerido sem validação comercial."
+      ],
+      [
+        "Atendimento consistente",
+        "07_atendimento_cliente.png",
+        "Padronizar é dar segurança, não robotizar. Defina tom, informações permitidas, exceções e quando a conversa sobe para uma pessoa.",
+        "Criar macros para prazo, troca, agendamento e acompanhamento.",
+        "Deixar reclamação, cobrança ou dado sensível preso em fluxo automático."
+      ],
+      [
+        "Pesquisa com evidências",
+        "08_pesquisa_mercado.png",
+        "IA organiza hipóteses e perguntas. Para decidir, confirme dados em fontes primárias e registre quando consultou.",
+        "Montar mapa de concorrentes e perguntas para entrevista com clientes.",
+        "Tratar citação fabricada ou informação antiga como pesquisa concluída."
+      ]
+    ],
+    "d": [
+      "Faça uma proposta para meu cliente.",
+      "Crie a estrutura de uma proposta para [SERVIÇO] destinada a [CLIENTE]. Use somente estes dados: [DADOS CONFIRMADOS]. Inclua objetivo, entregas, cronograma, investimento [VALOR], exclusões, responsabilidades do cliente e próximo passo. Marque lacunas como [CONFIRMAR]."
+    ],
+    "c": [
+      "Caso 03 · A imobiliária que perde leads",
+      "Rafael recebe contatos em vários canais. Alguns querem visitar, outros comparam bairros. A equipe responde rápido, mas não registra estágio nem o que o cliente procura.",
+      "Crie diagnóstico em 5 perguntas, três respostas-modelo e uma regra de passagem para o corretor. Que informação não pode entrar em prompt aberto?",
+      "Objetivo, faixa de investimento, localização e prazo entram só no sistema autorizado; documentos, renda detalhada e dados de terceiros não entram em ferramenta sem aprovação."
+    ],
+    "h": [
+      "Prometer imóvel disponível sem consultar o sistema.",
+      "Enviar resposta-modelo após reclamação grave.",
+      "Marcar [CONSULTAR ESTOQUE] antes de confirmar disponibilidade.",
+      "Apresentar fonte e data em uma pesquisa de mercado."
+    ],
+    "p": "Proposta-base + macros de atendimento + mapa de pesquisa",
+    "z": "Escolha um follow-up que agregue valor e acompanhe a taxa de resposta."
+  },
+  {
+    "n": 4,
+    "t": "Produtividade, automação e implantação segura",
+    "img": "11_plano_30_dias.png",
+    "o": "Desenhar um piloto de automação de baixo risco e fechar um plano de IA de 30 dias com responsável, métrica e segurança.",
+    "w": "Escolha uma tarefa que acontece toda vez que chega um lead, pedido ou reunião. Desenhe o fluxo atual em cinco passos e marque onde há cópia e cola.",
+    "a": [
+      "Retomada: resultados e ajustes",
+      "Decidir melhor: rotina e indicadores",
+      "Automação pequena, testada e reversível",
+      "Dados, segurança e responsabilidade",
+      "Projeto final: plano de 30 dias",
+      "Apresentação + compromisso de implantação"
+    ],
+    "x": [
+      [
+        "Decisão e produtividade",
+        "04_rotina_administrativa.png",
+        "Boa rotina torna decisão visível: o que entra, quem escolhe, qual dado confirma e qual indicador mostra avanço.",
+        "Preparar pauta semanal com pendências, número-chave e decisões do dono.",
+        "Transformar sugestão em decisão sem verificar dados e contexto."
+      ],
+      [
+        "Automação pequena",
+        "09_automacao_fluxo.png",
+        "Automatize depois de padronizar. Comece com gatilho, ação, responsável e saída reversível; teste poucos casos antes de escalar.",
+        "Registrar lead, avisar responsável e criar rascunho de resposta para revisão.",
+        "Automatizar envio, desconto ou exclusão antes de testar exceções."
+      ],
+      [
+        "Segurança e plano de 30 dias",
+        "10_dados_seguros.png",
+        "Defina dados permitidos, proibidos e quem aprova. O plano precisa ser pequeno o bastante para acontecer e mensurável para aprender.",
+        "Criar política de uma página e piloto de duas semanas com revisão diária.",
+        "Usar dados pessoais, financeiros ou estratégicos sem autorização."
+      ]
+    ],
+    "d": [
+      "Automatize meu atendimento.",
+      "Desenhe um piloto para captar leads de [CANAL]. Gatilho: [EVENTO]. Ação 1: registrar em [SISTEMA]. Ação 2: notificar [RESPONSÁVEL]. Ação 3: criar rascunho, nunca enviar. Liste dados proibidos, exceções, testes e métrica. Não inclua credenciais ou dados pessoais reais."
+    ],
+    "c": [
+      "Caso 04 · A empresa que automatizou antes de validar",
+      "Um restaurante conecta formulário a mensagem automática. Um cliente informa alergia grave, mas recebe resposta genérica e acredita que o pedido será adaptado.",
+      "Redesenhe o fluxo: onde a automação deve parar, quem recebe o alerta e qual texto seguro informa o cliente?",
+      "Dados de saúde e exceções críticas geram alerta para pessoa responsável. A resposta inicial apenas confirma o recebimento e orienta aguardar confirmação humana."
+    ],
+    "h": [
+      "Guardar senha de ferramenta dentro do prompt.",
+      "Enviar resposta automática para exceção crítica.",
+      "Criar modo de teste antes de ativar o fluxo.",
+      "Medir tempo poupado e taxa de correção no piloto."
+    ],
+    "p": "Plano de IA da Minha Empresa + piloto de 30 dias",
+    "z": "Apresente seu piloto: problema, fluxo, dado proibido, responsável, métrica e primeira revisão."
+  }
+]
