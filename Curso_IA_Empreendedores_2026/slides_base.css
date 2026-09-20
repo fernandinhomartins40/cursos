@@ -40,6 +40,18 @@ h1.st{position:absolute;left:70px;top:66px;width:1140px;z-index:10;font-family:v
 h1.st .lar{color:var(--laranja)}
 h1.st.duas{font-size:35px}
 
+/* Título de duas linhas.
+   O `.corpo` começa num `top` fixo, calculado para um título de uma
+   linha só. Quando o título quebra — o que acontecia em 52 dos 201
+   slides — ele passa dos 80px reservados e o conteúdo corria por baixo
+   dele, cortado. Aqui o corpo desce e encurta na mesma medida, para
+   continuar terminando onde terminava. A classe é posta pelo passo de
+   paginação, que mede cada título no navegador. */
+.slide.titulo-2l .corpo{top:196px;height:480px}
+.slide.titulo-2l .corpo.alto{top:182px;height:494px}
+.slide.titulo-2l.com-ia .corpo{height:402px}
+.slide.titulo-2l.com-ia .corpo.alto{height:416px}
+
 .corpo{position:absolute;left:70px;top:146px;width:1140px;height:530px;z-index:10;
   display:flex;flex-direction:column;justify-content:center;gap:18px}
 .corpo > *{flex-shrink:0}
