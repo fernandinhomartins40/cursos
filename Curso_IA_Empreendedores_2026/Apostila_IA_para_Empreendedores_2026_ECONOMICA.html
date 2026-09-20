@@ -1,64 +1,962 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>IA para Empreendedores — Apostila Completa</title><link rel="stylesheet" href="estilo.css"><link rel="stylesheet" href="componentes_novos.css"><link rel="stylesheet" href="componentes_ferramentas.css"><style id="imagens-integradas">.capa-com-foto{background-image:linear-gradient(150deg,rgba(238,240,254,.92),rgba(246,244,255,.82),rgba(255,248,240,.84)),url("imagens/capa_empreendedores_ia.png")!important;background-position:center!important;background-size:cover!important}.imagem-caso{width:100%;max-height:145mm;object-fit:cover;border-radius:10px;margin:12px 0 4px}.imagem-conceito{float:right;width:34%;max-height:235px;object-fit:cover;border-radius:14px;margin:0 0 14px 20px;box-shadow:0 7px 20px rgba(15,23,42,.12)}@media print{.imagem-conceito{max-height:205px}}</style><link rel="stylesheet" href="economica.css"></head><body><div class="capa capa-com-foto"><div class="capa-selo">FORMAÇÃO COMPLETA · 40 HORAS</div><div class="capa-icone">💼</div><h1>Inteligência Artificial<span class="destaque">para Empreendedores</span></h1><p class="sub">Um guia prático para organizar a operação, atender melhor, vender com clareza e testar automações seguras.</p><div class="capa-tags"><span class="capa-tag">4 encontros presenciais</span><span class="capa-tag">8 horas ao vivo</span><span class="capa-tag">32 horas de aplicação</span></div><p class="capa-rodape">Aprenda no seu ritmo, teste com segurança e leve um plano real para a empresa.</p></div><div class="quebra"><h1 class="cap">Sumário da formação</h1><div class="sumario-item"><b>ENCONTRO 1</b> · IA que devolve tempo ao negócio<br><span>Sair com uma tarefa real redesenhada, um prompt C.O.F.R.E. testado e uma regra de revisão humana.</span></div><div class="sumario-item"><b>ENCONTRO 2</b> · Organização, marketing e conteúdo que vira ação<br><span>Organizar uma rotina administrativa e sair com um calendário de conteúdo de 7 dias que respeite a operação real.</span></div><div class="sumario-item"><b>ENCONTRO 3</b> · Vendas, atendimento e pesquisa com evidências<br><span>Criar uma proposta consultiva, um padrão de atendimento e um mapa de pesquisa com fontes e limites claros.</span></div><div class="sumario-item"><b>ENCONTRO 4</b> · Produtividade, automação e implantação segura<br><span>Desenhar um piloto de automação de baixo risco e fechar um plano de IA de 30 dias com responsável, métrica e segurança.</span></div></div><div class="quebra"><div class="faixa-encontro">ENCONTRO 1 · 2 HORAS</div><h1 class="cap"><span class="ic">●</span>IA que devolve tempo ao negócio</h1><p class="abertura">Sair com uma tarefa real redesenhada, um prompt C.O.F.R.E. testado e uma regra de revisão humana.</p><div class="figura-img metade"><img src="imagens/01_equipe_digital.png" alt="IA que devolve tempo ao negócio"><div class="legenda">IA que devolve tempo ao negócio</div></div></div><div class="aquecimento"><div class="t">🔥 Aquecimento relâmpago · 5 minutos</div><p>Liste três tarefas que se repetem toda semana. Circule uma que leva mais de 20 minutos e não exige sua assinatura, julgamento ou conversa sensível.</p></div><h2>1.1 IA como equipe de apoio</h2><p>IA rascunha, organiza, resume e propõe opções; você define a prioridade, confere fatos e responde pela decisão.</p><div class="traduzindo"><div class="t">Na prática</div><p>Transformar áudios de reunião em lista de ações com responsável e prazo.</p></div><div class="atencao"><div class="t">Linha de revisão</div><p>Copiar uma resposta sem verificar nomes, valores, prazo ou contexto.</p></div><div class="figura-img metade"><img src="imagens/01_equipe_digital.png" alt="IA como equipe de apoio"><div class="legenda">IA como equipe de apoio</div></div><div class="etiqueta ">PROMPT PARA ADAPTAR</div><div class="prompt">Contexto: meu negócio é [SEGMENTO] e atende [PÚBLICO].
-Objetivo: preciso [RESULTADO].
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>IA para Empreendedores — Apostila</title>
+
+<link rel="stylesheet" href="estilo.css">
+<link rel="stylesheet" href="componentes_novos.css">
+<link rel="stylesheet" href="componentes_ferramentas.css">
+<style>
+  @page { size: A4; margin: 16mm 14mm; }
+  .quebra { break-before: page; }
+  /* A capa com a foto, como no material impresso do curso. */
+  .capa-com-foto {
+    background-image:
+      linear-gradient(150deg, rgba(238,240,254,.92), rgba(246,244,255,.82), rgba(255,248,240,.84)),
+      url("imagens/capa_empreendedores_ia.png");
+    background-position: center; background-size: cover;
+  }
+  /* As figuras do material: meia largura no papel, com legenda. */
+  .figura-img { margin: 16px 0; break-inside: avoid; text-align: center; }
+  .figura-img img { width: 100%; border-radius: 10px; display: block; }
+  .figura-img.metade { max-width: 78%; margin-left: auto; margin-right: auto; }
+  .figura-img .legenda {
+    font-family: var(--titulo, system-ui); font-size: 9.5pt;
+    color: var(--cinza, #667); margin-top: 6px; font-style: italic;
+  }
+  .como-imprimir {
+    background: #EEF2FF; border: 1px solid #C7D2FE; border-radius: 8px;
+    padding: 14px; font-family: var(--titulo, system-ui); font-size: 10pt;
+    margin-bottom: 24px;
+  }
+  @media print { .como-imprimir { display: none; } }
+</style>
+<link rel="stylesheet" href="economica.css"></head>
+<body>
+
+<div class="como-imprimir">
+  <strong>Para salvar em PDF:</strong> use Imprimir no seu navegador
+  (Ctrl+P) e escolha "Salvar como PDF". Este aviso não sai na impressão.
+</div>
+
+<div class="capa capa-com-foto">
+  <div class="capa-selo">MATERIAL DE CONSULTA · 40 HORAS</div>
+  <div class="capa-icone">💼</div>
+  <h1>Inteligência Artificial<span class="destaque">para Empreendedores</span></h1>
+  <p class="sub">Do primeiro prompt ao primeiro agente, com o seu negócio</p>
+  <p class="nota">
+    Gerado em 19 de setembro de 2026 · a partir do conteúdo do curso.<br>
+    As aulas não repetem esta apostila: elas explicam, demonstram e fazem
+    produzir. Isto aqui é onde se procura a referência depois.
+  </p>
+</div>
+
+<div class="quebra"></div>
+<h1 class="cap"><span class="ic">📑</span>Sumário da apostila</h1>
+<div class="sumario-item"><b>Capítulo 1</b> — O que a IA faz e o que ela não faz<br><span style="font-size:.9em;color:var(--cinza,#667)">1.1 O que é IA generativa, sem jargão · 1.2 O que ela faz bem e o que não faz · 1.3 Alucinação: quando ela inventa com segurança · 1.4 O que nunca deve ser colado numa IA</span></div><div class="sumario-item"><b>Capítulo 2</b> — C.O.F.R.E. — a estrutura de um bom pedido<br><span style="font-size:.9em;color:var(--cinza,#667)">2.1 As cinco partes · 2.2 Restrições que valem para quase tudo · 2.3 Como pedir de novo quando a resposta vem ruim · 2.4 Dar exemplo em vez de descrever o tom</span></div><div class="sumario-item"><b>Capítulo 3</b> — IA no dia a dia da empresa<br><span style="font-size:.9em;color:var(--cinza,#667)">3.1 Atendimento: responder, recusar, cobrar · 3.2 Vendas: orçamento, proposta e follow-up · 3.3 Administrativo: procedimento, reunião, e-mail difícil</span></div><div class="sumario-item"><b>Capítulo 4</b> — ChatGPT além da conversa<br><span style="font-size:.9em;color:var(--cinza,#667)">4.1 Anexar arquivo: pare de copiar e colar · 4.2 Delegar um trabalho, não pedir uma resposta · 4.3 Instruções personalizadas e memória</span></div><div class="sumario-item"><b>Capítulo 5</b> — Imagens que vendem<br><span style="font-size:.9em;color:var(--cinza,#667)">5.1 As oito partes de um pedido de imagem · 5.2 As três restrições que evitam problema · 5.3 Editar, usar referência e manter consistência</span></div><div class="sumario-item"><b>Capítulo 6</b> — Vídeo curto sem equipe<br><span style="font-size:.9em;color:var(--cinza,#667)">6.1 O caminho, do começo ao fim · 6.2 Gravar com o celular sem parecer amador</span></div><div class="sumario-item"><b>Capítulo 7</b> — Documentos e planilhas com IA<br><span style="font-size:.9em;color:var(--cinza,#667)">7.1 O caminho gratuito e o caminho pago · 7.2 Fazer a IA ler a sua planilha</span></div><div class="sumario-item"><b>Capítulo 8</b> — Perguntar aos próprios números<br><span style="font-size:.9em;color:var(--cinza,#667)">8.1 O teste da decisão · 8.2 As duas listas que mais rendem · 8.3 Os três erros que a análise costuma trazer</span></div><div class="sumario-item"><b>Capítulo 9</b> — Seus documentos respondendo por você<br><span style="font-size:.9em;color:var(--cinza,#667)">9.1 O que muda quando a resposta tem citação · 9.2 Como escrever para uma base que vai ser consultada</span></div><div class="sumario-item"><b>Capítulo 10</b> — Automação sem programar<br><span style="font-size:.9em;color:var(--cinza,#667)">10.1 A lógica antes da ferramenta · 10.2 Antes de ligar, e como desligar</span></div><div class="sumario-item"><b>Capítulo 11</b> — Agentes sem complicação<br><span style="font-size:.9em;color:var(--cinza,#667)">11.1 Chatbot, automação e agente · 11.2 As regras que não se negociam</span></div><div class="sumario-item"><b>Capítulo 12</b> — Qual IA usar para cada coisa<br><span style="font-size:.9em;color:var(--cinza,#667)">12.1 Escolhendo pela tarefa · 12.2 Faixas de acesso — conferido em 19/09/2026</span></div><div class="sumario-item"><b>Capítulo 13</b> — Minha Empresa Aumentada por IA<br><span style="font-size:.9em;color:var(--cinza,#667)">13.1 As oito perguntas do plano · 13.2 O que faz um plano acontecer</span></div><div class="sumario-item"><b>Guia de bolso</b> — Guia de bolso<br><span style="font-size:.9em;color:var(--cinza,#667)">A.1 Quando algo dá errado · A.2 As restrições que você deveria escrever sempre · A.3 Preciso colar algo com dado de cliente · A.4 O texto não parece meu</span></div>
+
+
+    <section>
+      <div class="quebra"></div>
+      <div class="faixa-encontro">Capítulo 1</div>
+      <h1 class="cap"><span class="ic">🤖</span>Capítulo 1: O que a IA faz e o que ela não faz</h1>
+      <p class="abertura">Este capítulo responde a pergunta que trava quase todo mundo no começo: <em>afinal, dá para confiar?</em> A resposta honesta é "depende do que você está pedindo" — e este capítulo explica exatamente de que depende.</p>
+      <h2>1.1 O que é IA generativa, sem jargão</h2><p>Quando se fala em Inteligência Artificial, muita gente imagina um robô de filme. A realidade é mais simples e mais útil. A IA generativa é um programa treinado para identificar padrões em texto e prever o que vem a seguir.</p>
+
+<p>Você já usa uma forma simples disso todo dia. Quando digita "bom d" no WhatsApp e o teclado sugere "dia", ele não sabe que dia é hoje nem se o seu dia está bom. Ele aprendeu que, depois de "bom", a maioria das pessoas escreve "dia". É previsão de padrão, não compreensão.</p>
+
+<div class="figura-img metade">
+  <img src="imagens/01_equipe_digital.png" alt="A IA como equipe de apoio: ela rascunha, você decide.">
+  <div class="legenda">A IA como equipe de apoio: ela rascunha, você decide.</div>
+</div>
+
+<p>Agora multiplique isso por bilhões. Os modelos como ChatGPT, Gemini e Claude leram uma quantidade enorme de texto: livros, sites, manuais, artigos, conversas. Aprenderam como as pessoas escrevem, estruturam ideias e resolvem problemas com palavras. Por isso, quando você pede uma resposta para um cliente, sai um texto coerente — ela "viu" milhões de respostas parecidas.</p>
+
+<div class="traduzindo">
+  <div class="t">📖 Traduzindo: modelo de linguagem</div>
+  <p>É o nome técnico desse tipo de programa. Você vai ouvir também "LLM", sigla em inglês para modelo de linguagem grande. Saber o nome não muda o uso — serve para você reconhecer quando alguém falar, e para não se intimidar.</p>
+</div>
+
+<p>Entender esse funcionamento explica as duas coisas que mais confundem quem começa: <strong>por que ela escreve tão bem</strong> e <strong>por que ela erra com tanta segurança</strong>. Ela não consulta uma verdade — monta o texto mais provável. Quando o provável coincide com o correto, o resultado é ótimo. Quando não coincide, o texto continua bem escrito e fica errado.</p>
+<h2>1.2 O que ela faz bem e o que não faz</h2><p>A lista abaixo vale para qualquer uma das ferramentas grandes. As diferenças entre elas existem, mas são pequenas perto desta separação.</p>
+
+<div class="dica">
+  <div class="t">✅ Faz bem, e economiza tempo de verdade</div>
+  <p><strong>Escrever, reescrever e resumir</strong> — responder cliente, transformar anotação em documento, encurtar um texto longo.<br>
+  <strong>Organizar informação bagunçada</strong> — anotações soltas viram plano de ação; lista desordenada vira tabela.<br>
+  <strong>Dar variações</strong> — três versões do mesmo texto, para você escolher a que soa como você.<br>
+  <strong>Explicar em linguagem simples</strong> — um contrato, uma norma, um termo técnico.<br>
+  <strong>Estruturar o que você já sabe</strong> — você conhece o processo; ela transforma em procedimento escrito.</p>
+</div>
+
+<div class="atencao">
+  <div class="t">⛔ Não faz — e não adianta insistir</div>
+  <p><strong>Saber o que aconteceu no seu negócio</strong> — ela não tem acesso às suas vendas, ao seu estoque nem ao seu caixa, a menos que você mostre.<br>
+  <strong>Garantir que um número está certo</strong> — ela produz números plausíveis, não conferidos.<br>
+  <strong>Decidir por você</strong> — preço, crédito, contratação e exceção de cliente envolvem o que só você sabe.<br>
+  <strong>Conhecer seus clientes e contratos</strong> — nada do que é seu está nela.</p>
+</div>
+
+<p>Repare no padrão: ela é boa com <em>palavras</em> e ruim com <em>fatos do seu negócio</em>. Toda vez que o pedido depender de um fato que só você tem, o fato precisa vir de você.</p>
+<h2>1.3 Alucinação: quando ela inventa com segurança</h2><p>Peça a uma IA o telefone de um fornecedor que ela não conhece. Muitas vezes ela devolve um número — bem formatado, com DDD plausível, escrito com total convicção. E inventado.</p>
+
+<div class="traduzindo">
+  <div class="t">📖 Traduzindo: alucinação</div>
+  <p>É o nome que se dá a isso: quando a IA produz uma informação que parece certa e não é. Não é mentira, porque não há intenção de enganar. É o programa completando o que costuma vir depois, mesmo sem ter o dado.</p>
+</div>
+
+<p>O perigo não está no erro, e sim na confiança com que ele vem. Um texto hesitante a gente confere. Um texto seguro, bem escrito e com número específico a gente copia e envia ao cliente.</p>
+
+<div class="atencao">
+  <div class="t">⚠️ Onde ela mais inventa</div>
+  <p>• Preço, prazo e medida de produto<br>
+  • Telefone, endereço e CNPJ<br>
+  • Lei, artigo e número de norma técnica<br>
+  • Dados do seu próprio negócio, que ela não tem<br>
+  • Fontes de pesquisa — inclusive links que abrem em página de erro</p>
+</div>
+
+<p>Repare que a lista tem uma coisa em comum: são informações <strong>específicas e verificáveis</strong>. É justamente onde ela mais erra e onde o erro mais custa.</p>
+
+<div class="dica">
+  <div class="t">💡 A regra que resolve</div>
+  <p>Nada que tenha <strong>número, nome ou consequência</strong> sai sem você conferir na fonte. Para o resto — texto, ideia, estrutura, organização — ela é uma excelente primeira versão.</p>
+</div>
+
+<p>E uma restrição que cabe em qualquer pedido e evita a maior parte disso: <em>"use somente as informações que eu forneci; onde faltar dado, escreva [CONFIRMAR] em vez de completar"</em>.</p>
+<h2>1.4 O que nunca deve ser colado numa IA</h2><p>Quando você cola um texto, ele sai do seu computador e vai para o servidor de uma empresa. Na maioria dos serviços gratuitos, esse texto pode ser usado para melhorar o sistema. Isso muda o que faz sentido colar.</p>
+
+<div class="atencao">
+  <div class="t">🔒 Não cole</div>
+  <p>• Nome completo, CPF, RG de cliente ou funcionário<br>
+  • Telefone, endereço, e-mail pessoal<br>
+  • Dado bancário, número de cartão, senha<br>
+  • Informação de saúde de alguém<br>
+  • Documento com cláusula de sigilo</p>
+</div>
+
+<p><strong>O que fazer em vez disso:</strong> troque por marcadores. CLIENTE A, VALOR X, FORNECEDOR 1. A IA escreve exatamente igual — ela não precisa saber que o cliente se chama João para redigir a resposta.</p>
+
+<p>Isso não é excesso de zelo. É o mesmo cuidado de não deixar a ficha de um cliente aberta no balcão: o dado é dele, não seu, e você responde por ele.</p>
+
+<div class="dica">
+  <div class="t">💡 Um atalho que vira hábito</div>
+  <p>Antes de colar algo longo, peça à própria IA: <em>"aponte o que eu deveria remover deste texto antes de enviar a uma IA"</em>. Em duas semanas você já identifica sozinho.</p>
+</div>
+    </section>
+
+    <section>
+      <div class="quebra"></div>
+      <div class="faixa-encontro">Capítulo 2</div>
+      <h1 class="cap"><span class="ic">🔐</span>Capítulo 2: C.O.F.R.E. — a estrutura de um bom pedido</h1>
+      <p class="abertura">Resposta genérica quase sempre é resposta a um pedido genérico. Este capítulo é a referência para consultar na hora de escrever — as cinco partes, as restrições que valem para quase tudo, e o que fazer quando a resposta vem ruim.</p>
+      <h2>2.1 As cinco partes</h2><div class="figura-img metade">
+  <img src="imagens/02_formula_cofre.png" alt="C.O.F.R.E.: as cinco partes de um pedido que funciona.">
+  <div class="legenda">C.O.F.R.E.: as cinco partes de um pedido que funciona.</div>
+</div>
+
+<p>Um pedido que funciona tem cinco partes. A palavra C.O.F.R.E. ajuda a lembrar — e também a ideia: é onde você guarda o que tem valor.</p>
+
+<div class="etiqueta">C — Contexto</div>
+<p>Quem é você e qual é a situação. Não "tenho uma loja", mas "tenho uma loja de roupa feminina de bairro; minhas clientes têm entre 35 e 55 anos e compram quando avisamos por WhatsApp".</p>
+
+<div class="etiqueta">O — Objetivo</div>
+<p>O que você quer conseguir. Não "fale sobre promoções", mas "quero trazer de volta clientes que não aparecem há três meses".</p>
+
+<div class="etiqueta">F — Formato</div>
+<p>Como a resposta deve chegar. Mensagem de WhatsApp de até 4 linhas? Tabela? Lista de cinco itens? Sem isso você recebe um texto corrido que vai ter de reformatar.</p>
+
+<div class="etiqueta">R — Restrições</div>
+<p>O que não pode. É a parte que quase ninguém escreve e a que mais muda o resultado: "não prometa desconto", "não invente prazo", "no máximo 4 linhas", "sem emoji em excesso".</p>
+
+<div class="etiqueta">E — Entrada</div>
+<p>O material com que ela deve trabalhar: a mensagem do cliente, a lista de produtos, suas anotações. Sem dado pessoal.</p>
+
+<div class="dica">
+  <div class="t">💡 Não precisa das cinco toda vez</div>
+  <p>Mas quando a resposta vier ruim, olhe para esta lista: quase sempre falta uma delas — e quase sempre é a <strong>R</strong>.</p>
+</div>
+<h2>2.2 Restrições que valem para quase tudo</h2><p>Estas cinco cabem em quase qualquer pedido e evitam a maior parte dos problemas. Vale copiar e colar.</p>
+
+<div class="prompt">Não invente preço, prazo ou medida — deixe [VALOR] onde eu devo preencher.
+Não prometa o que depende de eu confirmar.
+Não use promessa absoluta ("o melhor", "garantido", "o mais barato").
+Onde faltar informação, escreva [CONFIRMAR] em vez de supor.
+Separe o que é fato do que é interpretação sua.</div>
+
+<p>A primeira evita o orçamento com preço inventado. A segunda evita o compromisso que você não pode cumprir. A terceira evita problema com o consumidor. A quarta transforma o buraco em pergunta, em vez de em invenção. A quinta é para quando houver análise de dados.</p>
+
+<div class="atencao">
+  <div class="t">⚠️ A restrição é a parte que protege o negócio</div>
+  <p>Pedido sem restrição produz texto que promete o que você não vai cumprir — e quem responde pela promessa é você, não a ferramenta.</p>
+</div>
+<h2>2.3 Como pedir de novo quando a resposta vem ruim</h2><p>A primeira resposta quase nunca é a que se usa. Isso não é defeito: é como a ferramenta funciona. O que separa quem tira proveito de quem desiste é saber pedir de novo.</p>
+
+<p><strong>Continue a conversa</strong>, não abra outra. Ela lembra do que já foi dito, e ajustar é mais rápido que reexplicar tudo.</p>
+
+<div class="etiqueta">Frases que funcionam</div>
+<div class="prompt">"Está longo demais. Reduza pela metade mantendo o essencial."
+"O tom está formal demais. Escreva como eu falaria com um cliente antigo."
+"Você inventou o prazo. Use [CONFIRMAR] onde eu não informei."
+"Me dê três versões diferentes em vez de uma."
+"O que faltou no meu pedido para você ter acertado de primeira?"</div>
+
+<div class="dica">
+  <div class="t">💡 A última é a mais útil</div>
+  <p>Perguntar o que faltou no seu pedido é a forma mais rápida de aprender a pedir. Em um mês, você para de precisar dela.</p>
+</div>
+
+<p><strong>Uma coisa por vez.</strong> Quem pede três ajustes juntos recebe um texto diferente, não um texto corrigido — e perde a referência do que funcionou.</p>
+<h2>2.4 Dar exemplo em vez de descrever o tom</h2><p>Descrever o tom que você quer quase nunca funciona. "Informal mas profissional" significa coisas diferentes para cada pessoa — inclusive para a IA.</p>
+
+<p>Mostrar funciona sempre. Cole algo que <em>você</em> escreveu e peça para seguir aquele jeito.</p>
+
+<div class="prompt">Contexto: sou de [NEGÓCIO]. Abaixo está um texto que EU escrevi, no meu jeito de falar com cliente.
+Objetivo: escrever [O QUE] seguindo exatamente esse jeito.
 Formato: [FORMATO].
-Restrições: use apenas [DADOS CONFIRMADOS]; não invente preço, prazo ou política.
-Tarefa: IA como equipe de apoio.
-Liste o que preciso revisar antes de usar.</div><h2>1.2 Prompt C.O.F.R.E.</h2><p>Contexto, Objetivo, Formato, Restrições e Exemplo convertem pedido vago em entrega revisável.</p><div class="traduzindo"><div class="t">Na prática</div><p>Criar mensagem de pós-venda com tom definido e campos para personalizar.</p></div><div class="atencao"><div class="t">Linha de revisão</div><p>Pedir “faça marketing” e aceitar uma resposta que não cabe no seu canal.</p></div><div class="figura-img metade"><img src="imagens/02_formula_cofre.png" alt="Prompt C.O.F.R.E."><div class="legenda">Prompt C.O.F.R.E.</div></div><div class="etiqueta ">PROMPT PARA ADAPTAR</div><div class="prompt">Contexto: meu negócio é [SEGMENTO] e atende [PÚBLICO].
-Objetivo: preciso [RESULTADO].
-Formato: [FORMATO].
-Restrições: use apenas [DADOS CONFIRMADOS]; não invente preço, prazo ou política.
-Tarefa: Prompt C.O.F.R.E..
-Liste o que preciso revisar antes de usar.</div><h2>1.3 Ferramentas: escolha pelo trabalho</h2><p>Comece com uma ferramenta de conversa e uma de trabalho do dia a dia; escolha o que a equipe consegue repetir e revisar.</p><div class="traduzindo"><div class="t">Na prática</div><p>Usar chat para rascunho e documento compartilhado para validar a versão final.</p></div><div class="atencao"><div class="t">Linha de revisão</div><p>Escolher por moda e espalhar informações em contas pessoais.</p></div><div class="figura-img metade"><img src="imagens/03_dois_canais.png" alt="Ferramentas: escolha pelo trabalho"><div class="legenda">Ferramentas: escolha pelo trabalho</div></div><div class="etiqueta ">PROMPT PARA ADAPTAR</div><div class="prompt">Contexto: meu negócio é [SEGMENTO] e atende [PÚBLICO].
-Objetivo: preciso [RESULTADO].
-Formato: [FORMATO].
-Restrições: use apenas [DADOS CONFIRMADOS]; não invente preço, prazo ou política.
-Tarefa: Ferramentas: escolha pelo trabalho.
-Liste o que preciso revisar antes de usar.</div><div class="duelo"><div class="cabeca"><span class="selo-duelo">DUELO 1</span><span class="titulo-duelo">Pedido genérico ou pedido utilizável?</span><span class="tempo">7 min</span></div><div class="rodada"><div class="rot ruim">❌ O pedido vago</div><div class="etiqueta vermelha">PROMPT VAGO</div><div class="prompt">Faça um texto para divulgar minha loja.</div><div class="resultado"><b>O problema:</b> falta público, canal, formato, limite e dado confirmado.</div></div><div class="rodada"><div class="rot bom">✅ O pedido C.O.F.R.E.</div><div class="etiqueta verde">PROMPT REVISÁVEL</div><div class="prompt">Você é redator de uma loja de roupas femininas de bairro. Crie 3 versões de WhatsApp para divulgar a coleção de primavera. Público: mulheres de 28–45 anos que já compraram antes. Tom: próximo, sem urgência falsa. Máximo 280 caracteres. Não invente desconto; deixe [OFERTA] como campo editável.</div><div class="resultado"><b>O que muda:</b> a saída pode ser revisada e aplicada no negócio.</div></div><div class="sua-vez"><div class="t">Agora é sua vez</div>Reescreva um pedido real e inclua uma restrição que evite erro caro.<div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div></div><div class="caso"><div class="cabeca"><span class="selo-caso">CASO 1</span><span class="titulo-caso">Caso 01 · A loja que responde tudo no WhatsApp</span><span class="tempo">10 min · em duplas</span></div><div class="cena">Marina recebe as mesmas dúvidas sobre tamanho, troca e prazo de entrega. Ela responde entre uma venda e outra, com mensagens diferentes a cada cliente.</div><img class="imagem-caso" src="imagens/caso_loja_roupas.png" alt="Caso: loja de roupas"><div class="pergunta">Em dupla, crie um FAQ inicial de seis perguntas e classifique cada resposta: pode ser enviada após revisão, precisa de dado atualizado ou exige atendimento humano.</div><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="solucao"><div class="t">Solução comentada</div><p>FAQ + regra de escalonamento. Preço, estoque, troca excepcional e reclamação não devem ser respondidos automaticamente sem checagem.</p></div></div><div class="desafio"><div class="cabeca"><span class="cronometro">⏱ 5:00</span><span class="titulo-des">Desafio do encontro: Prompt C.O.F.R.E. + checklist de revisão para uma tarefa semanal</span></div><p>Em cinco minutos, produza uma primeira versão aplicável à sua empresa.</p><ol><li>Escolha uma tarefa real.</li><li>Inclua contexto, objetivo, formato e restrição.</li><li>Leia a resposta inteira.</li><li>Corrija um ponto antes de salvar.</li></ol></div><div class="caca"><div class="cabeca"><span class="selo-caca">CAÇA AO ERRO 1</span><span class="titulo-caca">Revise antes de usar</span><span class="tempo">4 min</span></div><div class="resposta-ia">1. Copiar o texto da IA sem ler.<br>2. Enviar lista de clientes para uma conta pessoal.<br>3. Definir qual informação nunca entra no prompt.<br>4. Usar [CAMPO] quando a informação ainda será confirmada.</div><p class="instrucao">Quais situações exigem correção, confirmação ou escalonamento humano?</p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="gabarito-formador"><div class="t">Gabarito do formador</div><p>Dados sensíveis, preço, prazo, estoque, exceções e promessas precisam de fonte ou aprovação humana. Campos pendentes devem continuar como [CONFIRMAR].</p></div></div><div class="celular"><div class="cabeca"><span class="selo-cel">NO CELULAR</span><span class="titulo-cel">Teste real, sem dados reais</span><span class="tempo">5 min</span></div><ol><li>Abra a ferramenta de IA que você já acessa.</li><li>Troque nomes, telefones e informações privadas por marcadores.</li><li>Cole o prompt do encontro e gere uma versão.</li><li>Revise fato, tom e próximo passo antes de salvar.</li><li>Registre o que você corrigiu.</li></ol></div><div class="saida"><div class="t">✅ Antes de ir embora — o que você leva hoje</div><div class="item">☐ Produto do encontro: <strong>Prompt C.O.F.R.E. + checklist de revisão para uma tarefa semanal</strong></div><div class="item">☐ Prompt adaptado e salvo</div><div class="item">☐ Revisão de dados, fatos e promessas</div><div class="item">☐ Próximo teste definido: Teste uma única tarefa e registre: tempo antes, tempo depois, correções e o que não pode ser delegado.</div></div><div class="destacavel"><div class="dest-marca">DESTACÁVEL · ENCONTRO 1</div><div class="dest-corpo"><div class="dest-titulo">Cartão de bolso: revisão antes de usar IA</div><div class="dest-sub">Use junto com sua equipe antes de publicar, enviar ou automatizar.</div><div class="ficha-check">☐ Dados permitidos</div><div class="ficha-check">☐ Fatos, preço e prazo confirmados</div><div class="ficha-check">☐ Responsável definido</div><div class="ficha-check">☐ Exceções encaminhadas para uma pessoa</div></div></div>
-<div class="quebra"><div class="faixa-encontro">ENCONTRO 2 · 2 HORAS</div><h1 class="cap"><span class="ic">●</span>Organização, marketing e conteúdo que vira ação</h1><p class="abertura">Organizar uma rotina administrativa e sair com um calendário de conteúdo de 7 dias que respeite a operação real.</p><div class="figura-img metade"><img src="imagens/05_marketing_calendario.png" alt="Organização, marketing e conteúdo que vira ação"><div class="legenda">Organização, marketing e conteúdo que vira ação</div></div></div><div class="aquecimento"><div class="t">🔥 Aquecimento relâmpago · 5 minutos</div><p>Abra sua semana atual. Marque tarefas administrativas, pedidos de clientes, conteúdo e pendências que ninguém assumiu. Qual delas precisa primeiro de clareza, não de automação?</p></div><h2>2.1 Assistente administrativo</h2><p>A IA converte notas confusas em pauta, procedimento, e-mail e checklist. O insumo vem de você; ela não conhece o que foi combinado fora da tela.</p><div class="traduzindo"><div class="t">Na prática</div><p>Transformar reunião de 20 minutos em ata com decisões, pendências e prazos.</p></div><div class="atencao"><div class="t">Linha de revisão</div><p>Tratar resumo como registro oficial sem comparar com anotações.</p></div><div class="figura-img metade"><img src="imagens/04_rotina_administrativa.png" alt="Assistente administrativo"><div class="legenda">Assistente administrativo</div></div><div class="etiqueta ">PROMPT PARA ADAPTAR</div><div class="prompt">Contexto: meu negócio é [SEGMENTO] e atende [PÚBLICO].
-Objetivo: preciso [RESULTADO].
-Formato: [FORMATO].
-Restrições: use apenas [DADOS CONFIRMADOS]; não invente preço, prazo ou política.
-Tarefa: Assistente administrativo.
-Liste o que preciso revisar antes de usar.</div><h2>2.2 Marketing prático</h2><p>Conteúdo não é volume: cada peça precisa de pessoa, intenção e próximo passo, coerente com a operação que existe.</p><div class="traduzindo"><div class="t">Na prática</div><p>Criar 7 ideias a partir de dúvidas, prova, bastidor, oferta e pós-venda.</p></div><div class="atencao"><div class="t">Linha de revisão</div><p>Publicar promessa que não corresponde a preço, prazo, estoque ou serviço.</p></div><div class="figura-img metade"><img src="imagens/05_marketing_calendario.png" alt="Marketing prático"><div class="legenda">Marketing prático</div></div><div class="etiqueta ">PROMPT PARA ADAPTAR</div><div class="prompt">Contexto: meu negócio é [SEGMENTO] e atende [PÚBLICO].
-Objetivo: preciso [RESULTADO].
-Formato: [FORMATO].
-Restrições: use apenas [DADOS CONFIRMADOS]; não invente preço, prazo ou política.
-Tarefa: Marketing prático.
-Liste o que preciso revisar antes de usar.</div><h2>2.3 Conteúdo que vende sem parecer robô</h2><p>IA encontra variações; a empresa fornece voz, histórias e provas. Use exemplos aprovados e peça versões por canal.</p><div class="traduzindo"><div class="t">Na prática</div><p>Adaptar depoimento autorizado em roteiro, legenda e resposta a comentário.</p></div><div class="atencao"><div class="t">Linha de revisão</div><p>Usar depoimento, imagem ou dado do cliente sem autorização.</p></div><div class="figura-img metade"><img src="imagens/05_marketing_calendario.png" alt="Conteúdo que vende sem parecer robô"><div class="legenda">Conteúdo que vende sem parecer robô</div></div><div class="etiqueta ">PROMPT PARA ADAPTAR</div><div class="prompt">Contexto: meu negócio é [SEGMENTO] e atende [PÚBLICO].
-Objetivo: preciso [RESULTADO].
-Formato: [FORMATO].
-Restrições: use apenas [DADOS CONFIRMADOS]; não invente preço, prazo ou política.
-Tarefa: Conteúdo que vende sem parecer robô.
-Liste o que preciso revisar antes de usar.</div><div class="duelo"><div class="cabeca"><span class="selo-duelo">DUELO 2</span><span class="titulo-duelo">Pedido genérico ou pedido utilizável?</span><span class="tempo">7 min</span></div><div class="rodada"><div class="rot ruim">❌ O pedido vago</div><div class="etiqueta vermelha">PROMPT VAGO</div><div class="prompt">Crie posts para a semana.</div><div class="resultado"><b>O problema:</b> falta público, canal, formato, limite e dado confirmado.</div></div><div class="rodada"><div class="rot bom">✅ O pedido C.O.F.R.E.</div><div class="etiqueta verde">PROMPT REVISÁVEL</div><div class="prompt">Monte um calendário de 7 dias para um salão de beleza de bairro. Objetivo: preencher horários de terça a quinta sem baixar preço. Canais: Instagram e WhatsApp. Para cada dia: formato, ideia, CTA e informação que devo confirmar. Tom: acolhedor e direto. Não invente agenda nem resultados.</div><div class="resultado"><b>O que muda:</b> a saída pode ser revisada e aplicada no negócio.</div></div><div class="sua-vez"><div class="t">Agora é sua vez</div>Reescreva um pedido real e inclua uma restrição que evite erro caro.<div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div></div><div class="caso"><div class="cabeca"><span class="selo-caso">CASO 2</span><span class="titulo-caso">Caso 02 · O salão sem tempo para postar</span><span class="tempo">10 min · em duplas</span></div><div class="cena">Joana publica só quando sobra tempo. Seus melhores horários ficam vazios, mas ela não quer fazer promoções em todos os serviços nem prometer resultados impossíveis.</div><img class="imagem-caso" src="imagens/caso_salao.png" alt="Caso: salão de beleza"><div class="pergunta">Desenhe uma sequência de 7 dias: uma dúvida frequente, um bastidor, uma prova autorizada, um convite e uma recuperação de agenda.</div><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="solucao"><div class="t">Solução comentada</div><p>Calendário enxuto, com responsável e horário de publicação. O CTA leva a conversa para agenda real, nunca para uma promessa automática.</p></div></div><div class="desafio"><div class="cabeca"><span class="cronometro">⏱ 5:00</span><span class="titulo-des">Desafio do encontro: Calendário de 7 dias + uma campanha de baixo risco</span></div><p>Em cinco minutos, produza uma primeira versão aplicável à sua empresa.</p><ol><li>Escolha uma tarefa real.</li><li>Inclua contexto, objetivo, formato e restrição.</li><li>Leia a resposta inteira.</li><li>Corrija um ponto antes de salvar.</li></ol></div><div class="caca"><div class="cabeca"><span class="selo-caca">CAÇA AO ERRO 2</span><span class="titulo-caca">Revise antes de usar</span><span class="tempo">4 min</span></div><div class="resposta-ia">1. Usar “antes e depois” sem consentimento.<br>2. Pedir à IA que invente resultado de procedimento.<br>3. Colocar [HORÁRIO DISPONÍVEL] para confirmar antes de publicar.<br>4. Repetir a mesma oferta para todos os públicos.</div><p class="instrucao">Quais situações exigem correção, confirmação ou escalonamento humano?</p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="gabarito-formador"><div class="t">Gabarito do formador</div><p>Dados sensíveis, preço, prazo, estoque, exceções e promessas precisam de fonte ou aprovação humana. Campos pendentes devem continuar como [CONFIRMAR].</p></div></div><div class="celular"><div class="cabeca"><span class="selo-cel">NO CELULAR</span><span class="titulo-cel">Teste real, sem dados reais</span><span class="tempo">5 min</span></div><ol><li>Abra a ferramenta de IA que você já acessa.</li><li>Troque nomes, telefones e informações privadas por marcadores.</li><li>Cole o prompt do encontro e gere uma versão.</li><li>Revise fato, tom e próximo passo antes de salvar.</li><li>Registre o que você corrigiu.</li></ol></div><div class="saida"><div class="t">✅ Antes de ir embora — o que você leva hoje</div><div class="item">☐ Produto do encontro: <strong>Calendário de 7 dias + uma campanha de baixo risco</strong></div><div class="item">☐ Prompt adaptado e salvo</div><div class="item">☐ Revisão de dados, fatos e promessas</div><div class="item">☐ Próximo teste definido: Publique ou agende uma sequência. Meça conversas qualificadas, não apenas curtidas.</div></div><div class="destacavel"><div class="dest-marca">DESTACÁVEL · ENCONTRO 2</div><div class="dest-corpo"><div class="dest-titulo">Cartão de bolso: revisão antes de usar IA</div><div class="dest-sub">Use junto com sua equipe antes de publicar, enviar ou automatizar.</div><div class="ficha-check">☐ Dados permitidos</div><div class="ficha-check">☐ Fatos, preço e prazo confirmados</div><div class="ficha-check">☐ Responsável definido</div><div class="ficha-check">☐ Exceções encaminhadas para uma pessoa</div></div></div>
-<div class="quebra"><div class="faixa-encontro">ENCONTRO 3 · 2 HORAS</div><h1 class="cap"><span class="ic">●</span>Vendas, atendimento e pesquisa com evidências</h1><p class="abertura">Criar uma proposta consultiva, um padrão de atendimento e um mapa de pesquisa com fontes e limites claros.</p><div class="figura-img metade"><img src="imagens/06_vendas_proposta.png" alt="Vendas, atendimento e pesquisa com evidências"><div class="legenda">Vendas, atendimento e pesquisa com evidências</div></div></div><div class="aquecimento"><div class="t">🔥 Aquecimento relâmpago · 5 minutos</div><p>Pense em uma conversa que não virou venda. Em que ponto faltou diagnóstico, prova, clareza de próximo passo ou tempo para responder?</p></div><h2>3.1 Vendas consultivas</h2><p>IA organiza diagnóstico e rascunha proposta, mas não descobre sozinha a dor do cliente. Comece por perguntas de prioridade e critério de decisão.</p><div class="traduzindo"><div class="t">Na prática</div><p>Gerar estrutura de proposta com escopo, inclusões, exclusões e próximo passo.</p></div><div class="atencao"><div class="t">Linha de revisão</div><p>Enviar preço, prazo ou escopo sugerido sem validação comercial.</p></div><div class="figura-img metade"><img src="imagens/06_vendas_proposta.png" alt="Vendas consultivas"><div class="legenda">Vendas consultivas</div></div><div class="etiqueta ">PROMPT PARA ADAPTAR</div><div class="prompt">Contexto: meu negócio é [SEGMENTO] e atende [PÚBLICO].
-Objetivo: preciso [RESULTADO].
-Formato: [FORMATO].
-Restrições: use apenas [DADOS CONFIRMADOS]; não invente preço, prazo ou política.
-Tarefa: Vendas consultivas.
-Liste o que preciso revisar antes de usar.</div><h2>3.2 Atendimento consistente</h2><p>Padronizar é dar segurança, não robotizar. Defina tom, informações permitidas, exceções e quando a conversa sobe para uma pessoa.</p><div class="traduzindo"><div class="t">Na prática</div><p>Criar macros para prazo, troca, agendamento e acompanhamento.</p></div><div class="atencao"><div class="t">Linha de revisão</div><p>Deixar reclamação, cobrança ou dado sensível preso em fluxo automático.</p></div><div class="figura-img metade"><img src="imagens/07_atendimento_cliente.png" alt="Atendimento consistente"><div class="legenda">Atendimento consistente</div></div><div class="etiqueta ">PROMPT PARA ADAPTAR</div><div class="prompt">Contexto: meu negócio é [SEGMENTO] e atende [PÚBLICO].
-Objetivo: preciso [RESULTADO].
-Formato: [FORMATO].
-Restrições: use apenas [DADOS CONFIRMADOS]; não invente preço, prazo ou política.
-Tarefa: Atendimento consistente.
-Liste o que preciso revisar antes de usar.</div><h2>3.3 Pesquisa com evidências</h2><p>IA organiza hipóteses e perguntas. Para decidir, confirme dados em fontes primárias e registre quando consultou.</p><div class="traduzindo"><div class="t">Na prática</div><p>Montar mapa de concorrentes e perguntas para entrevista com clientes.</p></div><div class="atencao"><div class="t">Linha de revisão</div><p>Tratar citação fabricada ou informação antiga como pesquisa concluída.</p></div><div class="figura-img metade"><img src="imagens/08_pesquisa_mercado.png" alt="Pesquisa com evidências"><div class="legenda">Pesquisa com evidências</div></div><div class="etiqueta ">PROMPT PARA ADAPTAR</div><div class="prompt">Contexto: meu negócio é [SEGMENTO] e atende [PÚBLICO].
-Objetivo: preciso [RESULTADO].
-Formato: [FORMATO].
-Restrições: use apenas [DADOS CONFIRMADOS]; não invente preço, prazo ou política.
-Tarefa: Pesquisa com evidências.
-Liste o que preciso revisar antes de usar.</div><div class="duelo"><div class="cabeca"><span class="selo-duelo">DUELO 3</span><span class="titulo-duelo">Pedido genérico ou pedido utilizável?</span><span class="tempo">7 min</span></div><div class="rodada"><div class="rot ruim">❌ O pedido vago</div><div class="etiqueta vermelha">PROMPT VAGO</div><div class="prompt">Faça uma proposta para meu cliente.</div><div class="resultado"><b>O problema:</b> falta público, canal, formato, limite e dado confirmado.</div></div><div class="rodada"><div class="rot bom">✅ O pedido C.O.F.R.E.</div><div class="etiqueta verde">PROMPT REVISÁVEL</div><div class="prompt">Crie a estrutura de uma proposta para [SERVIÇO] destinada a [CLIENTE]. Use somente estes dados: [DADOS CONFIRMADOS]. Inclua objetivo, entregas, cronograma, investimento [VALOR], exclusões, responsabilidades do cliente e próximo passo. Marque lacunas como [CONFIRMAR].</div><div class="resultado"><b>O que muda:</b> a saída pode ser revisada e aplicada no negócio.</div></div><div class="sua-vez"><div class="t">Agora é sua vez</div>Reescreva um pedido real e inclua uma restrição que evite erro caro.<div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div></div><div class="caso"><div class="cabeca"><span class="selo-caso">CASO 3</span><span class="titulo-caso">Caso 03 · A imobiliária que perde leads</span><span class="tempo">10 min · em duplas</span></div><div class="cena">Rafael recebe contatos em vários canais. Alguns querem visitar, outros comparam bairros. A equipe responde rápido, mas não registra estágio nem o que o cliente procura.</div><img class="imagem-caso" src="imagens/caso_imobiliaria.png" alt="Caso: imobiliária"><div class="pergunta">Crie diagnóstico em 5 perguntas, três respostas-modelo e uma regra de passagem para o corretor. Que informação não pode entrar em prompt aberto?</div><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="solucao"><div class="t">Solução comentada</div><p>Objetivo, faixa de investimento, localização e prazo entram só no sistema autorizado; documentos, renda detalhada e dados de terceiros não entram em ferramenta sem aprovação.</p></div></div><div class="desafio"><div class="cabeca"><span class="cronometro">⏱ 5:00</span><span class="titulo-des">Desafio do encontro: Proposta-base + macros de atendimento + mapa de pesquisa</span></div><p>Em cinco minutos, produza uma primeira versão aplicável à sua empresa.</p><ol><li>Escolha uma tarefa real.</li><li>Inclua contexto, objetivo, formato e restrição.</li><li>Leia a resposta inteira.</li><li>Corrija um ponto antes de salvar.</li></ol></div><div class="caca"><div class="cabeca"><span class="selo-caca">CAÇA AO ERRO 3</span><span class="titulo-caca">Revise antes de usar</span><span class="tempo">4 min</span></div><div class="resposta-ia">1. Prometer imóvel disponível sem consultar o sistema.<br>2. Enviar resposta-modelo após reclamação grave.<br>3. Marcar [CONSULTAR ESTOQUE] antes de confirmar disponibilidade.<br>4. Apresentar fonte e data em uma pesquisa de mercado.</div><p class="instrucao">Quais situações exigem correção, confirmação ou escalonamento humano?</p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="gabarito-formador"><div class="t">Gabarito do formador</div><p>Dados sensíveis, preço, prazo, estoque, exceções e promessas precisam de fonte ou aprovação humana. Campos pendentes devem continuar como [CONFIRMAR].</p></div></div><div class="celular"><div class="cabeca"><span class="selo-cel">NO CELULAR</span><span class="titulo-cel">Teste real, sem dados reais</span><span class="tempo">5 min</span></div><ol><li>Abra a ferramenta de IA que você já acessa.</li><li>Troque nomes, telefones e informações privadas por marcadores.</li><li>Cole o prompt do encontro e gere uma versão.</li><li>Revise fato, tom e próximo passo antes de salvar.</li><li>Registre o que você corrigiu.</li></ol></div><div class="saida"><div class="t">✅ Antes de ir embora — o que você leva hoje</div><div class="item">☐ Produto do encontro: <strong>Proposta-base + macros de atendimento + mapa de pesquisa</strong></div><div class="item">☐ Prompt adaptado e salvo</div><div class="item">☐ Revisão de dados, fatos e promessas</div><div class="item">☐ Próximo teste definido: Escolha um follow-up que agregue valor e acompanhe a taxa de resposta.</div></div><div class="destacavel"><div class="dest-marca">DESTACÁVEL · ENCONTRO 3</div><div class="dest-corpo"><div class="dest-titulo">Cartão de bolso: revisão antes de usar IA</div><div class="dest-sub">Use junto com sua equipe antes de publicar, enviar ou automatizar.</div><div class="ficha-check">☐ Dados permitidos</div><div class="ficha-check">☐ Fatos, preço e prazo confirmados</div><div class="ficha-check">☐ Responsável definido</div><div class="ficha-check">☐ Exceções encaminhadas para uma pessoa</div></div></div>
-<div class="quebra"><div class="faixa-encontro">ENCONTRO 4 · 2 HORAS</div><h1 class="cap"><span class="ic">●</span>Produtividade, automação e implantação segura</h1><p class="abertura">Desenhar um piloto de automação de baixo risco e fechar um plano de IA de 30 dias com responsável, métrica e segurança.</p><div class="figura-img metade"><img src="imagens/11_plano_30_dias.png" alt="Produtividade, automação e implantação segura"><div class="legenda">Produtividade, automação e implantação segura</div></div></div><div class="aquecimento"><div class="t">🔥 Aquecimento relâmpago · 5 minutos</div><p>Escolha uma tarefa que acontece toda vez que chega um lead, pedido ou reunião. Desenhe o fluxo atual em cinco passos e marque onde há cópia e cola.</p></div><h2>4.1 Decisão e produtividade</h2><p>Boa rotina torna decisão visível: o que entra, quem escolhe, qual dado confirma e qual indicador mostra avanço.</p><div class="traduzindo"><div class="t">Na prática</div><p>Preparar pauta semanal com pendências, número-chave e decisões do dono.</p></div><div class="atencao"><div class="t">Linha de revisão</div><p>Transformar sugestão em decisão sem verificar dados e contexto.</p></div><div class="figura-img metade"><img src="imagens/04_rotina_administrativa.png" alt="Decisão e produtividade"><div class="legenda">Decisão e produtividade</div></div><div class="etiqueta ">PROMPT PARA ADAPTAR</div><div class="prompt">Contexto: meu negócio é [SEGMENTO] e atende [PÚBLICO].
-Objetivo: preciso [RESULTADO].
-Formato: [FORMATO].
-Restrições: use apenas [DADOS CONFIRMADOS]; não invente preço, prazo ou política.
-Tarefa: Decisão e produtividade.
-Liste o que preciso revisar antes de usar.</div><h2>4.2 Automação pequena</h2><p>Automatize depois de padronizar. Comece com gatilho, ação, responsável e saída reversível; teste poucos casos antes de escalar.</p><div class="traduzindo"><div class="t">Na prática</div><p>Registrar lead, avisar responsável e criar rascunho de resposta para revisão.</p></div><div class="atencao"><div class="t">Linha de revisão</div><p>Automatizar envio, desconto ou exclusão antes de testar exceções.</p></div><div class="figura-img metade"><img src="imagens/09_automacao_fluxo.png" alt="Automação pequena"><div class="legenda">Automação pequena</div></div><div class="etiqueta ">PROMPT PARA ADAPTAR</div><div class="prompt">Contexto: meu negócio é [SEGMENTO] e atende [PÚBLICO].
-Objetivo: preciso [RESULTADO].
-Formato: [FORMATO].
-Restrições: use apenas [DADOS CONFIRMADOS]; não invente preço, prazo ou política.
-Tarefa: Automação pequena.
-Liste o que preciso revisar antes de usar.</div><h2>4.3 Segurança e plano de 30 dias</h2><p>Defina dados permitidos, proibidos e quem aprova. O plano precisa ser pequeno o bastante para acontecer e mensurável para aprender.</p><div class="traduzindo"><div class="t">Na prática</div><p>Criar política de uma página e piloto de duas semanas com revisão diária.</p></div><div class="atencao"><div class="t">Linha de revisão</div><p>Usar dados pessoais, financeiros ou estratégicos sem autorização.</p></div><div class="figura-img metade"><img src="imagens/10_dados_seguros.png" alt="Segurança e plano de 30 dias"><div class="legenda">Segurança e plano de 30 dias</div></div><div class="etiqueta ">PROMPT PARA ADAPTAR</div><div class="prompt">Contexto: meu negócio é [SEGMENTO] e atende [PÚBLICO].
-Objetivo: preciso [RESULTADO].
-Formato: [FORMATO].
-Restrições: use apenas [DADOS CONFIRMADOS]; não invente preço, prazo ou política.
-Tarefa: Segurança e plano de 30 dias.
-Liste o que preciso revisar antes de usar.</div><div class="duelo"><div class="cabeca"><span class="selo-duelo">DUELO 4</span><span class="titulo-duelo">Pedido genérico ou pedido utilizável?</span><span class="tempo">7 min</span></div><div class="rodada"><div class="rot ruim">❌ O pedido vago</div><div class="etiqueta vermelha">PROMPT VAGO</div><div class="prompt">Automatize meu atendimento.</div><div class="resultado"><b>O problema:</b> falta público, canal, formato, limite e dado confirmado.</div></div><div class="rodada"><div class="rot bom">✅ O pedido C.O.F.R.E.</div><div class="etiqueta verde">PROMPT REVISÁVEL</div><div class="prompt">Desenhe um piloto para captar leads de [CANAL]. Gatilho: [EVENTO]. Ação 1: registrar em [SISTEMA]. Ação 2: notificar [RESPONSÁVEL]. Ação 3: criar rascunho, nunca enviar. Liste dados proibidos, exceções, testes e métrica. Não inclua credenciais ou dados pessoais reais.</div><div class="resultado"><b>O que muda:</b> a saída pode ser revisada e aplicada no negócio.</div></div><div class="sua-vez"><div class="t">Agora é sua vez</div>Reescreva um pedido real e inclua uma restrição que evite erro caro.<div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div></div><div class="caso"><div class="cabeca"><span class="selo-caso">CASO 4</span><span class="titulo-caso">Caso 04 · A empresa que automatizou antes de validar</span><span class="tempo">10 min · em duplas</span></div><div class="cena">Um restaurante conecta formulário a mensagem automática. Um cliente informa alergia grave, mas recebe resposta genérica e acredita que o pedido será adaptado.</div><img class="imagem-caso" src="imagens/caso_restaurante.png" alt="Caso: restaurante"><div class="pergunta">Redesenhe o fluxo: onde a automação deve parar, quem recebe o alerta e qual texto seguro informa o cliente?</div><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="solucao"><div class="t">Solução comentada</div><p>Dados de saúde e exceções críticas geram alerta para pessoa responsável. A resposta inicial apenas confirma o recebimento e orienta aguardar confirmação humana.</p></div></div><div class="desafio"><div class="cabeca"><span class="cronometro">⏱ 5:00</span><span class="titulo-des">Desafio do encontro: Plano de IA da Minha Empresa + piloto de 30 dias</span></div><p>Em cinco minutos, produza uma primeira versão aplicável à sua empresa.</p><ol><li>Escolha uma tarefa real.</li><li>Inclua contexto, objetivo, formato e restrição.</li><li>Leia a resposta inteira.</li><li>Corrija um ponto antes de salvar.</li></ol></div><div class="caca"><div class="cabeca"><span class="selo-caca">CAÇA AO ERRO 4</span><span class="titulo-caca">Revise antes de usar</span><span class="tempo">4 min</span></div><div class="resposta-ia">1. Guardar senha de ferramenta dentro do prompt.<br>2. Enviar resposta automática para exceção crítica.<br>3. Criar modo de teste antes de ativar o fluxo.<br>4. Medir tempo poupado e taxa de correção no piloto.</div><p class="instrucao">Quais situações exigem correção, confirmação ou escalonamento humano?</p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="gabarito-formador"><div class="t">Gabarito do formador</div><p>Dados sensíveis, preço, prazo, estoque, exceções e promessas precisam de fonte ou aprovação humana. Campos pendentes devem continuar como [CONFIRMAR].</p></div></div><div class="celular"><div class="cabeca"><span class="selo-cel">NO CELULAR</span><span class="titulo-cel">Teste real, sem dados reais</span><span class="tempo">5 min</span></div><ol><li>Abra a ferramenta de IA que você já acessa.</li><li>Troque nomes, telefones e informações privadas por marcadores.</li><li>Cole o prompt do encontro e gere uma versão.</li><li>Revise fato, tom e próximo passo antes de salvar.</li><li>Registre o que você corrigiu.</li></ol></div><div class="saida"><div class="t">✅ Antes de ir embora — o que você leva hoje</div><div class="item">☐ Produto do encontro: <strong>Plano de IA da Minha Empresa + piloto de 30 dias</strong></div><div class="item">☐ Prompt adaptado e salvo</div><div class="item">☐ Revisão de dados, fatos e promessas</div><div class="item">☐ Próximo teste definido: Apresente seu piloto: problema, fluxo, dado proibido, responsável, métrica e primeira revisão.</div></div><div class="destacavel"><div class="dest-marca">DESTACÁVEL · ENCONTRO 4</div><div class="dest-corpo"><div class="dest-titulo">Cartão de bolso: revisão antes de usar IA</div><div class="dest-sub">Use junto com sua equipe antes de publicar, enviar ou automatizar.</div><div class="ficha-check">☐ Dados permitidos</div><div class="ficha-check">☐ Fatos, preço e prazo confirmados</div><div class="ficha-check">☐ Responsável definido</div><div class="ficha-check">☐ Exceções encaminhadas para uma pessoa</div></div></div><div class="encerramento"><div class="ic">🚀</div><div class="t">Plano de IA da Minha Empresa</div><p>Problema, piloto, proteção, responsável, métrica e primeira revisão.</p><p class="final">Você decide. A IA apoia. A empresa aprende com o teste.</p></div><div id="formacao-40h"><div class="quebra"><div class="faixa-encontro">FORMAÇÃO COMPLEMENTAR · 32 HORAS</div><h1 class="cap">Caderno de aplicação: as 40 horas materializadas</h1><p class="abertura">A formação combina 4 encontros de 2 horas (8h ao vivo) e quatro trilhas de aplicação de 8 horas (32h). Cada trilha produz uma entrega que pode ser usada no negócio.</p><table><thead><tr><th>Módulo</th><th>Ao vivo</th><th>Prática guiada</th><th>Entrega</th></tr></thead><tbody><tr><td>Encontro 1</td><td>2h</td><td>8h</td><td>Mapa de tarefas + prompt C.O.F.R.E. + protocolo de revisão</td></tr><tr><td>Encontro 2</td><td>2h</td><td>8h</td><td>Procedimento simples + calendário de 7 dias + banco de conteúdos aprovados</td></tr><tr><td>Encontro 3</td><td>2h</td><td>8h</td><td>Roteiro de diagnóstico + respostas-modelo + mapa de pesquisa com fontes</td></tr><tr><td>Encontro 4</td><td>2h</td><td>8h</td><td>Piloto de baixo risco + painel de acompanhamento + plano de implantação de 30 dias</td></tr></tbody></table><div class="saida"><div class="t">Carga horária total</div><div class="item">☐ 8 horas de encontros ao vivo</div><div class="item">☐ 32 horas de aplicação orientada com evidências</div><div class="item">☐ 40 horas de formação completa</div></div></div><div class="quebra"><div class="faixa-encontro">TRILHA COMPLEMENTAR 1 · 8 HORAS</div><h1 class="cap">Fundamentos, prompts e rotina segura</h1><p class="abertura">Esta trilha transforma o encontro ao vivo em aplicação guiada. Carga horária do módulo: 2h ao vivo + 8h de prática orientada.</p><div class="traduzindo"><div class="t">Produto de aplicação</div><p>Mapa de tarefas + prompt C.O.F.R.E. + protocolo de revisão</p></div><div class="atencao"><div class="t">Resultado esperado</div><p>Selecionar uma tarefa repetitiva, produzir uma primeira versão útil e estabelecer o que continua sob decisão humana.</p></div></div><div class="quebra"><h2>Roteiro de aplicação: 8 horas com evidências</h2><table><thead><tr><th>Tempo</th><th>Atividade prática</th><th>Evidência</th></tr></thead><tbody><tr><td><b>Bloco 1</b><br>1h</td><td><b>Diagnóstico da rotina</b><br>Liste 15 tarefas da semana, agrupe por tipo e marque frequência, tempo e risco.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 2</b><br>1h30</td><td><b>Escolha com critério</b><br>Pontue três tarefas: repetição, impacto, risco e possibilidade de revisão humana.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 3</b><br>2h</td><td><b>Laboratório de prompts</b><br>Crie três versões C.O.F.R.E. para a tarefa escolhida e compare as saídas.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 4</b><br>1h30</td><td><b>Teste controlado</b><br>Execute a tarefa em um dia real sem inserir dados pessoais, financeiros ou sensíveis.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 5</b><br>1h</td><td><b>Revisão de qualidade</b><br>Cheque fatos, tom, campos pendentes e decisões que exigem pessoa responsável.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 6</b><br>1h</td><td><b>Registro de aprendizagem</b><br>Meça tempo antes/depois, correções e limite de uso; salve o prompt aprovado.</td><td>Registro no caderno</td></tr></tbody></table><div class="dica"><div class="t">Ritmo recomendado</div><p>Faça dois blocos por vez. Ao final de cada bloco, salve a evidência em uma pasta do projeto e anote o que precisou de revisão humana.</p></div></div><div class="quebra"><h2>Laboratório guiado: do problema ao primeiro teste</h2><div class="caso"><div class="cabeca"><span class="selo-caso">CENÁRIO</span><span class="titulo-caso">Caso de aplicação</span><span class="tempo">20 min</span></div><div class="cena">Uma loja recebe diariamente perguntas iguais sobre produto, troca e prazo. O dono quer responder mais rápido, mas não quer errar estoque nem regra de devolução.</div><img class="imagem-caso" src="imagens/caso_loja_roupas.png" alt="Caso: loja de roupas"><div class="pergunta">Qual é a menor melhoria possível para testar em uma semana? Defina entrada, responsável, saída e uma exceção que precisa de pessoa.</div><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="desafio"><div class="cabeca"><span class="cronometro">⏱ 15:00</span><span class="titulo-des">Decisão de escopo</span></div><ol><li>Escreva o problema em uma frase.</li><li>Delimite o resultado observável.</li><li>Liste o que não entra no teste.</li><li>Defina quem revisa antes de usar.</li></ol></div></div><div class="quebra"><h2>Prompts de aplicação do módulo</h2><p>Troque apenas os campos entre colchetes. Não cole dados pessoais, financeiros, médicos, estratégicos ou de clientes quando não houver autorização e ferramenta aprovada.</p><div class="etiqueta">PROMPT 1</div><div class="prompt">Atue como analista de processos de uma pequena empresa. Organize estas tarefas: [LISTA]. Para cada uma, informe frequência, tempo estimado, risco de erro, dado que não pode ser compartilhado e se a IA pode rascunhar, organizar ou não deve participar. Não invente informações.</div><div class="etiqueta">PROMPT 2</div><div class="prompt">Contexto: [NEGÓCIO E PÚBLICO]. Objetivo: [RESULTADO]. Formato: [TABELA, MENSAGEM OU CHECKLIST]. Restrições: use apenas [DADOS CONFIRMADOS], deixe [CONFIRMAR] onde faltar informação e não faça promessas. Exemplo de tom: [EXEMPLO]. Tarefa: [TAREFA]. Antes de responder, liste o que precisa de revisão humana.</div><div class="etiqueta">PROMPT 3</div><div class="prompt">Revise o rascunho abaixo para uso em [CANAL]. Aponte em uma tabela: afirmação, evidência disponível, risco se estiver errada e ação necessária. Preserve [CAMPOS PENDENTES]. Rascunho: [COLE AQUI].</div></div><div class="quebra"><h2>Caça ao erro: qualidade antes de velocidade</h2><div class="caca"><div class="cabeca"><span class="selo-caca">CAÇA AO ERRO</span><span class="titulo-caca">Encontre o risco e proponha a correção</span><span class="tempo">10 min</span></div><div class="resposta-ia">1. Copiar uma resposta sem ler até o fim.<br>2. Enviar dados de cliente para uma conta ou ferramenta não aprovada.<br>3. Trocar [CONFIRMAR] por uma informação inventada.<br>4. Delegar preço, prazo, exceção ou decisão sensível para a IA.</div><p class="instrucao">Para cada item, escreva: o que pode dar errado, como reduzir o risco e quem deve aprovar.</p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="gabarito-formador"><div class="t">Critério de correção</div><p>Uma resposta madura não é "usar ou não usar IA". Ela identifica dado, impacto, responsável e uma forma de testar sem comprometer cliente, caixa ou reputação.</p></div></div></div><div class="quebra"><h2>Ficha de evidência e revisão</h2><div class="destacavel"><div class="dest-marca">ENTREGÁVEL · MÓDULO 1</div><div class="dest-corpo"><div class="dest-titulo">Evidência mínima para concluir a trilha</div><div class="dest-sub">Guarde os arquivos, a versão aprovada e a anotação de aprendizagem.</div><div class="ficha-check">☐ Tarefa delimitada e de baixo risco</div><div class="ficha-check">☐ Prompt contém contexto, objetivo, formato, restrições e exemplo</div><div class="ficha-check">☐ Há checklist de fatos, dados e promessa</div><div class="ficha-check">☐ O participante registra uma melhoria e uma limitação</div><div class="ficha-check">☐ Evidência enviada: Captura do prompt aprovado, duas versões comparadas, checklist preenchido e registro de tempo.</div></div></div><h3>Meu registro</h3><p><b>O que melhorou?</b></p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><p><b>O que ainda não pode ser delegado?</b></p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="quebra"><h2>Rubrica de autoavaliação</h2><table><thead><tr><th>Critério</th><th>Inicial</th><th>Em desenvolvimento</th><th>Aplicável</th></tr></thead><tbody><tr><td>Contexto</td><td>Pedido genérico</td><td>Inclui parte do cenário</td><td>Delimita público, objetivo e dados</td></tr><tr><td>Revisão</td><td>Copia sem checar</td><td>Corrige linguagem</td><td>Confere fatos, dados e consequências</td></tr><tr><td>Evidência</td><td>Não registra</td><td>Guarda uma saída</td><td>Compara versões, tempo e resultado</td></tr><tr><td>Segurança</td><td>Não distingue riscos</td><td>Evita alguns dados</td><td>Define limite, responsável e escalonamento</td></tr></tbody></table><div class="saida"><div class="t">Fechamento da trilha</div><div class="item">☐ Produto: <strong>Mapa de tarefas + prompt C.O.F.R.E. + protocolo de revisão</strong></div><div class="item">☐ Próxima revisão agendada</div><div class="item">☐ Decisão registrada: continuar, ajustar ou parar</div></div></div><div class="quebra"><h2>Ficha 1: dados de entrada e limites</h2><p>Antes de abrir qualquer ferramenta, preencha o que é necessário para esta aplicação. O objetivo é reduzir suposições e impedir que dados inadequados entrem no teste.</p><table><thead><tr><th>Campo</th><th>Minha resposta</th><th>Posso usar?</th></tr></thead><tbody><tr><td>Objetivo de negócio</td><td></td><td>☐ sim ☐ revisar</td></tr><tr><td>Dados confirmados</td><td></td><td>☐ sim ☐ revisar</td></tr><tr><td>Dados proibidos / sensíveis</td><td></td><td>☐ não inserir</td></tr><tr><td>Responsável pela aprovação</td><td></td><td>☐ definido</td></tr><tr><td>Canal ou ferramenta aprovada</td><td></td><td>☐ definido</td></tr></tbody></table><div class="atencao"><div class="t">Regra de proteção</div><p>Se não for necessário para a tarefa, não entre no prompt. Se a informação puder identificar uma pessoa, confirmar autorização e ambiente aprovado é parte da atividade.</p></div></div><div class="quebra"><h2>Ficha 2: comparação de versões</h2><p>Não avalie a IA pelo entusiasmo com a primeira saída. Compare uma versão inicial e uma versão revisada pelo efeito real no negócio.</p><table><thead><tr><th>Ponto de comparação</th><th>Versão inicial</th><th>Versão revisada</th></tr></thead><tbody><tr><td>Clareza para quem usa</td><td></td><td></td></tr><tr><td>Fatos e dados confirmados</td><td></td><td></td></tr><tr><td>Tom e adequação ao canal</td><td></td><td></td></tr><tr><td>Tempo para concluir</td><td></td><td></td></tr><tr><td>Risco ou pendência encontrada</td><td></td><td></td></tr></tbody></table><div class="dica"><div class="t">Decisão baseada em evidência</div><p>Se a versão revisada não reduz retrabalho, não aumenta clareza ou cria risco novo, o melhor resultado do teste pode ser não adotar aquela aplicação.</p></div></div><div class="quebra"><h2>Ficha 3: simulação de caso</h2><div class="duelo"><div class="cabeca"><span class="selo-duelo">DECIDA</span><span class="titulo-duelo">Automatizar, assistir ou manter humano?</span><span class="tempo">12 min</span></div><div class="rodada"><div class="rot ruim">Caminho precipitado</div><div class="resultado">A IA recebe qualquer entrada, produz uma saída e ela é enviada sem checagem para ganhar velocidade.</div></div><div class="rodada"><div class="rot bom">Caminho responsável</div><div class="resultado">Entrada delimitada, rascunho revisado, exceções encaminhadas, evidência registrada e possibilidade de parar o piloto.</div></div><div class="sua-vez"><div class="t">Aplique ao módulo 1</div>Em qual etapa de <strong>Fundamentos, prompts e rotina segura</strong> a IA pode apoiar? Qual etapa precisa continuar humana? Justifique com impacto e risco.<div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div></div></div><div class="quebra"><h2>Ficha 4: acompanhamento semanal</h2><table><thead><tr><th>Dia</th><th>Teste realizado</th><th>Correção necessária</th><th>Próximo passo</th></tr></thead><tbody><tr><td>Segunda</td><td></td><td></td><td></td></tr><tr><td>Terça</td><td></td><td></td><td></td></tr><tr><td>Quarta</td><td></td><td></td><td></td></tr><tr><td>Quinta</td><td></td><td></td><td></td></tr><tr><td>Sexta</td><td></td><td></td><td></td></tr></tbody></table><div class="celular"><div class="cabeca"><span class="selo-cel">NO CELULAR</span><span class="titulo-cel">Registro mínimo de 2 minutos</span><span class="tempo">diário</span></div><ol><li>Fotografe ou salve a evidência sem dados sensíveis.</li><li>Anote o tempo gasto e uma correção.</li><li>Marque se a saída foi usada, ajustada ou descartada.</li><li>Leve uma dúvida concreta para o próximo encontro.</li></ol></div></div><div class="quebra"><h2>Ficha 5: conversa de revisão com a equipe</h2><p>Use esta pauta após concluir a prática. A reunião não serve para celebrar ferramenta; serve para decidir se o processo ficou mais confiável.</p><div class="oficina"><div class="t">Pauta de 20 minutos</div><ol><li>Qual resultado observável obtivemos?</li><li>Que correção se repetiu?</li><li>Que dado, decisão ou exceção continua humana?</li><li>O que muda no processo antes do próximo teste?</li><li>Continuamos, ajustamos ou interrompemos?</li></ol></div><p><b>Decisão da equipe e responsável:</b></p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="quebra"><h2>Ficha 6: auditoria do prompt aprovado</h2><p>Use esta folha antes de transformar um prompt em modelo da equipe. O objetivo é que outra pessoa consiga revisar e repetir o processo sem adivinhar contexto.</p><table><thead><tr><th>Elemento</th><th>Está explícito?</th><th>Melhoria necessária</th></tr></thead><tbody><tr><td>Contexto e público</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Objetivo observável</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Formato de saída</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Restrições e campos pendentes</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Revisão humana e exceções</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Versão, data e responsável</td><td>☐ sim ☐ não</td><td></td></tr></tbody></table><div class="traduzindo"><div class="t">Padrão de equipe</div><p>Nomeie o arquivo com data e finalidade: por exemplo, [MÓDULO 1]_[TAREFA]_[AAAA-MM-DD]. Assim a equipe sabe qual versão foi validada.</p></div></div><div class="quebra"><h2>Ficha 7: transferência para a próxima semana</h2><p>A aplicação só vira aprendizagem quando é transferida para uma situação real. Defina agora como este módulo conversa com o próximo.</p><div class="desafio"><div class="cabeca"><span class="cronometro">⏱ 10:00</span><span class="titulo-des">Plano de transferência</span></div><ol><li>Qual entrega deste módulo será usada na próxima semana?</li><li>Quem precisa saber que ela existe?</li><li>Que indicador mostrará se foi útil?</li><li>Qual exceção será observada de perto?</li><li>Qual pergunta você levará para o próximo encontro?</li></ol></div><p><b>Meu compromisso de aplicação:</b></p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="saida"><div class="t">Passagem para o próximo módulo</div><div class="item">☐ Entrega revisada e salva</div><div class="item">☐ Responsável informado</div><div class="item">☐ Dúvida real registrada para a próxima aula</div></div></div><div class="quebra"><div class="faixa-encontro">TRILHA COMPLEMENTAR 2 · 8 HORAS</div><h1 class="cap">Operação, marketing e calendário de conteúdo</h1><p class="abertura">Esta trilha transforma o encontro ao vivo em aplicação guiada. Carga horária do módulo: 2h ao vivo + 8h de prática orientada.</p><div class="traduzindo"><div class="t">Produto de aplicação</div><p>Procedimento simples + calendário de 7 dias + banco de conteúdos aprovados</p></div><div class="atencao"><div class="t">Resultado esperado</div><p>Organizar uma rotina real, transformar conhecimento da empresa em conteúdo e publicar somente o que está confirmado.</p></div></div><div class="quebra"><h2>Roteiro de aplicação: 8 horas com evidências</h2><table><thead><tr><th>Tempo</th><th>Atividade prática</th><th>Evidência</th></tr></thead><tbody><tr><td><b>Bloco 1</b><br>1h</td><td><b>Raio-X operacional</b><br>Reúna notas, áudios e planilhas sem dados sensíveis; identifique uma rotina que perde informação.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 2</b><br>1h30</td><td><b>Procedimento em uma página</b><br>Converta a rotina em passos, responsável, entrada, saída e exceção.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 3</b><br>2h</td><td><b>Banco de pauta</b><br>Liste dúvidas, bastidores, provas autorizadas, objeções e convites possíveis.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 4</b><br>1h30</td><td><b>Calendário de 7 dias</b><br>Defina objetivo, canal, formato, CTA e informação a confirmar para cada publicação.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 5</b><br>1h</td><td><b>Produção e adaptação</b><br>Crie uma peça em dois formatos sem alterar a verdade da oferta.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 6</b><br>1h</td><td><b>Revisão e publicação</b><br>Use a régua de marca, autorização e capacidade operacional antes de agendar.</td><td>Registro no caderno</td></tr></tbody></table><div class="dica"><div class="t">Ritmo recomendado</div><p>Faça dois blocos por vez. Ao final de cada bloco, salve a evidência em uma pasta do projeto e anote o que precisou de revisão humana.</p></div></div><div class="quebra"><h2>Laboratório guiado: do problema ao primeiro teste</h2><div class="caso"><div class="cabeca"><span class="selo-caso">CENÁRIO</span><span class="titulo-caso">Caso de aplicação</span><span class="tempo">20 min</span></div><div class="cena">Um salão tem horários vazios no meio da semana. A equipe só posta quando sobra tempo e não pode prometer resultado de procedimento nem fazer descontos em todos os serviços.</div><img class="imagem-caso" src="imagens/caso_salao.png" alt="Caso: salão de beleza"><div class="pergunta">Qual é a menor melhoria possível para testar em uma semana? Defina entrada, responsável, saída e uma exceção que precisa de pessoa.</div><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="desafio"><div class="cabeca"><span class="cronometro">⏱ 15:00</span><span class="titulo-des">Decisão de escopo</span></div><ol><li>Escreva o problema em uma frase.</li><li>Delimite o resultado observável.</li><li>Liste o que não entra no teste.</li><li>Defina quem revisa antes de usar.</li></ol></div></div><div class="quebra"><h2>Prompts de aplicação do módulo</h2><p>Troque apenas os campos entre colchetes. Não cole dados pessoais, financeiros, médicos, estratégicos ou de clientes quando não houver autorização e ferramenta aprovada.</p><div class="etiqueta">PROMPT 1</div><div class="prompt">Transforme estas notas em um procedimento de uma página para [ROTINA]. Entregue: objetivo, gatilho de início, passos numerados, responsável, evidência de conclusão e exceções que devem ir para [PESSOA/FUNÇÃO]. Não crie regras que não aparecem nas notas: [NOTAS].</div><div class="etiqueta">PROMPT 2</div><div class="prompt">Crie um calendário de 7 dias para [NEGÓCIO]. Objetivo da semana: [OBJETIVO]. Público: [PÚBLICO]. Canais: [CANAIS]. Para cada dia, entregue formato, ideia, prova necessária, CTA e campo [CONFIRMAR]. Não invente desconto, agenda, resultado ou depoimento.</div><div class="etiqueta">PROMPT 3</div><div class="prompt">Adapte este conteúdo aprovado para [WHATSAPP/INSTAGRAM/E-MAIL]. Mantenha os fatos exatamente iguais, use tom [TOM], limite a [NÚMERO] caracteres e destaque qualquer dado que precise de confirmação antes de publicar: [CONTEÚDO].</div></div><div class="quebra"><h2>Caça ao erro: qualidade antes de velocidade</h2><div class="caca"><div class="cabeca"><span class="selo-caca">CAÇA AO ERRO</span><span class="titulo-caca">Encontre o risco e proponha a correção</span><span class="tempo">10 min</span></div><div class="resposta-ia">1. Publicar antes de confirmar agenda, preço ou estoque.<br>2. Usar foto, depoimento ou antes/depois sem autorização.<br>3. Produzir volume sem objetivo ou próxima ação.<br>4. Confundir linguagem de marca com frases genéricas da IA.</div><p class="instrucao">Para cada item, escreva: o que pode dar errado, como reduzir o risco e quem deve aprovar.</p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="gabarito-formador"><div class="t">Critério de correção</div><p>Uma resposta madura não é "usar ou não usar IA". Ela identifica dado, impacto, responsável e uma forma de testar sem comprometer cliente, caixa ou reputação.</p></div></div></div><div class="quebra"><h2>Ficha de evidência e revisão</h2><div class="destacavel"><div class="dest-marca">ENTREGÁVEL · MÓDULO 2</div><div class="dest-corpo"><div class="dest-titulo">Evidência mínima para concluir a trilha</div><div class="dest-sub">Guarde os arquivos, a versão aprovada e a anotação de aprendizagem.</div><div class="ficha-check">☐ Rotina tem responsável, entrada, saída e exceção</div><div class="ficha-check">☐ Cada conteúdo tem objetivo e CTA coerente</div><div class="ficha-check">☐ Oferta, agenda, preço e depoimentos foram confirmados</div><div class="ficha-check">☐ Há um banco reutilizável e não apenas posts isolados</div><div class="ficha-check">☐ Evidência enviada: Procedimento de uma página, calendário preenchido, duas adaptações por canal e checklist de aprovação.</div></div></div><h3>Meu registro</h3><p><b>O que melhorou?</b></p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><p><b>O que ainda não pode ser delegado?</b></p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="quebra"><h2>Rubrica de autoavaliação</h2><table><thead><tr><th>Critério</th><th>Inicial</th><th>Em desenvolvimento</th><th>Aplicável</th></tr></thead><tbody><tr><td>Contexto</td><td>Pedido genérico</td><td>Inclui parte do cenário</td><td>Delimita público, objetivo e dados</td></tr><tr><td>Revisão</td><td>Copia sem checar</td><td>Corrige linguagem</td><td>Confere fatos, dados e consequências</td></tr><tr><td>Evidência</td><td>Não registra</td><td>Guarda uma saída</td><td>Compara versões, tempo e resultado</td></tr><tr><td>Segurança</td><td>Não distingue riscos</td><td>Evita alguns dados</td><td>Define limite, responsável e escalonamento</td></tr></tbody></table><div class="saida"><div class="t">Fechamento da trilha</div><div class="item">☐ Produto: <strong>Procedimento simples + calendário de 7 dias + banco de conteúdos aprovados</strong></div><div class="item">☐ Próxima revisão agendada</div><div class="item">☐ Decisão registrada: continuar, ajustar ou parar</div></div></div><div class="quebra"><h2>Ficha 1: dados de entrada e limites</h2><p>Antes de abrir qualquer ferramenta, preencha o que é necessário para esta aplicação. O objetivo é reduzir suposições e impedir que dados inadequados entrem no teste.</p><table><thead><tr><th>Campo</th><th>Minha resposta</th><th>Posso usar?</th></tr></thead><tbody><tr><td>Objetivo de negócio</td><td></td><td>☐ sim ☐ revisar</td></tr><tr><td>Dados confirmados</td><td></td><td>☐ sim ☐ revisar</td></tr><tr><td>Dados proibidos / sensíveis</td><td></td><td>☐ não inserir</td></tr><tr><td>Responsável pela aprovação</td><td></td><td>☐ definido</td></tr><tr><td>Canal ou ferramenta aprovada</td><td></td><td>☐ definido</td></tr></tbody></table><div class="atencao"><div class="t">Regra de proteção</div><p>Se não for necessário para a tarefa, não entre no prompt. Se a informação puder identificar uma pessoa, confirmar autorização e ambiente aprovado é parte da atividade.</p></div></div><div class="quebra"><h2>Ficha 2: comparação de versões</h2><p>Não avalie a IA pelo entusiasmo com a primeira saída. Compare uma versão inicial e uma versão revisada pelo efeito real no negócio.</p><table><thead><tr><th>Ponto de comparação</th><th>Versão inicial</th><th>Versão revisada</th></tr></thead><tbody><tr><td>Clareza para quem usa</td><td></td><td></td></tr><tr><td>Fatos e dados confirmados</td><td></td><td></td></tr><tr><td>Tom e adequação ao canal</td><td></td><td></td></tr><tr><td>Tempo para concluir</td><td></td><td></td></tr><tr><td>Risco ou pendência encontrada</td><td></td><td></td></tr></tbody></table><div class="dica"><div class="t">Decisão baseada em evidência</div><p>Se a versão revisada não reduz retrabalho, não aumenta clareza ou cria risco novo, o melhor resultado do teste pode ser não adotar aquela aplicação.</p></div></div><div class="quebra"><h2>Ficha 3: simulação de caso</h2><div class="duelo"><div class="cabeca"><span class="selo-duelo">DECIDA</span><span class="titulo-duelo">Automatizar, assistir ou manter humano?</span><span class="tempo">12 min</span></div><div class="rodada"><div class="rot ruim">Caminho precipitado</div><div class="resultado">A IA recebe qualquer entrada, produz uma saída e ela é enviada sem checagem para ganhar velocidade.</div></div><div class="rodada"><div class="rot bom">Caminho responsável</div><div class="resultado">Entrada delimitada, rascunho revisado, exceções encaminhadas, evidência registrada e possibilidade de parar o piloto.</div></div><div class="sua-vez"><div class="t">Aplique ao módulo 2</div>Em qual etapa de <strong>Operação, marketing e calendário de conteúdo</strong> a IA pode apoiar? Qual etapa precisa continuar humana? Justifique com impacto e risco.<div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div></div></div><div class="quebra"><h2>Ficha 4: acompanhamento semanal</h2><table><thead><tr><th>Dia</th><th>Teste realizado</th><th>Correção necessária</th><th>Próximo passo</th></tr></thead><tbody><tr><td>Segunda</td><td></td><td></td><td></td></tr><tr><td>Terça</td><td></td><td></td><td></td></tr><tr><td>Quarta</td><td></td><td></td><td></td></tr><tr><td>Quinta</td><td></td><td></td><td></td></tr><tr><td>Sexta</td><td></td><td></td><td></td></tr></tbody></table><div class="celular"><div class="cabeca"><span class="selo-cel">NO CELULAR</span><span class="titulo-cel">Registro mínimo de 2 minutos</span><span class="tempo">diário</span></div><ol><li>Fotografe ou salve a evidência sem dados sensíveis.</li><li>Anote o tempo gasto e uma correção.</li><li>Marque se a saída foi usada, ajustada ou descartada.</li><li>Leve uma dúvida concreta para o próximo encontro.</li></ol></div></div><div class="quebra"><h2>Ficha 5: conversa de revisão com a equipe</h2><p>Use esta pauta após concluir a prática. A reunião não serve para celebrar ferramenta; serve para decidir se o processo ficou mais confiável.</p><div class="oficina"><div class="t">Pauta de 20 minutos</div><ol><li>Qual resultado observável obtivemos?</li><li>Que correção se repetiu?</li><li>Que dado, decisão ou exceção continua humana?</li><li>O que muda no processo antes do próximo teste?</li><li>Continuamos, ajustamos ou interrompemos?</li></ol></div><p><b>Decisão da equipe e responsável:</b></p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="quebra"><h2>Ficha 6: auditoria do prompt aprovado</h2><p>Use esta folha antes de transformar um prompt em modelo da equipe. O objetivo é que outra pessoa consiga revisar e repetir o processo sem adivinhar contexto.</p><table><thead><tr><th>Elemento</th><th>Está explícito?</th><th>Melhoria necessária</th></tr></thead><tbody><tr><td>Contexto e público</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Objetivo observável</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Formato de saída</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Restrições e campos pendentes</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Revisão humana e exceções</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Versão, data e responsável</td><td>☐ sim ☐ não</td><td></td></tr></tbody></table><div class="traduzindo"><div class="t">Padrão de equipe</div><p>Nomeie o arquivo com data e finalidade: por exemplo, [MÓDULO 2]_[TAREFA]_[AAAA-MM-DD]. Assim a equipe sabe qual versão foi validada.</p></div></div><div class="quebra"><h2>Ficha 7: transferência para a próxima semana</h2><p>A aplicação só vira aprendizagem quando é transferida para uma situação real. Defina agora como este módulo conversa com o próximo.</p><div class="desafio"><div class="cabeca"><span class="cronometro">⏱ 10:00</span><span class="titulo-des">Plano de transferência</span></div><ol><li>Qual entrega deste módulo será usada na próxima semana?</li><li>Quem precisa saber que ela existe?</li><li>Que indicador mostrará se foi útil?</li><li>Qual exceção será observada de perto?</li><li>Qual pergunta você levará para o próximo encontro?</li></ol></div><p><b>Meu compromisso de aplicação:</b></p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="saida"><div class="t">Passagem para o próximo módulo</div><div class="item">☐ Entrega revisada e salva</div><div class="item">☐ Responsável informado</div><div class="item">☐ Dúvida real registrada para a próxima aula</div></div></div><div class="quebra"><div class="faixa-encontro">TRILHA COMPLEMENTAR 3 · 8 HORAS</div><h1 class="cap">Vendas, atendimento e pesquisa com evidências</h1><p class="abertura">Esta trilha transforma o encontro ao vivo em aplicação guiada. Carga horária do módulo: 2h ao vivo + 8h de prática orientada.</p><div class="traduzindo"><div class="t">Produto de aplicação</div><p>Roteiro de diagnóstico + respostas-modelo + mapa de pesquisa com fontes</p></div><div class="atencao"><div class="t">Resultado esperado</div><p>Criar conversas consistentes, distinguir resposta padrão de decisão humana e pesquisar sem tratar a IA como fonte final.</p></div></div><div class="quebra"><h2>Roteiro de aplicação: 8 horas com evidências</h2><table><thead><tr><th>Tempo</th><th>Atividade prática</th><th>Evidência</th></tr></thead><tbody><tr><td><b>Bloco 1</b><br>1h</td><td><b>Mapa da jornada</b><br>Desenhe o caminho de um contato: entrada, diagnóstico, proposta, decisão, pós-venda e perda.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 2</b><br>1h30</td><td><b>Perguntas de diagnóstico</b><br>Construa perguntas abertas que revelam necessidade, urgência, critério e próximo passo.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 3</b><br>2h</td><td><b>Biblioteca de respostas</b><br>Rascunhe respostas para dúvidas frequentes e indique quando escalar para uma pessoa.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 4</b><br>1h30</td><td><b>Proposta-base</b><br>Organize escopo, entregas, cronograma, investimento confirmado, exclusões e responsabilidades.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 5</b><br>1h</td><td><b>Pesquisa verificável</b><br>Use a IA para hipóteses; confirme em fontes primárias e registre data e link.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 6</b><br>1h</td><td><b>Simulação e melhoria</b><br>Teste o fluxo com um colega, registre objeções e refine uma resposta.</td><td>Registro no caderno</td></tr></tbody></table><div class="dica"><div class="t">Ritmo recomendado</div><p>Faça dois blocos por vez. Ao final de cada bloco, salve a evidência em uma pasta do projeto e anote o que precisou de revisão humana.</p></div></div><div class="quebra"><h2>Laboratório guiado: do problema ao primeiro teste</h2><div class="caso"><div class="cabeca"><span class="selo-caso">CENÁRIO</span><span class="titulo-caso">Caso de aplicação</span><span class="tempo">20 min</span></div><div class="cena">Uma imobiliária recebe leads em canais diferentes. A equipe responde rápido, mas não registra estágio, preferência ou motivo de perda; alguns imóveis mudam de disponibilidade durante o dia.</div><img class="imagem-caso" src="imagens/caso_imobiliaria.png" alt="Caso: imobiliária"><div class="pergunta">Qual é a menor melhoria possível para testar em uma semana? Defina entrada, responsável, saída e uma exceção que precisa de pessoa.</div><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="desafio"><div class="cabeca"><span class="cronometro">⏱ 15:00</span><span class="titulo-des">Decisão de escopo</span></div><ol><li>Escreva o problema em uma frase.</li><li>Delimite o resultado observável.</li><li>Liste o que não entra no teste.</li><li>Defina quem revisa antes de usar.</li></ol></div></div><div class="quebra"><h2>Prompts de aplicação do módulo</h2><p>Troque apenas os campos entre colchetes. Não cole dados pessoais, financeiros, médicos, estratégicos ou de clientes quando não houver autorização e ferramenta aprovada.</p><div class="etiqueta">PROMPT 1</div><div class="prompt">Você é consultor de vendas de [NEGÓCIO]. Crie 8 perguntas abertas para entender necessidade, prioridade, prazo, critério de decisão e próximo passo de [PÚBLICO]. Não presuma orçamento nem dados pessoais. Depois classifique cada pergunta por objetivo.</div><div class="etiqueta">PROMPT 2</div><div class="prompt">Escreva três respostas para a dúvida [DÚVIDA] no canal [CANAL], com tom [TOM]. Use apenas estas regras confirmadas: [REGRAS]. Inclua uma versão curta, uma acolhedora e uma que encaminha para uma pessoa. Marque dados variáveis como [CONFIRMAR].</div><div class="etiqueta">PROMPT 3</div><div class="prompt">Para investigar [PERGUNTA DE NEGÓCIO], proponha hipóteses, palavras-chave, fontes primárias desejáveis, data de corte e uma tabela para registrar: afirmação, fonte, data, grau de confiança e decisão que ela pode apoiar. Não apresente suposições como fatos.</div></div><div class="quebra"><h2>Caça ao erro: qualidade antes de velocidade</h2><div class="caca"><div class="cabeca"><span class="selo-caca">CAÇA AO ERRO</span><span class="titulo-caca">Encontre o risco e proponha a correção</span><span class="tempo">10 min</span></div><div class="resposta-ia">1. Prometer disponibilidade sem consultar o sistema.<br>2. Responder reclamação grave com texto automático.<br>3. Usar dado de mercado sem fonte, data ou contexto.<br>4. Enviar proposta com escopo, valor ou prazo não validados.</div><p class="instrucao">Para cada item, escreva: o que pode dar errado, como reduzir o risco e quem deve aprovar.</p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="gabarito-formador"><div class="t">Critério de correção</div><p>Uma resposta madura não é "usar ou não usar IA". Ela identifica dado, impacto, responsável e uma forma de testar sem comprometer cliente, caixa ou reputação.</p></div></div></div><div class="quebra"><h2>Ficha de evidência e revisão</h2><div class="destacavel"><div class="dest-marca">ENTREGÁVEL · MÓDULO 3</div><div class="dest-corpo"><div class="dest-titulo">Evidência mínima para concluir a trilha</div><div class="dest-sub">Guarde os arquivos, a versão aprovada e a anotação de aprendizagem.</div><div class="ficha-check">☐ Diagnóstico precede proposta ou preço</div><div class="ficha-check">☐ Macros de atendimento têm tom, limite e escalonamento</div><div class="ficha-check">☐ Toda informação externa relevante possui fonte e data</div><div class="ficha-check">☐ A proposta deixa lacunas visíveis como [CONFIRMAR]</div><div class="ficha-check">☐ Evidência enviada: Jornada desenhada, cinco perguntas de diagnóstico, três macros e tabela de fontes preenchida.</div></div></div><h3>Meu registro</h3><p><b>O que melhorou?</b></p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><p><b>O que ainda não pode ser delegado?</b></p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="quebra"><h2>Rubrica de autoavaliação</h2><table><thead><tr><th>Critério</th><th>Inicial</th><th>Em desenvolvimento</th><th>Aplicável</th></tr></thead><tbody><tr><td>Contexto</td><td>Pedido genérico</td><td>Inclui parte do cenário</td><td>Delimita público, objetivo e dados</td></tr><tr><td>Revisão</td><td>Copia sem checar</td><td>Corrige linguagem</td><td>Confere fatos, dados e consequências</td></tr><tr><td>Evidência</td><td>Não registra</td><td>Guarda uma saída</td><td>Compara versões, tempo e resultado</td></tr><tr><td>Segurança</td><td>Não distingue riscos</td><td>Evita alguns dados</td><td>Define limite, responsável e escalonamento</td></tr></tbody></table><div class="saida"><div class="t">Fechamento da trilha</div><div class="item">☐ Produto: <strong>Roteiro de diagnóstico + respostas-modelo + mapa de pesquisa com fontes</strong></div><div class="item">☐ Próxima revisão agendada</div><div class="item">☐ Decisão registrada: continuar, ajustar ou parar</div></div></div><div class="quebra"><h2>Ficha 1: dados de entrada e limites</h2><p>Antes de abrir qualquer ferramenta, preencha o que é necessário para esta aplicação. O objetivo é reduzir suposições e impedir que dados inadequados entrem no teste.</p><table><thead><tr><th>Campo</th><th>Minha resposta</th><th>Posso usar?</th></tr></thead><tbody><tr><td>Objetivo de negócio</td><td></td><td>☐ sim ☐ revisar</td></tr><tr><td>Dados confirmados</td><td></td><td>☐ sim ☐ revisar</td></tr><tr><td>Dados proibidos / sensíveis</td><td></td><td>☐ não inserir</td></tr><tr><td>Responsável pela aprovação</td><td></td><td>☐ definido</td></tr><tr><td>Canal ou ferramenta aprovada</td><td></td><td>☐ definido</td></tr></tbody></table><div class="atencao"><div class="t">Regra de proteção</div><p>Se não for necessário para a tarefa, não entre no prompt. Se a informação puder identificar uma pessoa, confirmar autorização e ambiente aprovado é parte da atividade.</p></div></div><div class="quebra"><h2>Ficha 2: comparação de versões</h2><p>Não avalie a IA pelo entusiasmo com a primeira saída. Compare uma versão inicial e uma versão revisada pelo efeito real no negócio.</p><table><thead><tr><th>Ponto de comparação</th><th>Versão inicial</th><th>Versão revisada</th></tr></thead><tbody><tr><td>Clareza para quem usa</td><td></td><td></td></tr><tr><td>Fatos e dados confirmados</td><td></td><td></td></tr><tr><td>Tom e adequação ao canal</td><td></td><td></td></tr><tr><td>Tempo para concluir</td><td></td><td></td></tr><tr><td>Risco ou pendência encontrada</td><td></td><td></td></tr></tbody></table><div class="dica"><div class="t">Decisão baseada em evidência</div><p>Se a versão revisada não reduz retrabalho, não aumenta clareza ou cria risco novo, o melhor resultado do teste pode ser não adotar aquela aplicação.</p></div></div><div class="quebra"><h2>Ficha 3: simulação de caso</h2><div class="duelo"><div class="cabeca"><span class="selo-duelo">DECIDA</span><span class="titulo-duelo">Automatizar, assistir ou manter humano?</span><span class="tempo">12 min</span></div><div class="rodada"><div class="rot ruim">Caminho precipitado</div><div class="resultado">A IA recebe qualquer entrada, produz uma saída e ela é enviada sem checagem para ganhar velocidade.</div></div><div class="rodada"><div class="rot bom">Caminho responsável</div><div class="resultado">Entrada delimitada, rascunho revisado, exceções encaminhadas, evidência registrada e possibilidade de parar o piloto.</div></div><div class="sua-vez"><div class="t">Aplique ao módulo 3</div>Em qual etapa de <strong>Vendas, atendimento e pesquisa com evidências</strong> a IA pode apoiar? Qual etapa precisa continuar humana? Justifique com impacto e risco.<div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div></div></div><div class="quebra"><h2>Ficha 4: acompanhamento semanal</h2><table><thead><tr><th>Dia</th><th>Teste realizado</th><th>Correção necessária</th><th>Próximo passo</th></tr></thead><tbody><tr><td>Segunda</td><td></td><td></td><td></td></tr><tr><td>Terça</td><td></td><td></td><td></td></tr><tr><td>Quarta</td><td></td><td></td><td></td></tr><tr><td>Quinta</td><td></td><td></td><td></td></tr><tr><td>Sexta</td><td></td><td></td><td></td></tr></tbody></table><div class="celular"><div class="cabeca"><span class="selo-cel">NO CELULAR</span><span class="titulo-cel">Registro mínimo de 2 minutos</span><span class="tempo">diário</span></div><ol><li>Fotografe ou salve a evidência sem dados sensíveis.</li><li>Anote o tempo gasto e uma correção.</li><li>Marque se a saída foi usada, ajustada ou descartada.</li><li>Leve uma dúvida concreta para o próximo encontro.</li></ol></div></div><div class="quebra"><h2>Ficha 5: conversa de revisão com a equipe</h2><p>Use esta pauta após concluir a prática. A reunião não serve para celebrar ferramenta; serve para decidir se o processo ficou mais confiável.</p><div class="oficina"><div class="t">Pauta de 20 minutos</div><ol><li>Qual resultado observável obtivemos?</li><li>Que correção se repetiu?</li><li>Que dado, decisão ou exceção continua humana?</li><li>O que muda no processo antes do próximo teste?</li><li>Continuamos, ajustamos ou interrompemos?</li></ol></div><p><b>Decisão da equipe e responsável:</b></p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="quebra"><h2>Ficha 6: auditoria do prompt aprovado</h2><p>Use esta folha antes de transformar um prompt em modelo da equipe. O objetivo é que outra pessoa consiga revisar e repetir o processo sem adivinhar contexto.</p><table><thead><tr><th>Elemento</th><th>Está explícito?</th><th>Melhoria necessária</th></tr></thead><tbody><tr><td>Contexto e público</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Objetivo observável</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Formato de saída</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Restrições e campos pendentes</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Revisão humana e exceções</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Versão, data e responsável</td><td>☐ sim ☐ não</td><td></td></tr></tbody></table><div class="traduzindo"><div class="t">Padrão de equipe</div><p>Nomeie o arquivo com data e finalidade: por exemplo, [MÓDULO 3]_[TAREFA]_[AAAA-MM-DD]. Assim a equipe sabe qual versão foi validada.</p></div></div><div class="quebra"><h2>Ficha 7: transferência para a próxima semana</h2><p>A aplicação só vira aprendizagem quando é transferida para uma situação real. Defina agora como este módulo conversa com o próximo.</p><div class="desafio"><div class="cabeca"><span class="cronometro">⏱ 10:00</span><span class="titulo-des">Plano de transferência</span></div><ol><li>Qual entrega deste módulo será usada na próxima semana?</li><li>Quem precisa saber que ela existe?</li><li>Que indicador mostrará se foi útil?</li><li>Qual exceção será observada de perto?</li><li>Qual pergunta você levará para o próximo encontro?</li></ol></div><p><b>Meu compromisso de aplicação:</b></p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="saida"><div class="t">Passagem para o próximo módulo</div><div class="item">☐ Entrega revisada e salva</div><div class="item">☐ Responsável informado</div><div class="item">☐ Dúvida real registrada para a próxima aula</div></div></div><div class="quebra"><div class="faixa-encontro">TRILHA COMPLEMENTAR 4 · 8 HORAS</div><h1 class="cap">Produtividade, automação e plano de 30 dias</h1><p class="abertura">Esta trilha transforma o encontro ao vivo em aplicação guiada. Carga horária do módulo: 2h ao vivo + 8h de prática orientada.</p><div class="traduzindo"><div class="t">Produto de aplicação</div><p>Piloto de baixo risco + painel de acompanhamento + plano de implantação de 30 dias</p></div><div class="atencao"><div class="t">Resultado esperado</div><p>Implantar uma melhoria pequena, mensurável e reversível, com responsável, métrica, regra de segurança e plano de ajuste.</p></div></div><div class="quebra"><h2>Roteiro de aplicação: 8 horas com evidências</h2><table><thead><tr><th>Tempo</th><th>Atividade prática</th><th>Evidência</th></tr></thead><tbody><tr><td><b>Bloco 1</b><br>1h</td><td><b>Inventário de decisões</b><br>Separe tarefas de rascunho, triagem, decisão e exceção; defina qual não será automatizada.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 2</b><br>1h30</td><td><b>Desenho do piloto</b><br>Escolha um fluxo de baixo risco com entrada, processamento, revisão humana, saída e reversão.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 3</b><br>2h</td><td><b>Configuração assistida</b><br>Monte modelo de documento, checklist e padrão de nome; teste com dados fictícios.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 4</b><br>1h30</td><td><b>Indicadores simples</b><br>Registre tempo, retrabalho, qualidade, volume e incidentes antes/depois.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 5</b><br>1h</td><td><b>Governança mínima</b><br>Defina conta aprovada, permissões, dados proibidos, responsável e canal de incidente.</td><td>Registro no caderno</td></tr><tr><td><b>Bloco 6</b><br>1h</td><td><b>Plano de 30 dias</b><br>Planeje semanas 1, 2, 3 e 4 com evidência esperada, reunião de revisão e decisão de continuar, ajustar ou parar.</td><td>Registro no caderno</td></tr></tbody></table><div class="dica"><div class="t">Ritmo recomendado</div><p>Faça dois blocos por vez. Ao final de cada bloco, salve a evidência em uma pasta do projeto e anote o que precisou de revisão humana.</p></div></div><div class="quebra"><h2>Laboratório guiado: do problema ao primeiro teste</h2><div class="caso"><div class="cabeca"><span class="selo-caso">CENÁRIO</span><span class="titulo-caso">Caso de aplicação</span><span class="tempo">20 min</span></div><div class="cena">Um restaurante anota pedidos e reclamações em canais diferentes. O gestor quer consolidar o dia, mas não pode deixar uma reclamação séria ou um pedido especial sem atenção humana.</div><img class="imagem-caso" src="imagens/caso_restaurante.png" alt="Caso: restaurante"><div class="pergunta">Qual é a menor melhoria possível para testar em uma semana? Defina entrada, responsável, saída e uma exceção que precisa de pessoa.</div><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="desafio"><div class="cabeca"><span class="cronometro">⏱ 15:00</span><span class="titulo-des">Decisão de escopo</span></div><ol><li>Escreva o problema em uma frase.</li><li>Delimite o resultado observável.</li><li>Liste o que não entra no teste.</li><li>Defina quem revisa antes de usar.</li></ol></div></div><div class="quebra"><h2>Prompts de aplicação do módulo</h2><p>Troque apenas os campos entre colchetes. Não cole dados pessoais, financeiros, médicos, estratégicos ou de clientes quando não houver autorização e ferramenta aprovada.</p><div class="etiqueta">PROMPT 1</div><div class="prompt">Ajude a desenhar um piloto de IA para [TAREFA]. Produza uma tabela com entrada permitida, processamento, revisão humana, saída, responsável, risco, métrica, critério de parada e plano de reversão. Não proponha automação de decisão financeira, jurídica, de contratação ou de exceção sem validação humana.</div><div class="etiqueta">PROMPT 2</div><div class="prompt">Organize este registro semanal de [PILOTO] em um painel simples com: volume, tempo antes, tempo depois, correções, incidentes, dúvidas recorrentes e decisão da semana. Explique quais números são insuficientes para concluir sucesso: [REGISTROS].</div><div class="etiqueta">PROMPT 3</div><div class="prompt">Crie um plano de implantação de 30 dias para [PILOTO]. Divida por semanas e informe objetivo, atividade, responsável, evidência, indicador e reunião de revisão. Preserve esta regra: [REGRA DE SEGURANÇA]. Inclua uma decisão explícita: continuar, ajustar ou interromper.</div></div><div class="quebra"><h2>Caça ao erro: qualidade antes de velocidade</h2><div class="caca"><div class="cabeca"><span class="selo-caca">CAÇA AO ERRO</span><span class="titulo-caca">Encontre o risco e proponha a correção</span><span class="tempo">10 min</span></div><div class="resposta-ia">1. Automatizar uma exceção antes de estabilizar o processo.<br>2. Medir apenas volume e ignorar qualidade ou retrabalho.<br>3. Dar acesso a dados além do necessário.<br>4. Tratar um teste curto como prova definitiva de retorno.</div><p class="instrucao">Para cada item, escreva: o que pode dar errado, como reduzir o risco e quem deve aprovar.</p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="gabarito-formador"><div class="t">Critério de correção</div><p>Uma resposta madura não é "usar ou não usar IA". Ela identifica dado, impacto, responsável e uma forma de testar sem comprometer cliente, caixa ou reputação.</p></div></div></div><div class="quebra"><h2>Ficha de evidência e revisão</h2><div class="destacavel"><div class="dest-marca">ENTREGÁVEL · MÓDULO 4</div><div class="dest-corpo"><div class="dest-titulo">Evidência mínima para concluir a trilha</div><div class="dest-sub">Guarde os arquivos, a versão aprovada e a anotação de aprendizagem.</div><div class="ficha-check">☐ Piloto é reversível e não envolve decisão crítica automática</div><div class="ficha-check">☐ Há responsável e ponto de revisão humana</div><div class="ficha-check">☐ Indicador tem linha de base e período de observação</div><div class="ficha-check">☐ O plano prevê parar ou ajustar diante de erro</div><div class="ficha-check">☐ Evidência enviada: Desenho do piloto, registro de linha de base, checklist de segurança e plano de 30 dias.</div></div></div><h3>Meu registro</h3><p><b>O que melhorou?</b></p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><p><b>O que ainda não pode ser delegado?</b></p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="quebra"><h2>Rubrica de autoavaliação</h2><table><thead><tr><th>Critério</th><th>Inicial</th><th>Em desenvolvimento</th><th>Aplicável</th></tr></thead><tbody><tr><td>Contexto</td><td>Pedido genérico</td><td>Inclui parte do cenário</td><td>Delimita público, objetivo e dados</td></tr><tr><td>Revisão</td><td>Copia sem checar</td><td>Corrige linguagem</td><td>Confere fatos, dados e consequências</td></tr><tr><td>Evidência</td><td>Não registra</td><td>Guarda uma saída</td><td>Compara versões, tempo e resultado</td></tr><tr><td>Segurança</td><td>Não distingue riscos</td><td>Evita alguns dados</td><td>Define limite, responsável e escalonamento</td></tr></tbody></table><div class="saida"><div class="t">Fechamento da trilha</div><div class="item">☐ Produto: <strong>Piloto de baixo risco + painel de acompanhamento + plano de implantação de 30 dias</strong></div><div class="item">☐ Próxima revisão agendada</div><div class="item">☐ Decisão registrada: continuar, ajustar ou parar</div></div></div><div class="quebra"><h2>Ficha 1: dados de entrada e limites</h2><p>Antes de abrir qualquer ferramenta, preencha o que é necessário para esta aplicação. O objetivo é reduzir suposições e impedir que dados inadequados entrem no teste.</p><table><thead><tr><th>Campo</th><th>Minha resposta</th><th>Posso usar?</th></tr></thead><tbody><tr><td>Objetivo de negócio</td><td></td><td>☐ sim ☐ revisar</td></tr><tr><td>Dados confirmados</td><td></td><td>☐ sim ☐ revisar</td></tr><tr><td>Dados proibidos / sensíveis</td><td></td><td>☐ não inserir</td></tr><tr><td>Responsável pela aprovação</td><td></td><td>☐ definido</td></tr><tr><td>Canal ou ferramenta aprovada</td><td></td><td>☐ definido</td></tr></tbody></table><div class="atencao"><div class="t">Regra de proteção</div><p>Se não for necessário para a tarefa, não entre no prompt. Se a informação puder identificar uma pessoa, confirmar autorização e ambiente aprovado é parte da atividade.</p></div></div><div class="quebra"><h2>Ficha 2: comparação de versões</h2><p>Não avalie a IA pelo entusiasmo com a primeira saída. Compare uma versão inicial e uma versão revisada pelo efeito real no negócio.</p><table><thead><tr><th>Ponto de comparação</th><th>Versão inicial</th><th>Versão revisada</th></tr></thead><tbody><tr><td>Clareza para quem usa</td><td></td><td></td></tr><tr><td>Fatos e dados confirmados</td><td></td><td></td></tr><tr><td>Tom e adequação ao canal</td><td></td><td></td></tr><tr><td>Tempo para concluir</td><td></td><td></td></tr><tr><td>Risco ou pendência encontrada</td><td></td><td></td></tr></tbody></table><div class="dica"><div class="t">Decisão baseada em evidência</div><p>Se a versão revisada não reduz retrabalho, não aumenta clareza ou cria risco novo, o melhor resultado do teste pode ser não adotar aquela aplicação.</p></div></div><div class="quebra"><h2>Ficha 3: simulação de caso</h2><div class="duelo"><div class="cabeca"><span class="selo-duelo">DECIDA</span><span class="titulo-duelo">Automatizar, assistir ou manter humano?</span><span class="tempo">12 min</span></div><div class="rodada"><div class="rot ruim">Caminho precipitado</div><div class="resultado">A IA recebe qualquer entrada, produz uma saída e ela é enviada sem checagem para ganhar velocidade.</div></div><div class="rodada"><div class="rot bom">Caminho responsável</div><div class="resultado">Entrada delimitada, rascunho revisado, exceções encaminhadas, evidência registrada e possibilidade de parar o piloto.</div></div><div class="sua-vez"><div class="t">Aplique ao módulo 4</div>Em qual etapa de <strong>Produtividade, automação e plano de 30 dias</strong> a IA pode apoiar? Qual etapa precisa continuar humana? Justifique com impacto e risco.<div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div></div></div><div class="quebra"><h2>Ficha 4: acompanhamento semanal</h2><table><thead><tr><th>Dia</th><th>Teste realizado</th><th>Correção necessária</th><th>Próximo passo</th></tr></thead><tbody><tr><td>Segunda</td><td></td><td></td><td></td></tr><tr><td>Terça</td><td></td><td></td><td></td></tr><tr><td>Quarta</td><td></td><td></td><td></td></tr><tr><td>Quinta</td><td></td><td></td><td></td></tr><tr><td>Sexta</td><td></td><td></td><td></td></tr></tbody></table><div class="celular"><div class="cabeca"><span class="selo-cel">NO CELULAR</span><span class="titulo-cel">Registro mínimo de 2 minutos</span><span class="tempo">diário</span></div><ol><li>Fotografe ou salve a evidência sem dados sensíveis.</li><li>Anote o tempo gasto e uma correção.</li><li>Marque se a saída foi usada, ajustada ou descartada.</li><li>Leve uma dúvida concreta para o próximo encontro.</li></ol></div></div><div class="quebra"><h2>Ficha 5: conversa de revisão com a equipe</h2><p>Use esta pauta após concluir a prática. A reunião não serve para celebrar ferramenta; serve para decidir se o processo ficou mais confiável.</p><div class="oficina"><div class="t">Pauta de 20 minutos</div><ol><li>Qual resultado observável obtivemos?</li><li>Que correção se repetiu?</li><li>Que dado, decisão ou exceção continua humana?</li><li>O que muda no processo antes do próximo teste?</li><li>Continuamos, ajustamos ou interrompemos?</li></ol></div><p><b>Decisão da equipe e responsável:</b></p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="quebra"><h2>Ficha 6: auditoria do prompt aprovado</h2><p>Use esta folha antes de transformar um prompt em modelo da equipe. O objetivo é que outra pessoa consiga revisar e repetir o processo sem adivinhar contexto.</p><table><thead><tr><th>Elemento</th><th>Está explícito?</th><th>Melhoria necessária</th></tr></thead><tbody><tr><td>Contexto e público</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Objetivo observável</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Formato de saída</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Restrições e campos pendentes</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Revisão humana e exceções</td><td>☐ sim ☐ não</td><td></td></tr><tr><td>Versão, data e responsável</td><td>☐ sim ☐ não</td><td></td></tr></tbody></table><div class="traduzindo"><div class="t">Padrão de equipe</div><p>Nomeie o arquivo com data e finalidade: por exemplo, [MÓDULO 4]_[TAREFA]_[AAAA-MM-DD]. Assim a equipe sabe qual versão foi validada.</p></div></div><div class="quebra"><h2>Ficha 7: transferência para a próxima semana</h2><p>A aplicação só vira aprendizagem quando é transferida para uma situação real. Defina agora como este módulo conversa com o próximo.</p><div class="desafio"><div class="cabeca"><span class="cronometro">⏱ 10:00</span><span class="titulo-des">Plano de transferência</span></div><ol><li>Qual entrega deste módulo será usada na próxima semana?</li><li>Quem precisa saber que ela existe?</li><li>Que indicador mostrará se foi útil?</li><li>Qual exceção será observada de perto?</li><li>Qual pergunta você levará para o próximo encontro?</li></ol></div><p><b>Meu compromisso de aplicação:</b></p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="saida"><div class="t">Passagem para o próximo módulo</div><div class="item">☐ Entrega revisada e salva</div><div class="item">☐ Responsável informado</div><div class="item">☐ Dúvida real registrada para a próxima aula</div></div></div></div><div id="ferramentas-aplicadas-2026"><div class="quebra"><div class="faixa-encontro">EXTENSÃO CURRICULAR · FERRAMENTAS APLICADAS</div><h1 class="cap">IA que realmente entra no negócio</h1><p class="abertura">Esta extensão ensina criação, documentos, dados, pesquisa, agentes e automação sem prometer autonomia cega. A regra é simples: começar pequeno, revisar sempre e medir se melhorou.</p><table><thead><tr><th>Módulo</th><th>Ferramentas</th><th>Entrega real</th></tr></thead><tbody><tr><td>1</td><td>ChatGPT e ChatGPT Work</td><td>biblioteca com 5 prompts da empresa</td></tr><tr><td>2</td><td>ChatGPT Images / GPT Image 2.5 e Gemini com Veo/Flow</td><td>guia visual de marca em uma página</td></tr><tr><td>3</td><td>Gemini para Google Workspace e NotebookLM</td><td>procedimento no Docs</td></tr><tr><td>4</td><td>Agentes de IA, Claude, Make e Google Apps Script</td><td>mapa antes/depois do processo</td></tr></tbody></table></div><div class="quebra"><div class="faixa-encontro">FERRAMENTAS APLICADAS · MÓDULO 1</div><h1 class="cap">ChatGPT, Work e comandos que viram trabalho útil</h1><p class="abertura">Ferramenta principal: ChatGPT e ChatGPT Work.</p><div class="traduzindo"><div class="t">Sem linguagem técnica</div><p>Chat é uma conversa rápida. Work é indicado para um trabalho mais longo: reunir material permitido, propor um plano, produzir um arquivo e manter o contexto até a revisão final. Nenhuma das duas opções substitui a decisão do responsável.</p></div><div class="atencao"><div class="t">Acesso e custo: fale a verdade ao participante</div><p>GRATUITO COM LIMITES — ChatGPT: conversa de texto sem limite fixo; imagem, upload de arquivo e voz têm cota diária. O plano Go (US$ 8/mês) multiplica a cota por 10; o Business custa US$ 25 por usuário/mês, mínimo de 2 usuários. Conectores e ações em apps variam por plano e permissão da empresa. Conferido na documentação oficial em 19/09/2026.</p></div></div><div class="quebra"><h2>Laboratório do módulo</h2><div class="caso"><div class="cabeca"><span class="selo-caso">CASO PRÁTICO</span><span class="titulo-caso">Cenário de negócio</span><span class="tempo">30 min</span></div><div class="cena">Uma prestadora de serviços recebe pedidos por WhatsApp, agenda em papel e anotações espalhadas. Ela quer organizar a semana sem entregar decisões de preço ou prioridade para a IA.</div><img class="imagem-caso" src="imagens/caso_loja_roupas.png" alt="Caso: loja de roupas"><div class="pergunta">Desenhe uma primeira solução pequena e segura. Qual é a entrada? Quem revisa? Qual saída será utilizada? O que ficará fora do teste?</div><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="desafio"><div class="cabeca"><span class="cronometro">⏱ 20:00</span><span class="titulo-des">Prática orientada</span></div><p>Transformar um conjunto de notas, áudios transcritos ou documentos não sigilosos em um plano de operação de uma semana.</p><ol><li>Defina o resultado que será observado.</li><li>Prepare somente dados permitidos.</li><li>Faça uma primeira versão.</li><li>Revise antes de compartilhar.</li><li>Registre correção, limite e próximo teste.</li></ol></div></div><div class="quebra"><h2>Prompt 1: produção com controle</h2><div class="etiqueta">PROMPT PARA ADAPTAR</div><div class="prompt">Você será meu assistente de operação para [NEGÓCIO]. Objetivo: transformar o material abaixo em um plano de trabalho de 7 dias. Entregue uma tabela com tarefa, responsável, prazo, insumo necessário, risco e critério de conclusão. Use somente informações confirmadas. Marque lacunas como [CONFIRMAR]. Não decida preço, exceção de cliente ou compromisso financeiro. Material: [COLE AQUI].</div><h3>O que revisar antes de usar</h3><div class="oficina"><div class="t">Checklist de saída</div><ol><li>O resultado responde ao objetivo real?</li><li>Há dado, preço, prazo ou promessa inventada?</li><li>Há campo [CONFIRMAR] que precisa continuar visível?</li><li>O formato funciona no canal escolhido?</li><li>Uma pessoa autorizada revisou antes de publicar, enviar ou conectar?</li></ol></div></div><div class="quebra"><h2>Prompt 2: auditoria e melhoria</h2><div class="etiqueta">PROMPT PARA ADAPTAR</div><div class="prompt">Revise este plano como um gestor cuidadoso. Para cada item, indique: fato confirmado, suposição, dado que não pode ser compartilhado, aprovação humana necessária e próximo passo. Não reescreva dados incertos como se fossem verdadeiros. Plano: [COLE AQUI].</div><div class="dica"><div class="t">Método de três versões</div><p>Guarde a primeira versão, a versão corrigida e a versão aprovada. Isso ensina a equipe o que melhora com contexto e evita repetir o mesmo erro.</p></div><h3>Minhas correções</h3><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="quebra"><h2>Caça ao erro: use, revise ou escale?</h2><div class="caca"><div class="cabeca"><span class="selo-caca">CAÇA AO ERRO</span><span class="titulo-caca">Identifique o risco antes de acelerar</span><span class="tempo">12 min</span></div><div class="resposta-ia">1. Pedir “faça tudo para minha empresa” sem resultado delimitado.<br>2. Enviar dados de clientes, senhas, documentos financeiros ou informações sensíveis.<br>3. Tratar o primeiro rascunho como documento final.<br>4. Conectar uma conta de trabalho sem saber o que a IA poderá ler ou usar.</div><p class="instrucao">Para cada risco, assinale: corrigir agora, confirmar em fonte, pedir autorização ou encaminhar para uma pessoa.</p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="gabarito-formador"><div class="t">Princípio</div><p>Uma automação ou conteúdo é bom quando reduz trabalho sem esconder incerteza, ampliar exposição de dados ou retirar uma decisão que precisa de responsabilidade humana.</p></div></div></div><div class="quebra"><h2>Produto do módulo e evidência</h2><div class="destacavel"><div class="dest-marca">PORTFÓLIO DO PARTICIPANTE</div><div class="dest-corpo"><div class="dest-titulo">Conclua com material utilizável</div><div class="dest-sub">A ferramenta só conta como aprendizagem quando gera algo revisado que a empresa pode usar ou testar.</div><div class="ficha-check">☐ biblioteca com 5 prompts da empresa</div><div class="ficha-check">☐ mapa de dados permitidos e proibidos</div><div class="ficha-check">☐ plano semanal revisado</div><div class="ficha-check">☐ registro de uma tarefa que não será delegada</div></div></div><table><thead><tr><th>Indicador</th><th>Antes</th><th>Depois</th><th>Decisão</th></tr></thead><tbody><tr><td>Tempo gasto</td><td></td><td></td><td></td></tr><tr><td>Correções necessárias</td><td></td><td></td><td></td></tr><tr><td>Qualidade / clareza</td><td></td><td></td><td></td></tr><tr><td>Risco ou incidente</td><td></td><td></td><td></td></tr></tbody></table></div><div class="quebra"><div class="faixa-encontro">FERRAMENTAS APLICADAS · MÓDULO 2</div><h1 class="cap">Imagens, campanha e vídeo com IA</h1><p class="abertura">Ferramenta principal: ChatGPT Images / GPT Image 2.5 e Gemini com Veo/Flow.</p><div class="traduzindo"><div class="t">Sem linguagem técnica</div><p>Imagem profissional nasce de briefing, não de uma frase genérica. Vídeo nasce de uma sequência de cenas: objetivo, público, ambiente, pessoa, ação, câmera, som, texto e chamada para ação. Toda pessoa real, marca, depoimento e oferta exige autorização e revisão.</p></div><div class="atencao"><div class="t">Acesso e custo: fale a verdade ao participante</div><p>GRATUITO COM LIMITES — ChatGPT Images: poucas imagens por dia no gratuito, com fundo transparente e edição por seleção. Vídeo: o Sora foi encerrado pela OpenAI em março de 2026 e não é usado neste curso; o caminho gratuito é o Google Veo, cerca de 10 gerações por mês em conta comum, e o Pika, cujo plano gratuito permite uso comercial a 480p. Conferido em 19/09/2026. Antes da aula, o instrutor confirma quais contas têm acesso e apresenta alternativa de roteiro quando não houver vídeo disponível.</p></div></div><div class="quebra"><h2>Laboratório do módulo</h2><div class="caso"><div class="cabeca"><span class="selo-caso">CASO PRÁTICO</span><span class="titulo-caso">Cenário de negócio</span><span class="tempo">30 min</span></div><div class="cena">Um salão quer preencher horários de terça a quinta. A campanha deve mostrar ambiente acolhedor e serviço real, mas não pode usar antes/depois sem consentimento nem prometer resultados.</div><img class="imagem-caso" src="imagens/caso_salao.png" alt="Caso: salão de beleza"><div class="pergunta">Desenhe uma primeira solução pequena e segura. Qual é a entrada? Quem revisa? Qual saída será utilizada? O que ficará fora do teste?</div><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="desafio"><div class="cabeca"><span class="cronometro">⏱ 20:00</span><span class="titulo-des">Prática orientada</span></div><p>Criar uma campanha de 7 dias para um negócio real: três imagens, uma peça de oferta aprovada, roteiro de vídeo curto e uma versão adaptada para WhatsApp.</p><ol><li>Defina o resultado que será observado.</li><li>Prepare somente dados permitidos.</li><li>Faça uma primeira versão.</li><li>Revise antes de compartilhar.</li><li>Registre correção, limite e próximo teste.</li></ol></div></div><div class="quebra"><h2>Prompt 1: produção com controle</h2><div class="etiqueta">PROMPT PARA ADAPTAR</div><div class="prompt">Crie uma fotografia publicitária realista para [NEGÓCIO]. Público: [PÚBLICO]. Objetivo: [AÇÃO DESEJADA]. Cena: [AMBIENTE REAL]. Pessoa: [DESCRIÇÃO AUTORIZADA]. Produto/serviço em destaque: [ITEM]. Estilo: fotografia comercial contemporânea, luz natural quente, detalhes de interface em neon suave e ícones discretos relacionados a [TEMA]. Formato [1:1/4:5/9:16]. Não invente preço, logotipo ou texto longo; deixe a área de texto limpa.</div><h3>O que revisar antes de usar</h3><div class="oficina"><div class="t">Checklist de saída</div><ol><li>O resultado responde ao objetivo real?</li><li>Há dado, preço, prazo ou promessa inventada?</li><li>Há campo [CONFIRMAR] que precisa continuar visível?</li><li>O formato funciona no canal escolhido?</li><li>Uma pessoa autorizada revisou antes de publicar, enviar ou conectar?</li></ol></div></div><div class="quebra"><h2>Prompt 2: auditoria e melhoria</h2><div class="etiqueta">PROMPT PARA ADAPTAR</div><div class="prompt">Escreva um briefing de vídeo vertical de 8 segundos para [NEGÓCIO]. Estruture em: objetivo, primeira cena, ação da pessoa, movimento de câmera, ambiente, luz, som/locução, texto curto na tela e CTA. Use apenas fatos confirmados: [FATOS]. Não use rosto, voz ou marca de terceiros sem autorização. Entregue também uma versão sem fala para caso eu use apenas música.</div><div class="dica"><div class="t">Método de três versões</div><p>Guarde a primeira versão, a versão corrigida e a versão aprovada. Isso ensina a equipe o que melhora com contexto e evita repetir o mesmo erro.</p></div><h3>Minhas correções</h3><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="quebra"><h2>Caça ao erro: use, revise ou escale?</h2><div class="caca"><div class="cabeca"><span class="selo-caca">CAÇA AO ERRO</span><span class="titulo-caca">Identifique o risco antes de acelerar</span><span class="tempo">12 min</span></div><div class="resposta-ia">1. Usar a imagem de uma pessoa real sem autorização.<br>2. Pedir texto pequeno e denso dentro da imagem sem conferência.<br>3. Prometer resultado de saúde, estética, finanças ou prazo sem base.<br>4. Publicar vídeo gerado sem revisar cena, fala, marca e legenda.</div><p class="instrucao">Para cada risco, assinale: corrigir agora, confirmar em fonte, pedir autorização ou encaminhar para uma pessoa.</p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="gabarito-formador"><div class="t">Princípio</div><p>Uma automação ou conteúdo é bom quando reduz trabalho sem esconder incerteza, ampliar exposição de dados ou retirar uma decisão que precisa de responsabilidade humana.</p></div></div></div><div class="quebra"><h2>Produto do módulo e evidência</h2><div class="destacavel"><div class="dest-marca">PORTFÓLIO DO PARTICIPANTE</div><div class="dest-corpo"><div class="dest-titulo">Conclua com material utilizável</div><div class="dest-sub">A ferramenta só conta como aprendizagem quando gera algo revisado que a empresa pode usar ou testar.</div><div class="ficha-check">☐ guia visual de marca em uma página</div><div class="ficha-check">☐ 3 imagens comerciais revisadas</div><div class="ficha-check">☐ roteiro de vídeo de 8 segundos</div><div class="ficha-check">☐ checklist de direitos, texto e promessa</div></div></div><table><thead><tr><th>Indicador</th><th>Antes</th><th>Depois</th><th>Decisão</th></tr></thead><tbody><tr><td>Tempo gasto</td><td></td><td></td><td></td></tr><tr><td>Correções necessárias</td><td></td><td></td><td></td></tr><tr><td>Qualidade / clareza</td><td></td><td></td><td></td></tr><tr><td>Risco ou incidente</td><td></td><td></td><td></td></tr></tbody></table></div><div class="quebra"><div class="faixa-encontro">FERRAMENTAS APLICADAS · MÓDULO 3</div><h1 class="cap">Gemini no Docs e Sheets, pesquisa e NotebookLM</h1><p class="abertura">Ferramenta principal: Gemini para Google Workspace e NotebookLM.</p><div class="traduzindo"><div class="t">Sem linguagem técnica</div><p>Docs serve para transformar conhecimento em documento utilizável. Sheets organiza fatos, indicadores e rotina. NotebookLM responde com base nas fontes escolhidas e apresenta citações — isso não dispensa conferir a fonte, mas torna a pesquisa muito mais rastreável.</p></div><div class="atencao"><div class="t">Acesso e custo: fale a verdade ao participante</div><p>DEPENDE DO PLANO — Gemini no Documentos e Planilhas: montar planilha inteira por descrição e criar mini-apps estão em versão de testes para assinantes Google AI Pro e Ultra. Sem assinatura, o caminho do curso é exportar CSV e analisar no chat, que dá quase o mesmo resultado com um passo a mais. NotebookLM (o Google está renomeando para Gemini Notebook): GRATUITO COM LIMITES — até 50 fontes por caderno, cada uma com até 500 mil palavras ou 200 MB. Conferido em 19/09/2026.</p></div></div><div class="quebra"><h2>Laboratório do módulo</h2><div class="caso"><div class="cabeca"><span class="selo-caso">CASO PRÁTICO</span><span class="titulo-caso">Cenário de negócio</span><span class="tempo">30 min</span></div><div class="cena">Uma imobiliária possui documentos de bairros, regras internas e planilhas de leads. A equipe precisa responder melhor, mas disponibilidade de imóvel e dados pessoais não podem ser assumidos nem expostos.</div><img class="imagem-caso" src="imagens/caso_imobiliaria.png" alt="Caso: imobiliária"><div class="pergunta">Desenhe uma primeira solução pequena e segura. Qual é a entrada? Quem revisa? Qual saída será utilizada? O que ficará fora do teste?</div><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="desafio"><div class="cabeca"><span class="cronometro">⏱ 20:00</span><span class="titulo-des">Prática orientada</span></div><p>Montar uma base de conhecimento com materiais autorizados, criar documento comercial, painel simples no Sheets e FAQ com fonte identificada.</p><ol><li>Defina o resultado que será observado.</li><li>Prepare somente dados permitidos.</li><li>Faça uma primeira versão.</li><li>Revise antes de compartilhar.</li><li>Registre correção, limite e próximo teste.</li></ol></div></div><div class="quebra"><h2>Prompt 1: produção com controle</h2><div class="etiqueta">PROMPT PARA ADAPTAR</div><div class="prompt">No Google Docs, transforme estas notas em um procedimento de uma página para [ROTINA]. Estruture: objetivo, quando começa, passos, responsável, evidência de conclusão, exceções e dados que não podem aparecer no documento. Não invente política, prazo ou valor. Notas: [COLE AQUI].</div><h3>O que revisar antes de usar</h3><div class="oficina"><div class="t">Checklist de saída</div><ol><li>O resultado responde ao objetivo real?</li><li>Há dado, preço, prazo ou promessa inventada?</li><li>Há campo [CONFIRMAR] que precisa continuar visível?</li><li>O formato funciona no canal escolhido?</li><li>Uma pessoa autorizada revisou antes de publicar, enviar ou conectar?</li></ol></div></div><div class="quebra"><h2>Prompt 2: auditoria e melhoria</h2><div class="etiqueta">PROMPT PARA ADAPTAR</div><div class="prompt">No Google Sheets, analise a tabela [INTERVALO]. Crie uma visão simples com: total, tendência, três categorias mais frequentes, itens que precisam de atenção e gráfico recomendado. Explique quais conclusões não podem ser tiradas só com estes dados. Não altere a planilha antes de eu aprovar a prévia.</div><div class="dica"><div class="t">Método de três versões</div><p>Guarde a primeira versão, a versão corrigida e a versão aprovada. Isso ensina a equipe o que melhora com contexto e evita repetir o mesmo erro.</p></div><h3>Minhas correções</h3><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="quebra"><h2>Caça ao erro: use, revise ou escale?</h2><div class="caca"><div class="cabeca"><span class="selo-caca">CAÇA AO ERRO</span><span class="titulo-caca">Identifique o risco antes de acelerar</span><span class="tempo">12 min</span></div><div class="resposta-ia">1. Dar acesso a um Drive inteiro em vez de selecionar fontes necessárias.<br>2. Usar uma resposta do NotebookLM sem abrir a citação correspondente.<br>3. Pedir análise de planilha sem delimitar a aba, intervalo ou pergunta.<br>4. Aplicar uma alteração em massa no Sheets sem conferir a prévia e a versão.</div><p class="instrucao">Para cada risco, assinale: corrigir agora, confirmar em fonte, pedir autorização ou encaminhar para uma pessoa.</p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="gabarito-formador"><div class="t">Princípio</div><p>Uma automação ou conteúdo é bom quando reduz trabalho sem esconder incerteza, ampliar exposição de dados ou retirar uma decisão que precisa de responsabilidade humana.</p></div></div></div><div class="quebra"><h2>Produto do módulo e evidência</h2><div class="destacavel"><div class="dest-marca">PORTFÓLIO DO PARTICIPANTE</div><div class="dest-corpo"><div class="dest-titulo">Conclua com material utilizável</div><div class="dest-sub">A ferramenta só conta como aprendizagem quando gera algo revisado que a empresa pode usar ou testar.</div><div class="ficha-check">☐ procedimento no Docs</div><div class="ficha-check">☐ planilha de acompanhamento com indicador</div><div class="ficha-check">☐ NotebookLM com fontes permitidas</div><div class="ficha-check">☐ FAQ com citações ou links de conferência</div></div></div><table><thead><tr><th>Indicador</th><th>Antes</th><th>Depois</th><th>Decisão</th></tr></thead><tbody><tr><td>Tempo gasto</td><td></td><td></td><td></td></tr><tr><td>Correções necessárias</td><td></td><td></td><td></td></tr><tr><td>Qualidade / clareza</td><td></td><td></td><td></td></tr><tr><td>Risco ou incidente</td><td></td><td></td><td></td></tr></tbody></table></div><div class="quebra"><div class="faixa-encontro">FERRAMENTAS APLICADAS · MÓDULO 4</div><h1 class="cap">Agentes, trabalho delegado e automações seguras</h1><p class="abertura">Ferramenta principal: Agentes de IA, Claude, Make e Google Apps Script.</p><div class="traduzindo"><div class="t">Sem linguagem técnica</div><p>Agente não é magia: é um assistente com missão, fontes permitidas, passos, limites e uma entrega para revisão. Automação é uma sequência de gatilho, filtro, ação, registro e alerta. Comece com algo reversível; não automatize exceção, dinheiro, decisão crítica ou reclamação séria.</p></div><div class="atencao"><div class="t">Acesso e custo: fale a verdade ao participante</div><p>GRATUITO COM LIMITES — Claude tem uso gratuito com cota por período; delegar trabalho sobre pastas de arquivos é recurso dos planos pagos (Cowork e chat foram unificados num só Claude). Make: plano gratuito com 1.000 operações/mês e até dois cenários ativos. Apps Script: gratuito no navegador, dentro do Google Workspace. Conferido na documentação oficial em 19/09/2026.</p></div></div><div class="quebra"><h2>Laboratório do módulo</h2><div class="caso"><div class="cabeca"><span class="selo-caso">CASO PRÁTICO</span><span class="titulo-caso">Cenário de negócio</span><span class="tempo">30 min</span></div><div class="cena">Um restaurante recebe pedidos e feedbacks por canais diferentes. O gestor quer um resumo diário e alertas de reclamação, mas qualquer caso sério precisa ir imediatamente para uma pessoa.</div><img class="imagem-caso" src="imagens/caso_restaurante.png" alt="Caso: restaurante"><div class="pergunta">Desenhe uma primeira solução pequena e segura. Qual é a entrada? Quem revisa? Qual saída será utilizada? O que ficará fora do teste?</div><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="desafio"><div class="cabeca"><span class="cronometro">⏱ 20:00</span><span class="titulo-des">Prática orientada</span></div><p>Desenhar e testar uma automação de baixo risco: formulário ou planilha → organização → alerta → revisão humana → registro de resultado.</p><ol><li>Defina o resultado que será observado.</li><li>Prepare somente dados permitidos.</li><li>Faça uma primeira versão.</li><li>Revise antes de compartilhar.</li><li>Registre correção, limite e próximo teste.</li></ol></div></div><div class="quebra"><h2>Prompt 1: produção com controle</h2><div class="etiqueta">PROMPT PARA ADAPTAR</div><div class="prompt">Desenhe um agente de IA simples para [PROCESSO]. Entregue uma tabela com: missão, entrada permitida, fontes autorizadas, etapas, saída, responsável humano, exceções, dados proibidos, métrica, critério de parada e plano de reversão. Não proponha decisão automática sobre preço, crédito, contratação, saúde, questão jurídica ou reclamação grave.</div><h3>O que revisar antes de usar</h3><div class="oficina"><div class="t">Checklist de saída</div><ol><li>O resultado responde ao objetivo real?</li><li>Há dado, preço, prazo ou promessa inventada?</li><li>Há campo [CONFIRMAR] que precisa continuar visível?</li><li>O formato funciona no canal escolhido?</li><li>Uma pessoa autorizada revisou antes de publicar, enviar ou conectar?</li></ol></div></div><div class="quebra"><h2>Prompt 2: auditoria e melhoria</h2><div class="etiqueta">PROMPT PARA ADAPTAR</div><div class="prompt">Desenhe uma automação visual para [NEGÓCIO]: quando [GATILHO] acontecer, validar [CONDIÇÃO], registrar [DADO] em [FERRAMENTA], avisar [RESPONSÁVEL] e enviar apenas um rascunho para revisão. Mostre também o caminho de erro e a ação quando faltar dado. Não conecte contas nem envie mensagens automaticamente.</div><div class="dica"><div class="t">Método de três versões</div><p>Guarde a primeira versão, a versão corrigida e a versão aprovada. Isso ensina a equipe o que melhora com contexto e evita repetir o mesmo erro.</p></div><h3>Minhas correções</h3><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div></div><div class="quebra"><h2>Caça ao erro: use, revise ou escale?</h2><div class="caca"><div class="cabeca"><span class="selo-caca">CAÇA AO ERRO</span><span class="titulo-caca">Identifique o risco antes de acelerar</span><span class="tempo">12 min</span></div><div class="resposta-ia">1. Automatizar uma resposta para reclamação, cobrança ou exceção.<br>2. Não registrar falhas, duplicidade ou ausência de dados.<br>3. Dar permissão ampla para a ferramenta sem necessidade.<br>4. Medir apenas quantidade e ignorar erro, retrabalho e satisfação.</div><p class="instrucao">Para cada risco, assinale: corrigir agora, confirmar em fonte, pedir autorização ou encaminhar para uma pessoa.</p><div class="linhas"><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div></div><div class="gabarito-formador"><div class="t">Princípio</div><p>Uma automação ou conteúdo é bom quando reduz trabalho sem esconder incerteza, ampliar exposição de dados ou retirar uma decisão que precisa de responsabilidade humana.</p></div></div></div><div class="quebra"><h2>Produto do módulo e evidência</h2><div class="destacavel"><div class="dest-marca">PORTFÓLIO DO PARTICIPANTE</div><div class="dest-corpo"><div class="dest-titulo">Conclua com material utilizável</div><div class="dest-sub">A ferramenta só conta como aprendizagem quando gera algo revisado que a empresa pode usar ou testar.</div><div class="ficha-check">☐ mapa antes/depois do processo</div><div class="ficha-check">☐ desenho de agente com limites</div><div class="ficha-check">☐ automação de baixo risco testada</div><div class="ficha-check">☐ painel de tempo, correção, incidente e decisão</div></div></div><table><thead><tr><th>Indicador</th><th>Antes</th><th>Depois</th><th>Decisão</th></tr></thead><tbody><tr><td>Tempo gasto</td><td></td><td></td><td></td></tr><tr><td>Correções necessárias</td><td></td><td></td><td></td></tr><tr><td>Qualidade / clareza</td><td></td><td></td><td></td></tr><tr><td>Risco ou incidente</td><td></td><td></td><td></td></tr></tbody></table></div></div></body></html>
+Restrições: mantenha o meu vocabulário, o tamanho das minhas frases e o meu nível de formalidade.
+Meu texto de referência: [COLE AQUI]</div>
+
+<div class="dica">
+  <div class="t">💡 Guarde dois ou três textos seus</div>
+  <p>Uma resposta que você gostou, um anúncio que funcionou, uma mensagem que soa como você. Eles viram a referência de tudo o que você pedir daqui para a frente.</p>
+</div>
+    </section>
+
+    <section>
+      <div class="quebra"></div>
+      <div class="faixa-encontro">Capítulo 3</div>
+      <h1 class="cap"><span class="ic">🏪</span>Capítulo 3: IA no dia a dia da empresa</h1>
+      <p class="abertura">Os prompts das tarefas que se repetem toda semana. Cada um já traz as restrições que evitam o problema mais comum daquele caso.</p>
+      <h2>3.1 Atendimento: responder, recusar, cobrar</h2><div class="figura-img metade">
+  <img src="imagens/07_atendimento_cliente.png" alt="Atendimento: responder no mesmo dia vale mais que responder perfeito.">
+  <div class="legenda">Atendimento: responder no mesmo dia vale mais que responder perfeito.</div>
+</div>
+
+<div class="etiqueta">Responder cliente insatisfeito</div>
+<div class="prompt">Contexto: sou dono de [NEGÓCIO]. Um cliente enviou a mensagem abaixo e está insatisfeito. O que realmente aconteceu, pelo que eu sei: [SUA VERSÃO].
+Objetivo: escrever uma resposta que reconheça o problema e proponha um próximo passo concreto.
+Formato: mensagem de até 6 linhas, tom [TOM], pronta para enviar.
+Restrições: não admita culpa sobre o que ainda não foi verificado, não prometa prazo que eu não confirmei, não ofereça desconto por conta própria.
+Mensagem do cliente: [COLE AQUI]</div>
+
+<div class="etiqueta">Dizer não sem perder o cliente</div>
+<div class="prompt">Contexto: um cliente pediu [PEDIDO] e eu não posso atender porque [MOTIVO].
+Objetivo: recusar mantendo a relação.
+Formato: mensagem curta com a recusa clara na primeira linha, o motivo em uma linha e uma alternativa se existir.
+Restrições: não enrole nem deixe ambíguo — um "vou ver" que nunca vira nada é pior que um não. Não invente alternativa que eu não ofereço.</div>
+
+<div class="etiqueta">Cobrar sem constranger</div>
+<div class="prompt">Contexto: um cliente está com [VALOR] em aberto desde [DATA]. A relação é [RELAÇÃO].
+Objetivo: cobrar sem desgastar.
+Formato: três mensagens em sequência — lembrete, cobrança e último aviso —, cada uma para um momento.
+Restrições: nada de ameaça, constrangimento ou menção a terceiros. Em todas, ofereça um caminho para resolver.</div>
+
+<div class="atencao">
+  <div class="t">⚠️ Quando não usar texto gerado</div>
+  <p>Reclamação que envolve saúde, segurança ou dano grave não se responde por mensagem. Ligue. A IA ajuda a preparar o que dizer, não a evitar a conversa.</p>
+</div>
+<h2>3.2 Vendas: orçamento, proposta e follow-up</h2><div class="figura-img metade">
+  <img src="imagens/06_vendas_proposta.png" alt="A proposta que o cliente entende sem precisar ligar de volta.">
+  <div class="legenda">A proposta que o cliente entende sem precisar ligar de volta.</div>
+</div>
+
+<div class="etiqueta">Orçamento que o cliente entende sozinho</div>
+<div class="prompt">Contexto: vou orçar [SERVIÇO]. Os itens e valores são: [ITENS].
+Objetivo: um orçamento que ele leia sem me ligar.
+Formato: cada item com o que é, por que é necessário e o valor; total; validade; forma de pagamento; e o que acontece se ele quiser tirar algum item.
+Restrições: use SOMENTE os valores que eu dei. Não some nada que eu não listei.</div>
+
+<p>O "por que é necessário" ao lado de cada item reduz pela metade as perguntas de volta.</p>
+
+<div class="etiqueta">Proposta a partir de uma conversa</div>
+<div class="prompt">Contexto: conversei com um cliente que precisa de [NECESSIDADE]. Meu negócio é [NEGÓCIO].
+Objetivo: transformar a conversa em proposta.
+Formato: escopo, o que NÃO está incluso, premissas, prazo, forma de pagamento e próximo passo.
+Restrições: não invente preço — deixe [VALOR]. Não prometa resultado que dependa do cliente.
+O que foi conversado: [COLE AQUI]</div>
+
+<div class="dica">
+  <div class="t">💡 O "não incluso" é o que evita discussão</div>
+  <p>É a parte que quase ninguém escreve e a que mais previne conflito três semanas depois.</p>
+</div>
+
+<div class="etiqueta">Retomar proposta sem resposta</div>
+<div class="prompt">Contexto: enviei uma proposta de [OFERTA] em [DATA] e não tive retorno.
+Objetivo: retomar sem parecer insistente.
+Formato: três mensagens para momentos diferentes; a última oferecendo encerrar o assunto.
+Restrições: nada de "passando para saber"; cada mensagem traz algo novo. Nada de urgência inventada.</div>
+<h2>3.3 Administrativo: procedimento, reunião, e-mail difícil</h2><div class="figura-img metade">
+  <img src="imagens/04_rotina_administrativa.png" alt="Procedimento escrito é o que permite delegar — e, depois, automatizar.">
+  <div class="legenda">Procedimento escrito é o que permite delegar — e, depois, automatizar.</div>
+</div>
+
+<div class="etiqueta">Transformar o jeito de fazer em procedimento</div>
+<div class="prompt">Contexto: no meu [NEGÓCIO], [PROCESSO] é feito assim: [COMO É HOJE].
+Objetivo: transformar num procedimento de uma página que uma pessoa nova consiga seguir.
+Formato: passo a passo numerado, responsável por passo, o que fazer quando der errado e um checklist final.
+Restrições: linguagem simples, sem jargão; cada passo começando com um verbo; máximo de uma página.</div>
+
+<div class="etiqueta">Reunião em plano de ação</div>
+<div class="prompt">Contexto: seguem as anotações de uma reunião: [NOTAS].
+Objetivo: transformar em plano de ação.
+Formato: tabela com decisão, ação, responsável, prazo e dependência. Depois, uma lista do que ficou sem resposta.
+Restrições: não invente responsável nem prazo — onde não foi dito, escreva [DEFINIR]. Não transforme em decisão o que ficou como dúvida.</div>
+
+<p>A lista do que ficou sem resposta costuma ser a parte mais útil — é por onde a próxima reunião começa.</p>
+
+<div class="etiqueta">E-mail difícil de escrever</div>
+<div class="prompt">Contexto: preciso escrever para [DESTINATÁRIO] sobre [ASSUNTO]. A situação real é: [SITUAÇÃO]. O que quero que aconteça depois: [OBJETIVO].
+Objetivo: um e-mail que resolva sem queimar a relação.
+Formato: três versões — mais direta, intermediária e mais diplomática.
+Restrições: nada de passivo-agressivo; não ameace; não peça desculpa por algo que não é meu erro; não use "venho por meio desta".</div>
+
+<div class="dica">
+  <div class="t">💡 Descreva a situação com honestidade</div>
+  <p>Inclusive a parte que te incomoda. A IA escreve melhor quando sabe o que está em jogo; omitir a parte difícil produz texto morno.</p>
+</div>
+    </section>
+
+    <section>
+      <div class="quebra"></div>
+      <div class="faixa-encontro">Capítulo 4</div>
+      <h1 class="cap"><span class="ic">💬</span>Capítulo 4: ChatGPT além da conversa</h1>
+      <p class="abertura">A maioria usa uma fração do que a ferramenta faz — e justamente a fração que menos economiza tempo. Este capítulo reúne os recursos que resolvem trabalho de verdade.</p>
+      <h2>4.1 Anexar arquivo: pare de copiar e colar</h2><div class="figura-img metade">
+  <img src="imagens/03_dois_canais.png" alt="Dois caminhos: pedir uma resposta ou entregar um trabalho inteiro.">
+  <div class="legenda">Dois caminhos: pedir uma resposta ou entregar um trabalho inteiro.</div>
+</div>
+
+<p>Copiar e colar funciona para um parágrafo. Para um contrato de 20 páginas, uma planilha de vendas ou uma nota fiscal, não funciona — e nem precisa. O botão de anexo aceita PDF, imagem, planilha e documento.</p>
+
+<div class="dica">
+  <div class="t">💡 Usos que resolvem hoje</div>
+  <p>• Foto do cardápio do concorrente → comparar com o seu<br>
+  • PDF do contrato → "quais são minhas obrigações?"<br>
+  • Planilha de vendas → "o que mudou no último trimestre?"<br>
+  • Foto de documento manuscrito → transformar em texto digitado<br>
+  • Print de uma conversa → "me ajude a responder isso"</p>
+</div>
+
+<div class="atencao">
+  <div class="t">⚠️ O que ainda falha</div>
+  <p>Foto tremida ou com sombra forte erra número. Planilha com várias abas sem explicação confunde. PDF que é imagem escaneada de baixa qualidade não é lido direito.</p>
+</div>
+
+<p><strong>A pergunta certa muda tudo.</strong> Não peça "analise esta planilha". Peça: <em>"nesta planilha, a coluna D é o valor da venda e a E é o custo. Quais produtos têm margem abaixo de 20%?"</em>. Explicar as colunas leva 20 segundos e é o que mais melhora a resposta.</p>
+
+<div class="atencao">
+  <div class="t">🔒 Antes de anexar</div>
+  <p>O arquivo <strong>inteiro</strong> vai para o servidor, não só a parte que interessa. Uma nota fiscal tem CNPJ e endereço; uma planilha de clientes tem nome e telefone. Apague, tampe, ou mande só o trecho.</p>
+</div>
+<h2>4.2 Delegar um trabalho, não pedir uma resposta</h2><p>Existe uma diferença grande entre perguntar a um funcionário "como se escreve uma proposta?" e dizer "monte a proposta deste cliente, com base nestes arquivos, e me mostre antes de enviar".</p>
+
+<p>A primeira é uma pergunta. A segunda é um trabalho: tem material, tem etapas, tem um ponto em que você confere. É nessa segunda forma que está o ganho de tempo real.</p>
+
+<div class="traduzindo">
+  <div class="t">📖 Traduzindo: trabalho agêntico</div>
+  <p>É como as ferramentas chamam quando a IA executa várias etapas seguidas, abrindo arquivos e organizando resultados, em vez de só responder. No ChatGPT aparece como Work e nos recursos de projeto; no Claude, o que já se chamou Cowork e hoje está no próprio Claude.</p>
+</div>
+
+<div class="etiqueta">Um pedido de trabalho tem quatro partes</div>
+<div class="prompt">Contexto: meu negócio é [NEGÓCIO]. Anexei [MATERIAL], já sem dado pessoal.
+Objetivo: [O QUE PRECISO NO FIM].
+Formato: [COMO DEVE CHEGAR].
+Restrições: use somente o material anexado; não invente número, prazo ou nome; onde faltar informação, escreva [CONFIRMAR].
+Pare e me mostre [O PONTO DE PARADA] antes de finalizar.</div>
+
+<p>Repare: três das quatro partes não falam do que fazer — falam do que entregar, do que não fazer e de quando parar. É aí que quase todo mundo erra.</p>
+
+<div class="atencao">
+  <div class="t">⚠️ Quanto maior o trabalho, mais importante a revisão</div>
+  <p>Numa resposta curta você percebe o erro lendo. Num relatório de dez páginas montado sozinho, o erro se esconde no meio — e sai com o seu nome. Delegar não transfere a responsabilidade.</p>
+</div>
+<h2>4.3 Instruções personalizadas e memória</h2><p>Se você repete o mesmo contexto em toda conversa, está gastando tempo com algo que a ferramenta pode guardar. Nas configurações há um campo para dizer quem você é e como quer as respostas — vale para todas as conversas.</p>
+
+<div class="dica">
+  <div class="t">💡 O que vale escrever lá</div>
+  <p>• Seu negócio, seu público e sua região<br>
+  • O tom que você usa com cliente<br>
+  • O que você nunca promete (desconto, prazo curto, exclusividade)<br>
+  • O formato que prefere: mensagens curtas, listas, sem emoji<br>
+  • Que ela deve escrever [CONFIRMAR] em vez de inventar dado</p>
+</div>
+
+<div class="atencao">
+  <div class="t">🔒 Não escreva dado de cliente nas instruções</div>
+  <p>Elas valem para sempre e entram em toda conversa. Nome ou informação de cliente ali dentro é dado exposto em todo pedido que você fizer, para sempre.</p>
+</div>
+
+<p>A <strong>memória</strong> é diferente: guarda coisas que aparecem nas conversas, automaticamente. Útil, e vale conferir de vez em quando — ela pode ter guardado algo de um teste que não vale mais.</p>
+    </section>
+
+    <section>
+      <div class="quebra"></div>
+      <div class="faixa-encontro">Capítulo 5</div>
+      <h1 class="cap"><span class="ic">🖼️</span>Capítulo 5: Imagens que vendem</h1>
+      <p class="abertura">Pedir imagem é como explicar a um fotógrafo o que você quer. "Uma foto bonita do meu produto" não basta — nem para o fotógrafo, nem para a IA. Este capítulo tem a estrutura que basta.</p>
+      <h2>5.1 As oito partes de um pedido de imagem</h2><div class="prompt">Assunto: [O QUE APARECE, COM DETALHE].
+Ambiente: [ONDE ESTÁ].
+Composição: [DE ONDE SE VÊ].
+Iluminação: [QUE LUZ].
+Estilo: [FOTOGRAFIA REALISTA / ILUSTRAÇÃO].
+Cores: [A PALETA DA SUA MARCA].
+Formato: [QUADRADO / VERTICAL / DEITADO].
+Restrições: sem texto na imagem, sem marca de terceiros, sem rosto identificável, fundo limpo.</div>
+
+<p>Um exemplo preenchido, para ver o nível de detalhe esperado:</p>
+
+<div class="prompt">Assunto: três brigadeiros gourmet em forminhas escuras, cobertos de granulado, em primeiro plano.
+Ambiente: mesa de mármore branco, pano de linho bege desfocado ao fundo.
+Composição: câmera levemente acima, aproximação, os três em triângulo.
+Iluminação: luz natural lateral suave, sombra curta.
+Estilo: fotografia de produto realista.
+Cores: contraste entre o escuro do doce e o claro da mesa.
+Formato: quadrado, alta resolução.
+Restrições: sem texto, sem marca de outra empresa, sem mão ou pessoa, sem exagero de brilho que não corresponda ao doce real.</div>
+
+<div class="dica">
+  <div class="t">💡 Peça espaço vazio para o texto</div>
+  <p>Acrescente "espaço vazio na parte superior para o texto entrar depois". Sem isso você recebe uma imagem bonita e cheia, sem onde escrever.</p>
+</div>
+<h2>5.2 As três restrições que evitam problema</h2><div class="figura-img metade">
+  <img src="imagens/05_marketing_calendario.png" alt="Campanha planejada de uma vez rende mais que post decidido na hora.">
+  <div class="legenda">Campanha planejada de uma vez rende mais que post decidido na hora.</div>
+</div>
+
+<p>Estas três cabem em toda imagem e evitam os erros que mais custam:</p>
+
+<div class="atencao">
+  <div class="t">⚠️ Sempre inclua</div>
+  <p><strong>Sem texto na imagem</strong> — letra gerada por IA sai torta ou com erro de grafia. Gere limpa e escreva no Canva; fica melhor e você troca o preço no mês seguinte sem gerar de novo.<br><br>
+  <strong>Sem marca de terceiros</strong> — a IA reproduz elementos de marcas conhecidas quando não se proíbe. Publicar isso é problema que não compensa.<br><br>
+  <strong>Sem rosto identificável</strong> — além do resultado às vezes estranho, publicar um rosto que parece uma pessoa real é risco desnecessário.</p>
+</div>
+
+<p>E uma quarta, específica de quem vende produto:</p>
+
+<div class="atencao">
+  <div class="t">⚠️ Sem exagero que não corresponda ao produto real</div>
+  <p>Foto embelezada além do produto é o caminho mais curto para devolução e reclamação. Corrija luz e fundo; não corrija o que o cliente vai receber.</p>
+</div>
+<h2>5.3 Editar, usar referência e manter consistência</h2><p><strong>Editar é diferente de gerar.</strong> Quando a imagem sai quase boa, gerar de novo costuma piorar: vem outra, diferente em tudo. Editar aponta o que mudar e o resto fica igual.</p>
+
+<div class="dica">
+  <div class="t">💡 Uma coisa por vez</div>
+  <p>Peça um ajuste, veja o resultado, peça o próximo. Três mudanças juntas produzem uma imagem diferente, não uma imagem corrigida.</p>
+</div>
+
+<p><strong>Referência vale mais que adjetivo.</strong> "Moderno e clean" significa coisas diferentes para cada um. Anexe uma imagem e diga exatamente o que copiar dela:</p>
+
+<div class="prompt">Use a mesma iluminação lateral e a mesma paleta de cores desta imagem de referência, mas com o meu produto. Mantenha o tipo de enquadramento. Mude apenas o produto.</div>
+
+<p><strong>Consistência é o que faz parecer marca.</strong> Dez imagens bonitas e diferentes entre si não formam uma marca; cinco parecidas, sim.</p>
+
+<div class="dica">
+  <div class="t">💡 Fixe três decisões e repita sempre</div>
+  <p>A mesma paleta de cores, o mesmo tipo de iluminação e o mesmo tipo de fundo. Escreva essas três linhas num papel e cole em todo pedido de imagem. Gere as variações de uma vez, não uma por semana.</p>
+</div>
+    </section>
+
+    <section>
+      <div class="quebra"></div>
+      <div class="faixa-encontro">Capítulo 6</div>
+      <h1 class="cap"><span class="ic">🎬</span>Capítulo 6: Vídeo curto sem equipe</h1>
+      <p class="abertura">Vídeo não começa na ferramenta de vídeo. Começa no roteiro — e é por isso que tanta gente trava: abre a ferramenta sem saber o que quer dizer.</p>
+      <h2>6.1 O caminho, do começo ao fim</h2><p><strong>Ideia → Roteiro → Imagens ou gravação → Narração → Legenda → Revisão → Publicação.</strong></p>
+
+<p>A IA ajuda no roteiro, nas imagens de apoio e na legenda. Quem decide o que a empresa promete é você — e isso não se delega.</p>
+
+<div class="dica">
+  <div class="t">💡 Os seis tipos que um negócio pequeno usa</div>
+  <p><strong>1. Propaganda de produto</strong> — mostra funcionando, 15 a 30 segundos.<br>
+  <strong>2. Conteúdo para rede social</strong> — ensina ou responde dúvida, não vende diretamente.<br>
+  <strong>3. Apresentação de serviço</strong> — explica como funciona; economiza a explicação repetida.<br>
+  <strong>4. Demonstração</strong> — antes e depois, ou produto em uso. O mais fácil de gravar.<br>
+  <strong>5. Institucional</strong> — quem você é. Um por ano basta.<br>
+  <strong>6. Depoimento</strong> — o cliente conta. Convence mais que qualquer coisa que você diga.</p>
+</div>
+
+<p><strong>Por onde começar:</strong> demonstração e conteúdo. São os dois mais fáceis com celular e os que mais alcançam quem ainda não te conhece.</p>
+<h2>6.2 Gravar com o celular sem parecer amador</h2><div class="dica">
+  <div class="t">💡 As três que mais importam</div>
+  <p><strong>Luz na sua frente, nunca atrás</strong> — janela de frente, não de costas.<br>
+  <strong>Celular apoiado</strong>, nunca na mão solta.<br>
+  <strong>Som limpo</strong> — lugar silencioso, ou fone com microfone.</p>
+</div>
+
+<p><strong>O som importa mais que a imagem.</strong> Imagem tremida a pessoa tolera; áudio ruim ela não escuta.</p>
+
+<div class="atencao">
+  <div class="t">⚠️ Sua voz convence mais que voz sintética</div>
+  <p>Para negócio local, a voz gerada soa distante. Quem compra de você quer reconhecer a pessoa. Grave você mesmo, com os tropeços — eles ajudam.</p>
+</div>
+
+<div class="etiqueta">Prompt do roteiro</div>
+<div class="prompt">Contexto: meu negócio é [NEGÓCIO] e quero um vídeo de [DURAÇÃO] sobre [ASSUNTO].
+Objetivo: um roteiro que eu grave sozinho, com o celular.
+Formato: tópicos, não texto corrido; a primeira e a última frase por extenso.
+Restrições: nada que exija equipe ou iluminação especial; a primeira frase tem de prender em 3 segundos; no máximo 5 tópicos.</div>
+
+<p>Tópicos, não texto: quem lê parece que está lendo. E <strong>legenda não é opcional</strong> — a maioria assiste sem som.</p>
+    </section>
+
+    <section>
+      <div class="quebra"></div>
+      <div class="faixa-encontro">Capítulo 7</div>
+      <h1 class="cap"><span class="ic">📊</span>Capítulo 7: Documentos e planilhas com IA</h1>
+      <p class="abertura">Este capítulo diz o que a propaganda não diz: quais recursos dependem de assinatura, e qual é o caminho gratuito que dá quase o mesmo resultado.</p>
+      <h2>7.1 O caminho gratuito e o caminho pago</h2><div class="figura-img metade">
+  <img src="imagens/08_pesquisa_mercado.png" alt="Pesquisa e planilha: exigir fonte é o que separa dado de chute bem escrito.">
+  <div class="legenda">Pesquisa e planilha: exigir fonte é o que separa dado de chute bem escrito.</div>
+</div>
+
+<p>O Google mostra a IA montando planilhas inteiras por descrição, criando painéis e cruzando dados dos seus arquivos. Funciona bem — e é preciso dizer uma coisa.</p>
+
+<div class="atencao">
+  <div class="t">⚠️ A parte que depende de assinatura</div>
+  <p>Os recursos mais fortes do Gemini dentro do Documentos e do Planilhas estão em versão de testes para assinantes do <strong>Google AI Pro e Ultra</strong>. Sem assinatura, você não tem esses botões.</p>
+</div>
+
+<p>O que não impede nada. O caminho gratuito dá quase o mesmo resultado com um passo a mais: <strong>exporte em CSV e cole no chat de IA</strong>. A análise é a mesma; só não acontece dentro da planilha.</p>
+
+<div class="dica">
+  <div class="t">💡 Gratuito, funciona hoje</div>
+  <p>• Exportar CSV e pedir análise no ChatGPT, Gemini ou Claude<br>
+  • Pedir a fórmula pronta e colar na planilha<br>
+  • Pedir para explicar uma fórmula que você herdou<br>
+  • Descrever a planilha que você precisa e receber a estrutura</p>
+</div>
+<h2>7.2 Fazer a IA ler a sua planilha</h2><p>A parte mais esquecida ao colar uma planilha é explicar o que cada coluna significa. Sem isso, a IA supõe — e uma coluna "valor" pode ser preço, custo ou desconto.</p>
+
+<div class="prompt">Contexto: vou colar uma tabela do meu [NEGÓCIO], já sem nome de cliente. As colunas são: [O QUE É CADA UMA].
+Objetivo: [O QUE QUERO SABER].
+Formato: [COMO A RESPOSTA DEVE CHEGAR].
+Restrições: use somente os dados colados; não preencha célula vazia com estimativa — marque como [SEM DADO]. Separe o que os dados mostram do que é interpretação.
+Dados: [COLE AQUI]</div>
+
+<div class="etiqueta">Fórmula explicada</div>
+<div class="prompt">Contexto: preciso que a planilha faça isto: [O QUE PRECISO]. Minhas colunas são: [COLUNAS].
+Objetivo: a fórmula pronta e o entendimento dela.
+Formato: a fórmula para colar, o que cada parte faz, e o que acontece se a coluna estiver vazia ou com texto no lugar de número.
+Restrições: use funções que existam no Google Planilhas gratuito; nada de macro nem script.</div>
+
+<div class="dica">
+  <div class="t">💡 Peça sempre o que acontece com célula vazia</div>
+  <p>É onde a planilha quebra — e sempre no dia em que você precisa dela.</p>
+</div>
+    </section>
+
+    <section>
+      <div class="quebra"></div>
+      <div class="faixa-encontro">Capítulo 8</div>
+      <h1 class="cap"><span class="ic">📈</span>Capítulo 8: Perguntar aos próprios números</h1>
+      <p class="abertura">O objetivo não é virar analista. É fazer perguntas melhores sobre o próprio negócio — e saber separar o que os dados mostram do que é chute bem escrito.</p>
+      <h2>8.1 O teste da decisão</h2><div class="figura-img metade">
+  <img src="imagens/10_dados_seguros.png" alt="Dados do negócio: anonimize antes de colar, sempre.">
+  <div class="legenda">Dados do negócio: anonimize antes de colar, sempre.</div>
+</div>
+
+<p>Antes de perguntar qualquer coisa aos seus dados, responda: <strong>se a resposta vier, o que eu faço diferente?</strong> Se não houver resposta para isso, a pergunta é curiosidade — e curiosidade pode esperar.</p>
+
+<div class="dica">
+  <div class="t">✅ Perguntas que mudam alguma coisa</div>
+  <p>• Quais produtos são comprados juntos? → muda a vitrine e o combo<br>
+  • Que dia e hora concentram as vendas? → muda a escala da equipe<br>
+  • Quem comprava sempre e parou? → vira uma lista de contatos para hoje<br>
+  • Onde a despesa cresceu mais que o faturamento? → vira corte ou renegociação<br>
+  • Que produto dá margem alta e vende pouco? → vira destaque no atendimento</p>
+</div>
+
+<div class="atencao">
+  <div class="t">⛔ Perguntas que não mudam nada</div>
+  <p>• Quanto vendi no total? — você já sabe<br>
+  • Qual o produto mais vendido? — você já sabe<br>
+  • Qual a média de vendas? — não indica ação nenhuma sozinha</p>
+</div>
+
+<p><strong>Comece pedindo as perguntas.</strong> O melhor primeiro pedido não é uma análise:</p>
+
+<div class="prompt">Contexto: tenho dados de [O QUÊ] de [PERÍODO], já sem identificação de pessoa. As colunas são: [COLUNAS].
+Objetivo: descobrir o que eu deveria estar perguntando.
+Formato: 10 perguntas que estes dados conseguem responder, cada uma com a decisão que ela ajudaria a tomar.
+Restrições: nenhuma pergunta que exija dado que eu não tenho; sem termo técnico de estatística; não responda ainda, só liste.</div>
+<h2>8.2 As duas listas que mais rendem</h2><p><strong>Estoque parado é dinheiro preso.</strong> Cada item que não gira é dinheiro que não está comprando o que vende. A conta é simples e quase ninguém faz: quanto do meu capital está em produto que não sai há mais de 90 dias?</p>
+
+<div class="prompt">Contexto: seguem meus itens com quantidade e data da última venda: [DADOS].
+Objetivo: saber o que está parado e o que preciso repor.
+Formato: três listas — parado há mais tempo, perto de acabar, e giro saudável. Em cada uma, o critério que você usou.
+Restrições: use apenas os dados que eu dei; não estime demanda futura sem dizer que é estimativa.</div>
+
+<div class="figura-img metade">
+  <img src="imagens/caso_loja_roupas.png" alt="A loja que não percebeu os clientes sumindo: o total escondia a perda.">
+  <div class="legenda">A loja que não percebeu os clientes sumindo: o total escondia a perda.</div>
+</div>
+
+<p><strong>Cliente que some raramente avisa.</strong> Ele não reclama, não cancela — simplesmente para de aparecer. Quem olha só o faturamento total não percebe, porque clientes novos cobrem o buraco.</p>
+
+<div class="prompt">Contexto: seguem compras por cliente, identificados por código (sem nome): [DADOS].
+Objetivo: descobrir quem comprava com frequência e parou.
+Formato: lista por código, com quando comprava, quando parou e há quanto tempo. Depois, sugestão de abordagem por grupo.
+Restrições: não invente motivo do sumiço; trate como hipótese a ser confirmada com o cliente.</div>
+
+<div class="dica">
+  <div class="t">💡 Código no lugar do nome</div>
+  <p>Troque o nome por CLIENTE 1, CLIENTE 2. A análise sai idêntica e o dado do seu cliente não vai para servidor nenhum.</p>
+</div>
+<h2>8.3 Os três erros que a análise costuma trazer</h2><p>Toda análise gerada por IA tende a trazer estes três problemas. Reconhecê-los é o que separa decisão informada de decisão errada.</p>
+
+<div class="atencao">
+  <div class="t">⚠️ 1. Causa inventada</div>
+  <p><em>"As vendas caíram 18% em março, provavelmente por causa das férias escolares."</em> Os dados mostram a queda; o motivo não está neles. Pode ser chuva, obra na rua, concorrente novo ou férias do funcionário.</p>
+</div>
+
+<div class="atencao">
+  <div class="t">⚠️ 2. Média de mercado sem fonte</div>
+  <p><em>"Seu ticket de R$ 87 está abaixo do padrão do setor, que gira em torno de R$ 120."</em> Esse número não veio dos seus dados e a fonte não existe. É alucinação com cara de referência — e das mais perigosas, porque faz você achar que está mal.</p>
+</div>
+
+<div class="atencao">
+  <div class="t">⚠️ 3. Decisão no lugar de análise</div>
+  <p><em>"Recomendo criar um pacote com 20% de desconto."</em> Isso é decisão de preço, sugerida sem conhecer custo, capacidade nem margem. Análise informa; quem decide é você.</p>
+</div>
+
+<div class="dica">
+  <div class="t">💡 As três restrições que evitam tudo isso</div>
+  <p>"Separe o que os dados mostram do que é interpretação."<br>
+  "Não compare com médias de mercado sem citar a fonte."<br>
+  "Não decida por mim — aponte o que eu precisaria checar."</p>
+</div>
+    </section>
+
+    <section>
+      <div class="quebra"></div>
+      <div class="faixa-encontro">Capítulo 9</div>
+      <h1 class="cap"><span class="ic">📚</span>Capítulo 9: Seus documentos respondendo por você</h1>
+      <p class="abertura">Todas as IAs deste curso respondem com o que aprenderam na internet. Existe uma que faz o contrário: responde só com o que você entregou — e mostra de onde tirou.</p>
+      <h2>9.1 O que muda quando a resposta tem citação</h2><div class="figura-img metade">
+  <img src="imagens/caso_imobiliaria.png" alt="Documentos que respondem: a equipe pergunta ao caderno, não a você.">
+  <div class="legenda">Documentos que respondem: a equipe pergunta ao caderno, não a você.</div>
+</div>
+
+<p>Você sobe seus contratos, manuais e procedimentos. Ela responde perguntas sobre eles e aponta o trecho de onde tirou cada resposta. Isso muda tudo: <strong>dá para conferir</strong>.</p>
+
+<div class="traduzindo">
+  <div class="t">📖 Sobre o nome</div>
+  <p>Chama-se NotebookLM. O Google está renomeando para <strong>Gemini Notebook</strong>, então você pode encontrar os dois nomes. É a mesma ferramenta.</p>
+</div>
+
+<div class="dica">
+  <div class="t">💡 Sete usos que resolvem problema real</div>
+  <p><strong>1.</strong> Funcionário novo pergunta ao manual, em vez de interromper quem produz<br>
+  <strong>2.</strong> Achar a cláusula do contrato sem reler 40 páginas<br>
+  <strong>3.</strong> Entender uma norma e saber o que perguntar a quem entende<br>
+  <strong>4.</strong> Consultar manual de equipamento pelo celular, ao lado da máquina<br>
+  <strong>5.</strong> Preparar reunião a partir dos documentos do assunto<br>
+  <strong>6.</strong> Montar a central de conhecimento do negócio<br>
+  <strong>7.</strong> Pesquisar sem sair dos seus próprios dados</p>
+</div>
+
+<div class="selo verde">Gratuito com limites: até 50 fontes por caderno, cada uma com até 500 mil palavras ou 200 MB. Para um negócio pequeno, sobra.</div>
+<h2>9.2 Como escrever para uma base que vai ser consultada</h2><p>Subir os arquivos que você já tem funciona. Mas alguns documentos rendem muito mais que outros — e a diferença está em como foram escritos.</p>
+
+<div class="dica">
+  <div class="t">✅ Rende bem</div>
+  <p>• Texto dividido em títulos curtos e específicos<br>
+  • Uma informação por parágrafo<br>
+  • Números e prazos escritos por extenso, <strong>com data de validade</strong><br>
+  • Perguntas reais como título de seção</p>
+</div>
+
+<div class="atencao">
+  <div class="t">⛔ Rende mal</div>
+  <p>• Foto de documento sem texto reconhecível<br>
+  • Planilha com dado espalhado e sem cabeçalho<br>
+  • Texto corrido de muitas páginas sem divisão<br>
+  • <strong>Versões diferentes do mesmo documento, sem data</strong></p>
+</div>
+
+<div class="atencao">
+  <div class="t">⚠️ O erro mais caro</div>
+  <p>Subir duas versões do mesmo documento sem data. A base responde com as duas, e quem consulta não sabe qual vale. Mantenha <strong>uma versão por assunto</strong>, com a data no nome do arquivo.</p>
+</div>
+
+<div class="dica">
+  <div class="t">💡 Use as perguntas da equipe como títulos</div>
+  <p>"Quanto tempo dura a garantia?" funciona melhor que "Política de garantia" — porque é assim que a pergunta vai chegar.</p>
+</div>
+    </section>
+
+    <section>
+      <div class="quebra"></div>
+      <div class="faixa-encontro">Capítulo 10</div>
+      <h1 class="cap"><span class="ic">⚙️</span>Capítulo 10: Automação sem programar</h1>
+      <p class="abertura">Automatizar é ensinar um sistema a fazer sozinho o que você faria na mão. A parte que as pessoas pulam — e que decide se vai funcionar — é desenhar o processo antes de abrir qualquer ferramenta.</p>
+      <h2>10.1 A lógica antes da ferramenta</h2><div class="figura-img metade">
+  <img src="imagens/09_automacao_fluxo.png" alt="O fluxo de uma automação: gatilho, passos, e a parada humana antes do cliente.">
+  <div class="legenda">O fluxo de uma automação: gatilho, passos, e a parada humana antes do cliente.</div>
+</div>
+
+<p>Você já usa automação: o alarme do celular é uma. Chegou a hora, toca. Um gatilho e uma ação.</p>
+
+<p>Num negócio funciona igual. O lead que chega pelo site:</p>
+
+<div class="prompt">ENTROU UM LEAD
+   ↓ REGISTRAR na planilha, com data e origem
+   ↓ CLASSIFICAR por tipo de pedido ou região
+   ↓ GERAR RASCUNHO de resposta
+   ↓ [UMA PESSOA LÊ E ENVIA]  ← a automação para aqui
+   ↓ AVISAR o responsável
+   ↓ MARCAR prazo de retorno</div>
+
+<div class="atencao">
+  <div class="t">⚠️ A regra de ouro</div>
+  <p><strong>Automação gera rascunho; ela não envia sozinha nada que chegue ao cliente.</strong> Quem confere é uma pessoa. Essa é a diferença entre economizar tempo e pedir desculpa depois.</p>
+</div>
+
+<p>Repare que o primeiro passo não é automatizar nada: é ter <strong>um lugar só para registrar</strong>. Processo espalhado por três lugares não se automatiza — se organiza primeiro.</p>
+
+<div class="etiqueta">Prompt do desenho</div>
+<div class="prompt">Contexto: no meu [NEGÓCIO], quando [GATILHO], hoje eu faço manualmente: [PASSOS].
+Objetivo: desenhar como isso poderia funcionar sozinho.
+Formato: gatilho, passos em ordem, dados que circulam, onde uma pessoa aprova, o que fazer em caso de erro e como desligar.
+Restrições: a automação gera rascunho e nunca envia sozinha nada que chegue ao cliente. Liste o que NÃO deve ser automatizado neste processo.</div>
+<h2>10.2 Antes de ligar, e como desligar</h2><div class="dica">
+  <div class="t">💡 Teste isto antes de ligar para valer</div>
+  <p>• Dado faltando<br>
+  • Dado errado<br>
+  • Execução em duplicidade<br>
+  • Pico de volume<br>
+  • Desligamento no meio da execução</p>
+</div>
+
+<div class="atencao">
+  <div class="t">⚠️ A pergunta que decide</div>
+  <p><em>"Como eu desligo isso numa sexta-feira às duas da tarde?"</em> Se não houver resposta — ou se a resposta depender de uma pessoa só —, não ligue. A automação vira risco, não economia.</p>
+</div>
+
+<p><strong>O que não automatizar:</strong> decisão de preço, crédito, exceção de cliente, reclamação séria, e qualquer coisa que envolva saúde ou segurança. E tudo que tenha exceção demais — automatizar um processo cheio de exceção só acelera a confusão.</p>
+
+<div class="selo amarelo">Make: 1.000 operações por mês e 2 automações ativas no plano gratuito. É o free tier mais utilizável entre os grandes para o primeiro processo de um negócio pequeno.</div>
+    </section>
+
+    <section>
+      <div class="quebra"></div>
+      <div class="faixa-encontro">Capítulo 11</div>
+      <h1 class="cap"><span class="ic">🤝</span>Capítulo 11: Agentes sem complicação</h1>
+      <p class="abertura">Três palavras que aparecem juntas e significam coisas diferentes. A diferença está em quem decide os passos — e é dela que sai toda a regra de segurança.</p>
+      <h2>11.1 Chatbot, automação e agente</h2><div class="figura-img metade">
+  <img src="imagens/caso_restaurante.png" alt="Chatbot, automação e agente: a diferença está em quem decide os passos.">
+  <div class="legenda">Chatbot, automação e agente: a diferença está em quem decide os passos.</div>
+</div>
+
+<div class="etiqueta">Chatbot</div>
+<p>Responde perguntas. Você pergunta, ele responde. Não faz nada além disso.</p>
+
+<div class="etiqueta">Automação</div>
+<p>Executa passos fixos, sempre na mesma ordem. Aconteceu isto, faça aquilo. Não decide nada — e é por isso que é previsível.</p>
+
+<div class="etiqueta">Agente</div>
+<p>Recebe um objetivo e decide os passos. "Descubra quais clientes não compram há 6 meses e prepare uma mensagem para cada um." Ele escolhe como chegar lá.</p>
+
+<div class="traduzindo">
+  <div class="t">📖 Em linguagem simples</div>
+  <p>Um agente de IA é como um assistente digital a quem você entrega um objetivo e algumas regras. Em vez de só responder uma pergunta, ele executa várias etapas de um trabalho.</p>
+</div>
+
+<div class="atencao">
+  <div class="t">⚠️ Porque ele decide, as proibições importam mais</div>
+  <p>As regras do que ele <strong>NÃO</strong> pode fazer valem mais que as do que pode. Escreva-as primeiro.</p>
+</div>
+<h2>11.2 As regras que não se negociam</h2><div class="prompt">Contexto: quero um assistente digital que cuide de [TAREFA] no meu [NEGÓCIO].
+Objetivo: escrever as instruções dele.
+Formato: objetivo em uma frase, o que pode fazer, o que NUNCA pode, tom, o que fazer quando não souber, e quando chamar uma pessoa.
+Restrições: ele nunca decide preço, desconto, crédito, cancelamento ou questão jurídica. Nunca inventa informação: quando não souber, diz que vai confirmar.</div>
+
+<div class="atencao">
+  <div class="t">⛔ O que ele nunca pode fazer</div>
+  <p>• Decidir preço ou oferecer desconto<br>
+  • Aprovar crédito ou parcelamento<br>
+  • Confirmar cancelamento ou exceção<br>
+  • Opinar sobre questão jurídica, saúde ou segurança<br>
+  • Prometer prazo que depende de terceiros<br>
+  • Inventar informação que não tem</p>
+</div>
+
+<div class="dica">
+  <div class="t">💡 Quando ele chama uma pessoa</div>
+  <p>Cliente irritado · pedido de exceção · assunto de dinheiro · menção a problema de saúde ou segurança · e sempre que não souber.</p>
+</div>
+
+<p><strong>Teste com as perguntas difíceis antes de soltar.</strong> Peça desconto com insistência três vezes. Apresente uma reclamação grave. Pergunte algo que ele não tem como saber. Se ele cedeu ou inventou, a instrução está frouxa — e é bom ter descoberto agora.</p>
+    </section>
+
+    <section>
+      <div class="quebra"></div>
+      <div class="faixa-encontro">Capítulo 12</div>
+      <h1 class="cap"><span class="ic">🧰</span>Capítulo 12: Qual IA usar para cada coisa</h1>
+      <p class="abertura">"Qual é a melhor" não tem resposta útil — é como perguntar qual ferramenta é melhor numa caixa de ferramentas. Este capítulo responde a pergunta que resolve: qual serve para o que você precisa agora.</p>
+      <h2>12.1 Escolhendo pela tarefa</h2><div class="figura-img metade">
+  <img src="imagens/caso_salao.png" alt="Escolher pela tarefa, não pela fama: cada ferramenta tem menos atrito num caso.">
+  <div class="legenda">Escolher pela tarefa, não pela fama: cada ferramenta tem menos atrito num caso.</div>
+</div>
+
+<div class="dica">
+  <div class="t">💡 Qual abrir para cada coisa</div>
+  <p><strong>Responder cliente, escrever post, criar imagem</strong> → ChatGPT<br>
+  <strong>Mexer em planilha, documento e e-mail do Google</strong> → Gemini<br>
+  <strong>Ler contrato longo, escrever relatório</strong> → Claude<br>
+  <strong>Perguntar aos seus próprios arquivos, com citação</strong> → NotebookLM<br>
+  <strong>Gerar vídeo curto</strong> → Veo, pelo Google AI Studio</p>
+</div>
+
+<p>A lista é por tarefa, não por qualidade. Nenhuma dessas escolhas significa que as outras fariam mal — significa que uma tem menos atrito para aquele caso.</p>
+
+<div class="atencao">
+  <div class="t">⚠️ Nenhuma delas conhece o seu negócio</div>
+  <p>A diferença entre as três é pequena perto da diferença entre um pedido vago e um pedido com contexto. <strong>Trocar de ferramenta não resolve resposta ruim — melhorar o pedido resolve.</strong></p>
+</div>
+
+<div class="dica">
+  <div class="t">💡 Use uma só por duas semanas</div>
+  <p>Trocar toda semana faz você aprender o botão de cada uma e o ofício de nenhuma.</p>
+</div>
+<h2>12.2 Faixas de acesso — conferido em 19/09/2026</h2><p>Quase nada é simplesmente "grátis". O comum é gratuito com limite: você usa até certo ponto e depois espera ou paga.</p>
+
+<div class="selo verde">ChatGPT — gratuito com limites. Conversa de texto sem limite fixo; imagem, upload e voz com cota diária. Plano Go a US$ 8/mês multiplica a cota por 10. Business a US$ 25 por usuário/mês, mínimo de 2.</div>
+
+<div class="selo verde">Gemini — gratuito com conta Google, com cota diária nos modelos melhores.</div>
+
+<div class="selo verde">Claude — gratuito com cota por período. Delegar trabalho sobre pastas de arquivos é dos planos pagos.</div>
+
+<div class="selo amarelo">Gemini no Documentos e Planilhas — <strong>depende do plano</strong>. Montar planilha por descrição exige Google AI Pro ou Ultra. Caminho gratuito: exportar CSV e analisar no chat.</div>
+
+<div class="selo verde">NotebookLM (Gemini Notebook) — até 50 fontes por caderno, cada uma até 500 mil palavras ou 200 MB.</div>
+
+<div class="selo amarelo">Google Veo — cerca de 10 gerações por mês em conta comum. Pika — gratuito com uso comercial permitido, limitado a 480p.</div>
+
+<div class="selo amarelo">Make — 1.000 operações por mês e 2 automações ativas.</div>
+
+<div class="atencao">
+  <div class="t">⚠️ Sobre o Sora</div>
+  <p>A OpenAI concluiu o encerramento em 24/03/2026. Ele não consta deste curso. Se encontrar material que ainda o ensine, o material está desatualizado.</p>
+</div>
+
+<p><em>Ferramenta de IA muda rápido. Confirme na própria ferramenta antes de decidir assinar.</em></p>
+    </section>
+
+    <section>
+      <div class="quebra"></div>
+      <div class="faixa-encontro">Capítulo 13</div>
+      <h1 class="cap"><span class="ic">🚀</span>Capítulo 13: Minha Empresa Aumentada por IA</h1>
+      <p class="abertura">O projeto que atravessa o curso. As perguntas estão aqui para você consultar fora da plataforma — e o plano que sai delas precisa fazer sentido para quem nunca fez este curso.</p>
+      <h2>13.1 As oito perguntas do plano</h2><div class="etiqueta">1. Tarefas que se repetem toda semana</div>
+<p>Quais três tarefas você refaz quase igual toda semana? São as candidatas naturais: repetem, consomem tempo e já têm um jeito certo de fazer.</p>
+
+<div class="etiqueta">2. Onde a IA ajuda primeiro</div>
+<p>Em quais três delas a IA pode fazer uma primeira versão? Primeira versão, não versão final: alguém do negócio revisa antes de o cliente ver.</p>
+
+<div class="etiqueta">3. O processo a automatizar</div>
+<p>Qual processo pequeno vale automatizar primeiro? Pequeno de propósito: dá para testar, corrigir e desligar sem parar o negócio.</p>
+
+<div class="etiqueta">4. Um uso para divulgação</div>
+<p>Que peça de divulgação a IA pode ajudar a produzir? Uma peça concreta, com data para sair.</p>
+
+<div class="etiqueta">5. Uma pergunta sobre os números</div>
+<p>Que pergunta sobre seus números você ainda não consegue responder? O valor não está no gráfico, e sim na decisão que ele muda.</p>
+
+<div class="etiqueta">6. Um agente possível</div>
+<p>Que trabalho você delegaria a um assistente digital com regras claras? Com um limite explícito: onde ele para e chama uma pessoa.</p>
+
+<div class="etiqueta">7. Onde a IA não entra</div>
+<p>Que decisões continuam sendo só suas? Preço final, crédito, contratação, questão jurídica, saúde e exceção de cliente.</p>
+
+<div class="etiqueta">8. O primeiro passo, com data</div>
+<p>O que você vai fazer nos próximos 30 dias, e quando? Plano sem data é intenção.</p>
+<h2>13.2 O que faz um plano acontecer</h2><div class="figura-img metade">
+  <img src="imagens/11_plano_30_dias.png" alt="Plano de 30 dias: uma frente por vez, com data para revisar.">
+  <div class="legenda">Plano de 30 dias: uma frente por vez, com data para revisar.</div>
+</div>
+
+<p>A maior parte dos planos morre na gaveta. Não por serem ruins: por não terem a primeira coisa a fazer numa segunda-feira.</p>
+
+<div class="checklist">
+  <div class="cki">Uma única frente por vez, não cinco simultâneas</div>
+  <div class="cki">Uma data concreta para o primeiro passo — dia e hora</div>
+  <div class="cki">Um jeito de saber se deu certo, escrito</div>
+  <div class="cki">Uma data para revisar, daqui a 30 dias</div>
+  <div class="cki">O que você faz se não der certo</div>
+</div>
+
+<p>Repare que quatro dos cinco itens não falam do que fazer, e sim de como acompanhar. Planos falham na segunda semana, quando a novidade passa e ninguém está olhando.</p>
+
+<div class="dica">
+  <div class="t">💡 A revisão de 30 dias</div>
+  <p>Marque hoje na agenda. O que funcionou continua, o que não funcionou sai, e uma tarefa nova entra. Em três revisões você terá mudado mais do que qualquer plano anual prometeria.</p>
+</div>
+
+<div class="atencao">
+  <div class="t">⚠️ Não delegue o que você não sabe fazer</div>
+  <p>Antes de automatizar ou entregar a um agente, faça na mão pelo menos uma vez. Quem não conhece o processo não percebe quando ele sai errado.</p>
+</div>
+    </section>
+
+    <section>
+      <div class="quebra"></div>
+      <div class="faixa-encontro">Anexo</div>
+      <h1 class="cap"><span class="ic">🆘</span>Guia de bolso</h1>
+      <p class="abertura">Para consultar no meio do expediente, quando não há tempo de procurar o capítulo.</p>
+      <h2>A.1 Quando algo dá errado</h2><div class="etiqueta">A resposta veio genérica</div>
+<p>Falta uma das cinco partes — quase sempre a restrição. Acrescente o que NÃO pode e peça de novo.</p>
+
+<div class="etiqueta">Ela citou um dado que eu não dei</div>
+<p>É alucinação. Acrescente: <em>"use somente as informações que eu forneci; onde faltar dado, escreva [FALTA]"</em>.</p>
+
+<div class="etiqueta">Ela citou uma lei, norma ou fonte</div>
+<p>Procure a fonte antes de usar. Norma com número é o formato clássico da invenção. Se não achar, tire a citação.</p>
+
+<div class="etiqueta">O texto não parece meu</div>
+<p>Cole um texto que você escreveu e peça para seguir aquele jeito. Mostrar funciona melhor que descrever.</p>
+
+<div class="etiqueta">Preciso colar algo com dado de cliente</div>
+<p>Troque por CLIENTE A, VALOR X. Se for muito texto, peça primeiro que ela aponte o que remover.</p>
+
+<div class="etiqueta">Vou enviar ao cliente o que ela escreveu</div>
+<p>Leia em voz alta antes. Confira todo número, prazo e promessa. O que sai com o seu nome é sua responsabilidade.</p>
+
+<div class="etiqueta">A automação fez algo errado</div>
+<p>Desligue primeiro, investigue depois. Avise quem foi afetado antes que eles percebam sozinhos.</p>
+
+<div class="etiqueta">A IA errou e o erro chegou ao cliente</div>
+<p>Não culpe a ferramenta na mensagem de correção — soa como quem não controla o próprio processo. Corrija, diga o que foi feito, e mude o processo para não repetir.</p>
+<h2>A.2 As restrições que você deveria escrever sempre</h2><div class="prompt">Não invente preço, prazo ou medida — deixe [VALOR] onde eu devo preencher.
+Não prometa o que depende de eu confirmar.
+Onde faltar informação, escreva [CONFIRMAR] em vez de supor.
+Separe o que é fato do que é interpretação.
+Não decida por mim — aponte o que eu precisaria checar.</div>
+
+<p>E, em pedido de imagem:</p>
+
+<div class="prompt">Sem texto na imagem.
+Sem marca de outra empresa.
+Sem rosto identificável.
+Sem exagero que não corresponda ao produto real.</div>
+
+<p>E, em agente ou automação:</p>
+
+<div class="prompt">Nunca decide preço, desconto, crédito, cancelamento ou questão jurídica.
+Quando não souber, diz que vai confirmar — nunca inventa.
+Gera rascunho; quem envia ao cliente é uma pessoa.</div>
+<h2>A.3 Preciso colar algo com dado de cliente</h2><p>Troque por marcadores antes: CLIENTE A, VALOR X. Se for muito texto, peça primeiro à IA que aponte o que deve ser removido — e cole só o texto limpo.</p>
+<h2>A.4 O texto não parece meu</h2><p>Dê um exemplo de algo que você escreveu e peça para seguir aquele tom. Descrever o tom funciona menos que mostrar.</p>
+    </section>
+
+<p class="rodape">
+  Os limites e planos das ferramentas foram conferidos na documentação
+  oficial na data indicada em cada item. Ferramentas de IA mudam rápido:
+  confirme antes de decidir assinar.
+</p>
+
+</body>
+</html>
